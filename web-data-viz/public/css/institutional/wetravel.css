@@ -18,11 +18,11 @@ header {
 
 #acessar {
 
-    padding: 0.27%;
+    padding: 0.3%;
     background-color: #1C1E21;
     border-radius: 18px;
     height: auto;
-    width: 20vw;
+    width: 21vw;
     box-shadow: 0px 0px 5px 2px #1C1E21;
     font-family: 'Inter';
     display: flex;
@@ -40,6 +40,7 @@ header {
     list-style-type: none;
     text-align: center;
     margin: 0;
+    align-items: center;
 
 }
 
@@ -53,21 +54,22 @@ header {
 #acessar li {
 
     margin-right: 14%;
-    margin-top: 5%;
 
 }
 
 #acessar #MarcaAcesso{
-    margin-top: 0%;
-    padding: 5%;
-    width: 15vw;
+    padding: 7%;
+    width: 11vw;
     border-radius: 25px;
+    border: none;
     background-color: #D9D9D9;
     position: relative;
-
+    color: #131517;
+    font-weight: 400;
+    justify-self: center;
 }
 
-#acessar a {
+#acessar a, #acessar button{
 
     color: white;
     text-decoration: none;
@@ -188,6 +190,33 @@ body img {
 #bvindo img {
 
     margin-right: 3%;
+
+}
+
+#mensagens ul {
+
+    list-style-type: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    column-gap: 14%;
+    font-family: 'Inter';
+    padding: 0;
+    margin-right: 11%;
+
+}
+
+#btnAcessarMain {
+    padding: 6%;
+    width: 13vw;
+    border-radius: 25px;
+    border: none;
+    background-color: #D9D9D9;
+    position: relative;
+    color: #131517;
+    font-weight: 500;
+    justify-self: center;
+    box-shadow: 0px 0px 1px 1px #D9D9D9;
 
 }
 
