@@ -14,7 +14,7 @@
     /*Fonts Whetravel*/
     --font-family-modern: 'MuseoModerno';
     --font-family-texts: 'Inter';
-    --font-size-small: 1.1rem;
+    --font-size-small: 1rem;
     --font-size-regular: 1.3rem;
     --font-size-medium: 1.5rem;
     --font-size-larguer: 1.8rem;
@@ -25,8 +25,9 @@
     /*Config Navbar*/
     --padding-navbar-top-1900px: 0px 45px 0px 45px;
     --margin-navbar-top-1900px: 40px; 
-    --height-navbar-left-right-1900px: 6vh;
-    --width-navbar-right-1900px: 15vw;
-    --width-navbar-left-1900px: 30vw;
+    --height-navbar-left-right-1900px: 55px;
+    --width-navbar-right-1900px: 300px;
+    --width-navbar-left-1900px: 550px;
     --borderRadius-1900px: 15px;
+    --shadow-navbarTop-1900px: 0px 0px 15px 0px var(--gray-W5-WeTravel);
 }

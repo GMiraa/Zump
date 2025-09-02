@@ -3,20 +3,20 @@
 @import url('https://fonts.googleapis.com/css2?family=Aclonica&family=Hubot+Sans:ital,wght@0,200..900;1,200..900&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Roboto:ital,wght@0,100..900;1,100..900&family=Shrikhand&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Aclonica&family=Hubot+Sans:ital,wght@0,200..900;1,200..900&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=MuseoModerno:ital,wght@0,100..900;1,100..900&family=Roboto:ital,wght@0,100..900;1,100..900&family=Shrikhand&display=swap');
 
-
 *{
     margin: 0;
     padding: 0;
     text-decoration: none;
     box-sizing: border-box;
     list-style: none;
+    font-size: var(--font-size-small);
+    font-family: var(--font-family-texts);
 }
 body{
     background: var(--gray-W6-WeTravel);
 }
 header{
     width: 100%;
-    height: auto;
     position: fixed;
     max-width: 1900px;
     padding: var(--padding-navbar-top-1900px);
@@ -31,26 +31,60 @@ header #top-nav{
 /*Nav-bar esquerda*/
 header #top-nav .nav-left{
     display: flex;
+    align-items: center;
     background-color: var(--gray-W5-WeTravel);
     width: var(--width-navbar-left-1900px);
     height: var(--height-navbar-left-right-1900px);
     border-radius: var(--borderRadius-1900px);
+    box-shadow: var(--shadow-navbarTop-1900px);
+    border: 1px solid red;
 }
 header #top-nav .nav-left ul{
     display: flex;
 }
+header #top-nav .nav-left ul li a{
+   color: var(--white);
+}
+
 /*Nav-bar direita*/
 header #top-nav .nav-right{
     display: flex;
+    align-items: center;
+    justify-content: center;
     background-color: var(--gray-W5-WeTravel);
     width: var(--width-navbar-right-1900px);
     height: var(--height-navbar-left-right-1900px);
     border-radius: var(--borderRadius-1900px);
+    box-shadow: var(--shadow-navbarTop-1900px);
+    border: 1px solid red;
 }
 header #top-nav .nav-right ul{
     display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 100%;
+    padding: 0px 5px 0px 5px;
+    justify-content: space-between;
+}
+header #top-nav .nav-right ul li a{
+    display: block;
+    color: var(--white);
+}
+header #top-nav .nav-right ul li{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: var(--white);
+    width: 130px;
+    height: 40px;
+    color: var(--gray-W6-WeTravel);
 }
 
+header #top-nav .nav-right ul li:nth-child(2){
+    border-radius: 40px;
+    background: var(--white);
+}
 /*Padronização das Sections*/
 section{
     width: 100vw;
