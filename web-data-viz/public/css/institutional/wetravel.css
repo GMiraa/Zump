@@ -1,4 +1,5 @@
 @import url("../mediaFrames/media-keyframes-wetravel.css");
+@import url('https://fonts.googleapis.com/css2?family=Aclonica&family=Hubot+Sans:ital,wght@0,200..900;1,200..900&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Roboto:ital,wght@0,100..900;1,100..900&family=Shrikhand&display=swap');
 
 *{
     margin: 0;
@@ -6,8 +7,156 @@
     box-sizing: border-box;
 }
 
+header {
+
+    display: flex;
+    justify-content: space-between;
+
+}
+
+#acessar {
+
+    background-color: #1C1E21;
+    border-radius: 18px;
+    height: auto;
+    width: 20vw;
+    margin-top: 3%;
+    margin-right: 3%;
+    box-shadow: 0px 0px 5px 2px #1C1E21;
+    font-family: 'Inter';
+    display: flex;
+    align-items: center;
+
+}
+
+#acessar ul {
+
+    display: flex;
+    list-style-type: none;
+    text-align: center;
+    margin: 0;
+
+}
+
+#acessar #MarcaAcesso a{
+
+    color: #131517;
+    font-weight: 500;
+
+}
+
+#acessar li {
+
+    margin-right: 14%;
+    margin-top: 5%;
+
+}
+
+#acessar #MarcaAcesso{
+    margin-top: 0%;
+    padding: 5%;
+    width: 15vw;
+    border-radius: 25px;
+    background-color: #D9D9D9;
+    position: relative;
+
+}
+
+#acessar a {
+
+    color: white;
+    text-decoration: none;
+    font-weight: 300;
+
+}
+
+header img {
+
+    width: 10vw;
+    height: 4vh;
+    margin-bottom: 1%;
+
+}
+
+nav ul {
+
+    list-style-type: none;
+    display: flex;
+    margin: 0;
+    margin-left: 3%;
+
+}
+
+nav li {
+
+    margin-right: 10%;
+
+}
+
+nav ul a {
+
+    text-decoration: none;
+    color: white;
+    font-weight: 300;
+
+}
+
+header nav {
+
+    padding: 1%;
+    width: 50vw;
+    height: auto;
+    background-color: #1C1E21;
+    display: flex;
+    border-radius: 18px;
+    box-shadow: 0px 0px 5px 2px #1C1E21;
+    margin-top: 3%;
+    margin-left: 3%;
+    align-items: center;
+    font-family: 'Inter';
+}
+
 body{
-    background: #fff;
+
+    background: linear-gradient(to bottom, #131517, #1C1E21);
+    overflow-x: hidden;
+
+}
+
+body img {
+    position: relative;
+    z-index: 1;
+
+}
+
+#home img {
+
+    width: auto;
+    height: auto;
+    max-width: 100%;
+
+}
+
+#opacidade {
+    z-index: 20;
+    position: absolute;
+    background: linear-gradient(#00000000, #1C1E21);
+    width: 100%;
+    height: 130%;
+    pointer-events: none;
 }
 
 
+footer hr {
+
+    background-color: #000000;
+    height: 5px;
+    border-radius: 10px;
+    width: 90%;
+
+}
+
+footer p {
+    color: white;
+    text-align: center;
+}

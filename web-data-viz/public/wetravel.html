@@ -3,7 +3,6 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="css/institutional/wetravel.css" />
     <title>WeTravel</title>
     <link
       href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css"
@@ -16,6 +15,7 @@
       integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI"
       crossorigin="anonymous"
     ></script>
+    <link rel="stylesheet" href="css/institutional/wetravel.css">
   </head>
   <body>
     <!-- O uso da tag <article> não foi necessário pois ele é usado normalmente para conteudos 
@@ -27,6 +27,9 @@
 
     <header>
       <nav>
+
+        <img src="./assets/imgs/logo WeTravel.png" alt="Logo WeTravel">
+
         <ul>
           <li><a href="#home">Início</a></li>
           <li><a href="#services">Serviços</a></li>
@@ -34,11 +37,27 @@
           <li><a href="#projects">Projetos</a></li>
           <li><a href="#contact">Contato</a></li>
         </ul>
+
       </nav>
+
+      <div id="acessar">
+
+          <ul>
+            <li><a href="">Contato</a></li>
+            <li id="MarcaAcesso"><a href="login.html">Acessar</a></li>
+          </ul>
+
+      </div>
+
     </header>
 
     <main>
-      <section class="home-section" id="home"></section>
+      <section class="home-section" id="home">
+        
+          <div id="opacidade"></div><img src="./assets/imgs/roboMenu.png" alt="RoboMenu">
+        
+      </section>
+      
       <section class="services-section" id="services"></section>
       <section class="about-section" id="about"></section>
       <section class="project-section" id="projects"></section>
@@ -46,6 +65,7 @@
     </main>
     <footer>
       <nav></nav>
+      <hr>
       <p>&copy; 2025 WeTravel. Todos os direitos reservados.</p>
     </footer>
   </body>
