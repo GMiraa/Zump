@@ -1,5 +1,7 @@
 @import url("../mediaFrames/media-keyframes-wetravel.css");
 @import url('https://fonts.googleapis.com/css2?family=Aclonica&family=Hubot+Sans:ital,wght@0,200..900;1,200..900&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Roboto:ital,wght@0,100..900;1,100..900&family=Shrikhand&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Aclonica&family=Hubot+Sans:ital,wght@0,200..900;1,200..900&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=MuseoModerno:ital,wght@0,100..900;1,100..900&family=Roboto:ital,wght@0,100..900;1,100..900&family=Shrikhand&display=swap');
+
 
 *{
     margin: 0;
@@ -16,16 +18,19 @@ header {
 
 #acessar {
 
+    padding: 0.27%;
     background-color: #1C1E21;
     border-radius: 18px;
     height: auto;
     width: 20vw;
-    margin-top: 3%;
-    margin-right: 3%;
     box-shadow: 0px 0px 5px 2px #1C1E21;
     font-family: 'Inter';
     display: flex;
     align-items: center;
+    position: absolute;
+    top: 6.5%;
+    right: 2%;
+    z-index: 30;
 
 }
 
@@ -114,6 +119,9 @@ header nav {
     margin-left: 3%;
     align-items: center;
     font-family: 'Inter';
+    position: absolute;
+    z-index: 30;
+    
 }
 
 body{
@@ -140,12 +148,48 @@ body img {
 #opacidade {
     z-index: 20;
     position: absolute;
-    background: linear-gradient(#00000000, #1C1E21);
+    background: linear-gradient(#00000000, #00000000, #1c1e218a, #1C1E21);
     width: 100%;
     height: 130%;
     pointer-events: none;
 }
 
+#mensagens {
+
+    color: white;
+    position: absolute;
+    font-family: 'MuseoModerno';
+    width: 42%;
+    text-align: center;
+    top: 35%;
+    left: 30%;
+    z-index: 25;
+
+}
+
+#mensagens p {
+
+    font-family: 'Inter';
+    font-weight: 400;
+
+}
+
+#bvindo{
+
+    background-color: #00000082;
+    width: 49%;
+    padding: 1%;
+    border-radius: 20px;
+    border: solid 1px black;
+    justify-self: center;
+
+}
+
+#bvindo img {
+
+    margin-right: 3%;
+
+}
 
 footer hr {
 
