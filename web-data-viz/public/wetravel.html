@@ -4,18 +4,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>WeTravel</title>
-    <link
-      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css"
-      rel="stylesheet"
-      integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB"
-      crossorigin="anonymous"
-    />
-    <script
-      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"
-      integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI"
-      crossorigin="anonymous"
-    ></script>
-    <link rel="stylesheet" href="css/institutional/wetravel.css">
+    <link rel="stylesheet" href="css/institutional/wetravel.css" />
   </head>
   <body>
     <!-- O uso da tag <article> não foi necessário pois ele é usado normalmente para conteudos 
@@ -26,65 +15,34 @@
     <!-- <aside> não foi utilizado pois representa conteúdos secundários (ex: barras laterais, conteúdos relacionados)-->
 
     <header>
-      <nav>
+      <nav id="top-nav">
+        <div class="nav-left">
+          <a href="#">LOGO</a>
+          <ul>
+            <li><a href="#home">Início</a></li>
+            <li><a href="#services">Serviços</a></li>
+            <li><a href="#about">Sobre</a></li>
+            <li><a href="#projects">Projetos</a></li>
+          </ul>
+        </div>
 
-        <img src="./assets/imgs/logo WeTravel.png" alt="Logo WeTravel">
-
-        <ul>
-          <li><a href="#home">Início</a></li>
-          <li><a href="#services">Serviços</a></li>
-          <li><a href="#about">Sobre</a></li>
-          <li><a href="#projects">Projetos</a></li>
-          <li><a href="#contact">Contato</a></li>
-        </ul>
-
+        <div class="nav-right">
+          <ul>
+            <li><a href="#contact">Contato</a></li>
+            <li><a href="#">Acessar</a></li>
+          </ul>
+        </div>
       </nav>
-
-      <div id="acessar">
-
-          <ul>
-            <li><a href="">Contato</a></li>
-            <li><button id="MarcaAcesso">Acessar</button></li>
-          </ul>
-
-      </div>
-
     </header>
-
     <main>
-      <section class="home-section" id="home">
-        
-          <div id="opacidade"></div>
-          <img src="./assets/imgs/roboMenu.png" alt="RoboMenu">
-          <div id="mensagens">
-          
-          <div id="bvindo"><img src="./assets/imgs/Gemini Ai.png" alt=""> Bem-vindo(a) à WeTravel</div><br>
-
-          <h2>Potencialize sua agência de viagens com <span style="color: #7846FF;">tecnologia de ponta</span>.</h2>
-          
-          <br>
-
-          <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Officiis molestiae voluptate earum repellat dolore non atque sunt esse, iure fuga quis consectetur! Numquam blanditiis voluptatum illo magnam neque earum dolores?</p>
-          <br>
-
-          <ul>
-            <li><button id="btnAcessarMain">Acessar</button></li>
-            <li>Saber mais ></li>
-          </ul>
-
-          </div>
-        
-      </section>
-      
+      <section class="home-section" id="home"></section>
       <section class="services-section" id="services"></section>
       <section class="about-section" id="about"></section>
       <section class="project-section" id="projects"></section>
       <section class="contact-section" id="contact"></section>
     </main>
     <footer>
-      <nav></nav>
-      <hr>
-      <p>&copy; 2025 WeTravel. Todos os direitos reservados.</p>
+      <!--<p>&copy; 2025 WeTravel. Todos os direitos reservados.</p>-->
     </footer>
   </body>
 </html>

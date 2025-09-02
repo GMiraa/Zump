@@ -1,0 +1,32 @@
+:root{
+
+    /*Colors whetravel*/
+     --black: #000000;
+     --white: #FFFFFF;
+    --purple-W1-WeTravel: #7846FF;
+    --purple-W2-WeTravel: #8B5CFF;
+    --purple-W3-WeTravel: #EAE4FF;
+    --gray-W4-WeTravel: #D9D9D9;
+    --gray-W5-WeTravel: #1C1E21;
+    --gray-W6-WeTravel: #131517;
+    --gray-W7-WeTravel: #2C2C2C;
+
+    /*Fonts Whetravel*/
+    --font-family-modern: 'MuseoModerno';
+    --font-family-texts: 'Inter';
+    --font-size-small: 1.1rem;
+    --font-size-regular: 1.3rem;
+    --font-size-medium: 1.5rem;
+    --font-size-larguer: 1.8rem;
+    --font-size-extra-larguer: 2rem;
+
+
+
+    /*Config Navbar*/
+    --padding-navbar-top-1900px: 0px 45px 0px 45px;
+    --margin-navbar-top-1900px: 40px; 
+    --height-navbar-left-right-1900px: 6vh;
+    --width-navbar-right-1900px: 15vw;
+    --width-navbar-left-1900px: 30vw;
+    --borderRadius-1900px: 15px;
+}
