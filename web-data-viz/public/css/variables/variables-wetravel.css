@@ -18,11 +18,32 @@
     --font-size-regular: 1.3rem;
     --font-size-medium: 1.5rem;
     --font-size-larguer: 1.8rem;
-    --font-size-extra-larguer: 2rem;
+    --font-size-extra-larguer: 2.5rem;
+
+    /*Parametros de Weight*/
+    --font-weight-regular: 300;
+    --font-weight-medium: 500;
+    --font-weight-bold: 600;
+
+    /*Backgrounds*/
+    --home-background-gradient: radial-gradient(
+      circle closest-corner at center,
+      var(--gray-W5-WeTravel),
+      var(--gray-W6-WeTravel)
+    );
+    --home-background-gradient-roboot: linear-gradient(0deg, rgb(19, 21, 23), rgba(19, 21, 23, 0.959),rgba(19, 21, 23, 0),rgba(19, 21, 23, 0));
+    --home-background-image-roboot: url("../../assets/imgs/NEXBOT\ -\ robot.svg");
+
+    /*Animation Hover*/
+    --mili-seg-5ms: .5s;
+
+    /*Buttons Parametros HOME*/
+    --widht-buttons-home: 220px;
+    --height-buttons-home: 55px;
+    --border-radius-buttons-home: 55px;
 
 
-
-    /*Config Navbar*/
+    /*Config Navbar espaçamentos, tamanhos etc...*/
     --padding-navbar-top-1900px: 0px 45px 0px 45px;
     --margin-navbar-top-1900px: 40px; 
     --height-navbar-left-right-1900px: 55px;
@@ -30,4 +51,17 @@
     --width-navbar-left-1900px: 550px;
     --borderRadius-1900px: 15px;
     --shadow-navbarTop-1900px: 0px 0px 15px 0px var(--gray-W5-WeTravel);
+    --margin-LEFT-RIGHT-ul-navbar-left-1900px: 7%;
+    --width-ul-navbar-left-1900px: 100%;
+    --width-height-ul-navbar-right-1900px: 100%;
+    --widht-logo-navbar-1900px: 135px;
+    --height-logo-navbar-1900px: 26px;
+    --margin-left-logo-navbar-1900px: 15px;
+    --header-distance-top-1900px: 40px;
+    --padding-ul-navbar-right-1900px: 0px 5px 0px 5px;
+    --widht-button-navbar-right-1900px: 140px;
+    --height-button-navbar-right-1900px: 45px;
+    --border-radius-button-acess-navbar-right-1900px: 40px;
+
+
 }

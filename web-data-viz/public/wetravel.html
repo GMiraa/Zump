@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>WeTravel</title>
     <link rel="stylesheet" href="css/institutional/wetravel.css" />
+    <link rel="stylesheet" href="css/mediaFrames/media-keyframes-wetravel.css">
   </head>
   <body>
     <!-- O uso da tag <article> não foi necessário pois ele é usado normalmente para conteudos 
@@ -15,9 +16,14 @@
     <!-- <aside> não foi utilizado pois representa conteúdos secundários (ex: barras laterais, conteúdos relacionados)-->
 
     <header>
+
+      <nav class="navbar-menu">
+        <h1 style="color: #fff;">Menu - mobile</h1>
+      </nav>
+
       <nav id="top-nav">
         <div class="nav-left">
-          <a href="#">LOGO</a>
+          <a href="#"><img src="assets/logos/logo WeTravel.png" alt="logo-wetravel" id="logo"></a>
           <ul>
             <li><a href="#home">Início</a></li>
             <li><a href="#services">Serviços</a></li>
@@ -29,13 +35,33 @@
         <div class="nav-right">
           <ul>
             <li><a href="#contact">Contato</a></li>
-            <li><a href="#" style="color: #131517;">Acessar</a></li>
+            <li><a href="#" id="acessar">Acessar</a></li>
           </ul>
         </div>
       </nav>
     </header>
     <main>
-      <section class="home-section" id="home"></section>
+      <section class="home-section" id="home">
+        <div id="robotImage"></div>
+        <div id="sobreporRobot"></div>
+        <div class="box-content">
+          <div id="box-mensage"></div>
+          <div id="box-slogan">
+              <h2>
+                Potencialize sua agência de viagens com <span>tecnologia de ponta.</span>
+              </h2>
+          </div>
+          <div id="box-textProject">
+              <h3>
+                Korem ipsum dolor sit amet, consectetur adipiscing elit. Nunc vulputate libero et velit interdum, ac aliquet odio mattis.
+              </h3>
+          </div>
+          <div id="box-buttons">
+              <a href="" id="button-acess">Acessar</a>
+              <a href="">Saber mais</a>
+          </div>
+        </div>
+      </section>
       <section class="services-section" id="services"></section>
       <section class="about-section" id="about"></section>
       <section class="project-section" id="projects"></section>
