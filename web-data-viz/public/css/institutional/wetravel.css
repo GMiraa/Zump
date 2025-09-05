@@ -6,7 +6,8 @@
     margin: 0; padding: 0;
     text-decoration: none; box-sizing: border-box;
     list-style: none; scroll-behavior: smooth;
-    font-size: var(--font-size-small); font-family: var(--font-family-texts);
+    font-size: var(--font-size-small); 
+    font-family: var(--font-family-texts);
     transition: all .6s ease-in-out;
 }
 body{
@@ -208,3 +209,24 @@ main .home-section #box-buttons #button-acess{
     border-radius: var(--border-radius-buttons-home);
     color: var(--gray-W6-WeTravel);
 }
+
+main #services {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    background: linear-gradient(0deg, #EAE4FF, #8B5CFF);
+}
+main #services #blobs{
+    position: absolute;
+    top: 0;
+    background-image: url("../../assets/Blobs\ imgs/blob bottom services.svg"),
+    url("../../assets/Blobs\ imgs/blob top services.svg");
+    background-repeat: no-repeat, no-repeat;
+    background-position: center bottom, center top;
+    background-size: contain, contain;
+    width: 100%;
+    height: 100%;
+}
+
+
