@@ -27,16 +27,23 @@ document.addEventListener("DOMContentLoaded", () =>{
                 },
                 body: JSON.stringify(payload)
             });
-
             
+            const data = await response.json();
 
-
-
+            if(respose.ok){
+                messageParagraph.textContent = "Login realizado com sucesso!";
+                messageParagraph.classList.add("Sucesso!");
+                console.log("Dados do usuário", data);
+            }else{
+                messageParagraph.textContent =  data.message || "Erro ao fazer o login";
+                messageParagraph.classList.add("Error");
+            }
+        
+        }catch (error){
+            console.log("Erro na requisição:", error);
+            messageParagraph.textContent = "Não foi possível conectar ao servidor. Tente novamente mais tarde."
+            messageParagraph.classList.add(error);
         }
-
-
-
-
 
     });
 
