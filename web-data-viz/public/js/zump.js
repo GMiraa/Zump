@@ -20,7 +20,18 @@ document.addEventListener("DOMContentLoaded", () =>{
         };  
 
         try{
-            const responde = await fetch('')
+            const responde = await fetch('../usuario/autenticar', {
+                method: 'POST',
+                headers:{
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify(payload)
+            });
+
+            
+
+
+
         }
 
 
