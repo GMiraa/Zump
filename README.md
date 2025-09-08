@@ -4,6 +4,6 @@
 
 ##### Itens presentes neste diretório:
 
-*Site Institucional
-*Dicionário de Dados
-*Slide de apresentação
+-Site Institucional
+-Dicionário de Dados
+-Slide de apresentação
