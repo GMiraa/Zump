@@ -210,6 +210,12 @@ main .home-section #box-buttons #button-acess{
     color: var(--gray-W6-WeTravel);
 }
 
+
+
+
+
+
+
 main #services {
     display: flex;
     justify-content: center;
@@ -217,16 +223,106 @@ main #services {
     position: relative;
     background: linear-gradient(0deg, #EAE4FF, #8B5CFF);
 }
-main #services #blobs{
+main .services-section #blobs{
     position: absolute;
     top: 0;
     background-image: url("../../assets/Blobs\ imgs/blob bottom services.svg"),
     url("../../assets/Blobs\ imgs/blob top services.svg");
     background-repeat: no-repeat, no-repeat;
-    background-position: center bottom, center top;
-    background-size: contain, contain;
+    background-position: center bottom -20px, center top -20px;
+    background-size: 110%, 110%;
     width: 100%;
     height: 100%;
 }
+
+main .services-section .container-services{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: end;
+    border: 1px solid red;
+    width: 100%;
+    height: 100%;
+    z-index: 10;    
+}
+
+main .services-section #box-title{
+    display: flex;
+    align-items: center;
+    border: 1px solid red;
+    width: 100%;
+    height: 10%;
+}
+main .services-section #box-title h1{
+    margin-left: 5%;
+    color: var(--white);
+    font-size: var(--font-size-extra-larguer);
+}
+main .services-section #box-contain{
+    display: flex;
+    flex-wrap: wrap-reverse;
+    justify-content: space-around;
+    align-items: center;
+    border: 1px solid purple;
+    gap: 10px;
+    width: 100%;
+    height: 55%;
+}
+main .services-section #text-services{
+    display: flex;
+    align-items: center;
+    border: 1px solid green;
+    width: 100%;
+    max-width: 500px;
+    padding: 0px 10px 0px 10px;
+}
+main .services-section #text-services h2{
+    font-size: var(--font-size-larguer);
+}
+main .services-section .box-carrossel{
+    width: 100%;
+    max-width: 750px;
+    height: 100%;
+    border: 1px solid blue;
+    padding: 0px 10px 0px 10px;
+}
+main .services-section .box-carrossel .cards-carrossel{
+    background-color: var(--white);
+    width: 100%;
+    height: 100%;
+}
+main .services-section #box-footer-services{
+    border: 1px solid red;
+    width: 100%;
+    height: 20%;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
