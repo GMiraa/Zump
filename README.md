@@ -30,30 +30,30 @@ Este diretório contém os seguintes itens:
   <table style="width:100%; border:0;">
     <tr style="border:0;">
       <td style="text-align:center; border:0; padding:10px;">
-        <img src="https://via.placeholder.com/150" alt="Foto do Integrante 1" width="150" height="150">
+        <img src="https://i.ibb.co/Xr8QmKPf/Captura-de-tela-de-2025-09-12-16-16-29.png" alt="Foto do Integrante 1" width="150" height="150">
         <br />
-        <strong>[Nome do Integrante 1]</strong>
-        <br />
-        <small>[Função no Projeto]</small>
-      </td>
-      <td style="text-align:center; border:0; padding:10px;">
-        <img src="https://via.placeholder.com/150" alt="Foto do Integrante 2" width="150" height="150">
-        <br />
-        <strong>[Nome do Integrante 2]</strong>
+        <strong>Vitor Restini</strong>
         <br />
         <small>[Função no Projeto]</small>
       </td>
       <td style="text-align:center; border:0; padding:10px;">
-        <img src="https://via.placeholder.com/150" alt="Foto do Integrante 3" width="150" height="150">
+        <img src="i.ibb.co/5XGmFBsT/Captura-de-tela-de-2025-09-12-16-14-46.png" alt="Foto do Integrante 2" width="150" height="150">
         <br />
-        <strong>[Nome do Integrante 3]</strong>
+        <strong>Guilherme Mira</strong>
         <br />
         <small>[Função no Projeto]</small>
       </td>
       <td style="text-align:center; border:0; padding:10px;">
-        <img src="https://via.placeholder.com/150" alt="Foto do Integrante 4" width="150" height="150">
+        <img src="i.ibb.co/8gccqW0m/Captura-de-tela-de-2025-09-12-16-13-25.png" alt="Foto do Integrante 3" width="150" height="150">
         <br />
-        <strong>[Nome do Integrante 4]</strong>
+        <strong>Samuel Barros</strong>
+        <br />
+        <small>[Função no Projeto]</small>
+      </td>
+      <td style="text-align:center; border:0; padding:10px;">
+        <img src="i.ibb.co/xKX8G6F9/Captura-de-tela-de-2025-09-12-16-17-39.png" alt="Foto do Integrante 4" width="150" height="150">
+        <br />
+        <strong>Ana Karoline/strong>
         <br />
         <small>[Função no Projeto]</small>
       </td>
