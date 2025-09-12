@@ -30,21 +30,21 @@ Este diretório contém os seguintes itens:
   <table style="width:100%; border:0;">
     <tr style="border:0;">
       <td style="text-align:center; border:0; padding:10px;">
-        <img src="https://i.ibb.co/Xr8QmKPf/Captura-de-tela-de-2025-09-12-16-16-29.png" alt="Foto do Integrante 1" width="150" height="150">
+        <img src="https://i.ibb.co/hJf6p4Nx/Captura-de-tela-de-2025-09-12-16-16-29.png" alt="Foto do Integrante 1" width="150" height="150">
         <br />
         <strong>Vitor Restini</strong>
         <br />
         <small>Product Owner - Back-end</small>
       </td>
       <td style="text-align:center; border:0; padding:10px;">
-        <img src="https://i.ibb.co/5XGmFBsT/Captura-de-tela-de-2025-09-12-16-14-46.png" alt="Foto do Integrante 2" width="150" height="150">
+        <img src="https://i.ibb.co/dsjFgGkB/Captura-de-tela-de-2025-09-12-16-14-46.png" alt="Foto do Integrante 2" width="150" height="150">
         <br />
         <strong>Guilherme Mira</strong>
         <br />
         <small>Front-end - Doc</small>
       </td>
       <td style="text-align:center; border:0; padding:10px;">
-        <img src="https://i.ibb.co/8gccqW0/Captura-de-tela-de-2025-09-12-16-13-25.png" alt="Foto do Integrante 3" width="150" height="150">
+        <img src="https://i.ibb.co/HTdd6WVK/Captura-de-tela-de-2025-09-12-16-13-25.png" alt="Foto do Integrante 3" width="150" height="150">
         <br />
         <strong>Samuel Barros</strong>
         <br />
