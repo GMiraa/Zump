@@ -53,7 +53,7 @@ Este diretório contém os seguintes itens:
     </tr>
     <tr style="border:0;">
       <td style="text-align:center; border:0; padding:10px;">
-        <img src="[https://i.ibb.co/xKX8G6F/Captura-de-tela-de-2025-09-12-16-17-39.png](https://i.ibb.co/xKX8G6F9/Captura-de-tela-de-2025-09-12-16-17-39.png)" alt="Foto do Integrante 4" width="150" height="150">
+        <img src="https://i.ibb.co/NgtnpKTD/Captura-de-tela-de-2025-09-12-16-17-39.png" alt="Foto do Integrante 4" width="150" height="150">
         <br />
         <strong>Ana Karoline</strong>
         <br />
