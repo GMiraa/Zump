@@ -1,9 +1,61 @@
-## Projeto Zump
+### **Zump - Sistema de Gestão para Agências de Turismo**
 
-#### Este projeto tem como objetivo criar uma solução para agências de viagens terem um aumento de acertividade na oferta de pacotes de viagens
+O **Zump** é um sistema projetado para otimizar o trabalho de agências de turismo. Sua principal função é aumentar a **assertividade na oferta de pacotes de viagens** por meio de um sistema de recomendação inteligente e um **CRM (Customer Relationship Management)** integrado para a gestão de clientes.
 
-##### Itens presentes neste diretório:
+Este projeto visa modernizar e aprimorar a forma como as agências interagem com seus clientes, oferecendo uma ferramenta poderosa para:
+* **Gerar recomendações de pacotes:** Com base no perfil e histórico do cliente, o sistema sugere os pacotes mais adequados.
+* **Gestão completa do cliente (CRM):** Mantenha um registro detalhado de todos os clientes, histórico de compras, preferências e informações de contato em um só lugar.
 
-- Site Institucional
-- Dicionário de Dados
-- Slide de apresentação
+---
+### **Recursos Principais**
+
+* **Sistema de Recomendação:** Analisa dados para sugerir pacotes de viagens que realmente interessam ao cliente.
+* **CRM:** Permite o registro e a consulta de informações de clientes de forma organizada e eficiente.
+* **Interface Intuitiva:** Projetada para ser usada exclusivamente pela equipe da agência, facilitando o dia a dia.
+
+---
+### **Estrutura do Projeto**
+
+Este diretório contém os seguintes itens:
+
+* **Site Institucional:** O site de apresentação do projeto Zump.
+* **Dicionário de Dados:** Documentação detalhada sobre as tabelas e campos do banco de dados.
+* **Slide de Apresentação:** Material para demonstração e pitch do projeto.
+
+---
+### **Integrantes da Equipe**
+
+<div align="center">
+  <table style="width:100%; border:0;">
+    <tr style="border:0;">
+      <td style="text-align:center; border:0; padding:10px;">
+        <img src="https://via.placeholder.com/150" alt="Foto do Integrante 1" width="150" height="150">
+        <br />
+        <strong>[Nome do Integrante 1]</strong>
+        <br />
+        <small>[Função no Projeto]</small>
+      </td>
+      <td style="text-align:center; border:0; padding:10px;">
+        <img src="https://via.placeholder.com/150" alt="Foto do Integrante 2" width="150" height="150">
+        <br />
+        <strong>[Nome do Integrante 2]</strong>
+        <br />
+        <small>[Função no Projeto]</small>
+      </td>
+      <td style="text-align:center; border:0; padding:10px;">
+        <img src="https://via.placeholder.com/150" alt="Foto do Integrante 3" width="150" height="150">
+        <br />
+        <strong>[Nome do Integrante 3]</strong>
+        <br />
+        <small>[Função no Projeto]</small>
+      </td>
+      <td style="text-align:center; border:0; padding:10px;">
+        <img src="https://via.placeholder.com/150" alt="Foto do Integrante 4" width="150" height="150">
+        <br />
+        <strong>[Nome do Integrante 4]</strong>
+        <br />
+        <small>[Função no Projeto]</small>
+      </td>
+    </tr>
+  </table>
+</div>
