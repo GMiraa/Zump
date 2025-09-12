@@ -60,14 +60,14 @@ Este diretório contém os seguintes itens:
         <small>Fullstack - Doc</small>
       </td>
       <td style="text-align:center; border:0; padding:10px;">
-        <img src="https://via.placeholder.com/150" alt="Foto do Integrante 5" width="150" height="150">
+        <img src="https://i.ibb.co/9mCzD6VQ/IMG-20250912-182130.jpg" alt="Foto do Integrante 5" width="150" height="150">
         <br />
         <strong>Lucas Calil</strong>
         <br />
         <small>Front-end - UX/Designer</small>
       </td>
       <td style="text-align:center; border:0; padding:10px;">
-        <img src="https://via.placeholder.com/150" alt="Foto do Integrante 6" width="150" height="150">
+        <img src="https://i.ibb.co/YFbNMHpM/1000087246.jpg" alt="Foto do Integrante 6" width="150" height="150">
         <br />
         <strong>Matheus Gomes</strong>
         <br />
