@@ -44,7 +44,7 @@ Este diretório contém os seguintes itens:
         <small>Front-end - Doc</small>
       </td>
       <td style="text-align:center; border:0; padding:10px;">
-        <img src="[https://i.ibb.co/8gccqW0/Captura-de-tela-de-2025-09-12-16-13-25.png](https://i.ibb.co/8gccqW0m/Captura-de-tela-de-2025-09-12-16-13-25.png)" alt="Foto do Integrante 3" width="150" height="150">
+        <img src="https://i.ibb.co/8gccqW0/Captura-de-tela-de-2025-09-12-16-13-25.png" alt="Foto do Integrante 3" width="150" height="150">
         <br />
         <strong>Samuel Barros</strong>
         <br />
