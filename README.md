@@ -20,7 +20,8 @@ Este diretório contém os seguintes itens:
 
 * **Site Institucional:** O site de apresentação do projeto Zump.
 * **Dicionário de Dados:** Documentação detalhada sobre as tabelas e campos do banco de dados.
-* **Slide de Apresentação:** Material para demonstração e pitch do projeto.
+* **Sistema de logs** O sistema de logs de log.
+* **Documentação técnica** Modelagem lógica do banco de dados.
 
 ---
 ### **Integrantes da Equipe**
