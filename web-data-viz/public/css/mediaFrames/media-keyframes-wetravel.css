@@ -3,39 +3,83 @@
     main .home-section #box-textProject{
         height: auto;
     }
-        main .services-section #text-services{
-    width: 40%;
-    padding: 0px 10px 0px 10px;
-}
+
+     main .services-section .container-services{
+        justify-content: end;
+    }
+    main .services-section #text-services{
+        width: 40%;
+        padding: 0px 10px 0px 10px;
+    }
     main .services-section #text-services h2{
-    font-size: var(--font-size-medium);
+        font-size: var(--font-size-medium);
+    }
+    main .services-section #box-contain{
+        height: 55%;
+    }
+    main .services-section .box-carrossel{
+        width: 750px;
+        height: 450px;
+            margin-right: 0;
+    }
+    main .services-section .box-carrossel .cards-carrossel{
+        background-color: var(--white);
+        width: 100%;
+        height: 500px;
+    }
+
 }
-main .services-section .box-carrossel{
-    width: 70%;
-    height: 100%;
-}
+@media screen and (max-width: 1600px) {    
+    .navbar-menu{
+        display: none;
+    }
+     main .services-section .box-carrossel{
+        width: 750px;
+        height: 450px;
+            margin-right: 0;
+    }
 }
 
 @media screen and (max-width: 1280px) and (min-width: 1024px){
 :root{
     
+       
+          --font-size-extra-larguer: 2rem;
         --font-size-medium: 1.2rem;
         
     }
     main .home-section #box-textProject{
         height: auto;
     }
+
+    main .services-section .container-services{
+        justify-content: end;
+    }
     main .services-section #text-services{
-    width: 40%;
-    padding: 0px 10px 0px 10px;
-}
+        width: 40%;
+        padding: 0px 10px 0px 10px;
+    }
     main .services-section #text-services h2{
-    font-size: var(--font-size-medium);
-}
-main .services-section .box-carrossel{
-    width: 50%;
-    height: 100%;
-}
+        font-size: var(--font-size-medium);
+    }
+    main .services-section #box-contain{
+        height: 55%;
+    }
+    main .services-section .box-carrossel{
+        width: 600px;
+        height: 400px;
+            margin-right: 0;
+    }
+    main .services-section .box-carrossel .cards-carrossel{
+        background-color: var(--white);
+        width: 100%;
+        height: 400px;
+    }
+
+
+
+
+
 }
 
 @media screen and (min-width: 1025px) {    
@@ -78,6 +122,7 @@ main .services-section .box-carrossel{
 main .services-section .box-carrossel{
     width: 600px;
     height: 300px;
+        margin-right: 0;
 }
 main .services-section .box-carrossel .cards-carrossel{
     background-color: var(--white);
@@ -115,6 +160,7 @@ main .services-section .box-carrossel .cards-carrossel{
 }
 main .services-section .box-carrossel{
     width: 450px;
+        margin-right: 0;
     height: 250px;
 }
 main .services-section .box-carrossel .cards-carrossel{
@@ -153,6 +199,7 @@ main .services-section .box-carrossel .cards-carrossel{
 main .services-section .box-carrossel{
     width: 100%;
     height: 250px;
+        margin-right: 0;
 }
 main .services-section .box-carrossel .cards-carrossel{
     background-color: var(--white);
@@ -193,6 +240,8 @@ main .services-section #text-services h2{
 main .services-section .box-carrossel{
     width: 100%;
     height: 200px;
+    margin-right: 0;
+
 }
 main .services-section .box-carrossel .cards-carrossel{
     background-color: var(--white);

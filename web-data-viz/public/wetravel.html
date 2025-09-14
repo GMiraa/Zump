@@ -73,7 +73,14 @@
                   <h2>Lorem ipsum dolor sit amet consectetur adipisicing elit. Natus quo quisquam minus vitae suscipit! Illum provident excepturi quasi dolore et sunt odio blanditiis repellendus reiciendis, aliquam harum accusamus. Similique, tempora.</h2>
               </div>
               <div class="box-carrossel">
-                  <div class="cards-carrossel"></div>
+                <button onclick="antBtn()"><</button>
+                <button onclick="proxBtn()">></button>
+                  <div class="cards-carrossel">
+                    <div id="card">
+                      <h2>titulo01</h2>
+                      <h3>descrição01</h3>
+                    </div>
+                  </div>
               </div>
           </div>
           <div id="box-footer-services">
@@ -95,3 +102,33 @@
     </footer>
   </body>
 </html>
+
+
+<script>
+
+  let title = ["titulo01","titulo02","titulo03"];
+  let desc = ["descrição01","descrição02","descrição03"];
+  let contador = 0;
+
+ function proxBtn() {
+  contador = (contador + 1) % title.length;
+  console.log("Próximo: " + title[contador] + " " + desc[contador]);
+  
+  card.innerHTML = `
+    <h2>${title[contador]}</h2>
+    <h3>${desc[contador]}</h3>
+  `
+
+}
+
+ function antBtn() {
+  contador = (contador - 1 + title.length) % title.length;
+  console.log("Anterior: " + title[contador] + " " + desc[contador]);
+  card.innerHTML = `
+    <h2>${title[contador]}</h2>
+    <h3>${desc[contador]}</h3>
+  `
+}
+
+
+</script>
