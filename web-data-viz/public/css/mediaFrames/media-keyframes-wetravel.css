@@ -27,6 +27,9 @@
         width: 100%;
         height: 500px;
     }
+        main .about-section #box-linhagem img{
+    width: 65%;
+}
 
 }
 @media screen and (max-width: 1600px) {    
@@ -38,6 +41,19 @@
         height: 450px;
             margin-right: 0;
     }
+
+    main .about-section #text-left{
+    width: 350px;
+}
+
+main .about-section #text-center{
+    width: 600px;
+}
+
+main .about-section #box-equipe{
+    width: 300px;
+}
+
 }
 
 @media screen and (max-width: 1280px) and (min-width: 1024px){
@@ -76,8 +92,27 @@
         height: 400px;
     }
 
+    main .about-section #box-linhagem img{
+    width: 65%;
+}
+main .about-section #footer-about{
+    justify-content: space-around;
+    height: 25%;
+    
+}
 
 
+main .about-section #text-left{
+    width: 200px;
+}
+
+main .about-section #text-center{
+    width: 400px;
+}
+
+main .about-section #box-equipe{
+    width: 300px;
+}
 
 
 }
@@ -130,6 +165,32 @@ main .services-section .box-carrossel .cards-carrossel{
     height: 300px;
 }
 
+
+
+main .about-section #box-linhagem img{
+    width: 60%;
+}
+
+main .about-section #footer-about{
+    justify-content: space-around;
+    
+}
+
+main .about-section #text-left{
+    display: none;
+}
+
+main .about-section #text-center{
+    width: 400px;
+}
+
+main .about-section #box-equipe{
+    width: 300px;
+    height: auto;
+}
+
+
+
 }
 @media screen and (max-width: 768px) and (min-width: 480px){
     :root{
@@ -167,6 +228,21 @@ main .services-section .box-carrossel .cards-carrossel{
     background-color: var(--white);
     width: 100%;
     height: 250px;
+}
+main .about-section #box-title-about{
+    background-size: 300px;
+}
+main .about-section #box-linhagem img{
+    width: 95%;
+}
+main .about-section #footer-about{
+    justify-content: center;
+}
+main .about-section #text-left{
+    display: none;
+}
+main .about-section #box-equipe{
+    height: auto;
 }
 }
 @media screen and (max-width: 480px) and (min-width: 320px){
@@ -215,8 +291,21 @@ main .services-section #blobs{
     background-position: center bottom -12px, center top -12px;
    
 }
-
-
+main .about-section #box-title-about{
+    background-size: 300px;
+}
+main .about-section #box-linhagem img{
+    width: 95%;
+}
+main .about-section #footer-about{
+    justify-content: center;
+}
+main .about-section #text-left{
+    display: none;
+}
+main .about-section #box-equipe{
+    height: auto;
+}
 }
 @media screen and (max-width: 320px){
     :root{
@@ -258,5 +347,20 @@ main .services-section .box-carrossel .cards-carrossel{
     background-color: var(--white);
     width: 100%;
     height: 200px;
+}
+main .about-section #box-title-about{
+    background-size: 220px;
+}
+main .about-section #box-linhagem img{
+    width: 95%;
+}
+main .about-section #footer-about{
+    justify-content: center;
+}
+main .about-section #text-left{
+    display: none;
+}
+main .about-section #box-equipe{
+    height: auto;
 }
 }
