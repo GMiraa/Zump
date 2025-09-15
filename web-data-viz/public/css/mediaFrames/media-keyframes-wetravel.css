@@ -206,6 +206,17 @@ main .services-section .box-carrossel .cards-carrossel{
     width: 100%;
     height: 250px;
 }
+
+
+
+
+main .services-section #blobs{
+
+    background-position: center bottom -12px, center top -12px;
+   
+}
+
+
 }
 @media screen and (max-width: 320px){
     :root{
