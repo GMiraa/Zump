@@ -468,7 +468,7 @@ main .about-section #text-center{
     flex-direction: column;
     height: auto;
     width: 800px;
-    gap: 35px;
+    gap: 30px;
 }
 main .about-section #text-center h2{
     padding: 0px 10px 0px 10px;
