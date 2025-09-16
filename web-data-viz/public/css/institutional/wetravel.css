@@ -374,7 +374,7 @@ main .services-section #box-footer-services{
 main #about {
     display: flex;
     flex-direction: column;
-    justify-content: end;
+    justify-content: center;
     align-items: center;
     position: relative;
     background: radial-gradient(
@@ -383,6 +383,157 @@ main #about {
       var(--gray-W6-WeTravel)
     );;
 }
+
+
+#caixaEquipe{
+    position: absolute;
+    display: none;
+    justify-content: center;
+    align-items: center;
+    width: 700px;
+    height: 460px;
+    border-radius: 20px;
+    background: var(--white);
+    background-image: url("../../assets/Blobs\ imgs/blackCardBlob.svg"),url("../../assets/Blobs\ imgs/greyCardBlob.svg");
+    background-repeat: no-repeat, no-repeat;
+    background-position: right top, left bottom;
+    background-size: 200px;
+    z-index: 20;
+    overflow: hidden;
+}
+
+#caixaEquipe #proxMembro{
+    position: absolute;
+    right: 10px;
+    width: 60px;
+    height: 60px;
+    border-radius: 60px;
+    border: none;
+    outline: none;
+    color: var(--white);
+    background: var(--gray-W6-WeTravel);
+    cursor: pointer;
+}
+
+#closeButton{
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    width: 35px;
+    height: 35px;
+    border-radius: 35px;
+    border: none;
+    cursor: pointer;
+}
+
+#caixaEquipe .conteudo{
+    width: 100%;
+    height: 100%;
+}
+
+#caixaEquipe .conteudo .infos{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    height: 300px;
+}
+
+#caixaEquipe .conteudo .foto{
+    display: flex;
+    background-color: #ebeaea;
+    height: 260px;
+    width: 190px;
+    border-radius: 15px;
+}
+
+#caixaEquipe .conteudo #fotoUser{
+    background: url("../../assets/imgs/matheusGomes.jpeg") ;
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+
+#caixaEquipe .conteudo .habilidades{
+    display: flex;
+    justify-content: center;
+    position: relative;
+    width: 400px;
+    height: 180px;
+}
+#caixaEquipe .conteudo .habilidades #text{
+    position: absolute;
+    background: #ebeaea;
+    padding: 7px 0px 7px 0px;
+    text-align: center;
+    width: 250px;
+    border-radius: 7px;
+    top: -35px;
+}
+
+#caixaEquipe .conteudo .habilidadesCod{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+    width: 90%;
+    height: 70%;
+    margin-top: 20px;
+}
+
+#caixaEquipe .conteudo .habilidadesCod .cardMini{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 45px;
+    height: 45px;
+    background-color: #ebeaea;
+    border-radius: 5px;
+    transition: .5s;
+}
+
+#caixaEquipe .conteudo .habilidadesCod .cardMini:hover{
+    transform: scale(1.2);
+}
+
+
+
+
+#caixaEquipe .conteudo .box-infos-user{
+    margin-top: 10px;
+    border-left: 2px solid var(--gray-W6-WeTravel);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width: auto;
+    height: 80px;
+    padding-left:20px;
+    margin-left: 20px;
+}
+
+#caixaEquipe .conteudo .box-infos-user h2{
+    color: var(--gray-W6-WeTravel);
+    font-family: var(--font-family-modern);
+    font-weight: var(--font-weight-regular);
+    font-size: var(--font-size-larguer);
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 main #about #gradient-top{
     position: absolute;
     top: 0;
@@ -408,6 +559,7 @@ main .about-section #box-title-about{
     width: 100%;
     height: 10%;
     padding: 0px 15px 0px 15px;
+    margin-top: 6%;
     z-index: 1;
 }
 main .about-section #box-linhagem{
@@ -746,3 +898,128 @@ main .project-section .box-carrossel .card:hover .conteudo{
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+main #contact {
+    display: flex;
+    flex-direction: row;
+    justify-content: start;
+    align-items: end;
+    position: relative;
+}
+
+main .contact-section{
+    display: flex;
+    flex-direction: row;
+    background: url("../../assets/imgs/wetravel.svg"), url("../../assets/imgs/Contate\ a\ WeTravel.svg");
+    background-repeat: no-repeat, no-repeat;
+    background-position: center right 40px, left 15% top 15%;
+    background-size: 40%, 300px;
+
+}
+
+main .contact-section .form{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    height: 100%;
+    width: 50%;
+    gap: 30px;
+}
+
+main .contact-section .form .inputs_box{
+    display: flex;
+    flex-direction: column;
+    border: 1px solid var(--white);
+    border-radius: 10px;
+    height: 45px;
+    width: 400px;
+    position: relative;
+}
+
+
+main .contact-section .form .inputs_box label{
+    position: absolute;
+    color: var(--white);
+    background-color: var(--gray-W6-WeTravel);
+    width: 70px;
+    top: -10px;
+    left: 10px;
+    text-align: center;
+}
+
+
+main .contact-section .form .inputs_box input{
+    height: 45px;
+    padding-left: 15px;
+    padding-right: 10px;
+    background-color: transparent;
+    border: none;
+    color: var(--white);
+    outline: none;
+}
+
+
+main .contact-section .form .input_text{
+    border: 1px solid var(--white);
+    display: flex;
+    border-radius: 10px;
+    flex-direction: column;
+    width: 400px;
+    height: 150px;
+    position: relative;
+
+}
+
+main .contact-section .form .input_text label{
+    position: absolute;
+    color: var(--white);
+    background-color: var(--gray-W6-WeTravel);
+    width: 105px;
+    top: -10px;
+    left: 10px;
+    text-align: center;
+}
+
+
+main .contact-section .form .input_text textarea{
+    color: var(--white);
+    padding-top: 15px;
+    padding-left: 10px;
+    background: transparent;
+    border: none;
+    outline: none;
+    height: 100%;
+}
+main .contact-section .form .btn{
+    display: flex;
+    justify-content: end;
+    width: 400px;
+}
+main .contact-section .form .btn button{
+    background: url("../../assets/imgs/Group\ 28.svg");
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    width: 220px;
+    outline: none;
+    border: none;
+    height: 47px;
+    cursor: pointer;
+}
+
+main .contact-section .form .btn button:hover{
+    transform: scale(.9);
+}

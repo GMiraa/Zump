@@ -5,7 +5,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>WeTravel</title>
     <link rel="stylesheet" href="css/institutional/wetravel.css" />
-    <link rel="stylesheet" href="css/mediaFrames/media-keyframes-wetravel.css">
+    <link
+      rel="stylesheet"
+      href="css/mediaFrames/media-keyframes-wetravel.css"
+    />
   </head>
   <body>
     <!-- O uso da tag <article> não foi necessário pois ele é usado normalmente para conteudos 
@@ -16,14 +19,18 @@
     <!-- <aside> não foi utilizado pois representa conteúdos secundários (ex: barras laterais, conteúdos relacionados)-->
 
     <header>
-
       <nav class="navbar-menu">
-        <h1 style="color: #fff;">Menu - mobile</h1>
+        <!-- <h1 style="color: #fff">Menu - mobile</h1> -->
       </nav>
 
       <nav id="top-nav">
         <div class="nav-left">
-          <a href="#"><img src="assets/logos/logo WeTravel.png" alt="logo-wetravel" id="logo"></a>
+          <a href="#"
+            ><img
+              src="assets/logos/logo WeTravel.png"
+              alt="logo-wetravel"
+              id="logo"
+          /></a>
           <ul>
             <li><a href="#home">Início</a></li>
             <li><a href="#services">Serviços</a></li>
@@ -47,18 +54,19 @@
         <div class="box-content">
           <div id="box-mensage"></div>
           <div id="box-slogan">
-              <h2>
-                Potencialize sua agência de viagens com <span>tecnologia de ponta.</span>
-              </h2>
+            <h2>
+              Potencialize sua agência de viagens com
+              <span>tecnologia de ponta.</span>
+            </h2>
           </div>
           <div id="box-textProject">
-              <h3>
-                Korem ipsum dolor sit amet, consectetur adipiscing elit. Nunc vulputate libero et velit interdum, ac aliquet odio mattis.
-              </h3>
+            <h3>
+              Zump é uma solução inteligente criada para facilitar o dia a dia de agências de viagens, otimizando o atendimento e a gestão de pacotes turísticos.
+            </h3>
           </div>
           <div id="box-buttons">
-              <a href="login.html" id="button-acess">Acessar</a>
-              <a href="">Saber mais</a>
+            <a href="login.html" id="button-acess">Acessar</a>
+            <a href="">Saber mais</a>
           </div>
         </div>
       </section>
@@ -69,35 +77,34 @@
             <h1>Serviços</h1>
           </div>
           <div id="box-contain">
-              <div id="text-services">
-                  <h2>Lorem ipsum dolor sit amet consectetur adipisicing elit. Natus quo quisquam minus vitae suscipit! Illum provident excepturi quasi dolore et sunt odio blanditiis repellendus reiciendis, aliquam harum accusamus. Similique, tempora.</h2>
-              </div>
-              <div class="box-carrossel">
-                <div class="cards-carrossel">
-                  <div class="box-btns">
-                    <button onclick="antBtn()"></button>
-                    <button onclick="proxBtn()"></button>
+            <div id="text-services">
+              <h2>
+               A WeTravel é uma empresa especializada em oferecer soluções tecnológicas sob medida para o setor de turismo, com foco especial em atender às necessidades de agências de viagens de todos os portes.
+              </h2>
+            </div>
+            <div class="box-carrossel">
+              <div class="cards-carrossel">
+                <div class="box-btns">
+                  <button onclick="antBtn()"></button>
+                  <button onclick="proxBtn()"></button>
+                </div>
+                <div id="card">
+                  <div class="conteudo">
+                    <h2>Sites e Portais de Viagens</h2>
+                    <h3>
+                      Desenvolvimento de sites modernos, responsivos e integrados com sistemas de reserva e catálogos de destinos.
+                    </h3>
                   </div>
-                    <div id="card">
-                      <div class="conteudo">
-
-                        <h2>titulo01</h2>
-                        <h3>Korem ipsum dolor sit amet, consectetur adipiscing elit. 1</h3>
-                      </div>
-                    </div>
-                  </div>
+                </div>
               </div>
+            </div>
           </div>
           <div id="box-footer-services">
             <div class="box-texts-footer">
-                <h2>
-                  Korem ipsum dolor sit amet, consectetur adipiscing elit.
-                </h2>
+              <h2>Soluções sob medida para transformar a gestão da sua agência de viagens.</h2>
             </div>
             <div class="box-texts-footer">
-                <h2>
-                  Korem ipsum dolor sit amet, consectetur adipiscing elit.
-                </h2>
+              <h2>Atendimento dedicado, com suporte técnico que entende do seu negócio</h2>
             </div>
           </div>
         </div>
@@ -105,110 +112,186 @@
       <section class="about-section" id="about">
         <div id="gradient-top"></div>
         <div id="gradient-bottom"></div>
-        <div id="box-title-about">
-
+        <div id="caixaEquipe">
+          <button onclick="fecharCaixa()" id="closeButton">
+              x
+          </button>
+          <button id="proxMembro" onclick="passarProx()">
+            >
+          </button>
+          <div class="conteudo" id="conteudoCard">
+            <div class="infos">
+                <div class="foto" id="fotoUser">
+                  
+                </div>
+                <div class="habilidades">
+                  <div id="text">Habilidades</div>
+                  <div class="habilidadesCod">
+                    <div class="cardMini">
+                      <img src="assets/icon/CSS3.svg" alt="">
+                    </div>
+                    <div class="cardMini">
+                      <img src="assets/icon/GitHub.svg" alt="">
+                    </div>
+                    <div class="cardMini">
+                      <img src="assets/icon/Html 5.svg" alt="">
+                    </div>
+                    <div class="cardMini">
+                      <img src="assets/icon/Java.svg" alt="">
+                    </div>
+                    <div class="cardMini">
+                      <img src="assets/icon/JavaScript.svg" alt="">
+                    </div>
+                    <div class="cardMini">
+                      <img src="assets/icon/MySQL.svg" alt="">
+                    </div>
+                    <div class="cardMini">
+                      <img src="assets/icon/Visual Studio Code 2019.svg" alt="">
+                    </div>
+                  </div>
+                </div>
+            </div>
+              <div class="box-infos-user">
+                <h2 id="nomeUser">Nome: Matheus Gomes</h2>  
+                <h2 id="funcaoUser">Cargo: Front-end Developer</h2>
+              </div>
+          </div>
         </div>
+        <div id="box-title-about"></div>
         <div id="box-linhagem">
-          <img src="assets/imgs/linha do tempo.svg" alt="linha do tempo da wetravel">
+          <img
+            src="assets/imgs/linha do tempo.svg"
+            alt="linha do tempo da wetravel"
+          />
         </div>
-        <div id="footer-about" >
+        <div id="footer-about">
           <div id="text-left">
-            <h2>Korem ipsum dolor sit amet, consectetur adipiscing elit. Nunc vulputate libero et velit interdum.</h2>
+            <h2>
+              Zump é o sistema que faltava para simplificar sua rotina e aumentar seus resultados. Experimente.
+            </h2>
           </div>
           <div id="text-center">
             <h2>
-              Korem ipsum dolor sit amet, consectetur adipiscing elit. Nunc vulputate libero et velit interdum, ac aliquet odio mattis.
+              Conheça o Zump: a inovação que vai transformar a forma como sua agência de viagens atende, organiza e cresce.
             </h2>
             <div class="box-bottom">
-                <a href="#projects"><img src="assets/imgs/Group 18.svg" alt="" style="width: 100%; height: 100%;"></a>
+              <a href="#projects"
+                ><img
+                  src="assets/imgs/Group 18.svg"
+                  alt=""
+                  style="width: 100%; height: 100%"
+              /></a>
             </div>
           </div>
           <div id="box-equipe">
-              <button></button>
+            <button onclick="mostrarEquipe()"></button>
           </div>
         </div>
       </section>
       <section class="project-section" id="projects">
-       <div id="blobs"></div>
-       <div id="logo"></div>
+        <div id="blobs"></div>
+        <div id="logo"></div>
         <div class="box-carrossel">
           <div class="card">
-<img src="assets/icon/Touchpad.svg" alt="">
+            <img src="assets/icon/Touchpad.svg" alt="" />
             <div class="conteudo">
-              <img src="" alt="fundo_card_sessao_projeto">
+              <img src="" alt="fundo_card_sessao_projeto" />
               <h1>01</h1>
-              <h2>TITLE SESSION PROJECT</h2>
-              <p>Projects text</p>
+              <h2>Cadastro Rápido</h2>
+              <p>Crie seu perfil de forma simples, adicionando nome, foto e informações básicas para organizar melhor sua rotina.</p>
             </div>
           </div>
           <div class="card">
-            <img src="assets/icon/Touchpad.svg" alt="">
+            <img src="assets/icon/Touchpad.svg" alt="" />
             <div class="conteudo">
-              <img src="" alt="fundo_card_sessao_projeto">
+              <img src="" alt="fundo_card_sessao_projeto" />
               <h1>02</h1>
-              <h2>TITLE SESSION PROJECT</h2>
-              <p>Projects text</p>
+              <h2>Login Seguro</h2>
+              <p>Acesse o aplicativo com seu usuário e senha de maneira prática e protegida.</p>
             </div>
           </div>
-           <div class="card">
-            <img src="assets/icon/Touchpad.svg" alt="">
+          <div class="card">
+            <img src="assets/icon/Touchpad.svg" alt="" />
             <div class="conteudo">
-              <img src="" alt="fundo_card_sessao_projeto">
+              <img src="" alt="fundo_card_sessao_projeto" />
               <h1>03</h1>
-              <h2>TITLE SESSION PROJECT</h2>
-              <p>Projects text</p>
+              <h2>Agenda de Horários</h2>
+              <p>Visualize todos os seus atendimentos em uma agenda clara e organizada por dia e hora.</p>
             </div>
           </div>
-           <div class="card">
-            <img src="assets/icon/Touchpad.svg" alt="">
+          <div class="card">
+            <img src="assets/icon/Touchpad.svg" alt="" />
             <div class="conteudo">
-              <img src="" alt="fundo_card_sessao_projeto">
+              <img src="" alt="fundo_card_sessao_projeto" />
               <h1>04</h1>
-              <h2>TITLE SESSION PROJECT</h2>
-              <p>Projects text</p>
+              <h2>Controle Financeiro</h2>
+              <p>Acompanhe quanto está ganhando com gráficos e números que mostram seus resultados.</p>
             </div>
           </div>
-           <div class="card">
-            <img src="assets/icon/Touchpad.svg" alt="">
+          <div class="card">
+            <img src="assets/icon/Touchpad.svg" alt="" />
             <div class="conteudo">
-              <img src="" alt="fundo_card_sessao_projeto">
+              <img src="" alt="fundo_card_sessao_projeto" />
               <h1>05</h1>
-              <h2>TITLE SESSION PROJECT</h2>
-              <p>Projects text</p>
+              <h2>Gerenciamento de Clientes</h2>
+              <p>Salve os dados de cada cliente (nome, telefone, preferências) para manter tudo em um só lugar.</p>
             </div>
           </div>
-           <div class="card">
-            <img src="assets/icon/Touchpad.svg" alt="">
+          <div class="card">
+            <img src="assets/icon/Touchpad.svg" alt="" />
             <div class="conteudo">
-              <img src="" alt="fundo_card_sessao_projeto">
+              <img src="" alt="fundo_card_sessao_projeto" />
               <h1>06</h1>
-              <h2>TITLE SESSION PROJECT</h2>
-              <p>Projects text</p>
+              <h2>Histórico de Atendimentos</h2>
+              <p>Veja os serviços já realizados, facilitando o acompanhamento e fidelização dos clientes.</p>
             </div>
           </div>
-           <div class="card">
-            <img src="assets/icon/Touchpad.svg" alt="">
+          <div class="card">
+            <img src="assets/icon/Touchpad.svg" alt="" />
             <div class="conteudo">
-              <img src="" alt="fundo_card_sessao_projeto">
+              <img src="" alt="fundo_card_sessao_projeto" />
               <h1>07</h1>
-              <h2>TITLE SESSION PROJECT</h2>
-              <p>Projects text</p>
+              <h2>Relatórios Simples</h2>
+              <p>Tenha uma visão rápida de atendimentos, cancelamentos e serviços mais realizados.</p>
             </div>
           </div>
-           <div class="card">
-            <img src="assets/icon/Touchpad.svg" alt="">
+          <div class="card">
+            <img src="assets/icon/Touchpad.svg" alt="" />
             <div class="conteudo">
-              <img src="" alt="fundo_card_sessao_projeto">
+              <img src="" alt="fundo_card_sessao_projeto" />
               <h1>08</h1>
-              <h2>TITLE SESSION PROJECT</h2>
-              <p>Projects text</p>
+              <h2>Backup no Google Drive</h2>
+              <p>Guarde seus dados com segurança, garantindo que nunca perca informações importantes.</p>
             </div>
           </div>
         </div>
+      </section>
+      <section class="contact-section" id="contact">
+        <div class="form">
 
+          <div class="inputs_box">
+            <label for="">Nome</label>
+            <input type="text">
+          </div>
+          <div class="inputs_box">
+            <label for="">E-mail</label>
+            <input type="text">
+          </div>
+          <div class="input_text">
+            <label for="">Mensagem</label>
+            <textarea name="mensagem" rows="5" cols="30" placeholder="Digite sua mensagem aqui..."></textarea>
+          </div>
+          <div class="btn">
+            <button>
+            </button>
+          </div>
+
+
+
+        </div>
+        
 
       </section>
-      <section class="contact-section" id="contact"></section>
     </main>
     <footer>
       <!--<p>&copy; 2025 WeTravel. Todos os direitos reservados.</p>-->
@@ -216,54 +299,121 @@
   </body>
 </html>
 
-
 <script>
-
-  let title = ["titulo01","titulo02","titulo03"];
-  let desc = ["Korem ipsum dolor sit amet, consectetur adipiscing elit. 1","Korem ipsum dolor sit amet, consectetur adipiscing elit. 2","Korem ipsum dolor sit amet, consectetur adipiscing elit. 3"];
+  let title = ["Sites e Portais de Viagens", "Automação de Processos e Marketing", "Painel Administrativo e CRM para Agências"];
+  let desc = [
+    "Desenvolvimento de sites modernos, responsivos e integrados com sistemas de reserva e catálogos de destinos.",
+    "Ferramentas para envio automático de e-mails, follow-ups de viagens e promoções personalizadas.",
+    "Sistema para gerenciar leads, clientes, status de vendas, contratos e pós-venda.",
+  ];
   let contador = 0;
 
- function proxBtn() {
+  function proxBtn() {
     contador = (contador + 1) % title.length;
-    switch (contador){
-        case 0:
-          card.style.backgroundImage = 'url("../../assets/imgs/639fb85066f416b5bf185fcf_Ciclo-de-vida-de-um-projeto.png")';
-          break
-        case 1:
-          card.style.backgroundImage ='url("../../assets/imgs/1598223728080.jpeg")';
-          break
-        case 2:
-          card.style.backgroundImage = ' url("../../assets/imgs/6399f260d0fe4006589f5837_Tipos-de-projetos.png")';
-          break
-      }
+    switch (contador) {
+      case 0:
+        card.style.backgroundImage =
+          'url("../../assets/imgs/639fb85066f416b5bf185fcf_Ciclo-de-vida-de-um-projeto.png")';
+        break;
+      case 1:
+        card.style.backgroundImage =
+          'url("../../assets/imgs/1598223728080.jpeg")';
+        break;
+      case 2:
+        card.style.backgroundImage =
+          ' url("../../assets/imgs/6399f260d0fe4006589f5837_Tipos-de-projetos.png")';
+        break;
+    }
     card.innerHTML = `
       <div class="conteudo">
         <h2>${title[contador]}</h2>
         <h3>${desc[contador]}</h3>
       </div>
-    `
+    `;
   }
 
- function antBtn() {
+  function antBtn() {
     contador = (contador - 1 + title.length) % title.length;
-    switch (contador){
-        case 0:
-          card.style.backgroundImage = 'url("../../assets/imgs/639fb85066f416b5bf185fcf_Ciclo-de-vida-de-um-projeto.png")';
-          break
-        case 1:
-          card.style.backgroundImage ='url("../../assets/imgs/1598223728080.jpeg")';
-          break
-        case 2:
-          card.style.backgroundImage = ' url("../../assets/imgs/6399f260d0fe4006589f5837_Tipos-de-projetos.png")';
-          break
-      }
+    switch (contador) {
+      case 0:
+        card.style.backgroundImage =
+          'url("../../assets/imgs/639fb85066f416b5bf185fcf_Ciclo-de-vida-de-um-projeto.png")';
+        break;
+      case 1:
+        card.style.backgroundImage =
+          'url("../../assets/imgs/1598223728080.jpeg")';
+        break;
+      case 2:
+        card.style.backgroundImage =
+          ' url("../../assets/imgs/6399f260d0fe4006589f5837_Tipos-de-projetos.png")';
+        break;
+    }
     card.innerHTML = `
       <div class="conteudo">
         <h2>${title[contador]}</h2>
         <h3>${desc[contador]}</h3>
       </div> 
-    `
+    `;
   }
 
 
+
+  function mostrarEquipe(){
+    caixaEquipe.style.display = 'flex';
+  }
+
+  function fecharCaixa(){
+    caixaEquipe.style.display = 'none';
+  }
+
+
+  let contadorMembros = 0;
+
+  let listaNomeMembros = ["Matheus Gomes", "Samuel", "Ana", "Vitor", "Gilherme", "Lucas"];
+  let listaCargosMembros = ["Front-end Developer", "Back-end Developer", "Back-end Developer", "Back-end Developer", "Front-end Developer", "Front-end Developer"];
+  let fotosMembros = ["../../assets/imgs/matheusGomes.jpeg", "../../assets/imgs/samuel.jpeg", "../../assets/imgs/anaBarrocal.jpeg", "", "", "../../assets/imgs/lucasCalil.jpeg"]
+  function passarProx(){
+    contadorMembros = (contadorMembros + 1 + listaNomeMembros.length) % listaNomeMembros.length;
+    conteudoCard.innerHTML = `
+            <div class="infos">
+                <div class="foto" id="fotoUser">
+                </div>
+                <div class="habilidades">
+                  <div id="text">Habilidades</div>
+                  <div class="habilidadesCod">
+                    <div class="cardMini">
+                      <img src="assets/icon/CSS3.svg" alt="">
+                    </div>
+                    <div class="cardMini">
+                      <img src="assets/icon/GitHub.svg" alt="">
+                    </div>
+                    <div class="cardMini">
+                      <img src="assets/icon/Html 5.svg" alt="">
+                    </div>
+                    <div class="cardMini">
+                      <img src="assets/icon/Java.svg" alt="">
+                    </div>
+                    <div class="cardMini">
+                      <img src="assets/icon/JavaScript.svg" alt="">
+                    </div>
+                    <div class="cardMini">
+                      <img src="assets/icon/MySQL.svg" alt="">
+                    </div>
+                    <div class="cardMini">
+                      <img src="assets/icon/Visual Studio Code 2019.svg" alt="">
+                    </div>
+                  </div>
+                </div>
+            </div>
+              <div class="box-infos-user">
+                <h2 id="nomeUser">Nome: ${listaNomeMembros[contadorMembros]}</h2>  
+                <h2 id="funcaoUser">Cargo: ${listaCargosMembros[contadorMembros]}</h2>
+              </div>
+    
+    `;
+
+    const fotoUser = document.getElementById("fotoUser");
+    fotoUser.style.backgroundImage = `url("${fotosMembros[contadorMembros]}")`;
+  
+  }
 </script>

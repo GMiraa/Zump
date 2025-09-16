@@ -211,6 +211,10 @@ main #projects #logo{
     background-size: 300px;
 }
 
+main .project-section .box-carrossel {
+    margin-bottom: 25%;
+}
+
 main .project-section .box-carrossel .card {
   width: 350px;
   height: 350px;
@@ -219,6 +223,20 @@ main .project-section .box-carrossel .card {
 
 main .project-section .box-carrossel .card:nth-child(even) {
   margin-top: 0; /* ou o valor que você quiser */
+}
+
+main .contact-section .form{
+    height: 100%;
+    width: 100%;
+}
+
+
+main .contact-section{
+    background: url("../../assets/imgs/Contate\ a\ WeTravel.svg");
+    background-repeat: no-repeat;
+    background-position: left 10% top 10%;
+    background-size: 250px;
+
 }
 
 
@@ -285,6 +303,10 @@ main #projects #logo{
     background-size: 250px;
 }
 
+main .project-section .box-carrossel {
+    margin-bottom: 40%;
+}
+
 main .project-section .box-carrossel .card {
   width: 400px;
   height: 400px;
@@ -294,6 +316,21 @@ main .project-section .box-carrossel .card {
 main .project-section .box-carrossel .card:nth-child(even) {
   margin-top: 0; /* ou o valor que você quiser */
 }
+
+main .contact-section .form{
+    height: 100%;
+    width: 100%;
+}
+
+
+main .contact-section{
+    background: url("../../assets/imgs/Contate\ a\ WeTravel.svg");
+    background-repeat: no-repeat;
+    background-position: left 10% top 10%;
+    background-size: 250px;
+
+}
+
 }
 @media screen and (max-width: 480px) and (min-width: 320px){
     :root{
@@ -366,6 +403,10 @@ main #projects #logo{
     background-size: 250px;
 }
 
+main .project-section .box-carrossel {
+    margin-bottom: 45%;
+}
+
 main .project-section .box-carrossel .card {
   width: 300px;
   height: 300px;
@@ -375,6 +416,40 @@ main .project-section .box-carrossel .card {
 main .project-section .box-carrossel .card:nth-child(even) {
   margin-top: 0; /* ou o valor que você quiser */
 }
+
+main .contact-section .form{
+    height: 100%;
+    width: 100%;
+}
+
+
+main .contact-section{
+    background: url("../../assets/imgs/Contate\ a\ WeTravel.svg");
+    background-repeat: no-repeat;
+    background-position: left 10% top 10%;
+    background-size: 220px;
+
+}
+
+
+main .contact-section .form .inputs_box{
+    width: 300px;
+}
+
+
+main .contact-section .form .input_text{
+    width: 300px;
+}
+
+main .contact-section .form .btn{
+    width: 300px;
+}
+
+main .contact-section .form .btn button{
+    width: 146px;
+    height: 31px;
+}
+
 }
 @media screen and (max-width: 320px){
     :root{
@@ -442,6 +517,14 @@ main #projects #logo{
     background-size: 250px;
 }
 
+main #projects {
+    padding: 0px 2% 0px 2%;
+}
+
+main .project-section .box-carrossel {
+    margin-bottom: 70%;
+}
+
 main .project-section .box-carrossel .card {
   width: 240px;
   height: 240px;
@@ -451,4 +534,34 @@ main .project-section .box-carrossel .card {
 main .project-section .box-carrossel .card:nth-child(even) {
   margin-top: 0; /* ou o valor que você quiser */
 }
+
+main .contact-section .form{
+    height: 100%;
+    width: 100%;
+}
+
+main .contact-section{
+    background: url("../../assets/imgs/Contate\ a\ WeTravel.svg");
+    background-repeat: no-repeat;
+    background-position: left 10% top 10%;
+    background-size: 220px;
+}
+
+main .contact-section .form .inputs_box{
+    width: 300px;
+}
+
+main .contact-section .form .input_text{
+    width: 300px;
+}
+
+main .contact-section .form .btn{
+    width: 300px;
+}
+
+main .contact-section .form .btn button{
+    width: 146px;
+    height: 31px;
+}
+
 }
