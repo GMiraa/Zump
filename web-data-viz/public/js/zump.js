@@ -16,7 +16,6 @@ document.addEventListener("DOMContentLoaded", () =>{
 
         const payload = {
             emailServer: email,
-            senhaServer: senha
         };  
 
         try{
