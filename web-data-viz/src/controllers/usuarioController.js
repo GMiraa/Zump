@@ -35,7 +35,7 @@ function cadastrar(req, res) {
                         erro.sqlMessage
                     );
                     res.status(500).json(erro.sqlMessage);
-                }
+                } 
             );
     }
 }
