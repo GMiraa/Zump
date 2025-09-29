@@ -1,6 +1,6 @@
-CREATE DATABASE zump;
+CREATE DATABASE zump2;
 
-USE zump;
+USE zump2;
 
 CREATE TABLE usuario(
 idUsuario INT primary key auto_increment,

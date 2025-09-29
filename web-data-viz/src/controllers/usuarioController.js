@@ -2,11 +2,10 @@ var usuarioModel = require("../models/usuarioModel");
 
 function cadastrar(req, res) {
     // Crie uma variável que vá recuperar os valores do arquivo cadastro.html
-    var nome = req.body.nomeServer;
-    var email = req.body.emailServer;
-    var senha = req.body.senhaServer;
-    var fkEmpresa = req.body.idEmpresaVincularServer;
-    var cpf = req.body.cpfServer;
+    var nome = req.body.nome;
+    var email = req.body.email;
+    var senha = req.body.senha;
+    var tipo = req.body.tipo;
 
     // Faça as validações dos valores
     if (nome == undefined) {
@@ -22,7 +21,7 @@ function cadastrar(req, res) {
     }else{
 
         // Passe os valores como parâmetro e vá para o arquivo usuarioModel.js
-        usuarioModel.cadastrar(nome, email, senha, fkEmpresa, cpf)
+        usuarioModel.cadastrar(nome, email, senha, tipo)
             .then(
                 function (resultado) {
                     res.json(resultado);
@@ -40,6 +39,29 @@ function cadastrar(req, res) {
     }
 }
 
+function autenticar(req, res) {
+    
+    var email = req.body.email;
+    var senha = req.body.senha;
+
+        usuarioModel.autenticar(email, senha)
+            .then(
+                function (resultado) {
+                    res.json(resultado);
+                }
+            ).catch(
+                function (erro) {
+                    console.log(erro);
+                    console.log(
+                        "\nHouve um erro ao realizar o login! Erro: ",
+                        erro.sqlMessage
+                    );
+                    res.status(500).json(erro.sqlMessage);
+                } 
+            );
+}
+
 module.exports = {
-    cadastrar
+    cadastrar,
+    autenticar
 }

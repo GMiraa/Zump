@@ -8,4 +8,8 @@ router.post("/cadastrar", function (req, res) {
     usuarioController.cadastrar(req, res);
 })
 
+router.get("/entrar", function (req, res) {
+    usuarioController.entrar(req, res);
+}
+
 module.exports = router;

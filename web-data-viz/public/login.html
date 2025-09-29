@@ -3,38 +3,62 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Login-Zump</title>
-    <link rel="stylesheet" href="css/variables/variables-zump.css">
-    <script src="zump.js"></script>
+    <title>Document</title>
+    <script>
+       window.location.href = "wetravel.html";
+    </script>
 </head>
 <body>
-    <div class="background-elements">
-        <div id="cloud1"></div>
-        <div id="cloud2"></div>
-    </div>
-    <main class="container">
-        <div class="logo">
-            <a href="#"><img src="" alt=""></a>
-        </div>
-        <div class="login-box">
-            <h2>LOGIN</h2>
-            <form id="login-form">
-                <div class="input-group">
-                    <label for="email">Email</label>
-                    <input type="email" id="email" name="email" required>
-                </div>
-                <div class="input-group">
-                    <label for="senha">Senha</label>
-                    <input type="password" name="senha" id="senha" required>
-                </div>
-                <p class="register-link">
-                    Ainda não possui uma conta?
-                    <a href="#">Clique aqui</a>
-                    <button type="submit" class="login-button">login</button>
-                </p>
-            </form>
-            <p id="message"></p>
-        </div>
-    </main>
+
+    <h1>Login</h1>
+    
+    <p>Email</p>
+    <input type="text" name="" id="input_email"><br>
+    
+    <p>Senha</p>
+    <input type="text" name="" id="input_senha"><br>
+
+    <button onclick="Logar">Entrar</button>
+
 </body>
 </html>
+
+<script>
+
+    var email = input_email.value;
+    var senha = input_senha.value;
+
+    async function Logar() {
+        
+        fetch("/usuarios/autenticar", {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify({
+                emailServer: email,
+                senhaServer: senha
+            })
+        }).then(function (resposta) {
+            console.log("ESTOU NO THEN DO entrar()!")
+
+            if (resposta.ok) {
+                console.log(resposta);
+
+                resposta.json().then(json => {
+                    console.log(json);
+                    console.log(JSON.stringify(json));
+                    sessionStorage.EMAIL_USUARIO = json.email;
+                    sessionStorage.NOME_USUARIO = json.nome;
+                    sessionStorage.ID_USUARIO = json.id;
+                    sessionStorage.TIPO_USUARIO = json.tipo;
+
+                    setTimeout(function () {
+                        window.location = "./index.html";
+                    }, 1000); // apenas para exibir o loading
+
+                });
+
+    }
+
+</script>
