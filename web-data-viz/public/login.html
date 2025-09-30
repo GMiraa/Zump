@@ -3,10 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <script>
-       window.location.href = "wetravel.html";
-    </script>
+    <title>Login | Zump</title>
 </head>
 <body>
 
@@ -18,26 +15,29 @@
     <p>Senha</p>
     <input type="text" name="" id="input_senha"><br>
 
-    <button onclick="Logar">Entrar</button>
+    <div id="div_mensagem"></div>
+
+    <button onclick="logar()">Entrar</button>
 
 </body>
 </html>
 
 <script>
 
-    var email = input_email.value;
-    var senha = input_senha.value;
-
-    async function Logar() {
+    
+    function logar() {
         
+        var email = input_email.value;
+        var senha = input_senha.value;
+
         fetch("/usuarios/autenticar", {
             method: "POST",
             headers: {
                 "Content-Type": "application/json"
             },
             body: JSON.stringify({
-                emailServer: email,
-                senhaServer: senha
+                emailUsuario: email,
+                senhaUsuario: senha
             })
         }).then(function (resposta) {
             console.log("ESTOU NO THEN DO entrar()!")
@@ -48,17 +48,37 @@
                 resposta.json().then(json => {
                     console.log(json);
                     console.log(JSON.stringify(json));
-                    sessionStorage.EMAIL_USUARIO = json.email;
-                    sessionStorage.NOME_USUARIO = json.nome;
-                    sessionStorage.ID_USUARIO = json.id;
-                    sessionStorage.TIPO_USUARIO = json.tipo;
+                    sessionStorage.EMAIL_USUARIO = json.emailUsuario;
+                    sessionStorage.NOME_USUARIO = json.nomeUsuario;
+                    sessionStorage.ID_USUARIO = json.idUsuario;
+                    sessionStorage.TIPO_USUARIO = json.tipoUsuario;
 
+                    div_mensagem.innerHTML = `Redirecionando...`;
                     setTimeout(function () {
                         window.location = "./index.html";
-                    }, 1000); // apenas para exibir o loading
+                    }, 2000); // apenas para exibir o loading
 
                 });
 
-    }
+            } else {
+
+                console.log("Houve um erro ao tentar realizar o login!");
+
+                div_mensagem.innerHTML = `Email ou senha incorretos!`;
+                div_mensagem.innerHTML +=`<br>Tentativas restantes: ${tentativas}`;
+                tentativas--;
+
+                resposta.text().then(texto => {
+                    console.error(texto);
+                });
+            }
+
+        }).catch(function (erro) {
+            console.log(erro);
+        })
+
+        return false;
+
+        }
 
 </script>

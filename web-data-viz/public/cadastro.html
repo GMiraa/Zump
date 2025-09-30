@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Cadastro | Zump</title>
 </head>
 <body>
     
@@ -16,32 +16,33 @@
     <input type="text" id="input_email"><br>
     
     <p>Senha</p>
-    <input type="text" id="input_senha"><br>
+    <input type="password" id="input_senha"><br>
 
     <div id="mensagem"></div>
 
-    <button onclick="Cadastrar">Cadastrar</button>
+    <button onclick="cadastrar()">Cadastrar</button>
 
 </body>
 </html>
 
 <script>
 
-    var nome = input_nome.value;
-    var email = input_email.value;
-    var senha = input_senha.value;
-    var tipo = "Comum"
-
-    async function Cadastrar() {
-
+  
+  function cadastrar(){
+    
+      var nome = input_nome.value;
+      var email = input_email.value;
+      var senha = input_senha.value;
+      var tipo = "Comum"
+    
         if(nome == "" || email == "" || senha == ""){
 
-            mensagem.innerHTML = "Um ou mais campos <b>obrigatórios vazios</b>";
+            mensagem.innerHTML = "Um ou mais campos <b>obrigatórios</b> vazios";
             setTimeout(() => {
                 mensagem.innerHTML = "";                
             }, 4000);            
 
-        }
+        } else {
         
         fetch('/usuarios/cadastrar', {
             method: "POST",
@@ -49,10 +50,10 @@
               "Content-Type": "application/json"
             },
             body: JSON.stringify({
-              nomeServer: nome,
-              emailServer: email,
-              senhaServer: senha,
-              tipoServer: tipo
+              nomeUsuario: nome,
+              emailUsuario: email,
+              senhaUsuario: senha,
+              tipoUsuario: tipo
             })
           })
           alert("Cadastro realizado com sucesso")
@@ -61,5 +62,6 @@
           }, 1000);
 
     }
+  }
 
 </script>
