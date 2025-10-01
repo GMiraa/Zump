@@ -1,20 +1,92 @@
-CREATE DATABASE zump1;
-
-USE zump1;
-
-CREATE TABLE usuario(
-idUsuario INT primary key auto_increment,
-nomeUsuario VARCHAR(45),
-emailUsuario VARCHAR(60),
-senhaUsuario VARCHAR(30),
-tipoUsuario VARCHAR(30),
-constraint ckhTipo check(tipoUsuario in("Administrador", "Comum"))
+CREATE TABLE IF NOT EXISTS `cliente` (
+  `idCliente` INT NOT NULL AUTO_INCREMENT,
+  `nome` VARCHAR(45) NOT NULL,
+  `numero` VARCHAR(45) NOT NULL,
+  `email` VARCHAR(45) NOT NULL,
+  `cidade` VARCHAR(45) NOT NULL,
+  `nascimento` VARCHAR(45) NOT NULL,
+  PRIMARY KEY (`idCliente`)
 );
 
-INSERT INTO usuario (nomeUsuario, emailUsuario, senhaUsuario, tipoUsuario) VALUES ("Guilherme", "guilherme@gmail.com", "gui12345", "Administrador"),
-																				  ("Vitor", "vitor@gmail.com", "vitor12345", "Administrador"),
-                                                                                  ("Ana", "ana@gmail.com", "ana12345", "Administrador"),
-                                                                                  ("Lucas", "lucas@gmail.com", "lucas12345", "Administrador"),
-                                                                                  ("Samuel", "samuel@gmail.com", "samuel12345", "Administrador"),
-                                                                                  ("Matheus", "matheus@gmail.com", "ma12345", "Administrador");
-                                                                                  
+CREATE TABLE IF NOT EXISTS `usuario` (
+  `idUsuario` INT NOT NULL AUTO_INCREMENT,
+  `idCliente` INT NOT NULL,
+  `nome` VARCHAR(45) NOT NULL,
+  `cargo` VARCHAR(45) NOT NULL,
+  `email` VARCHAR(45) NOT NULL,
+  `senha` VARCHAR(45) NOT NULL,
+  PRIMARY KEY (`idUsuario`, `idCliente`),
+  INDEX `fk_usuario_cliente1_idx` (`idCliente`),
+  CONSTRAINT `fk_usuario_cliente1`
+    FOREIGN KEY (`idCliente`)
+    REFERENCES `cliente` (`idCliente`)
+);
+
+CREATE TABLE IF NOT EXISTS `acao` (
+  `idAcao` INT NOT NULL,
+  `descricao` VARCHAR(45) NOT NULL,
+  `acao` VARCHAR(45) NOT NULL,
+  PRIMARY KEY (`idAcao`)
+);
+
+CREATE TABLE IF NOT EXISTS `pacote` (
+  `idPacote` INT NOT NULL,
+  `nome` VARCHAR(45) NOT NULL,
+  `descricao` VARCHAR(45) NOT NULL,
+  `qtd_dia` INT NOT NULL,
+  `qtd_noite` INT NOT NULL,
+  `preco` DECIMAL(10,2) NOT NULL,
+  PRIMARY KEY (`idPacote`)
+);
+
+CREATE TABLE IF NOT EXISTS `logs` (
+  `fk_acao` INT NOT NULL AUTO_INCREMENT,
+  `fk_usuario` INT NOT NULL,
+  `data` DATE NOT NULL,
+  `descricao` VARCHAR(100) NOT NULL,
+  PRIMARY KEY (`fk_acao`, `fk_usuario`),
+  INDEX `fk_acao_has_usuario_usuario1_idx` (`fk_usuario`),
+  INDEX `fk_acao_has_usuario_acao_idx` (`fk_acao`),
+  CONSTRAINT `fk_acao_has_usuario_acao`
+    FOREIGN KEY (`fk_acao`)
+    REFERENCES `acao` (`idAcao`),
+  CONSTRAINT `fk_acao_has_usuario_usuario1`
+    FOREIGN KEY (`fk_usuario`)
+    REFERENCES `usuario` (`idUsuario`)
+);
+
+CREATE TABLE IF NOT EXISTS `avaliacao` (
+  `pkPacote` INT NOT NULL,
+  `pkCliente` INT NOT NULL,
+  `idAvaliacao` INT NOT NULL AUTO_INCREMENT,
+  `nota` INT NOT NULL,
+  PRIMARY KEY (`idAvaliacao`),
+  INDEX `fk_pacote_has_cliente_cliente1_idx` (`pkCliente`),
+  INDEX `fk_pacote_has_cliente_pacote1_idx` (`pkPacote`),
+  CONSTRAINT `fk_pacote_has_cliente_pacote1`
+    FOREIGN KEY (`pkPacote`)
+    REFERENCES `pacote` (`idPacote`),
+  CONSTRAINT `fk_pacote_has_cliente_cliente1`
+    FOREIGN KEY (`pkCliente`)
+    REFERENCES `cliente` (`idCliente`)
+);
+
+CREATE TABLE IF NOT EXISTS `destino` (
+  `idDestino` INT NOT NULL AUTO_INCREMENT,
+  `pkPacote` INT NOT NULL,
+  `uf` CHAR(2) NOT NULL,
+  `municipio` VARCHAR(60) NOT NULL,
+  `possui_aeroporto` TINYINT NOT NULL,
+  `possui_guia` TINYINT NOT NULL,
+  `qtd_guia` INT NOT NULL,
+  `modais_acesso` VARCHAR(100) NOT NULL,
+  `possui_conservacao` TINYINT NOT NULL,
+  `possui_termais` TINYINT NOT NULL,
+  `presenca_hidrica` VARCHAR(45) NOT NULL,
+  `destinocol` VARCHAR(45) NOT NULL,
+  PRIMARY KEY (`idDestino`, `pkPacote`),
+  INDEX `fk_destino_pacote1_idx` (`pkPacote`),
+  CONSTRAINT `fk_destino_pacote1`
+    FOREIGN KEY (`pkPacote`)
+    REFERENCES `pacote` (`idPacote`)
+);
