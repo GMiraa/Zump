@@ -1,0 +1,237 @@
+@import url("../variables/variables-zump.css");
+@import url('https://fonts.googleapis.com/css2?family=Aclonica&family=Hubot+Sans:ital,wght@0,200..900;1,200..900&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Roboto:ital,wght@0,100..900;1,100..900&family=Shrikhand&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Aclonica&family=Hubot+Sans:ital,wght@0,200..900;1,200..900&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=MuseoModerno:ital,wght@0,100..900;1,100..900&family=Roboto:ital,wght@0,100..900;1,100..900&family=Shrikhand&display=swap');
+
+*{
+    margin: 0; padding: 0;
+    text-decoration: none; box-sizing: border-box;
+    list-style: none; scroll-behavior: smooth;
+    font-size: var(--font-size-small); 
+    font-family: var(--font-family-texts);
+}
+
+body{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100vh;
+    background-color: var(--white);
+    background-image: url("../../assets/imgs/fundoHome.svg");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    position: relative;
+    overflow: hidden;
+}
+
+#blackBody{
+    position: absolute;
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(0, 0, 0, 0.397);
+    overflow: hidden;
+}
+
+
+#blackBody img {
+    z-index: 3;
+    position: absolute;
+    width: 300px;
+    opacity: 0;
+}
+#blackBody img:nth-child(1){
+    top: 10%;
+    left: 5%;
+    animation: animado 17s linear infinite;
+    animation-delay: 0s;
+}
+#blackBody img:nth-child(2){
+    top: 30%;
+    left: 40%;
+    animation: animado 15s linear infinite;
+    animation-delay: 0.5s;
+}
+#blackBody img:nth-child(3){
+    top: 70%;
+    left: 20%;
+    animation: animado 25s linear infinite;
+    animation-delay: 1s;
+}
+#blackBody img:nth-child(4){
+    top: 50%;
+    right: 10%;
+    animation: animado 18s linear infinite;
+    animation-delay: 1.5s;
+}
+#blackBody img:nth-child(5){
+    top: 5%;
+    right: 10%;
+    animation: animado 10s linear infinite;
+    animation-delay: 2s;
+}
+
+@keyframes animado {
+    0% {
+        opacity: 1;
+        transform: translateX(100vw); /* entra da direita */
+    }
+    100% {
+        transform: translateX(-100vw); /* sai pela esquerda */
+    }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+#gradient{
+    display: flex;
+    justify-content: end;
+    position: absolute;
+    top: 0px;
+    width: 100%;
+    height: 30%;
+    background: linear-gradient(180deg, #ffffff60, #ffffff00);
+     z-index: 6;
+}
+
+#gradient img{
+    position: absolute;
+    top: 8%;
+    left: 4%;
+    width: 10%;
+}
+
+
+.boxButtons{
+    display: flex;
+    align-items: end;
+    justify-content: end;
+    padding-right: 50px;
+    width: 400px;
+    height: 100px;
+    gap: 18px;
+}
+
+.boxButtons .buttonCadastro{
+    width: 170px;
+    height: 40px;
+    text-align: center;
+    line-height: 40px;
+    color: var(--azul-Z4-);
+    border-radius: 40px;
+    font-size: var(--font-size-regular);
+    background-color: var(--white);
+    cursor: pointer;
+    margin-bottom: 5px;
+    transition: .3s;
+}
+
+.boxButtons .buttonLogin{
+    width: 50px;
+    height: 50px;
+    text-align: center;
+    line-height: 50px;
+    border-radius: 50px;
+    background-color: var(--white);
+    cursor: pointer;
+    background-image: url("../../assets/icon/Login.svg");
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-size: 30px;
+    transition: .3s;
+}
+
+.boxButtons .buttonLogin:hover{
+    transform: rotate(360deg) scale(1.1);
+}
+.boxButtons .buttonCadastro:hover{
+    transform: scale(1.05);
+}
+
+
+
+#blob_footer{
+    position: absolute; 
+    width: 100%;
+    bottom: 0;
+    z-index: 2;
+}
+
+#card01, #card02{
+    position: absolute;
+    z-index: 4;
+    pointer-events: none;
+}
+
+#card01{
+    width: 30%;
+    left: 2%;
+    bottom: 2%;
+}
+#card02{
+    width: 20%;
+    right: 5%;
+    bottom: 30%;
+}
+
+.box-text{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    width: 100%;
+    z-index: 4;
+    color: var(--white);
+}
+
+.box-text h1, .box-text span { 
+    text-align: center;
+    font-size: var(--font-size-extra-larguer);
+    font-family: var(--font-family-modern);
+    font-weight: var(--font-weight-medium);
+}
+
+.box-text span{
+    padding: 0px 8px;
+    border-radius: 8px;
+    background-color: var(--white);
+    color: var(--azul-Z4-);
+}
+
+.box-text p{
+    text-align: center;
+    font-size: var(--font-size-larguer);
+    font-family: var(--font-family-texts);
+    font-weight: var(--font-weight-regular);
+    width: 30%;
+}
+
+.box-text #buttonAcess{
+    text-align: center;
+    line-height: 40px;
+    font-size: var(--font-size-regular);
+    width: 180px;
+    height: 40px;
+    border-radius: 40px;
+    color: var(--white);
+    background-color: var(--azul-Z4-);
+    margin-top: 30px;
+    transition: .3s ease-in-out;
+}
+
+.box-text #buttonAcess:hover{
+    background-color: var(--azul-Z2-);
+    transform: scale(1.1);
+}
