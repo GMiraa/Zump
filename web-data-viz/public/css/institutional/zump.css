@@ -235,3 +235,26 @@ body{
     background-color: var(--azul-Z2-);
     transform: scale(1.1);
 }
+
+#aviao01{
+    width: 550px;
+    position: absolute;
+    right: 0px; 
+    top: 10%;   
+}
+
+#aviao02{
+    width: 550px;
+    position: absolute;
+    left: 0px; 
+    top: 20%;   
+    transform: rotate(160deg);
+}
+
+#aviao03{
+    width: 550px;
+    position: absolute;
+    bottom: -20%;
+    transform: rotate(90deg);
+
+}
