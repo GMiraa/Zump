@@ -201,6 +201,7 @@ body{
     font-size: var(--font-size-extra-larguer);
     font-family: var(--font-family-modern);
     font-weight: var(--font-weight-medium);
+    width: 50%;
 }
 
 .box-text span{
@@ -212,10 +213,11 @@ body{
 
 .box-text p{
     text-align: center;
+    margin-top: 10px;
     font-size: var(--font-size-larguer);
     font-family: var(--font-family-texts);
     font-weight: var(--font-weight-regular);
-    width: 30%;
+    width: 35%;
 }
 
 .box-text #buttonAcess{
@@ -226,12 +228,8 @@ body{
     height: 40px;
     border-radius: 40px;
     color: var(--white);
-    background-color: var(--azul-Z4-);
     margin-top: 30px;
     transition: .3s ease-in-out;
-}
-
-.box-text #buttonAcess:hover{
     background-color: var(--azul-Z2-);
     transform: scale(1.1);
 }
@@ -256,5 +254,4 @@ body{
     position: absolute;
     bottom: -20%;
     transform: rotate(90deg);
-
 }

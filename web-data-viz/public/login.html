@@ -3,28 +3,67 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Login | Zump</title>
+    <link rel="shortcut icon" href="assets/icon/zumpFavicon.png" type="image/x-icon">
+    <link rel="stylesheet" href="css/institutional/loginZump.css">
+    <title>Web Site - Zump Login</title>
 </head>
 <body>
+    <div id="blackBody">
+    </div>
+    <div id="blobs"> 
+    </div>
+    <main id="container">
+            <header>
+                <nav>
+                    <ul>
+                        <li><a href="zump.html">Home</a></li>
+                        <li><a href="cadastro.html">Cadastrar</a></li>
+                    </ul>
+                </nav>
+            </header>
+        <section class="conteudo">
+            <div class="boxLogin">
+                <h1>LOGIN</h1>
+                <div class="boxInputs">
+                    <div id="div_mensagem"></div>
+                    <div class="inputs">
+                        <label for="input_email">Email</label>
+                        <input type="text" placeholder="Insira seu email aqui..." id="input_email">
+                    </div>
+                    <div class="inputs">
+                        <label for="input_senha">Senha</label>
+                        <input type="text" placeholder="Insira sua senha aqui..." id="input_senha">
+                    </div>
+                </div>
+                <div class="infosBox">
+                    <p>ainda não possui uma conta? <span>
+                        <a href="cadastro.html">clique aqui</a></span></p>
+                    <p>esqueceu a senha? <span><a href="#">clique aqui</a></span></p>
+                </div>
+                <button onclick="logar()" id="btnLogar">login</button>
+            </div>
+        </section>
+    </main>
 
-    <h1>Login</h1>
     
+
+
+
+    <!--
+    <h1>Login</h1>
     <p>Email</p>
     <input type="text" name="" id="input_email"><br>
-    
     <p>Senha</p>
     <input type="text" name="" id="input_senha"><br>
-
     <div id="div_mensagem"></div>
+    <button onclick="logar()">Entrar</button> -->
+    
 
-    <button onclick="logar()">Entrar</button>
 
 </body>
 </html>
 
 <script>
-
-    
     function logar() {
         
         var email = input_email.value;
