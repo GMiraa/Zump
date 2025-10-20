@@ -3,11 +3,70 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Cadastro | Zump</title>
+    <link rel="stylesheet" href="css/institutional/cadastroZump.css">
+     <link rel="shortcut icon" href="assets/icon/zumpFavicon.png" type="image/x-icon">
+    <title>Web Site - Zump Cadastro</title>
 </head>
 <body>
+
+
+      <div id="blackBody">
+    </div>
+    <div id="blobs"> 
+    </div>
+    <main id="container">
+            <header>
+                <nav>
+                    <ul>
+                        <li><a href="zump.html">Home</a></li>
+                        <li><a href="login.html">Login</a></li>
+                    </ul>
+                </nav>
+            </header>
+        <section class="conteudo">
+          <div class="box_cad">
+            <h1>CADASTRO</h1>
+            <div class="coteudoCad">
+                <div class="box_inputs_cad">
+                   <div class="boxInputs">
+                    <div id="mensagem"></div>
+                    <div class="inputs">
+                        <label for="input_nome">Nome</label>
+                        <input type="text" placeholder="Insira seu email aqui..." id="input_nome">
+                    </div>
+                    <div class="inputs">
+                        <label for="input_cpf">CPF</label>
+                        <input type="text" placeholder="000.000.000-00" id="input_cpf">
+                    </div>
+                    <div class="inputs">
+                        <label for="input_email">Email</label>
+                        <input type="text" placeholder="Insira seu email aqui..." id="input_email">
+                    </div>
+                    <div class="inputs">
+                        <label for="input_senha">Senha</label>
+                        <input type="text" placeholder="Insira sua senha aqui..." id="input_senha">
+                    </div>
+                    <div class="inputs">
+                        <label for="input_confirmar">Confirmar senha</label>
+                        <input type="text" placeholder="Confirmar senha..." id="input_confirmar">
+                    </div>
+                </div>
+                <div class="infosBox">
+                    <p>Já possui uma conta? <span><a href="login.html">clique aqui</a></span></p>
+                </div>
+                <button onclick="cadastrar()" id="btnCadastrar">realizar cadastro</button>
+                </div>
+                <div class="boxFoto">
+
+                  <div class="box_perfil_foto"></div>
+                  <button id="btnSelecionarFoto">selecionar foto</button>
+                </div>
+            </div>
+          </div>
+        </section>
+    </main>
     
-    <h1>Cadastro</h1>
+    <!-- <h1>Cadastro</h1>
     
     <p>Nome</p>
     <input type="text" id="input_nome">
@@ -20,7 +79,7 @@
 
     <div id="mensagem"></div>
 
-    <button onclick="cadastrar()">Cadastrar</button>
+    <button onclick="cadastrar()">Cadastrar</button> -->
 
 </body>
 </html>
@@ -37,7 +96,7 @@
     
         if(nome == "" || email == "" || senha == ""){
 
-            mensagem.innerHTML = "Um ou mais campos <b>obrigatórios</b> vazios";
+            mensagem.innerHTML = `<p style="background: white; color: red; padding: 5px 10px; border-radius: 5px;">Um ou mais campos <b>obrigatórios</b> vazios</p>`;
             setTimeout(() => {
                 mensagem.innerHTML = "";                
             }, 4000);            

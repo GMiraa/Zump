@@ -1,53 +1,63 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="shortcut icon" href="assets/icon/zumpFavicon.png" type="image/x-icon">
-    <link rel="stylesheet" href="css/institutional/loginZump.css">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="shortcut icon"
+      href="assets/icon/zumpFavicon.png"
+      type="image/x-icon"
+    />
+    <link rel="stylesheet" href="css/institutional/loginZump.css" />
     <title>Web Site - Zump Login</title>
-</head>
-<body>
-    <div id="blackBody">
-    </div>
-    <div id="blobs"> 
-    </div>
+  </head>
+  <body>
+    <div id="blackBody"></div>
+    <div id="blobs"></div>
     <main id="container">
-            <header>
-                <nav>
-                    <ul>
-                        <li><a href="zump.html">Home</a></li>
-                        <li><a href="cadastro.html">Cadastrar</a></li>
-                    </ul>
-                </nav>
-            </header>
-        <section class="conteudo">
-            <div class="boxLogin">
-                <h1>LOGIN</h1>
-                <div class="boxInputs">
-                    <div id="div_mensagem"></div>
-                    <div class="inputs">
-                        <label for="input_email">Email</label>
-                        <input type="text" placeholder="Insira seu email aqui..." id="input_email">
-                    </div>
-                    <div class="inputs">
-                        <label for="input_senha">Senha</label>
-                        <input type="text" placeholder="Insira sua senha aqui..." id="input_senha">
-                    </div>
-                </div>
-                <div class="infosBox">
-                    <p>ainda não possui uma conta? <span>
-                        <a href="cadastro.html">clique aqui</a></span></p>
-                    <p>esqueceu a senha? <span><a href="#">clique aqui</a></span></p>
-                </div>
-                <button onclick="logar()" id="btnLogar">login</button>
+      <header>
+        <nav>
+          <ul>
+            <li><a href="zump.html">Home</a></li>
+            <li><a href="cadastro.html">Cadastrar</a></li>
+          </ul>
+        </nav>
+      </header>
+      <section class="conteudo">
+        <div class="boxLogin">
+          <h1>LOGIN</h1>
+          <div class="boxInputs">
+            <div id="div_mensagem"></div>
+            <div class="inputs">
+              <label for="input_email">Email</label>
+              <input
+                type="text"
+                placeholder="Insira seu email aqui..."
+                id="input_email"
+              />
             </div>
-        </section>
+            <div class="inputs">
+              <label for="input_senha">Senha</label>
+              <input
+                type="text"
+                placeholder="Insira sua senha aqui..."
+                id="input_senha"
+              />
+            </div>
+          </div>
+          <div class="infosBox">
+            <p>
+              ainda não possui uma conta?
+              <span> <a href="cadastro.html">clique aqui</a></span>
+            </p>
+            <p>
+              esqueceu a senha? <span><a href="#">clique aqui</a></span>
+            </p>
+          </div>
+          <button onclick="logar()" id="btnLogar">login</button>
+        </div>
+      </section>
     </main>
-
-    
-
-
 
     <!--
     <h1>Login</h1>
@@ -57,67 +67,65 @@
     <input type="text" name="" id="input_senha"><br>
     <div id="div_mensagem"></div>
     <button onclick="logar()">Entrar</button> -->
-    
-
-
-</body>
+  </body>
 </html>
 
 <script>
-    function logar() {
-        
-        var email = input_email.value;
-        var senha = input_senha.value;
+  let tentativas = 3;
+  function logar() {
+    var email = input_email.value;
+    var senha = input_senha.value;
 
-        fetch("/usuarios/autenticar", {
-            method: "POST",
-            headers: {
-                "Content-Type": "application/json"
-            },
-            body: JSON.stringify({
-                emailUsuario: email,
-                senhaUsuario: senha
-            })
-        }).then(function (resposta) {
-            console.log("ESTOU NO THEN DO entrar()!")
+    fetch("/usuarios/autenticar", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        emailUsuario: email,
+        senhaUsuario: senha,
+      }),
+    })
+      .then(function (resposta) {
+        console.log("ESTOU NO THEN DO entrar()!");
 
-            if (resposta.ok) {
-                console.log(resposta);
+        if (resposta.ok) {
+          console.log(resposta);
 
-                resposta.json().then(json => {
-                    console.log(json);
-                    console.log(JSON.stringify(json));
-                    sessionStorage.EMAIL_USUARIO = json.emailUsuario;
-                    sessionStorage.NOME_USUARIO = json.nomeUsuario;
-                    sessionStorage.ID_USUARIO = json.idUsuario;
-                    sessionStorage.TIPO_USUARIO = json.tipoUsuario;
+          resposta.json().then((json) => {
+            console.log(json);
+            console.log(JSON.stringify(json));
+            sessionStorage.EMAIL_USUARIO = json.emailUsuario;
+            sessionStorage.NOME_USUARIO = json.nomeUsuario;
+            sessionStorage.ID_USUARIO = json.idUsuario;
+            sessionStorage.TIPO_USUARIO = json.tipoUsuario;
 
-                    div_mensagem.innerHTML = `Redirecionando...`;
-                    setTimeout(function () {
-                        window.location = "./index.html";
-                    }, 2000); // apenas para exibir o loading
+            div_mensagem.innerHTML = `Redirecionando...`;
+            setTimeout(function () {
+              window.location = "./index.html";
+            }, 2000); // apenas para exibir o loading
+          });
+        } else {
+          console.log("Houve um erro ao tentar realizar o login!");
 
-                });
+          div_mensagem.innerHTML = `<p style="background: white; color: blue; padding: 5px 10px; border-radius: 5px;">Email ou senha incorretos! tentativa: ${tentativas}</p>`;
+          tentativas--;
 
-            } else {
+          if (tentativas < 0) {
+            email.disabled = true;
+            senha.disabled = true;
+            div_mensagem.innerHTML = `<p style="background: white; color: red; padding: 5px 10px; border-radius: 5px;">Você atingiu o limite de tentativas. Tente mais tarde.</p>`;
+          }
 
-                console.log("Houve um erro ao tentar realizar o login!");
-
-                div_mensagem.innerHTML = `Email ou senha incorretos!`;
-                div_mensagem.innerHTML +=`<br>Tentativas restantes: ${tentativas}`;
-                tentativas--;
-
-                resposta.text().then(texto => {
-                    console.error(texto);
-                });
-            }
-
-        }).catch(function (erro) {
-            console.log(erro);
-        })
-
-        return false;
-
+          resposta.text().then((texto) => {
+            console.error(texto);
+          });
         }
+      })
+      .catch(function (erro) {
+        console.log(erro);
+      });
 
+    return false;
+  }
 </script>
