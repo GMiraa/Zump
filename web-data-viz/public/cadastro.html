@@ -91,10 +91,12 @@
     
       var nome = input_nome.value;
       var email = input_email.value;
+      var confSenha = input_confirmar.value;
       var senha = input_senha.value;
+      var cpf = input_cpf.value;
       var tipo = "Comum"
     
-        if(nome == "" || email == "" || senha == ""){
+        if(nome == "" || email == "" || senha == "" || confSenha == "" || cpf == "" ){
 
             mensagem.innerHTML = `<p style="background: white; color: red; padding: 5px 10px; border-radius: 5px;">Um ou mais campos <b>obrigatórios</b> vazios</p>`;
             setTimeout(() => {

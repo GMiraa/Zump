@@ -113,7 +113,7 @@ body{
 }
 
 
-.boxButtons{
+#boxButtons{
     display: flex;
     align-items: end;
     justify-content: end;
@@ -123,7 +123,7 @@ body{
     gap: 18px;
 }
 
-.boxButtons .buttonCadastro{
+#boxButtons .buttonCadastro{
     width: 170px;
     height: 40px;
     text-align: center;
@@ -137,7 +137,7 @@ body{
     transition: .3s;
 }
 
-.boxButtons .buttonLogin{
+#boxButtons .buttonLogin{
     width: 50px;
     height: 50px;
     text-align: center;
@@ -152,10 +152,10 @@ body{
     transition: .3s;
 }
 
-.boxButtons .buttonLogin:hover{
+#boxButtons .buttonLogin:hover{
     transform: rotate(360deg) scale(1.1);
 }
-.boxButtons .buttonCadastro:hover{
+#boxButtons .buttonCadastro:hover{
     transform: scale(1.05);
 }
 

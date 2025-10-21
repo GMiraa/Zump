@@ -3,12 +3,13 @@ function validarSessao() {
     var email = sessionStorage.EMAIL_USUARIO;
     var nome = sessionStorage.NOME_USUARIO;
 
-    var b_usuario = document.getElementById("b_usuario");
+    var boxButtons = document.getElementById("boxButtons");
 
     if (email != null && nome != null) {
-        b_usuario.innerHTML = nome;
+        nomeDisplay.innerHTML = nome;
+        boxButtons.innerHTML = `<a onclick="limparSessao()">sair</a>`;
     } else {
-        window.location = "../login.html";
+        
     }
 }
 
