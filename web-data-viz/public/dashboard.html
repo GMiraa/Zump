@@ -3,9 +3,204 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Dashboad | Zump</title>
+     <link
+      rel="shortcut icon"
+      href="assets/icon/zumpFavicon.png"
+      type="image/x-icon"
+    />
+    <link rel="stylesheet" href="css/institutional/dashboard.css"/>
+    <title>Dashboard - Zump</title>
 </head>
 <body>
+    <button id="abrir_menu" onclick="abrirMenu()"></button>
+    <header class="menu" id="menuNav">
+        <button id="interagir_menu" onclick="fecharMenu()"></button>
+        <div class="conteudo" id="conteudo_menu">
+            <div class="boxFoto">
+                <div id="foto_user"></div>
+                <h3 id="name_user">Marta Yamatha</h3>
+                <button>deslogar</button>
+            </div>
+            <div class="box_hora">
+                <h2 id="hora">15:37</h2>
+                <h3 id="data">Terça-feira, 14 nov 2025</h3>
+            </div>
+            <div class="box_sessoes">
+                <h2 id="home_session">Home <span></span></h2>
+                <h2 id="clientes_session">Clientes</h2>
+                <h2 id="consultores_session">Consultores</h2>
+            </div>
+
+
+        </div>
+    </header>
+
+    <section id="dashboard_section">
+        <div class="box_topo">
+            <div class="card">
+                <h2><img src="assets/icon/Arrow up-right.svg" alt="arrow"><span id="porcentFaturaMensal">7%</span> - <span id="aumentoFaturamento">79,450.00</span></h2>
+                <p id="ftrMensal">R$ 149,300.00</p>
+                <p>faturamento mensal</p>
+            </div>
+            <div class="card">
+                <h2><img src="assets/icon/Arrow up-right.svg" alt="arrow"><span id="qtdUnidadesVendas">5</span> - unidades</h2>
+                <p id="vendasPacote">42</p>
+                <p>vendas de pacote</p>
+            </div>
+            <div class="card">
+                <h2><img src="assets/icon/Arrow up-right.svg" alt="arrow"><span id="porcentMedia">15%</span> - <span id="aumentoMedia">3,400.00</span></h2>
+                <p id="medVendas">R$ 149,300.00</p>
+                <p>média de vendas</p>
+            </div>
+            <div class="card">
+                <h2><img src="assets/icon/Arrow Down-right.svg" alt="arrow"><span id="porcentClientNovos">4%</span> - <span id="qdtClientesNovos">7</span> clientes</h2>
+                <p id="clientesNovos">5</p>
+                <p>clientes novos</p>
+            </div>
+             
+        </div>
+        <div class="box_meio">
+            <div class="box_grafico">
+
+            </div>
+            <div class="box_cidades">
+                
+            </div>
+        </div>
+        <div class="box_rodape">
+            <div class="box_consultores">
+
+            </div>
+            <div class="box_pacotes">
+                
+            </div>
+        </div>
+        
+    </section>
+     <section id="clientes_section">
+        <h1>Clientes</h1>
+    </section>
+     <section id="consultores_section">
+        <h1>Consultores</h1>
+    </section>
     
 </body>
 </html>
+
+
+<script>
+
+    const menuNav = document.getElementById("menuNav");
+    const abrir = document.getElementById("abrir_menu");
+
+    function fecharMenu(){
+        menuNav.style.width = "20px";
+        conteudo_menu.style.opacity = "0";
+        conteudo_menu.style.transition = "none"
+        interagir_menu.style.transform = "Rotate(180deg)"
+        
+        setTimeout(() => {
+            interagir_menu.style.opacity = 0;
+        }, 400);
+        interagir_menu.style.transition = ".2s";
+        
+        setTimeout(() => {
+        abrir.style.display = "block";
+        abrir.classList.add("animar");
+        abrir.style.opacity = 1;
+        interagir_menu.style.display = "none"
+        }, 900);
+    }
+
+    function abrirMenu(){
+        menuNav.style.width = "290px";
+        interagir_menu.style.opacity = 1;
+        interagir_menu.style.display = "block"
+        abrir.classList.remove("animar"); 
+        abrir.style.display = "none";
+        interagir_menu.style.transform = "none"
+        setTimeout(() => {
+            conteudo_menu.style.opacity = "1";
+            conteudo_menu.style.transition = ".5s linear"
+        }, 850);
+    }
+
+
+
+
+    const barra = document.createElement("div");
+    barra.style.position = "absolute";
+    barra.style.width = "0";
+    barra.style.height = "3px";
+    barra.style.backgroundColor = "white";
+    barra.style.bottom = "-10px";
+    barra.style.borderRadius = "3px";
+    barra.style.transition = "width 0.3s ease";
+
+    const homeSession = document.getElementById("home_session");
+    const clientesSession = document.getElementById("clientes_session");
+    const consultoresSession = document.getElementById("consultores_session");
+    const dashboardSection = document.getElementById("dashboard_section");
+    const clientesSection = document.getElementById("clientes_section");
+    const consultoresSection = document.getElementById("consultores_section");
+
+    [homeSession, clientesSession, consultoresSession].forEach(el => {
+        el.style.position = "relative";
+        el.style.cursor = "pointer";
+    });
+
+    homeSession.appendChild(barra);
+    dashboardSection.style.display = "flex";
+    clientesSection.style.display = "none";
+    consultoresSection.style.display = "none";
+
+    function mudarSessao(ativo, sectionMostrar) {
+        ativo.appendChild(barra);
+        barra.style.width = "0";
+        setTimeout(() => {
+            barra.style.width = "40px";
+        }, 10);
+        document.querySelectorAll(".box_sessoes h2").forEach(el => el.classList.remove("active"));
+        ativo.classList.add("active");
+        dashboardSection.style.display = "none";
+        clientesSection.style.display = "none";
+        consultoresSection.style.display = "none";
+        sectionMostrar.style.display = "flex";
+    }
+
+    homeSession.addEventListener("click", () => mudarSessao(homeSession, dashboardSection));
+    clientesSession.addEventListener("click", () => mudarSessao(clientesSession, clientesSection));
+    consultoresSession.addEventListener("click", () => mudarSessao(consultoresSession, consultoresSection)); 
+
+
+
+    function atualizarHora() {
+        const agora = new Date();
+
+        const hora = agora.getHours().toString().padStart(2, "0");
+        const minutos = agora.getMinutes().toString().padStart(2, "0");
+        document.getElementById("hora").textContent = `${hora}:${minutos}`;
+
+        const diasSemana = [
+            "Domingo",
+            "Segunda-feira",
+            "Terça-feira",
+            "Quarta-feira",
+            "Quinta-feira",
+            "Sexta-feira",
+            "Sábado"
+        ];
+        const diaSemana = diasSemana[agora.getDay()];
+        const dia = agora.getDate().toString().padStart(2, "0");
+        const mes = agora.toLocaleString("pt-BR", { month: "short" });
+        const ano = agora.getFullYear();
+
+        document.getElementById("data").textContent = `${diaSemana}, ${dia} ${mes} ${ano}`;
+    }
+
+  atualizarHora();
+  setInterval(atualizarHora, 1000);
+
+
+
+</script>

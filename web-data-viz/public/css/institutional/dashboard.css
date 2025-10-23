@@ -1,0 +1,339 @@
+@import url("../variables/variables-zump.css");
+@import url('https://fonts.googleapis.com/css2?family=Aclonica&family=Hubot+Sans:ital,wght@0,200..900;1,200..900&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Roboto:ital,wght@0,100..900;1,100..900&family=Shrikhand&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Aclonica&family=Hubot+Sans:ital,wght@0,200..900;1,200..900&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=MuseoModerno:ital,wght@0,100..900;1,100..900&family=Roboto:ital,wght@0,100..900;1,100..900&family=Shrikhand&display=swap');
+
+*{
+    margin: 0; padding: 0;
+    text-decoration: none; box-sizing: border-box;
+    list-style: none; scroll-behavior: smooth;
+    font-size: var(--font-size-small); 
+    font-family: var(--font-family-texts);
+}
+
+body{
+    width: 100%;
+    height: 100vh;
+    background-color: var(--white);
+    position: relative;
+    overflow: hidden;
+    display: flex;
+}
+
+.menu{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    left: 0px;
+    height: 100%;
+    width: 290px;
+    border-radius: 0px 290px 290px 0px;
+    position: relative;
+    transition: 1s;
+    background: linear-gradient(90deg, #0F537A, #1B98E0);
+    
+}
+.menu .conteudo{
+     display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    background-image: url("../../assets/logos/logo\ zump\ 1.png");
+    background-position: center bottom 90px;
+    background-repeat: no-repeat;
+    background-size: 130px;
+}
+
+.menu .conteudo .boxFoto{
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    width: 100%;
+    height: 245px;
+    position: relative;
+}
+
+.menu .conteudo .boxFoto #foto_user{
+    background-color: #dddcdc;
+    margin-top: 20px;
+    border-radius: 120px;
+    width: 110px;
+    height: 110px;
+    border: 2px solid #fff;
+    background-image: url("../../assets/imgs/Maya.svg");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.menu .conteudo .boxFoto h3{
+    font-size: var(--font-size-medium);
+    font-weight: var(--font-weight-medium);
+    margin-top: 10px;
+    color: var(--white);
+    width: 100px;
+    text-align: center;
+}
+
+.menu .conteudo .boxFoto button{
+    position: absolute;
+    bottom: 5px;
+    right: 15px;
+    background-color: transparent;
+    border: none;
+    font-size: var(--font-size-regular);
+    font-weight: 300;
+    background-image: url("../../assets/icon/Logout.svg");
+    background-position: center right;
+    background-repeat: no-repeat;
+    background-size: 25px;
+    padding-right: 40px;
+    color: var(--white);
+    cursor: pointer;
+}
+
+.box_hora{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 10px;
+    width: 100%;
+    height: auto;
+    padding: 5px;
+}
+
+.box_hora h2{
+    font-size: var(--font-size-extra-larguer);
+    font-weight: var(--font-weight-medium);
+    color: var(--white);
+}
+
+.box_hora h3{
+    font-size: var(--font-size-small);
+    font-weight: var(--font-weight-regular);
+    color: var(--white);
+}
+
+.box_sessoes{
+    width: 100%;
+    height: 260px;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    gap: 25px;
+}
+
+.box_sessoes h2{
+    display: block;
+    width: fit-content;
+    text-align: left;
+    margin-left: 20px;
+    font-size: var(--font-size-medium);
+    color: var(--white);
+    font-weight: var(--font-weight-medium);
+    cursor: pointer;
+}
+
+
+
+
+
+
+
+#interagir_menu{
+    position: absolute;
+    right: -30px;
+    width: 60px;
+    height: 60px;
+    border-radius: 60px;
+    border: 2px solid var(--white);
+    background-color: #1B98E0;
+    background-image: url("../../assets/icon/Plane.svg");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: 40px;
+    cursor: pointer;
+}
+
+#abrir_menu {
+    display: none;
+    position: absolute;
+    width: 40px;
+    height: 40px;
+    left: 30px;
+    top: 20px;
+    cursor: pointer;
+    background-image: url("../../assets/icon/menu.svg");
+    background-repeat: no-repeat;
+    background-size: 30px;
+    background-position: center; 
+    border: none;
+    background-color: transparent;
+    opacity: 0;
+}
+@keyframes aparecerSuave {
+    from {
+    opacity: 0;
+    transform: translateY(10px) scale(0.9);
+    }
+    to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+    }
+}
+#abrir_menu.animar {
+    animation: aparecerSuave 0.6s ease forwards;
+}
+
+
+
+section {
+    flex: 1;
+    display: flex;
+}
+#dashboard_section {
+    align-items: center;
+    flex-direction: column;
+}
+
+
+#dashboard_section .box_topo{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 25%;
+    min-width:85%;
+    max-width:90%;
+    border: 1px solid red;
+}
+
+#dashboard_section .box_topo .card{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 180px;
+    width: 310px;
+    background: linear-gradient(40deg, #212E34, #1D3642, #183D4F, #13455D, #0A5579, #006494);
+    border-radius: 10px;
+}
+#dashboard_section .box_topo .card h2{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 30px;
+    position: relative;
+}
+#dashboard_section .box_topo .card h2, 
+#dashboard_section .box_topo .card span{
+    color: #9E9E9E;
+    font-size: var(--font-size-regular);
+    font-weight: var(--font-weight-medium);
+}
+#dashboard_section .box_topo .card h2 img{
+        position: absolute;
+    width: 40px;
+    height: 40px;
+    left: -50px;
+}
+#dashboard_section .box_topo .card p{
+    color: #9E9E9E;
+    font-size: var(--font-size-regular);
+    font-weight: var(--font-weight-medium);
+}
+
+#dashboard_section .box_topo .card #ftrMensal{
+    display: block;
+    color: var(--white);
+    font-size: var(--font-size-larguer);
+    line-height: 100px;
+    text-align: center; 
+    font-weight: var(--font-weight-medium);
+}
+
+#dashboard_section .box_topo .card #medVendas{
+    display: block;
+    color: var(--white);
+    font-size: var(--font-size-larguer);
+    line-height: 100px;
+    text-align: center; 
+    font-weight: var(--font-weight-medium);
+}
+
+#dashboard_section .box_topo .card #clientesNovos{
+    display: block;
+    color: var(--white);
+    line-height: 100px;
+    text-align: center; 
+    font-size: 4rem;
+    font-weight: var(--font-weight-medium);
+}
+
+#dashboard_section .box_topo .card #vendasPacote{
+    display: block;
+    color: var(--white);
+    line-height: 100px;
+    text-align: center; 
+    font-size: 4rem;
+    font-weight: var(--font-weight-medium);
+}
+
+#dashboard_section .box_meio{
+    border: 1px solid red;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 40%;
+    min-width:85%;
+    max-width:90%;
+}
+#dashboard_section .box_meio .box_grafico{
+    background: #131517;
+    height: 350px;
+    width: 800px;
+    border-radius: 15px;   
+}
+#dashboard_section .box_meio .box_cidades{
+    background: linear-gradient(40deg, #131517, #0E2936, #0A3D56, #055075, #006494);
+     height: 350px;
+    width: 500px;
+    border-radius: 15px;   
+}
+
+#dashboard_section .box_rodape{
+    border: 1px solid red;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 35%;
+    min-width:85%;
+    max-width:90%;
+}
+#dashboard_section .box_rodape .box_consultores{
+    background: #131517;
+    width: 600px;
+    height: 280px;
+    border-radius: 15px;   
+}
+
+
+#dashboard_section .box_rodape .box_pacotes{
+    background: #131517;
+    width: 600px;
+    height: 280px;
+    border-radius: 15px;   
+}
+
+#clientes_section,
+#consultores_section {
+    justify-content: center;
+    align-items: center;
+    border-radius: 15px;   
+}
+
+#dashboard_section h1,
+#clientes_section h1,
+#consultores_section h1 {
+    font-size: var(--font-size-extra-larguer);
+}
