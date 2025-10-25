@@ -176,7 +176,7 @@
     </section>
     
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/chartjs-plugin-datalabels@2"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chartjs-plugin-datalabels@2"></script>
   </body>
 </html>
 
@@ -203,11 +203,11 @@
       abrir.classList.add("animar");
       abrir.style.opacity = 1;
       interagir_menu.style.display = "none";
-      topo.style.width = "75%";
+      topo.style.width = "85%";
       topo.style.transition = "1s";
-      meio.style.width = "75%";
+      meio.style.width = "85%";
       meio.style.transition = "1s";
-      rodape.style.width = "75%";
+      rodape.style.width = "85%";
       rodape.style.transition = "1s";
     }, 900);
   }
@@ -217,9 +217,9 @@
     const topo = document.querySelector(".box_topo");
     const meio = document.querySelector(".box_meio");
     const rodape = document.querySelector(".box_rodape");
-    topo.style.width = "80%";
-    meio.style.width = "80%";
-    rodape.style.width = "80%";
+    topo.style.width = "95%";
+    meio.style.width = "95%";
+    rodape.style.width = "95%";
 
     interagir_menu.style.opacity = 1;
     interagir_menu.style.display = "block";
@@ -227,9 +227,6 @@
     abrir.style.display = "none";
     interagir_menu.style.transform = "none";
     setTimeout(() => {
-      topo.style.width = "85%";
-      meio.style.width = "85%";
-      rodape.style.width = "85%";
       conteudo_menu.style.opacity = "1";
       conteudo_menu.style.transition = ".5s linear";
     }, 850);

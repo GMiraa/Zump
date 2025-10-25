@@ -4,7 +4,7 @@
     }
     
     #dashboard_section .box_topo{
-        width:85%;
+        width:95%;
     }
     #dashboard_section .box_topo .card{
         height: 130px;
@@ -48,7 +48,7 @@
     font-size: 3rem;
 }
 #dashboard_section .box_meio{
-    width:85%;
+    width:95%;
 }
 
 #dashboard_section .box_meio .box_grafico{
@@ -80,7 +80,7 @@
 
 /* rodape área */
 #dashboard_section .box_rodape{
-    width:85%;
+    width:95%;
 }
 #dashboard_section .box_rodape .box_consultores{
     width: 540px;
@@ -126,7 +126,7 @@
     }
     
     #dashboard_section .box_topo{
-        width:85%;
+        width:95%;
     }
     #dashboard_section .box_topo .card{
         height: 130px;
@@ -135,7 +135,7 @@
 
     #dashboard_section .box_topo .card h2, 
     #dashboard_section .box_topo .card span{
-        font-size: var(--font-size-regular);
+        font-size: var(--font-size-small);
     }
     #dashboard_section .box_topo .card h2 img{
         position: absolute;
@@ -145,7 +145,7 @@
     }
     #dashboard_section .box_topo .card p{
     color: #9E9E9E;
-    font-size: var(--font-size-regular);
+    font-size: var(--font-size-small);
     font-weight: var(--font-weight-medium);
 }
 
@@ -170,7 +170,7 @@
     font-size: 3rem;
 }
 #dashboard_section .box_meio{
-    width:85%;
+    width:95%;
 }
 
 #dashboard_section .box_meio .box_grafico{
@@ -202,7 +202,7 @@
 
 /* rodape área */
 #dashboard_section .box_rodape{
-    width:85%;
+    width:95%;
 }
 #dashboard_section .box_rodape .box_consultores{
     width: 460px;
@@ -249,7 +249,7 @@
     }
     
     #dashboard_section .box_topo{
-        width:85%;
+        width:95%;
     }
     #dashboard_section .box_topo .card{
         height: 130px;
@@ -295,7 +295,7 @@
     font-size: 3rem;
 }
 #dashboard_section .box_meio{
-    width:85%;
+    width:95%;
 }
 
 #dashboard_section .box_meio .box_grafico{
@@ -327,7 +327,7 @@
 
 /* rodape área */
 #dashboard_section .box_rodape{
-    width:85%;
+    width:95%;
 }
 #dashboard_section .box_rodape .box_consultores{
     width: 440px;
@@ -374,7 +374,7 @@
     }
     
     #dashboard_section .box_topo{
-        width:85%;
+        width:95%;
     }
     #dashboard_section .box_topo .card{
         height: 130px;
@@ -420,7 +420,7 @@
     font-size: 3rem;
 }
 #dashboard_section .box_meio{
-    width:85%;
+    width:95%;
 }
 
 #dashboard_section .box_meio .box_grafico{
@@ -452,7 +452,7 @@
 
 /* rodape área */
 #dashboard_section .box_rodape{
-    width:85%;
+    width:95%;
 }
 #dashboard_section .box_rodape .box_consultores{
     width: 440px;
@@ -492,21 +492,259 @@
     font-size: var(--font-size-small);
 }
 }
-
-
-
-
-
-
-
-
-@media screen and (max-width: 1280px) and (min-width: 1024px){
-:root{
-        --font-size-extra-larguer: 2rem;
-        --font-size-medium: 1.2rem;  
+@media screen and (max-width: 1279px) and (min-width: 1180px){
+    .menu{
+        max-width: 200px;
+    }
+    
+    #dashboard_section .box_topo{
+        width:95%;
+    }
+    #dashboard_section .box_topo .card{
+        height: 140px;
+        width: 200px;        
     }
 
+    #dashboard_section .box_topo .card h2, 
+    #dashboard_section .box_topo .card span{
+        color: #9E9E9E;
+        font-size: var(--font-size-small);
+        font-weight: var(--font-weight-medium);
+    }
+    #dashboard_section .box_topo .card h2 img{
+        position: absolute;
+        width: 30px;
+        height: 30px;
+        left: -30px;
+    }
+    #dashboard_section .box_topo .card p{
+    color: #9E9E9E;
+    font-size: var(--font-size-small);
+    font-weight: var(--font-weight-medium);
+}
 
+
+#dashboard_section .box_topo .card #ftrMensal{
+    font-size: var(--font-size-regular);
+    line-height: 60px;
+}
+
+#dashboard_section .box_topo .card #medVendas{
+    font-size: var(--font-size-regular);
+    line-height: 60px;
+}
+
+#dashboard_section .box_topo .card #clientesNovos{
+    line-height: 60px;
+    font-size: 2.5rem; 
+}
+
+#dashboard_section .box_topo .card #vendasPacote{
+    line-height: 60px;
+    font-size: 2.5rem;
+}
+#dashboard_section .box_meio{
+    width:95%;
+}
+
+#dashboard_section .box_meio .box_grafico{
+    height: 280px;
+    width: 500px;
+}
+
+#dashboard_section .box_meio .box_grafico .chart-container {
+  padding: 0px;
+  height: 280px;
+}
+
+/* cidade área*/
+#dashboard_section .box_meio .box_cidades{
+     height: 280px;
+    width: 300px;
+}
+#dashboard_section .box_meio .box_cidades .box_cidades_aninhamento .cidades_row{
+    gap: 1rem;
+}
+
+#dashboard_section .box_meio .box_cidades .box_cidades_aninhamento .cidades_row img{
+    width: 30px;
+}
+#dashboard_section .box_meio .box_cidades .box_cidades_aninhamento .cidades_row p{
+    font-size: var(--font-size-small);
+}
+#dashboard_section .box_meio .box_cidades .box_cidades_aninhamento .cidades_row .qtdViagens{
+    font-size: var(--font-size-small);
+}
+
+
+/* rodape área */
+#dashboard_section .box_rodape{
+    width:95%;
+}
+#dashboard_section .box_rodape .box_consultores{
+    width: 400px;
+    height: 250px;
+}
+
+#dashboard_section .box_rodape .box_consultores .box_consultores_aninhamento{
+    height: 200px;
+}
+#dashboard_section .box_rodape .box_consultores .box_consultores_aninhamento .consultores_row{
+    gap: 3rem;
+}
+#dashboard_section .box_rodape .box_consultores .box_consultores_aninhamento .consultores_row p{
+    font-size: var(--font-size-small);
+    color: var(--white);
+    font-weight: var(--font-weight-medium);
+}
+#dashboard_section .box_rodape .box_consultores .box_consultores_aninhamento .consultores_row .qtdFaturamento{
+    font-size: var(--font-size-small);
+    color: #AEAEAE;
+    font-weight: var(--font-weight-regular);
+}
+#dashboard_section .box_rodape .box_pacotes{
+    width: 400px;
+    height: 250px;
+}
+#dashboard_section .box_rodape .box_pacotes .box_pacotes_aninhamento{
+    height: 200px;
+}
+#dashboard_section .box_rodape .box_pacotes .box_pacotes_aninhamento .pacotes_row{
+    gap: 1rem;
+}
+#dashboard_section .box_rodape .box_pacotes .box_pacotes_aninhamento .pacotes_row p{
+    font-size: var(--font-size-small);
+}
+#dashboard_section .box_rodape .box_pacotes .box_pacotes_aninhamento .pacotes_row .qtdVendas{
+    font-size: var(--font-size-small);
+}
+}
+@media screen and (max-width: 1179px) and (min-width: 1024px){
+    .menu{
+        max-width: 200px;
+    }
+    
+    #dashboard_section .box_topo{
+        width:95%;
+    }
+    #dashboard_section .box_topo .card{
+        height: 120px;
+        width: 180px;        
+    }
+
+    #dashboard_section .box_topo .card h2, 
+    #dashboard_section .box_topo .card span{
+        color: #9E9E9E;
+        font-size: var(--font-size-small);
+        font-weight: var(--font-weight-medium);
+    }
+    #dashboard_section .box_topo .card h2 img{
+        position: absolute;
+        width: 30px;
+        height: 30px;
+        left: -30px;
+    }
+    #dashboard_section .box_topo .card p{
+    color: #9E9E9E;
+    font-size: var(--font-size-small);
+    font-weight: var(--font-weight-medium);
+}
+
+
+#dashboard_section .box_topo .card #ftrMensal{
+    font-size: var(--font-size-regular);
+    line-height: 50px;
+}
+
+#dashboard_section .box_topo .card #medVendas{
+    font-size: var(--font-size-regular);
+    line-height: 50px;
+}
+
+#dashboard_section .box_topo .card #clientesNovos{
+    line-height: 50px;
+    font-size: 2.5rem; 
+}
+
+#dashboard_section .box_topo .card #vendasPacote{
+    line-height: 50px;
+    font-size: 2.5rem;
+}
+#dashboard_section .box_meio{
+    width:95%;
+}
+
+#dashboard_section .box_meio .box_grafico{
+    height: 280px;
+    width: 400px;
+}
+
+#dashboard_section .box_meio .box_grafico .chart-container {
+  padding: 0px;
+  height: 280px;
+}
+
+/* cidade área*/
+#dashboard_section .box_meio .box_cidades{
+     height: 280px;
+    width: 300px;
+}
+#dashboard_section .box_meio .box_cidades .box_cidades_aninhamento .cidades_row{
+    gap: 1rem;
+}
+
+#dashboard_section .box_meio .box_cidades .box_cidades_aninhamento .cidades_row img{
+    width: 30px;
+}
+#dashboard_section .box_meio .box_cidades .box_cidades_aninhamento .cidades_row p{
+    font-size: var(--font-size-small);
+}
+#dashboard_section .box_meio .box_cidades .box_cidades_aninhamento .cidades_row .qtdViagens{
+    font-size: var(--font-size-small);
+}
+
+
+/* rodape área */
+#dashboard_section .box_rodape{
+    width:95%;
+}
+#dashboard_section .box_rodape .box_consultores{
+    width: 360px;
+    height: 250px;
+}
+
+#dashboard_section .box_rodape .box_consultores .box_consultores_aninhamento{
+    height: 200px;
+}
+#dashboard_section .box_rodape .box_consultores .box_consultores_aninhamento .consultores_row{
+    gap: 1rem;
+}
+#dashboard_section .box_rodape .box_consultores .box_consultores_aninhamento .consultores_row p{
+    font-size: var(--font-size-small);
+    color: var(--white);
+    font-weight: var(--font-weight-medium);
+}
+#dashboard_section .box_rodape .box_consultores .box_consultores_aninhamento .consultores_row .qtdFaturamento{
+    font-size: var(--font-size-small);
+    color: #AEAEAE;
+    font-weight: var(--font-weight-regular);
+}
+#dashboard_section .box_rodape .box_pacotes{
+    width: 360px;
+    height: 250px;
+}
+#dashboard_section .box_rodape .box_pacotes .box_pacotes_aninhamento{
+    height: 200px;
+}
+#dashboard_section .box_rodape .box_pacotes .box_pacotes_aninhamento .pacotes_row{
+    gap: 1rem;
+}
+#dashboard_section .box_rodape .box_pacotes .box_pacotes_aninhamento .pacotes_row p{
+    font-size: var(--font-size-small);
+}
+#dashboard_section .box_rodape .box_pacotes .box_pacotes_aninhamento .pacotes_row .qtdVendas{
+    font-size: var(--font-size-small);
+}
 }
 
 @media screen and (max-width: 1024px) and (min-width: 768px){

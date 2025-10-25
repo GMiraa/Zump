@@ -199,16 +199,17 @@ section {
     display: flex;
 }
 #dashboard_section {
-    align-items: center;
+    align-items: flex-end;
     flex-direction: column;
+    padding-right: 5%;
 }
 #dashboard_section .box_topo{
     display: flex;
     justify-content: space-between;
     align-items: center;
     height: 25%;
-    width:85%;
-    max-width:90%;
+    width:95%;
+    max-width:95%;
 }
 
 #dashboard_section .box_topo .card{
@@ -288,8 +289,8 @@ section {
     justify-content: space-between;
     align-items: center;
     height: 40%;
-    width:85%;
-    max-width:90%;
+    width:95%;
+    max-width:95%;
 }
 #dashboard_section .box_meio .box_grafico{
     background: #131517;
@@ -391,8 +392,8 @@ canvas {
     justify-content: space-between;
     align-items: center;
     height: 35%;
-    width:85%;
-    max-width:90%;
+    width:95%;
+    max-width:95%;
 }
 #dashboard_section .box_rodape .box_consultores{
     background: #131517;
