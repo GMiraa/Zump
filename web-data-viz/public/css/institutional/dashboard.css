@@ -12,11 +12,14 @@
 
 body{
     width: 100%;
+    max-width: 1900px;
     height: 100vh;
+    max-height: 1080px;
     background-color: var(--white);
     position: relative;
     overflow: hidden;
     display: flex;
+    transition: 1s;
 }
 
 .menu{
