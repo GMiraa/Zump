@@ -25,13 +25,16 @@ body{
     justify-content: center;
     left: 0px;
     height: 100%;
-    width: 290px;
+    width: 100%;
+    max-width: 290px;
     border-radius: 0px 290px 290px 0px;
     position: relative;
     transition: 1s;
-    background: linear-gradient(90deg, #0F537A, #1B98E0);
-    
+    background: linear-gradient(90deg, #0F537A, #1B98E0);   
 }
+
+
+
 .menu .conteudo{
      display: flex;
     flex-direction: column;
@@ -196,8 +199,6 @@ section {
     align-items: center;
     flex-direction: column;
 }
-
-
 #dashboard_section .box_topo{
     display: flex;
     justify-content: space-between;
@@ -217,6 +218,7 @@ section {
     background: linear-gradient(40deg, #212E34, #1D3642, #183D4F, #13455D, #0A5579, #006494);
     border-radius: 10px;
 }
+
 #dashboard_section .box_topo .card h2{
     display: flex;
     justify-content: center;

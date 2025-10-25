@@ -9,6 +9,7 @@
       type="image/x-icon"
     />
     <link rel="stylesheet" href="css/institutional/dashboard.css" />
+    <link rel="stylesheet" href="css/mediaFrames/media-keyframes-zump.css">
     <title>Dashboard - Zump</title>
   </head>
   <body>
@@ -26,7 +27,7 @@
           <h3 id="data">Terça-feira, 14 nov 2025</h3>
         </div>
         <div class="box_sessoes">
-          <h2 id="home_session">Home <span></span></h2>
+          <h2 id="home_session">Dashboard <span></span></h2>
           <h2 id="clientes_session">Clientes</h2>
           <h2 id="consultores_session">Consultores</h2>
         </div>
@@ -212,7 +213,7 @@
   }
 
   function abrirMenu() {
-    menuNav.style.width = "290px";
+    menuNav.style.width = "100%";
     const topo = document.querySelector(".box_topo");
     const meio = document.querySelector(".box_meio");
     const rodape = document.querySelector(".box_rodape");
@@ -414,47 +415,44 @@ const gradientAtual = ctx.createLinearGradient(0, 0, 0, 400);
 gradientAtual.addColorStop(0, '#00bfff');
 gradientAtual.addColorStop(1, '#007bff');
 
-// Gradiente verde (mês anterior)
-const gradientAnterior = ctx.createLinearGradient(0, 0, 0, 400);
-gradientAnterior.addColorStop(0, '#00ff99');
-gradientAnterior.addColorStop(1, '#00b36b');
+// Gradiente laranja (crescimento %)
+const gradientCrescimento = ctx.createLinearGradient(0, 0, 0, 400);
+gradientCrescimento.addColorStop(0, '#66ff66'); // verde claro
+gradientCrescimento.addColorStop(1, '#009933'); // verde mais escuro
 
 const rendaMensalChart = new Chart(ctx, {
     type: 'bar',
     data: {
-        labels: ['mai', 'jun', 'jul', 'ago', 'set', 'out'],
+        labels: ['mai/2025', 'jun/2025', 'jul/2025', 'ago/2025', 'set/2025', 'out/2025'],
         datasets: [
             {
                 label: 'Renda Atual (R$ mil)',
-                data: [18, 25, 32, 28, 35, 40],
+                data: [18, 25, 32, 40, 55, 63],
                 backgroundColor: gradientAtual,
                 borderRadius: 8,
-                hoverBackgroundColor: '#33c3ff'
+                hoverBackgroundColor: '#33c3ff',
+                yAxisID: 'yRenda'
             },
             {
-                label: 'Mês Anterior (R$ mil)',
-                data: [16, 23, 28, 25, 30, 37],
-                backgroundColor: gradientAnterior,
+                label: 'Crescimento (%)',
+                data: [16, 38, 28, 25, 37, 14],
+                backgroundColor: gradientCrescimento,
                 borderRadius: 8,
-                hoverBackgroundColor: '#4dffa6'
+                hoverBackgroundColor: '#66ff66',
+                yAxisID: 'yPercent'
             }
         ]
     },
     options: {
         responsive: true,
         maintainAspectRatio: false,
-        layout: {
-            padding: 10
-        },
+        layout: { padding: 10 },
         plugins: {
             title: {
                 display: true,
-                text: 'Renda Mensal vs Mês Anterior (2025)',
-                color: '#fff',
-                font: {
-                    size: 18,
-                    weight: 'bold'
-                },
+                text: 'Renda Mensal (2025)',
+                color: '#ffffff',
+                font: { size: 20, weight: 'bold' },
                 padding: { bottom: 20 }
             },
             legend: {
@@ -467,13 +465,18 @@ const rendaMensalChart = new Chart(ctx, {
                 backgroundColor: '#111',
                 titleColor: '#00bfff',
                 bodyColor: '#fff',
-                borderColor: '#007bff',
+                borderColor: '#00bfff',
                 borderWidth: 1,
                 cornerRadius: 8,
                 padding: 10,
                 callbacks: {
-                    label: function(context) {
-                        return `${context.dataset.label}: R$ ${context.formattedValue}k`;
+                    title: (context) => `Mês: ${context[0].label}`,
+                    label: (context) => {
+                        if (context.dataset.label.includes('%')) {
+                            return `${context.dataset.label}: ${context.formattedValue}%`;
+                        } else {
+                            return `${context.dataset.label}: R$ ${context.formattedValue}K`;
+                        }
                     }
                 }
             },
@@ -482,21 +485,37 @@ const rendaMensalChart = new Chart(ctx, {
                 anchor: 'end',
                 align: 'start',
                 font: { weight: 'bold' },
-                formatter: (value) => `R$ ${value}k`
+                formatter: (value, context) => {
+                    if (context.dataset.label.includes('%')) {
+                        return `${value}%`;
+                    } else {
+                        return `R$ ${value}k`;
+                    }
+                }
             }
         },
         scales: {
-            y: {
+            yRenda: {
+                type: 'linear',
+                position: 'left',
                 beginAtZero: true,
                 ticks: {
                     color: '#ccc',
                     font: { size: 12 },
                     callback: (value) => `R$ ${value}k`
                 },
-                grid: {
-                    color: '#222',
-                    lineWidth: 1
-                }
+                grid: { color: '#222', lineWidth: 1 }
+            },
+            yPercent: {
+                type: 'linear',
+                position: 'right',
+                beginAtZero: true,
+                ticks: {
+                    color: '#66ff66',
+                    font: { size: 12 },
+                    callback: (value) => `${value}%`
+                },
+                grid: { drawOnChartArea: false } // não mistura as grades
             },
             x: {
                 ticks: {
@@ -509,6 +528,5 @@ const rendaMensalChart = new Chart(ctx, {
     },
     plugins: [ChartDataLabels]
 });
-
 
 </script>

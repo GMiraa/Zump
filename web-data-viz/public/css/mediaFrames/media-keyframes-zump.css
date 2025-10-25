@@ -1,0 +1,176 @@
+@media screen and (max-width: 1366px) and (min-width: 1280px){
+    .menu{
+        max-width: 220px;
+    }
+    
+    #dashboard_section .box_topo{
+        width:85%;
+    }
+    #dashboard_section .box_topo .card{
+        height: 130px;
+        width: 220px;        
+    }
+
+    #dashboard_section .box_topo .card h2, 
+    #dashboard_section .box_topo .card span{
+        color: #9E9E9E;
+        font-size: var(--font-size-small);
+        font-weight: var(--font-weight-medium);
+    }
+    #dashboard_section .box_topo .card h2 img{
+        position: absolute;
+        width: 30px;
+        height: 30px;
+        left: -30px;
+    }
+    #dashboard_section .box_topo .card p{
+    color: #9E9E9E;
+    font-size: var(--font-size-small);
+    font-weight: var(--font-weight-medium);
+}
+
+
+#dashboard_section .box_topo .card #ftrMensal{
+    font-size: var(--font-size-regular);
+    line-height: 60px;
+}
+
+#dashboard_section .box_topo .card #medVendas{
+    font-size: var(--font-size-regular);
+    line-height: 60px;
+}
+
+#dashboard_section .box_topo .card #clientesNovos{
+    line-height: 60px;
+    font-size: 3rem; 
+}
+
+#dashboard_section .box_topo .card #vendasPacote{
+    line-height: 60px;
+    font-size: 3rem;
+}
+#dashboard_section .box_meio{
+    width:85%;
+}
+
+#dashboard_section .box_meio .box_grafico{
+    height: 280px;
+    width: 480px;
+}
+
+#dashboard_section .box_meio .box_grafico .chart-container {
+  padding: 0px;
+  height: 280px;
+}
+
+/* cidade área*/
+#dashboard_section .box_meio .box_cidades{
+     height: 280px;
+    width: 400px;
+}
+
+#dashboard_section .box_meio .box_cidades .box_cidades_aninhamento .cidades_row img{
+    width: 30px;
+}
+#dashboard_section .box_meio .box_cidades .box_cidades_aninhamento .cidades_row p{
+    font-size: var(--font-size-regular);
+}
+#dashboard_section .box_meio .box_cidades .box_cidades_aninhamento .cidades_row .qtdViagens{
+    font-size: var(--font-size-small);
+}
+
+
+/* rodape área */
+#dashboard_section .box_rodape{
+    width:85%;
+}
+#dashboard_section .box_rodape .box_consultores{
+    width: 440px;
+    height: 250px;
+}
+
+#dashboard_section .box_rodape .box_consultores .box_consultores_aninhamento{
+    height: 200px;
+}
+#dashboard_section .box_rodape .box_consultores .box_consultores_aninhamento .consultores_row{
+    gap: 3rem;
+}
+#dashboard_section .box_rodape .box_consultores .box_consultores_aninhamento .consultores_row p{
+    font-size: var(--font-size-regular);
+    color: var(--white);
+    font-weight: var(--font-weight-medium);
+}
+#dashboard_section .box_rodape .box_consultores .box_consultores_aninhamento .consultores_row .qtdFaturamento{
+    font-size: var(--font-size-small);
+    color: #AEAEAE;
+    font-weight: var(--font-weight-regular);
+}
+#dashboard_section .box_rodape .box_pacotes{
+    width: 440px;
+    height: 250px;
+}
+#dashboard_section .box_rodape .box_pacotes .box_pacotes_aninhamento{
+    height: 200px;
+}
+#dashboard_section .box_rodape .box_pacotes .box_pacotes_aninhamento .pacotes_row{
+    gap: 3rem;
+}
+#dashboard_section .box_rodape .box_pacotes .box_pacotes_aninhamento .pacotes_row p{
+    font-size: var(--font-size-regular);
+}
+#dashboard_section .box_rodape .box_pacotes .box_pacotes_aninhamento .pacotes_row .qtdVendas{
+    font-size: var(--font-size-small);
+}
+}
+
+
+@media screen and (max-width: 1600px) {    
+
+}
+
+@media screen and (max-width: 1280px) and (min-width: 1024px){
+:root{
+        --font-size-extra-larguer: 2rem;
+        --font-size-medium: 1.2rem;  
+    }
+
+
+}
+
+@media screen and (max-width: 1024px) and (min-width: 768px){
+    :root{
+        --font-size-extra-larguer: 2rem;
+        --font-size-medium: 1.2rem;
+        --widht-buttons-home: 180px;
+        --height-buttons-home: 45px;
+    }
+
+}
+@media screen and (max-width: 768px) and (min-width: 480px){
+    :root{
+        --font-size-extra-larguer: 1.5rem;
+        --font-size-medium: 1rem;
+        --widht-buttons-home: 180px;
+        --height-buttons-home: 45px;
+    }
+
+
+}
+@media screen and (max-width: 480px) and (min-width: 320px){
+    :root{
+        --font-size-extra-larguer: 1.5rem;
+        --font-size-medium: 1rem;
+        --widht-buttons-home: 180px;
+        --height-buttons-home: 45px;
+    }
+}
+@media screen and (max-width: 320px){
+    :root{
+        --font-size-extra-larguer: 1.5rem;
+        --font-size-medium: 1rem;
+        --widht-buttons-home: 180px;
+        --height-buttons-home: 45px;
+        --font-size-small: .9rem;
+    }
+
+}
