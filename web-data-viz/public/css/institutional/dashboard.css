@@ -19,7 +19,7 @@ body{
     position: relative;
     overflow: hidden;
     display: flex;
-    transition: 1s;
+    transition: 1s linear;
 }
 
 .menu{
@@ -32,7 +32,6 @@ body{
     max-width: 290px;
     border-radius: 0px 290px 290px 0px;
     position: relative;
-    transition: 1s;
     background: linear-gradient(90deg, #0F537A, #1B98E0);   
 }
 
@@ -212,6 +211,7 @@ section {
     max-width:95%;
 }
 
+
 #dashboard_section .box_topo .card{
     display: flex;
     flex-direction: column;
@@ -221,6 +221,7 @@ section {
     width: 310px;
     background: linear-gradient(40deg, #212E34, #1D3642, #183D4F, #13455D, #0A5579, #006494);
     border-radius: 10px;
+    transition: .6s linear;
 }
 
 #dashboard_section .box_topo .card h2{
@@ -229,23 +230,27 @@ section {
     align-items: center;
     height: 30px;
     position: relative;
+    transition: .6s linear;
 }
 #dashboard_section .box_topo .card h2, 
 #dashboard_section .box_topo .card span{
     color: #9E9E9E;
     font-size: var(--font-size-regular);
     font-weight: var(--font-weight-medium);
+    transition: .6s linear;
 }
 #dashboard_section .box_topo .card h2 img{
         position: absolute;
     width: 40px;
     height: 40px;
     left: -50px;
+    transition: .6s linear;
 }
 #dashboard_section .box_topo .card p{
     color: #9E9E9E;
     font-size: var(--font-size-regular);
     font-weight: var(--font-weight-medium);
+    transition: .6s linear;
 }
 
 #dashboard_section .box_topo .card #ftrMensal{
@@ -255,6 +260,7 @@ section {
     line-height: 100px;
     text-align: center; 
     font-weight: var(--font-weight-medium);
+    transition: .6s linear;
 }
 
 #dashboard_section .box_topo .card #medVendas{
@@ -264,6 +270,7 @@ section {
     line-height: 100px;
     text-align: center; 
     font-weight: var(--font-weight-medium);
+    transition: .6s linear;
 }
 
 #dashboard_section .box_topo .card #clientesNovos{
@@ -273,6 +280,7 @@ section {
     text-align: center; 
     font-size: 4rem;
     font-weight: var(--font-weight-medium);
+    transition: .6s linear;
 }
 
 #dashboard_section .box_topo .card #vendasPacote{
@@ -282,6 +290,7 @@ section {
     text-align: center; 
     font-size: 4rem;
     font-weight: var(--font-weight-medium);
+    transition: .6s linear;
 }
 
 #dashboard_section .box_meio{
@@ -297,6 +306,7 @@ section {
     height: 350px;
     width: 800px;
     border-radius: 15px;   
+    transition: .6s linear;
 }
 
 #dashboard_section .box_meio .box_grafico .chart-container {
@@ -304,11 +314,13 @@ section {
   padding: 20px;
   height: 360px;
   width: 100%;
+    transition: .6s linear;
 }
 
 canvas {
   width: 100% !important;
   height: 100% !important;
+    transition: .6s linear;
 }
 
 
@@ -325,6 +337,8 @@ canvas {
      height: 350px;
     width: 500px;
     border-radius: 15px;   
+    transition: .6s linear;
+
 }
 
 #dashboard_section .box_meio .box_cidades h2{
@@ -333,6 +347,8 @@ canvas {
     font-size: var(--font-size-regular);
     font-weight: var(--font-weight-regular);
     color: var(--white);
+    transition: .6s linear;
+
 }
 #dashboard_section .box_meio .box_cidades .box_cidades_aninhamento{
     display: flex;
@@ -340,6 +356,8 @@ canvas {
     justify-content: space-evenly;
     width: 100%;
     height: 100%;
+    transition: .6s linear;
+
 }
 #dashboard_section .box_meio .box_cidades .box_cidades_aninhamento .cidades_row{
      display: flex;
@@ -349,19 +367,27 @@ canvas {
     flex-direction: row;
     gap: 3rem;
     width: 100%;
+    transition: .6s linear;
+
 }
 #dashboard_section .box_meio .box_cidades .box_cidades_aninhamento .cidades_row img{
     width: 30px;
+    transition: .6s linear;
+
 }
 #dashboard_section .box_meio .box_cidades .box_cidades_aninhamento .cidades_row p{
     font-size: var(--font-size-regular);
     color: var(--white);
     font-weight: var(--font-weight-medium);
+    transition: .6s linear;
+
 }
 #dashboard_section .box_meio .box_cidades .box_cidades_aninhamento .cidades_row .qtdViagens{
     font-size: var(--font-size-regular);
     color: #AEAEAE;
     font-weight: var(--font-weight-regular);
+    transition: .6s linear;
+
 }
 
 
@@ -400,6 +426,8 @@ canvas {
     width: 600px;
     height: 280px;
     border-radius: 15px;   
+    transition: .6s linear;
+
 }
 
 
@@ -409,6 +437,8 @@ canvas {
     font-size: var(--font-size-regular);
     font-weight: var(--font-weight-regular);
     color: var(--white);
+    transition: .6s linear;
+
 }
 #dashboard_section .box_rodape .box_consultores .box_consultores_aninhamento{
     display: flex;
@@ -416,6 +446,8 @@ canvas {
     justify-content: space-evenly;
     width: 100%;
     height: 230px;
+    transition: .6s linear;
+
 }
 #dashboard_section .box_rodape .box_consultores .box_consultores_aninhamento .consultores_row{
      display: flex;
@@ -425,19 +457,27 @@ canvas {
     flex-direction: row;
     gap: 6rem;
     width: 100%;
+    transition: .6s linear;
+
 }
 #dashboard_section .box_rodape .box_consultores .box_consultores_aninhamento .consultores_row img{
     width: 30px;
+    transition: .6s linear;
+
 }
 #dashboard_section .box_rodape .box_consultores .box_consultores_aninhamento .consultores_row p{
     font-size: var(--font-size-regular);
     color: var(--white);
     font-weight: var(--font-weight-medium);
+    transition: .6s linear;
+
 }
 #dashboard_section .box_rodape .box_consultores .box_consultores_aninhamento .consultores_row .qtdFaturamento{
     font-size: var(--font-size-regular);
     color: #AEAEAE;
     font-weight: var(--font-weight-regular);
+    transition: .6s linear;
+
 }
 
 
@@ -462,6 +502,8 @@ canvas {
     width: 600px;
     height: 280px;
     border-radius: 15px;   
+    transition: .6s linear;
+
 }
 
 
@@ -472,6 +514,8 @@ canvas {
     font-size: var(--font-size-regular);
     font-weight: var(--font-weight-regular);
     color: var(--white);
+    transition: .6s linear;
+
 }
 #dashboard_section .box_rodape .box_pacotes .box_pacotes_aninhamento{
     display: flex;
@@ -479,6 +523,8 @@ canvas {
     justify-content: space-evenly;
     width: 100%;
     height: 230px;
+    transition: .6s linear;
+
 }
 #dashboard_section .box_rodape .box_pacotes .box_pacotes_aninhamento .pacotes_row{
      display: flex;
@@ -488,19 +534,27 @@ canvas {
     flex-direction: row;
     gap: 6rem;
     width: 100%;
+    transition: .6s linear;
+
 }
 #dashboard_section .box_rodape .box_pacotes .box_pacotes_aninhamento .pacotes_row img{
     width: 30px;
+    transition: .6s linear;
+
 }
 #dashboard_section .box_rodape .box_pacotes .box_pacotes_aninhamento .pacotes_row p{
     font-size: var(--font-size-regular);
     color: var(--white);
     font-weight: var(--font-weight-medium);
+    transition: .6s linear;
+
 }
 #dashboard_section .box_rodape .box_pacotes .box_pacotes_aninhamento .pacotes_row .qtdVendas{
     font-size: var(--font-size-regular);
     color: #AEAEAE;
     font-weight: var(--font-weight-regular);
+    transition: .6s linear;
+
 }
 
 

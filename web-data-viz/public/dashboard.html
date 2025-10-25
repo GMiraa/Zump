@@ -185,6 +185,7 @@
   const abrir = document.getElementById("abrir_menu");
 
   function fecharMenu() {
+    menuNav.style.transition = "1s ease-out";
     menuNav.style.width = "20px";
     conteudo_menu.style.opacity = "0";
     conteudo_menu.style.transition = "none";
@@ -195,8 +196,8 @@
 
     setTimeout(() => {
       interagir_menu.style.opacity = 0;
-    }, 400);
-    interagir_menu.style.transition = ".2s";
+    }, 340);
+    interagir_menu.style.transition = ".6s";
 
     setTimeout(() => {
       abrir.style.display = "block";
@@ -204,22 +205,26 @@
       abrir.style.opacity = 1;
       interagir_menu.style.display = "none";
       topo.style.width = "85%";
-      topo.style.transition = "1s";
+      topo.style.transition = "1s linear";
       meio.style.width = "85%";
-      meio.style.transition = "1s";
+      meio.style.transition = "1s linear";
       rodape.style.width = "85%";
-      rodape.style.transition = "1s";
-    }, 900);
+      rodape.style.transition = "1s linear";
+    }, 1000);
   }
 
   function abrirMenu() {
     menuNav.style.width = "100%";
+    menuNav.style.transition = "3s linear";
     const topo = document.querySelector(".box_topo");
     const meio = document.querySelector(".box_meio");
     const rodape = document.querySelector(".box_rodape");
-    topo.style.width = "95%";
-    meio.style.width = "95%";
-    rodape.style.width = "95%";
+      topo.style.width = "95%";
+      topo.style.transition = "2s";
+      meio.style.width = "95%";
+      meio.style.transition = "2s";
+      rodape.style.width = "95%";
+      rodape.style.transition = "2s";
 
     interagir_menu.style.opacity = 1;
     interagir_menu.style.display = "block";
