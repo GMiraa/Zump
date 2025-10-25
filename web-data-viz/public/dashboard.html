@@ -1,206 +1,514 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-     <link
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
       rel="shortcut icon"
       href="assets/icon/zumpFavicon.png"
       type="image/x-icon"
     />
-    <link rel="stylesheet" href="css/institutional/dashboard.css"/>
+    <link rel="stylesheet" href="css/institutional/dashboard.css" />
     <title>Dashboard - Zump</title>
-</head>
-<body>
+  </head>
+  <body>
     <button id="abrir_menu" onclick="abrirMenu()"></button>
     <header class="menu" id="menuNav">
-        <button id="interagir_menu" onclick="fecharMenu()"></button>
-        <div class="conteudo" id="conteudo_menu">
-            <div class="boxFoto">
-                <div id="foto_user"></div>
-                <h3 id="name_user">Marta Yamatha</h3>
-                <button>deslogar</button>
-            </div>
-            <div class="box_hora">
-                <h2 id="hora">15:37</h2>
-                <h3 id="data">Terça-feira, 14 nov 2025</h3>
-            </div>
-            <div class="box_sessoes">
-                <h2 id="home_session">Home <span></span></h2>
-                <h2 id="clientes_session">Clientes</h2>
-                <h2 id="consultores_session">Consultores</h2>
-            </div>
-
-
+      <button id="interagir_menu" onclick="fecharMenu()"></button>
+      <div class="conteudo" id="conteudo_menu">
+        <div class="boxFoto">
+          <div id="foto_user"></div>
+          <h3 id="name_user">Marta Yamatha</h3>
+          <button>deslogar</button>
         </div>
+        <div class="box_hora">
+          <h2 id="hora">15:37</h2>
+          <h3 id="data">Terça-feira, 14 nov 2025</h3>
+        </div>
+        <div class="box_sessoes">
+          <h2 id="home_session">Home <span></span></h2>
+          <h2 id="clientes_session">Clientes</h2>
+          <h2 id="consultores_session">Consultores</h2>
+        </div>
+      </div>
     </header>
 
     <section id="dashboard_section">
-        <div class="box_topo">
-            <div class="card">
-                <h2><img src="assets/icon/Arrow up-right.svg" alt="arrow"><span id="porcentFaturaMensal">7%</span> - <span id="aumentoFaturamento">79,450.00</span></h2>
-                <p id="ftrMensal">R$ 149,300.00</p>
-                <p>faturamento mensal</p>
-            </div>
-            <div class="card">
-                <h2><img src="assets/icon/Arrow up-right.svg" alt="arrow"><span id="qtdUnidadesVendas">5</span> - unidades</h2>
-                <p id="vendasPacote">42</p>
-                <p>vendas de pacote</p>
-            </div>
-            <div class="card">
-                <h2><img src="assets/icon/Arrow up-right.svg" alt="arrow"><span id="porcentMedia">15%</span> - <span id="aumentoMedia">3,400.00</span></h2>
-                <p id="medVendas">R$ 149,300.00</p>
-                <p>média de vendas</p>
-            </div>
-            <div class="card">
-                <h2><img src="assets/icon/Arrow Down-right.svg" alt="arrow"><span id="porcentClientNovos">4%</span> - <span id="qdtClientesNovos">7</span> clientes</h2>
-                <p id="clientesNovos">5</p>
-                <p>clientes novos</p>
-            </div>
-             
+      <div class="box_topo">
+        <div class="card">
+          <h2>
+            <img src="assets/icon/Arrow up-right.svg" alt="arrow" /><span
+              id="porcentFaturaMensal"
+              >7%</span
+            >
+            - <span id="aumentoFaturamento">79,450.00</span>
+          </h2>
+          <p id="ftrMensal">R$ 149,300.00</p>
+          <p>faturamento mensal</p>
         </div>
-        <div class="box_meio">
-            <div class="box_grafico">
+        <div class="card">
+          <h2>
+            <img src="assets/icon/Arrow up-right.svg" alt="arrow" /><span
+              id="qtdUnidadesVendas"
+              >5</span
+            >
+            - unidades
+          </h2>
+          <p id="vendasPacote">42</p>
+          <p>vendas de pacote</p>
+        </div>
+        <div class="card">
+          <h2>
+            <img src="assets/icon/Arrow up-right.svg" alt="arrow" /><span
+              id="porcentMedia"
+              >15%</span
+            >
+            - <span id="aumentoMedia">3,400.00</span>
+          </h2>
+          <p id="medVendas">R$ 149,300.00</p>
+          <p>média de vendas</p>
+        </div>
+        <div class="card">
+          <h2>
+            <img src="assets/icon/Arrow Down-right.svg" alt="arrow" /><span
+              id="porcentClientNovos"
+              >4%</span
+            >
+            - <span id="qdtClientesNovos">7</span> clientes
+          </h2>
+          <p id="clientesNovos">5</p>
+          <p>clientes novos</p>
+        </div>
+      </div>
+      <div class="box_meio">
+        <div class="box_grafico">
+            <div class="chart-container">
+            <canvas id="rendaMensalChart"></canvas>
+            </div>
+                        
 
-            </div>
-            <div class="box_cidades">
-                
-            </div>
         </div>
-        <div class="box_rodape">
-            <div class="box_consultores">
-
+        <div class="box_cidades">
+          <h2>Cidades mais visitadas</h2>
+          <div class="box_cidades_aninhamento">
+            <div class="cidades_row">
+              <img src="assets/icon/Chevron up.svg" alt="" />
+              <p>São Paulo</p>
+              <p class="qtdViagens">193 viagens</p>
             </div>
-            <div class="box_pacotes">
-                
+            <div class="cidades_row">
+              <img src="assets/icon/Chevron Down.svg" alt="" />
+              <p>Salvador</p>
+              <p class="qtdViagens">142 viagens</p>
             </div>
+            <div class="cidades_row">
+              <img src="assets/icon/Chevron up.svg" alt="" />
+              <p>João Pessoa</p>
+              <p class="qtdViagens">102 viagens</p>
+            </div>
+            <div class="cidades_row">
+              <img src="assets/icon/Parallel Symbol.svg" alt="" />
+              <p>Rio Branco</p>
+              <p class="qtdViagens">98 viagens</p>
+            </div>
+          </div>
         </div>
-        
+      </div>
+      <div class="box_rodape">
+        <div class="box_consultores">
+          <h2>Consultores com mais vendas</h2>
+          <div class="box_consultores_aninhamento">
+            <div class="consultores_row">
+              <img src="assets/icon/Chevron up.svg" alt="" />
+              <p>Vitor</p>
+              <p class="qtdFaturamento">41 - R$ 17,780.00</p>
+            </div>
+            <div class="consultores_row">
+              <img src="assets/icon/Chevron Down.svg" alt="" />
+              <p>Matheus</p>
+              <p class="qtdFaturamento">19 - R$ 11,543.70</p>
+            </div>
+            <div class="consultores_row">
+              <img src="assets/icon/Chevron up.svg" alt="" />
+              <p>Calil</p>
+              <p class="qtdFaturamento">18 - R$ 9,322.90</p>
+            </div>
+            <div class="consultores_row">
+              <img src="assets/icon/Parallel Symbol.svg" alt="" />
+              <p>Karol</p>
+              <p class="qtdFaturamento">12 - R$ 5,200.00</p>
+            </div>
+          </div>
+        </div>
+        <div class="box_pacotes">
+          <h2>Pacotes mais vendidos</h2>
+          <div class="box_pacotes_aninhamento">
+            <div class="pacotes_row">
+              <img src="assets/icon/Chevron up.svg" alt="" />
+              <p>SP - Zona Sul 01</p>
+              <p class="qtdVendas">121 vendas</p>
+            </div>
+            <div class="pacotes_row">
+              <img src="assets/icon/Chevron Down.svg" alt="" />
+              <p>SA - Litoral 03</p>
+              <p class="qtdVendas">118 vendas</p>
+            </div>
+            <div class="pacotes_row">
+              <img src="assets/icon/Chevron up.svg" alt="" />
+              <p>JP - Litoral 08</p>
+              <p class="qtdVendas">102 vendas</p>
+            </div>
+            <div class="pacotes_row">
+              <img src="assets/icon/Parallel Symbol.svg" alt="" />
+              <p>RB - Cultural 04</p>
+              <p class="qtdVendas">98 vendas</p>
+            </div>
+          </div>
+        </div>
+      </div>
     </section>
-     <section id="clientes_section">
-        <h1>Clientes</h1>
+    <section id="clientes_section">
+      <h1>Clientes</h1>
     </section>
-     <section id="consultores_section">
-        <h1>Consultores</h1>
+    <section id="consultores_section">
+      <h1>Consultores</h1>
     </section>
     
-</body>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/chartjs-plugin-datalabels@2"></script>
+  </body>
 </html>
 
-
 <script>
+  const menuNav = document.getElementById("menuNav");
+  const abrir = document.getElementById("abrir_menu");
 
-    const menuNav = document.getElementById("menuNav");
-    const abrir = document.getElementById("abrir_menu");
+  function fecharMenu() {
+    menuNav.style.width = "20px";
+    conteudo_menu.style.opacity = "0";
+    conteudo_menu.style.transition = "none";
+    interagir_menu.style.transform = "Rotate(180deg)";
+    const topo = document.querySelector(".box_topo");
+    const meio = document.querySelector(".box_meio");
+    const rodape = document.querySelector(".box_rodape");
 
-    function fecharMenu(){
-        menuNav.style.width = "20px";
-        conteudo_menu.style.opacity = "0";
-        conteudo_menu.style.transition = "none"
-        interagir_menu.style.transform = "Rotate(180deg)"
-        
-        setTimeout(() => {
-            interagir_menu.style.opacity = 0;
-        }, 400);
-        interagir_menu.style.transition = ".2s";
-        
-        setTimeout(() => {
-        abrir.style.display = "block";
-        abrir.classList.add("animar");
-        abrir.style.opacity = 1;
-        interagir_menu.style.display = "none"
-        }, 900);
-    }
+    setTimeout(() => {
+      interagir_menu.style.opacity = 0;
+    }, 400);
+    interagir_menu.style.transition = ".2s";
 
-    function abrirMenu(){
-        menuNav.style.width = "290px";
-        interagir_menu.style.opacity = 1;
-        interagir_menu.style.display = "block"
-        abrir.classList.remove("animar"); 
-        abrir.style.display = "none";
-        interagir_menu.style.transform = "none"
-        setTimeout(() => {
-            conteudo_menu.style.opacity = "1";
-            conteudo_menu.style.transition = ".5s linear"
-        }, 850);
-    }
+    setTimeout(() => {
+      abrir.style.display = "block";
+      abrir.classList.add("animar");
+      abrir.style.opacity = 1;
+      interagir_menu.style.display = "none";
+      topo.style.width = "75%";
+      topo.style.transition = "1s";
+      meio.style.width = "75%";
+      meio.style.transition = "1s";
+      rodape.style.width = "75%";
+      rodape.style.transition = "1s";
+    }, 900);
+  }
+
+  function abrirMenu() {
+    menuNav.style.width = "290px";
+    const topo = document.querySelector(".box_topo");
+    const meio = document.querySelector(".box_meio");
+    const rodape = document.querySelector(".box_rodape");
+    topo.style.width = "80%";
+    meio.style.width = "80%";
+    rodape.style.width = "80%";
+
+    interagir_menu.style.opacity = 1;
+    interagir_menu.style.display = "block";
+    abrir.classList.remove("animar");
+    abrir.style.display = "none";
+    interagir_menu.style.transform = "none";
+    setTimeout(() => {
+      topo.style.width = "85%";
+      meio.style.width = "85%";
+      rodape.style.width = "85%";
+      conteudo_menu.style.opacity = "1";
+      conteudo_menu.style.transition = ".5s linear";
+    }, 850);
+  }
 
 
 
 
-    const barra = document.createElement("div");
-    barra.style.position = "absolute";
+  const barra = document.createElement("div");
+  barra.style.position = "absolute";
+  barra.style.width = "0";
+  barra.style.height = "3px";
+  barra.style.backgroundColor = "white";
+  barra.style.bottom = "-10px";
+  barra.style.borderRadius = "3px";
+  barra.style.transition = "width 0.3s ease";
+
+  const homeSession = document.getElementById("home_session");
+  const clientesSession = document.getElementById("clientes_session");
+  const consultoresSession = document.getElementById("consultores_session");
+  const dashboardSection = document.getElementById("dashboard_section");
+  const clientesSection = document.getElementById("clientes_section");
+  const consultoresSection = document.getElementById("consultores_section");
+
+  [homeSession, clientesSession, consultoresSession].forEach((el) => {
+    el.style.position = "relative";
+    el.style.cursor = "pointer";
+  });
+
+  homeSession.appendChild(barra);
+  dashboardSection.style.display = "flex";
+  clientesSection.style.display = "none";
+  consultoresSection.style.display = "none";
+
+  function mudarSessao(ativo, sectionMostrar) {
+    ativo.appendChild(barra);
     barra.style.width = "0";
-    barra.style.height = "3px";
-    barra.style.backgroundColor = "white";
-    barra.style.bottom = "-10px";
-    barra.style.borderRadius = "3px";
-    barra.style.transition = "width 0.3s ease";
-
-    const homeSession = document.getElementById("home_session");
-    const clientesSession = document.getElementById("clientes_session");
-    const consultoresSession = document.getElementById("consultores_session");
-    const dashboardSection = document.getElementById("dashboard_section");
-    const clientesSection = document.getElementById("clientes_section");
-    const consultoresSection = document.getElementById("consultores_section");
-
-    [homeSession, clientesSession, consultoresSession].forEach(el => {
-        el.style.position = "relative";
-        el.style.cursor = "pointer";
-    });
-
-    homeSession.appendChild(barra);
-    dashboardSection.style.display = "flex";
+    setTimeout(() => {
+      barra.style.width = "40px";
+    }, 10);
+    document
+      .querySelectorAll(".box_sessoes h2")
+      .forEach((el) => el.classList.remove("active"));
+    ativo.classList.add("active");
+    dashboardSection.style.display = "none";
     clientesSection.style.display = "none";
     consultoresSection.style.display = "none";
+    sectionMostrar.style.display = "flex";
+  }
 
-    function mudarSessao(ativo, sectionMostrar) {
-        ativo.appendChild(barra);
-        barra.style.width = "0";
-        setTimeout(() => {
-            barra.style.width = "40px";
-        }, 10);
-        document.querySelectorAll(".box_sessoes h2").forEach(el => el.classList.remove("active"));
-        ativo.classList.add("active");
-        dashboardSection.style.display = "none";
-        clientesSection.style.display = "none";
-        consultoresSection.style.display = "none";
-        sectionMostrar.style.display = "flex";
-    }
+  homeSession.addEventListener("click", () =>
+    mudarSessao(homeSession, dashboardSection)
+  );
+  clientesSession.addEventListener("click", () =>
+    mudarSessao(clientesSession, clientesSection)
+  );
+  consultoresSession.addEventListener("click", () =>
+    mudarSessao(consultoresSession, consultoresSection)
+  );
 
-    homeSession.addEventListener("click", () => mudarSessao(homeSession, dashboardSection));
-    clientesSession.addEventListener("click", () => mudarSessao(clientesSession, clientesSection));
-    consultoresSession.addEventListener("click", () => mudarSessao(consultoresSession, consultoresSection)); 
+  function atualizarHora() {
+    const agora = new Date();
 
+    const hora = agora.getHours().toString().padStart(2, "0");
+    const minutos = agora.getMinutes().toString().padStart(2, "0");
+    document.getElementById("hora").textContent = `${hora}:${minutos}`;
 
+    const diasSemana = [
+      "Domingo",
+      "Segunda-feira",
+      "Terça-feira",
+      "Quarta-feira",
+      "Quinta-feira",
+      "Sexta-feira",
+      "Sábado",
+    ];
+    const diaSemana = diasSemana[agora.getDay()];
+    const dia = agora.getDate().toString().padStart(2, "0");
+    const mes = agora.toLocaleString("pt-BR", { month: "short" });
+    const ano = agora.getFullYear();
 
-    function atualizarHora() {
-        const agora = new Date();
-
-        const hora = agora.getHours().toString().padStart(2, "0");
-        const minutos = agora.getMinutes().toString().padStart(2, "0");
-        document.getElementById("hora").textContent = `${hora}:${minutos}`;
-
-        const diasSemana = [
-            "Domingo",
-            "Segunda-feira",
-            "Terça-feira",
-            "Quarta-feira",
-            "Quinta-feira",
-            "Sexta-feira",
-            "Sábado"
-        ];
-        const diaSemana = diasSemana[agora.getDay()];
-        const dia = agora.getDate().toString().padStart(2, "0");
-        const mes = agora.toLocaleString("pt-BR", { month: "short" });
-        const ano = agora.getFullYear();
-
-        document.getElementById("data").textContent = `${diaSemana}, ${dia} ${mes} ${ano}`;
-    }
+    document.getElementById(
+      "data"
+    ).textContent = `${diaSemana}, ${dia} ${mes} ${ano}`;
+  }
 
   atualizarHora();
   setInterval(atualizarHora, 1000);
 
+
+
+/* const ctx = document.getElementById('rendaMensalChart').getContext('2d');
+
+// Criar um gradiente suave nas barras
+const gradient = ctx.createLinearGradient(0, 0, 0, 400);
+gradient.addColorStop(0, '#00bfff');
+gradient.addColorStop(1, '#007bff');
+
+const rendaMensalChart = new Chart(ctx, {
+    type: 'bar',
+    data: {
+        labels: ['jan', 'fev', 'mar', 'abr', 'mai', 'jun', 'jul', 'ago', 'set', 'out'],
+        datasets: [{
+            label: 'Renda (R$ mil)',
+            data: [12, 15, 20, 24, 18, 25, 32, 28, 35, 40],
+            backgroundColor: gradient,
+            borderRadius: 8,
+            hoverBackgroundColor: '#33c3ff'
+        }]
+    },
+    options: {
+        responsive: true,
+        maintainAspectRatio: false,
+        layout: {
+            padding: 10
+        },
+        plugins: {
+            title: {
+                display: true,
+                text: 'Renda Mensal 2025',
+                color: '#fff',
+                font: {
+                    size: 18,
+                    weight: 'bold'
+                },
+                padding: {
+                    bottom: 20
+                }
+            },
+            legend: {
+                display: false
+            },
+            tooltip: {
+                backgroundColor: '#111',
+                titleColor: '#00bfff',
+                bodyColor: '#fff',
+                borderColor: '#007bff',
+                borderWidth: 1,
+                cornerRadius: 8,
+                padding: 10
+            },
+            datalabels: {
+                color: '#fff',
+                anchor: 'end',
+                align: 'start',
+                font: {
+                    weight: 'bold'
+                },
+                formatter: (value) => `R$ ${value}k`
+            }
+        },
+        scales: {
+            y: {
+                beginAtZero: true,
+                ticks: {
+                    color: '#ccc',
+                    font: { size: 12 },
+                    callback: (value) => `R$ ${value}k`
+                },
+                grid: {
+                    color: '#222',
+                    lineWidth: 1
+                }
+            },
+            x: {
+                ticks: {
+                    color: '#ccc',
+                    font: { size: 12 }
+                },
+                grid: {
+                    display: false
+                }
+            }
+        }
+    },
+    plugins: [ChartDataLabels]
+}); */
+
+const ctx = document.getElementById('rendaMensalChart').getContext('2d');
+
+// Gradiente azul (renda atual)
+const gradientAtual = ctx.createLinearGradient(0, 0, 0, 400);
+gradientAtual.addColorStop(0, '#00bfff');
+gradientAtual.addColorStop(1, '#007bff');
+
+// Gradiente verde (mês anterior)
+const gradientAnterior = ctx.createLinearGradient(0, 0, 0, 400);
+gradientAnterior.addColorStop(0, '#00ff99');
+gradientAnterior.addColorStop(1, '#00b36b');
+
+const rendaMensalChart = new Chart(ctx, {
+    type: 'bar',
+    data: {
+        labels: ['mai', 'jun', 'jul', 'ago', 'set', 'out'],
+        datasets: [
+            {
+                label: 'Renda Atual (R$ mil)',
+                data: [18, 25, 32, 28, 35, 40],
+                backgroundColor: gradientAtual,
+                borderRadius: 8,
+                hoverBackgroundColor: '#33c3ff'
+            },
+            {
+                label: 'Mês Anterior (R$ mil)',
+                data: [16, 23, 28, 25, 30, 37],
+                backgroundColor: gradientAnterior,
+                borderRadius: 8,
+                hoverBackgroundColor: '#4dffa6'
+            }
+        ]
+    },
+    options: {
+        responsive: true,
+        maintainAspectRatio: false,
+        layout: {
+            padding: 10
+        },
+        plugins: {
+            title: {
+                display: true,
+                text: 'Renda Mensal vs Mês Anterior (2025)',
+                color: '#fff',
+                font: {
+                    size: 18,
+                    weight: 'bold'
+                },
+                padding: { bottom: 20 }
+            },
+            legend: {
+                labels: {
+                    color: '#ccc',
+                    font: { size: 13 }
+                }
+            },
+            tooltip: {
+                backgroundColor: '#111',
+                titleColor: '#00bfff',
+                bodyColor: '#fff',
+                borderColor: '#007bff',
+                borderWidth: 1,
+                cornerRadius: 8,
+                padding: 10,
+                callbacks: {
+                    label: function(context) {
+                        return `${context.dataset.label}: R$ ${context.formattedValue}k`;
+                    }
+                }
+            },
+            datalabels: {
+                color: '#fff',
+                anchor: 'end',
+                align: 'start',
+                font: { weight: 'bold' },
+                formatter: (value) => `R$ ${value}k`
+            }
+        },
+        scales: {
+            y: {
+                beginAtZero: true,
+                ticks: {
+                    color: '#ccc',
+                    font: { size: 12 },
+                    callback: (value) => `R$ ${value}k`
+                },
+                grid: {
+                    color: '#222',
+                    lineWidth: 1
+                }
+            },
+            x: {
+                ticks: {
+                    color: '#ccc',
+                    font: { size: 12 }
+                },
+                grid: { display: false }
+            }
+        }
+    },
+    plugins: [ChartDataLabels]
+});
 
 
 </script>
