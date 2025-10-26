@@ -10,6 +10,8 @@ function validarSessao() {
         boxButtons.innerHTML = `<a onclick="limparSessao()">sair</a>`;
     } else {
         
+        window.location = "../login.html";
+
     }
 }
 

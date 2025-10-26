@@ -39,7 +39,7 @@
             <div class="inputs">
               <label for="input_senha">Senha</label>
               <input
-                type="text"
+                type="password"
                 placeholder="Insira sua senha aqui..."
                 id="input_senha"
               />
@@ -97,8 +97,8 @@
             console.log(JSON.stringify(json));
             sessionStorage.EMAIL_USUARIO = json.email;
             sessionStorage.NOME_USUARIO = json.nome;
-            sessionStorage.ID_USUARIO = json.idUsuario;
-            sessionStorage.TIPO_USUARIO = json.cargo;
+            sessionStorage.ID_USUARIO = json.id;
+            sessionStorage.TIPO_USUARIO = json.tipo;
 
             div_mensagem.innerHTML = `Redirecionando...`;
             setTimeout(function () {

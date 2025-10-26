@@ -6,8 +6,9 @@ function cadastrar(req, res) {
     var email = req.body.emailUsuario;
     var senha = req.body.senhaUsuario;
     var tipo = req.body.tipoUsuario;
+    var cpf = req.body.cpfUsuario;
     
-        usuarioModel.cadastrar(nome, email, senha, tipo)
+        usuarioModel.cadastrar(nome, email, senha, tipo, cpf)
             .then(
                 function (resultado) {
                     res.json(resultado);

@@ -8,7 +8,7 @@
     <script src="./js/sessao.js"></script>
     <title>Web Site - Zump Home</title>
 </head>
-<body onload="validarSessao()">
+<body onload="Userlogado()">
     <div id="blackBody">
         <img src="assets/imgs/nuvem.svg" alt="">
         <img src="assets/imgs/nuvem.svg" alt="">
@@ -21,14 +21,14 @@
         <div id="nomeDisplay"></div>
         <div id="boxButtons">
             <a href="cadastro.html" class="buttonCadastro">cadastrar</a>
-            <a href="login.html" class="buttonLogin"></a>
+            <a href="login.html" class="buttonLogin" onclick="limparSessao()"></a>
         </div> 
     </div>
 
     <div class="box-text">
         <h1>Da gestão à recomendação: tudo o que sua <span>agência</span> precisa para crescer</h1>
         <p>Gerencie clientes, recomende experiências e leve sua agência a um novo nível de eficiência.</p>
-        <a href="login.html" id="buttonAcess">acessar</a>
+        <a href="login.html" id="buttonAcess">Acessar</a><a href="dashboard.html" id="buttonAcess">Dashboard</a>
     </div>
 
     <img src="assets/Blobs imgs/blob.svg" alt="blob" id="blob_footer">
@@ -41,3 +41,21 @@
 
 </body>
 </html>
+
+<script>
+
+    var nome = sessionStorage.NOME_USUARIO;
+    var id = sessionStorage.ID_USUARIO;
+    var tipo = sessionStorage.TIPO_USUARIO;
+
+    function Userlogado(){
+
+        if((nome != null || nome != undefined) && (id != null || id != undefined)){
+
+            boxButtons.innerHTML = `<p>Olá, ${nome}</p><a href="login.html" class="buttonLogin" onclick="limparSessao()"></a>`
+
+        }
+
+    }
+
+</script>

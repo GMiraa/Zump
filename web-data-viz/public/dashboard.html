@@ -10,9 +10,10 @@
     />
     <link rel="stylesheet" href="css/institutional/dashboard.css" />
     <link rel="stylesheet" href="css/mediaFrames/media-keyframes-zump.css">
+    <script src="./js/sessao.js"></script>
     <title>Dashboard - Zump</title>
   </head>
-  <body>
+  <body onload="carregarFuncoes()">
     <button id="abrir_menu" onclick="abrirMenu()"></button>
     <header class="menu" id="menuNav">
       <button id="interagir_menu" onclick="fecharMenu()"></button>
@@ -20,7 +21,7 @@
         <div class="boxFoto">
           <div id="foto_user"></div>
           <h3 id="name_user">Marta Yamatha</h3>
-          <button>deslogar</button>
+          <button onclick="limparSessao()">deslogar</button>
         </div>
         <div class="box_hora">
           <h2 id="hora">15:37</h2>
@@ -181,8 +182,47 @@
 </html>
 
 <script>
+
   const menuNav = document.getElementById("menuNav");
   const abrir = document.getElementById("abrir_menu");
+
+  var nome = sessionStorage.NOME_USUARIO;
+  var id = sessionStorage.ID_USUARIO;
+
+  var ListaValores = [];
+
+
+  function carregarFuncoes(){
+
+    Userlogado();
+    validarSessao()
+
+  }
+
+  function Userlogado(){
+
+        if((nome != null || nome != undefined) && (id != null || id != undefined)){
+
+            name_user.innerHTML = `${nome}`
+
+        }
+
+  }
+
+  async function ValoresKPI(){
+
+    const resposta = await fetch(`/dashboard/buscarValores`);
+    const dados = await resposta.json();
+    ListaValores = dados;
+
+    console.log(ListaValores);
+
+    vendasPacote.innerHTML = `${ListaValores[0].totalPacotesVendidos}`;
+    ftrMensal.innerHTML = `R$ ${ListaValores[0].valorTotalGerado}`;
+
+  }
+
+  ValoresKPI();
 
   function fecharMenu() {
     menuNav.style.transition = "1s ease-out";

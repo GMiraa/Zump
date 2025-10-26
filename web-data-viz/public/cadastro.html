@@ -44,11 +44,11 @@
                     </div>
                     <div class="inputs">
                         <label for="input_senha">Senha</label>
-                        <input type="text" placeholder="Insira sua senha aqui..." id="input_senha">
+                        <input type="password" placeholder="Insira sua senha aqui..." id="input_senha">
                     </div>
                     <div class="inputs">
                         <label for="input_confirmar">Confirmar senha</label>
-                        <input type="text" placeholder="Confirmar senha..." id="input_confirmar">
+                        <input type="password" placeholder="Confirmar senha..." id="input_confirmar">
                     </div>
                 </div>
                 <div class="infosBox">
@@ -94,6 +94,7 @@
       var senha = input_senha.value;
       var cpf = input_cpf.value;
       var tipo = "Comum"
+      var imagem = "";
     
         if(nome == "" || email == "" || senha == "" || confSenha == "" || cpf == "" ){
 
@@ -101,6 +102,14 @@
             setTimeout(() => {
                 mensagem.innerHTML = "";                
             }, 4000);            
+
+        }
+        else if(senha != confSenha){
+
+          mensagem.innerHTML = `<p style="background: white; color: red; padding: 5px 10px; border-radius: 5px;">Senhas <b>diferentes!</b></p>`;
+            setTimeout(() => {
+                mensagem.innerHTML = "";                
+            }, 4000); 
 
         } else {
         
@@ -113,7 +122,8 @@
               nomeUsuario: nome,
               emailUsuario: email,
               senhaUsuario: senha,
-              tipoUsuario: tipo
+              tipoUsuario: tipo,
+              cpfUsuario: cpf
             })
           })
           alert("Cadastro realizado com sucesso")
