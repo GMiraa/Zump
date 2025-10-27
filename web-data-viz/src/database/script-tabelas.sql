@@ -1,3 +1,9 @@
+CREATE DATABASE zump1;
+
+USE zump1;
+
+show tables;
+
 CREATE TABLE IF NOT EXISTS `cliente` (
   `idCliente` INT NOT NULL AUTO_INCREMENT,
   `nome` VARCHAR(45) NOT NULL,
@@ -10,17 +16,22 @@ CREATE TABLE IF NOT EXISTS `cliente` (
 
 CREATE TABLE IF NOT EXISTS `usuario` (
   `idUsuario` INT NOT NULL AUTO_INCREMENT,
-  `idCliente` INT NOT NULL,
   `nome` VARCHAR(45) NOT NULL,
+  `cpf` varchar(45) NOT NULL,
   `cargo` VARCHAR(45) NOT NULL,
   `email` VARCHAR(45) NOT NULL,
   `senha` VARCHAR(45) NOT NULL,
-  PRIMARY KEY (`idUsuario`, `idCliente`),
-  INDEX `fk_usuario_cliente1_idx` (`idCliente`),
-  CONSTRAINT `fk_usuario_cliente1`
-    FOREIGN KEY (`idCliente`)
-    REFERENCES `cliente` (`idCliente`)
+  `superior` INT, 
+  constraint fkSuperior foreign key (superior) references usuario(idUsuario), 
+  PRIMARY KEY (`idUsuario`)
 );
+
+drop table usuario;
+
+select * from usuario;
+
+        SELECT idUsuario, nome, cargo, email FROM usuario WHERE email = 'guilherme@gmail.com' AND senha = 'gui22';
+
 
 CREATE TABLE IF NOT EXISTS `acao` (
   `idAcao` INT NOT NULL,
@@ -30,7 +41,7 @@ CREATE TABLE IF NOT EXISTS `acao` (
 );
 
 CREATE TABLE IF NOT EXISTS `pacote` (
-  `idPacote` INT NOT NULL,
+  `idPacote` INT auto_increment,
   `nome` VARCHAR(45) NOT NULL,
   `descricao` VARCHAR(45) NOT NULL,
   `qtd_dia` INT NOT NULL,
@@ -38,6 +49,28 @@ CREATE TABLE IF NOT EXISTS `pacote` (
   `preco` DECIMAL(10,2) NOT NULL,
   PRIMARY KEY (`idPacote`)
 );
+
+insert into pacote values (default, "Maldivas", "blablabla", 7, 6, 10000);
+
+CREATE TABLE IF NOT EXISTS `vendas` (
+  idVenda INT PRIMARY KEY auto_increment,
+  idPacote INT NOT NULL,
+  dataVenda DATE NOT NULL,
+  quantidade INT NOT NULL,
+  FOREIGN KEY (idPacote) REFERENCES pacote(idPacote)
+);
+
+insert into vendas values (default, 1, '2025-10-26', 1);
+
+SELECT 
+    SUM(v.quantidade) AS totalPacotesVendidos,
+    SUM(v.quantidade * p.preco) AS valorTotalGerado
+FROM 
+    vendas v
+JOIN 
+    pacote p ON v.idPacote = p.idPacote
+WHERE 
+    v.dataVenda >= CURDATE() - INTERVAL 30 DAY;
 
 CREATE TABLE IF NOT EXISTS `logs` (
   `fk_acao` INT NOT NULL AUTO_INCREMENT,
