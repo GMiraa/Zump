@@ -125,15 +125,14 @@ body{
 
 .nomeDisplay {
 
-    width: 140px;
+    width: 200px;
     height: 40px;
     text-align: center;
     line-height: 40px;
-    color: var(--azul-Z4-);
+    color: var(--white);
     border-radius: 40px;
     font-size: var(--font-size-regular);
     font-weight: 600;
-    background-color: var(--white);
     margin-bottom: 5px;
     
 }

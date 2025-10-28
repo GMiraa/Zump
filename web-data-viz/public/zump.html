@@ -18,8 +18,8 @@
     </div>
     <div id="gradient">
         <img src="assets/logos/logo zump 1.png" alt="logo-zump">
-        <div id="nomeDisplay"></div>
         <div id="boxButtons">
+            <div id="nomeDisplay"></div>
             <a id="btnCad" href="cadastro.html" class="buttonCadastro">cadastrar</a>
             <a href="login.html" class="buttonLogin" onclick="limparSessao()"></a>
         </div> 
@@ -61,13 +61,13 @@
             botao.classList.add('sumirBotao');
             botaoCad.classList.add('sumirBotao');
             nomeUser.classList.add('nomeDisplay');
+            buttonAcess2.style.display = "block";
         }
         else {
-
             botao.classList.remove('sumirBotao');
             botaoCad.classList.remove('sumirBotao');
             nomeUser.classList.remove('nomeDisplay');
-
+            buttonAcess2.style.display = "none";
         }
 
     }
