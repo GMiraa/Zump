@@ -11,6 +11,7 @@ CREATE TABLE IF NOT EXISTS `cliente` (
   `email` VARCHAR(45) NOT NULL,
   `cidade` VARCHAR(45) NOT NULL,
   `nascimento` VARCHAR(45) NOT NULL,
+  `dtCriacao` DATETIME DEFAULT CURRENT_TIMESTAMP,
   PRIMARY KEY (`idCliente`)
 );
 
