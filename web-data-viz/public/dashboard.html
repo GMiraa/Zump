@@ -209,20 +209,20 @@
 
   }
 
-  async function ValoresKPI(){
+  // async function ValoresKPI(){
 
-    const resposta = await fetch(`/dashboard/buscarValores`);
-    const dados = await resposta.json();
-    ListaValores = dados;
+  //   const resposta = await fetch(`/dashboard/buscarValores`);
+  //   const dados = await resposta.json();
+  //   ListaValores = dados;
 
-    console.log(ListaValores);
+  //   console.log(ListaValores);
 
-    vendasPacote.innerHTML = `${ListaValores[0].totalPacotesVendidos}`;
-    ftrMensal.innerHTML = `R$ ${ListaValores[0].valorTotalGerado}`;
+  //   vendasPacote.innerHTML = `${ListaValores[0].totalPacotesVendidos}`;
+  //   ftrMensal.innerHTML = `R$ ${ListaValores[0].valorTotalGerado}`;
 
-  }
+  // }
 
-  ValoresKPI();
+  // ValoresKPI();
 
   function fecharMenu() {
     menuNav.style.transition = "1s ease-out";

@@ -123,6 +123,21 @@ body{
     gap: 18px;
 }
 
+.nomeDisplay {
+
+    width: 140px;
+    height: 40px;
+    text-align: center;
+    line-height: 40px;
+    color: var(--azul-Z4-);
+    border-radius: 40px;
+    font-size: var(--font-size-regular);
+    font-weight: 600;
+    background-color: var(--white);
+    margin-bottom: 5px;
+    
+}
+
 #boxButtons .buttonCadastro{
     width: 170px;
     height: 40px;
@@ -220,7 +235,7 @@ body{
     width: 35%;
 }
 
-.box-text #buttonAcess{
+.box-text #buttonAcess, #buttonAcess2{
     text-align: center;
     line-height: 40px;
     font-size: var(--font-size-regular);
@@ -232,6 +247,13 @@ body{
     transition: .3s ease-in-out;
     background-color: var(--azul-Z2-);
     transform: scale(1.1);
+}
+
+
+.sumirBotao {
+
+    display: none;
+
 }
 
 #aviao01{

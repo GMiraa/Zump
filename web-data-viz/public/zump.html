@@ -20,7 +20,7 @@
         <img src="assets/logos/logo zump 1.png" alt="logo-zump">
         <div id="nomeDisplay"></div>
         <div id="boxButtons">
-            <a href="cadastro.html" class="buttonCadastro">cadastrar</a>
+            <a id="btnCad" href="cadastro.html" class="buttonCadastro">cadastrar</a>
             <a href="login.html" class="buttonLogin" onclick="limparSessao()"></a>
         </div> 
     </div>
@@ -28,7 +28,7 @@
     <div class="box-text">
         <h1>Da gestão à recomendação: tudo o que sua <span>agência</span> precisa para crescer</h1>
         <p>Gerencie clientes, recomende experiências e leve sua agência a um novo nível de eficiência.</p>
-        <a href="login.html" id="buttonAcess">Acessar</a><a href="dashboard.html" id="buttonAcess">Dashboard</a>
+        <a href="login.html" id="buttonAcess">Acessar</a><a href="dashboard.html" id="buttonAcess2">Dashboard</a>
     </div>
 
     <img src="assets/Blobs imgs/blob.svg" alt="blob" id="blob_footer">
@@ -50,9 +50,23 @@
 
     function Userlogado(){
 
+        const botao = document.getElementById('buttonAcess');
+        const botaoCad = document.getElementById('btnCad');
+        const nomeUser = document.getElementById('nomeDisplay');
+
         if((nome != null || nome != undefined) && (id != null || id != undefined)){
 
-            boxButtons.innerHTML = `<p>Olá, ${nome}</p><a href="login.html" class="buttonLogin" onclick="limparSessao()"></a>`
+            nomeDisplay.innerHTML = `<p>Olá, ${nome}</p><a href="login.html" class="buttonLogin" onclick="limparSessao()"></a>`
+            buttonAcess.innerHTML = "";
+            botao.classList.add('sumirBotao');
+            botaoCad.classList.add('sumirBotao');
+            nomeUser.classList.add('nomeDisplay');
+        }
+        else {
+
+            botao.classList.remove('sumirBotao');
+            botaoCad.classList.remove('sumirBotao');
+            nomeUser.classList.remove('nomeDisplay');
 
         }
 
