@@ -170,7 +170,78 @@
       </div>
     </section>
     <section id="clientes_section">
-      <h1>Clientes</h1>
+      <div id="cardDelete">
+        <div class="barraTemporizadora"></div>
+        <h1>Deseja deletar o cliente?</h1>
+        <div class="infosCliente">
+          <h2>Nome do Cliente</h2>
+          <h2>Email@gmail.com</h2>
+          <h2>Pacotes adquiridos: 127</h2>
+        </div>
+        <div class="opBtn">
+          <button id="btnNao" onclick="fecharCardDeletarCliente()">não</button>
+          <button id="btnSim">sim</button>
+        </div>
+      </div>
+
+      <div class="box_topo">
+          <div class="inputPesquisar">
+            <input type="text" placeholder="pesquisar cliente...">
+            <button></button>
+          </div>
+          <button id="adicionarCliente">adicionar cliente</button>
+          <div class="selecao">
+            <p>Filtrar pacote</p>
+            <select name="" id="selectPacote">
+              <option value="">Sem pacote</option>
+              <option value="">Com pacote</option>
+            </select>
+          </div>
+      </div>
+      <div class="box_rodape" id="clientesList">
+          <div class="card_cliente">
+            <div class="box_foto">
+              <img src="assets/icon/Profile.svg" alt="user_img">
+            </div>
+            <div class="infos_cliente">
+              <h2>Nome Cliente</h2>
+              <p>emaildocliente@gmail.com</p>
+            </div>
+            <div class="box_buttons">
+              <button id="btn_pacote"></button>
+              <button id="btn_deletar" onclick="deletarCliente()"></button>
+              <button id="btn_editar"></button>
+            </div>
+          </div>
+          <div class="card_cliente">
+            <div class="box_foto">
+              <img src="assets/icon/Profile.svg" alt="user_img">
+            </div>
+            <div class="infos_cliente">
+              <h2>Nome Cliente</h2>
+              <p>emaildocliente@gmail.com</p>
+            </div>
+            <div class="box_buttons">
+              <button id="btn_pacote"></button>
+              <button id="btn_deletar" onclick="deletarCliente()"></button>
+              <button id="btn_editar"></button>
+            </div>
+          </div>
+          <div class="card_cliente">
+            <div class="box_foto">
+              <img src="assets/icon/Profile.svg" alt="user_img">
+            </div>
+            <div class="infos_cliente">
+              <h2>Nome Cliente</h2>
+              <p>emaildocliente@gmail.com</p>
+            </div>
+            <div class="box_buttons">
+              <button id="btn_pacote"></button>
+              <button id="btn_deletar" onclick="deletarCliente()"></button>
+              <button id="btn_editar"></button>
+            </div>
+          </div>
+      </div>
     </section>
     <section id="consultores_section">
       <h1>Consultores</h1>
@@ -186,7 +257,7 @@
   const menuNav = document.getElementById("menuNav");
   const abrir = document.getElementById("abrir_menu");
 
-  var nome = sessionStorage.NOME_USUARIO;
+/*  var nome = sessionStorage.NOME_USUARIO;
   var id = sessionStorage.ID_USUARIO;
 
   var ListaValores = [];
@@ -207,7 +278,7 @@
 
         }
 
-  }
+  } */
 
   // async function ValoresKPI(){
 
@@ -223,6 +294,28 @@
   // }
 
   // ValoresKPI();
+
+
+
+  let cardDeleteCliente = document.getElementById("cardDelete");
+
+  function deletarCliente() {
+    cardDeleteCliente.style.display = "flex";
+
+    const barra = cardDeleteCliente.querySelector(".barraTemporizadora");
+    barra.style.animation = "none";
+
+    void barra.offsetWidth;
+    barra.style.animation = "temporizadora 5s linear forwards";
+
+    setTimeout(() => {
+      cardDeleteCliente.style.display = "none";
+    }, 5000);
+  }
+
+  function fecharCardDeletarCliente(){
+    cardDeleteCliente.style.display = "none";
+  }
 
   function fecharMenu() {
     menuNav.style.transition = "1s ease-out";
@@ -302,8 +395,8 @@
   });
 
   homeSession.appendChild(barra);
-  dashboardSection.style.display = "flex";
-  clientesSection.style.display = "none";
+  dashboardSection.style.display = "none";
+  clientesSection.style.display = "flex";
   consultoresSection.style.display = "none";
 
   function mudarSessao(ativo, sectionMostrar) {

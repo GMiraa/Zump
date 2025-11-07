@@ -1,0 +1,1025 @@
+@import url("../variables/variables-wetravel.css");
+@import url('https://fonts.googleapis.com/css2?family=Aclonica&family=Hubot+Sans:ital,wght@0,200..900;1,200..900&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Roboto:ital,wght@0,100..900;1,100..900&family=Shrikhand&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Aclonica&family=Hubot+Sans:ital,wght@0,200..900;1,200..900&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=MuseoModerno:ital,wght@0,100..900;1,100..900&family=Roboto:ital,wght@0,100..900;1,100..900&family=Shrikhand&display=swap');
+
+*{
+    margin: 0; padding: 0;
+    text-decoration: none; box-sizing: border-box;
+    list-style: none; scroll-behavior: smooth;
+    font-size: var(--font-size-small); 
+    font-family: var(--font-family-texts);
+    transition: all .6s ease-in-out;
+}
+body{
+    background: var(--gray-W6-WeTravel);
+    margin: auto;
+}
+header{
+    width: 100%; height: auto;
+    max-width: 1900px;
+    position: fixed;
+    padding: var(--padding-navbar-top-1900px);  margin-top: var(--header-distance-top-1900px);
+    z-index: 100;
+    transition: all 1s ease;
+}
+/*Definindo navbar menu*/
+
+/*Nav-bar geral/topo*/
+header #top-nav{
+    display: flex;
+    justify-content: space-between;
+}
+
+/*Nav-bar esquerda*/
+header #top-nav .nav-left{
+    display: flex; align-items: center;
+    background-color: var(--gray-W5-WeTravel);
+    width: var(--width-navbar-left-1900px); height: var(--height-navbar-left-right-1900px);
+    border-radius: var(--borderRadius-1900px); box-shadow: var(--shadow-navbarTop-1900px);
+}
+header #top-nav .nav-left ul{
+    display: flex; justify-content: space-between;
+    width: var(--width-ul-navbar-left-1900px);
+    margin-left: var(--margin-LEFT-RIGHT-ul-navbar-left-1900px); margin-right: var(--margin-LEFT-RIGHT-ul-navbar-left-1900px);
+}
+header #top-nav .nav-left ul li a{
+    color: var(--white);
+}
+header #top-nav .nav-left a #logo{
+    margin-left: var(--margin-left-logo-navbar-1900px);
+    width: var(--widht-logo-navbar-1900px); height: var(--height-logo-navbar-1900px);
+}
+
+/*Nav-bar direita*/
+header #top-nav .nav-right{
+    display: flex; align-items: center; justify-content: center;
+    background-color: var(--gray-W5-WeTravel);
+    width: var(--width-navbar-right-1900px); height: var(--height-navbar-left-right-1900px);
+    border-radius: var(--borderRadius-1900px); box-shadow: var(--shadow-navbarTop-1900px);
+}
+header #top-nav .nav-right ul{
+    display: flex; align-items: center; justify-content: center; justify-content: space-between;
+    width: var(--width-height-ul-navbar-right-1900px); height: var(--width-height-ul-navbar-right-1900px);
+    padding: var(--padding-ul-navbar-right-1900px);
+}
+header #top-nav .nav-right ul li a{
+    display: block;
+    color: var(--white);
+    height: 100%;
+    width: 100%;
+    text-align: center;
+    line-height: 45px;
+}
+header #top-nav .nav-right ul li #acessar{
+    color: var(--gray-W6-WeTravel);
+    transition: var(--mili-seg-5ms);
+}
+header #top-nav .nav-right ul li{
+    display: flex; justify-content: center; align-items: center;
+    width: var(--widht-button-navbar-right-1900px); height: var(--height-button-navbar-right-1900px);
+    font-weight: var(--font-weight-medium);
+}
+header #top-nav .nav-right ul li:nth-child(2){
+    border-radius: var(--border-radius-button-acess-navbar-right-1900px);
+    background: var(--white);
+    transition: var(--mili-seg-5ms);
+}
+header #top-nav .nav-right ul li:nth-child(2):hover{
+    background-color: rgb(53, 53, 53);
+}
+header #top-nav .nav-right ul li #acessar:hover{
+    color: var(--white);
+}
+
+/*Padronização das Sections*/
+section{
+    width: 100vw; height: 100vh;
+    max-width: 1900px; max-height: 1080px;
+    overflow: hidden;
+}
+
+main #home {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    background: var(--home-background-gradient);
+}
+#robotImage{
+    background-image: var(--home-background-image-roboot);
+    filter: drop-shadow(5px 5px 10px var(--gray-W6-WeTravel));
+    width: 100%;
+    height: 100%;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center center;
+}
+main .home-section #sobreporRobot{
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    background:var(--home-background-gradient-roboot);
+    pointer-events: none;
+    height: 35%;
+}
+
+main #home .box-content{
+    z-index: 99;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    position: absolute;
+    width: 100%;
+    height: 600px;
+    gap: 20px;
+}
+
+
+main .home-section #box-mensage{
+    background-image: url("../../assets/imgs/bemvindo.svg");
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-size: contain;
+    margin: 0px 10px 0px 10px;
+    width: auto;
+    height: 7%;
+}
+main .home-section #box-slogan{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0px 10px 0px 10px;
+    width: auto;
+    height: auto;
+}
+main .home-section #box-slogan h2{
+    color: var(--white);
+    font-family: var(--font-family-modern);
+    font-size: var(--font-size-extra-larguer);
+    font-weight: var(--font-weight-medium);
+    line-height: 40px;
+    text-align: center;
+    max-width: 680px;
+}
+main .home-section #box-slogan h2 span{
+    font-family: var(--font-family-modern);
+    font-size: var(--font-size-extra-larguer);
+    font-weight: var(--font-weight-medium);
+    color: var(--purple-W2-WeTravel);
+}
+main .home-section #box-textProject{
+     display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0px 30px 0px 30px;
+    width: auto;
+    height: 27%;
+}
+main .home-section #box-textProject h3{
+    color: var(--white);
+    font-weight: var(--font-weight-medium);
+    font-size: var(--font-size-medium);
+    font-family: var(--font-family-texts);
+    text-align: center;
+    width: 640px;
+}
+main .home-section #box-buttons{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 40px;
+    width: auto;
+    height: 15%;
+    margin: 0px 10px 0px 10px;
+}
+
+main .home-section #box-buttons a{
+    color: var(--white);
+    font-size: var(--font-size-medium);
+    font-weight: var(--font-weight-medium);
+    text-align: center;
+    width: var(--widht-buttons-home);
+    line-height: var(--height-buttons-home);
+    height: var(--height-buttons-home);
+}
+
+main .home-section #box-buttons #button-acess{
+    background-color: var(--white);
+    border-radius: var(--border-radius-buttons-home);
+    color: var(--gray-W6-WeTravel);
+}
+
+
+
+
+
+
+
+main #services {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    background: linear-gradient(0deg, #EAE4FF, #8B5CFF);
+}
+main .services-section #blobs{
+    position: absolute;
+    top: 0;
+    background-image: url("../../assets/Blobs\ imgs/blob bottom services.svg"),
+    url("../../assets/Blobs\ imgs/blob top services.svg");
+    background-repeat: no-repeat, no-repeat;
+    background-position: center bottom -20px, center top -20px;
+    background-size: 110%, 110%;
+    width: 100%;
+    height: 100%;
+}
+
+main .services-section .container-services{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: end;
+    width: 100%;
+    height: 100%;
+    z-index: 10;    
+}
+
+main .services-section #box-title{
+    display: flex;
+    align-items: center;
+    width: 100%;
+    height: 10%;
+}
+main .services-section #box-title h1{
+    margin-left: 5%;
+    color: var(--white);
+    font-size: var(--font-size-extra-larguer);
+}
+main .services-section #box-contain{
+    display: flex;
+    flex-wrap: wrap-reverse;
+    justify-content: space-around;
+    align-items: center;
+    gap: 10px;
+    width: 100%;
+    height: 55%;
+}
+main .services-section #text-services{
+    display: flex;
+    align-items: center;
+    border-left: 2px solid var(--gray-W6-WeTravel);
+    width: 100%;
+    max-width: 500px;
+    padding: 0px 10px 0px 20px;
+}
+main .services-section #text-services h2{
+    font-family: var(--font-family-modern);
+    font-weight: var(--font-weight-medium);
+    font-size: var(--font-size-medium);
+}
+main .services-section .box-carrossel{
+    width: 100%;
+    margin-right: 10%;
+    max-width: 800px;
+    height: 500px;
+    padding: 0px 10px 0px 10px;
+}
+main .services-section .box-carrossel .cards-carrossel{
+    border-radius: 15px;
+    position: relative;
+    background-color: var(--white);
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+}
+
+main .services-section .box-carrossel .cards-carrossel .box-btns{
+    display: flex;
+    align-items: center;
+    position: absolute;justify-content: space-between;
+    width: 100%;
+    height: 100%;
+    padding: 0px 5px 0px 5px;
+}
+
+main .services-section .box-carrossel .cards-carrossel .box-btns button{
+    background-image: url("../../assets/icon/Forward.svg");
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    width: 60px;
+    height: 60px;
+    border: none;
+    outline: none;
+    background-color: transparent;
+    cursor: pointer;
+}
+main .services-section .box-carrossel .cards-carrossel .box-btns button:nth-child(1){
+    transform: rotate(180deg);
+}
+
+main .services-section .box-carrossel .cards-carrossel #card{
+    display: flex;
+    align-items: end;
+    justify-content: center;
+    background-image: url("../../assets/imgs/639fb85066f416b5bf185fcf_Ciclo-de-vida-de-um-projeto.png");
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    padding-bottom: 7%;
+    width: 100%;
+    height: 100%;
+}
+main .services-section .box-carrossel .cards-carrossel #card .conteudo{
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    gap: 20px;
+    height: 100px;
+    width: 65%;
+}
+
+
+main .services-section .box-carrossel .cards-carrossel #card .conteudo h2{
+    color: var(--gray-W6-WeTravel);
+    font-size: var(--font-size-medium);
+}
+
+main .services-section .box-carrossel .cards-carrossel #card .conteudo h3{
+    color: #fff;
+    font-size: var(--font-size-small);
+}
+
+main .services-section #box-footer-services{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0px 5% 0px 5%;
+    width: 100%;
+    height: 20%;
+}
+
+
+.box-texts-footer h2{
+    font-family: var(--font-family-modern);
+    font-size: var(--font-size-medium);
+    color: var(--white);
+    width: 300px;
+    font-weight: var(--font-weight-medium);
+    line-height: 30px;
+}
+
+
+main #about {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    background: radial-gradient(
+      circle closest-corner at center,
+      var(--gray-W5-WeTravel),
+      var(--gray-W6-WeTravel)
+    );;
+}
+
+
+#caixaEquipe{
+    position: absolute;
+    display: none;
+    justify-content: center;
+    align-items: center;
+    width: 700px;
+    height: 460px;
+    border-radius: 20px;
+    background: var(--white);
+    background-image: url("../../assets/Blobs\ imgs/blackCardBlob.svg"),url("../../assets/Blobs\ imgs/greyCardBlob.svg");
+    background-repeat: no-repeat, no-repeat;
+    background-position: right top, left bottom;
+    background-size: 200px;
+    z-index: 20;
+    overflow: hidden;
+}
+
+#caixaEquipe #proxMembro{
+    position: absolute;
+    right: 10px;
+    width: 60px;
+    height: 60px;
+    border-radius: 60px;
+    border: none;
+    outline: none;
+    color: var(--white);
+    background: var(--gray-W6-WeTravel);
+    cursor: pointer;
+}
+
+#closeButton{
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    width: 35px;
+    height: 35px;
+    border-radius: 35px;
+    border: none;
+    cursor: pointer;
+}
+
+#caixaEquipe .conteudo{
+    width: 100%;
+    height: 100%;
+}
+
+#caixaEquipe .conteudo .infos{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    height: 300px;
+}
+
+#caixaEquipe .conteudo .foto{
+    display: flex;
+    background-color: #ebeaea;
+    height: 260px;
+    width: 190px;
+    border-radius: 15px;
+}
+
+#caixaEquipe .conteudo #fotoUser{
+    background: url("../../assets/imgs/matheusGomes.jpeg") ;
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+
+#caixaEquipe .conteudo .habilidades{
+    display: flex;
+    justify-content: center;
+    position: relative;
+    width: 400px;
+    height: 180px;
+}
+#caixaEquipe .conteudo .habilidades #text{
+    position: absolute;
+    background: #ebeaea;
+    padding: 7px 0px 7px 0px;
+    text-align: center;
+    width: 250px;
+    border-radius: 7px;
+    top: -35px;
+}
+
+#caixaEquipe .conteudo .habilidadesCod{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+    width: 90%;
+    height: 70%;
+    margin-top: 20px;
+}
+
+#caixaEquipe .conteudo .habilidadesCod .cardMini{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 45px;
+    height: 45px;
+    background-color: #ebeaea;
+    border-radius: 5px;
+    transition: .5s;
+}
+
+#caixaEquipe .conteudo .habilidadesCod .cardMini:hover{
+    transform: scale(1.2);
+}
+
+
+
+
+#caixaEquipe .conteudo .box-infos-user{
+    margin-top: 10px;
+    border-left: 2px solid var(--gray-W6-WeTravel);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width: auto;
+    height: 80px;
+    padding-left:20px;
+    margin-left: 20px;
+}
+
+#caixaEquipe .conteudo .box-infos-user h2{
+    color: var(--gray-W6-WeTravel);
+    font-family: var(--font-family-modern);
+    font-weight: var(--font-weight-regular);
+    font-size: var(--font-size-larguer);
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+main #about #gradient-top{
+    position: absolute;
+    top: 0;
+    width: 100%;
+    height: 250px;
+    background: linear-gradient(180deg, rgb(19, 21, 23), rgba(19, 21, 23, 0.788),rgba(19, 21, 23, 0),rgba(19, 21, 23, 0));
+}
+
+main #about #gradient-bottom{
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    height: 250px;
+    background: linear-gradient(0deg, rgb(19, 21, 23), rgba(19, 21, 23, 0.788),rgba(19, 21, 23, 0),rgba(19, 21, 23, 0));
+}
+
+
+main .about-section #box-title-about{
+    background: url("../../assets/imgs/Sobre\ à\ WeTravel.svg");
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-size: 400px;
+    width: 100%;
+    height: 10%;
+    padding: 0px 15px 0px 15px;
+    margin-top: 6%;
+    z-index: 1;
+}
+main .about-section #box-linhagem{
+    background: url("../../assets/imgs/Particles\ 🌑@1-1920x919\ 1.svg");
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-size: contain;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 50%;
+    overflow: hidden;
+}
+main .about-section #box-linhagem img{
+    width: 45%;
+    overflow-y: scroll;
+}
+
+main .about-section #footer-about{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: start;
+    width: 100%; 
+    height: 32%;
+    z-index: 1;
+}
+
+main .about-section #text-left{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+    width: 400px;
+}
+main .about-section #text-left h2{
+    color: var(--white);
+    font-family: var(--font-family-modern);
+    font-weight: var(--font-weight-medium);
+    font-size: var(--font-size-medium);
+    width: 300px;
+    line-height: 30px;
+    position: relative;
+}
+main .about-section #text-left h2::before{
+    content:'';
+    position: absolute;
+    width: 3px;
+    height: 100%;
+    background: var(--white);
+    left: -13px;
+    border-radius: 5px;
+}
+
+main .about-section #text-center{
+    display: flex;
+    flex-direction: column;
+    height: auto;
+    width: 800px;
+    gap: 30px;
+}
+main .about-section #text-center h2{
+    padding: 0px 10px 0px 10px;
+    color: var(--white);
+    font-family: var(--font-family-texts);
+    font-weight: var(--font-weight-regular);
+    font-size: var(--font-size-medium);
+    text-align: center;
+}
+main .about-section .box-bottom{
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    height: 30%;
+}
+
+main .about-section .box-bottom a{
+    display: block;
+    width: 220px;
+    height: 45px;
+}
+
+main .about-section .box-bottom a:hover{
+    transform: scale(.95);
+}
+
+main .about-section #box-equipe{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    width: 400px;
+}
+
+main .about-section #box-equipe button{
+    background: url("../../assets/imgs/Group\ 19.svg");
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-size: auto;
+    width: 300px;
+    height: 60px;
+    border: none;
+    outline: none;
+    cursor: pointer;
+}
+
+
+
+
+
+
+
+
+main #projects {
+    display: flex;
+    flex-direction: column;
+    justify-content: end;
+    align-items: center;
+    position: relative;
+    background-color: var(--white);
+    background-image: url("../../assets/imgs/papel.svg");
+    background-size: cover;
+    background-position: center center;
+    background-repeat: no-repeat;
+    padding: 0px 10% 0px 10%;
+
+}
+main #projects #blobs{
+    position: absolute;
+    top: 0;
+    background: url("../../assets/Blobs\ imgs/blobTintBottom.svg"),url("../../assets/Blobs\ imgs/blobTintTop.svg");
+     background-repeat: no-repeat, no-repeat;
+    background-position: center bottom -60px, center top -80px;
+    background-size: 130%, 100%;
+    width: 100%;
+    height: 100%;
+}
+main #projects #logo{
+    position: absolute;
+    top: 0;
+    background: url("../../assets/imgs/Projetos\ WeTravel.svg");
+    background-position: left 5% top 20%;
+    background-size: 400px;
+    background-repeat: no-repeat;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+}
+
+main .project-section .box-carrossel {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap; /* <- Impede quebra de linha */
+    gap: 40px;
+    overflow-x: auto;
+    overflow-y: hidden; /* opcional, para esconder scroll vertical */
+    width: 100%;
+    height: auto;
+    padding-bottom: 20px;
+    z-index: 2;
+}
+
+main .project-section .box-carrossel::-webkit-scrollbar {
+  height: 8px; /* altura da barra horizontal */
+}
+
+main .project-section .box-carrossel::-webkit-scrollbar-track {
+  background: #272727; /* cor do trilho da barra */
+  border-radius: 4px;
+}
+
+main .project-section .box-carrossel::-webkit-scrollbar-thumb {
+  background-color: #5e5e5e; /* cor da parte que você arrasta */
+  border-radius: 4px;
+}
+
+main .project-section .box-carrossel::-webkit-scrollbar-thumb:hover {
+  background-color: #555; /* cor quando passa o mouse */
+}
+
+
+main .project-section .box-carrossel .card {
+  flex: 0 0 auto; /* Evita que os cards se estiquem */
+  width: 400px;
+  height: 400px;
+  background-color: var(--gray-W5-WeTravel);
+  border-radius: 10px;
+  transition: all .6s;
+  display: flex;
+  justify-content: center;
+    align-items: center;
+    position: relative;
+}
+
+main .project-section .box-carrossel .card:nth-child(1) {
+  background-image: url("../../assets/imgs/card1.svg");
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+main .project-section .box-carrossel .card:nth-child(2) {
+  background-image: url("../../assets/imgs/card2.svg");
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+main .project-section .box-carrossel .card:nth-child(3) {
+  background-image: url("../../assets/imgs/card3.svg");
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+main .project-section .box-carrossel .card:nth-child(4) {
+  background-image: url("../../assets/imgs/card1.svg");
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+main .project-section .box-carrossel .card:nth-child(5) {
+  background-image: url("../../assets/imgs/card2.svg");
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+main .project-section .box-carrossel .card:nth-child(6) {
+  background-image: url("../../assets/imgs/card3.svg");
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+main .project-section .box-carrossel .card:nth-child(7) {
+  background-image: url("../../assets/imgs/card1.svg");
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+main .project-section .box-carrossel .card:nth-child(8) {
+  background-image: url("../../assets/imgs/card2.svg");
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+main .project-section .box-carrossel .card:nth-child(even) {
+  margin-top: 10%; /* ou o valor que você quiser */
+}
+
+main .project-section .box-carrossel .card img{
+    position: absolute;
+}
+
+main .project-section .box-carrossel .card .conteudo{
+  opacity: 0;
+  transition: none;
+  position: relative;
+  width: 100%;
+  height: 100%;
+  padding-top: 20%;
+  padding-left: 10%;
+  padding-right: 5%;
+}
+
+
+main .project-section .box-carrossel .card .conteudo h1{
+  position: absolute;
+  top: 15px;
+  left: 15px;
+  font-size: var(--font-size-medium);
+  font-family: var(--font-family-texts);
+    color: #B5B5B5;
+}
+
+
+main .project-section .box-carrossel .card .conteudo h2{
+  font-size: var(--font-size-larguer);
+  width: 240px;
+  font-family: var(--font-family-texts);
+    color: var(--white);
+}
+
+main .project-section .box-carrossel .card .conteudo p{
+  font-size: var(--font-size-regular);
+  width: 100%;
+  height: auto;
+  font-family: var(--font-family-texts);
+    color: #CDCDCD;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+main .project-section .box-carrossel .card:hover img{
+  display: none;
+}
+
+
+main .project-section .box-carrossel .card:hover .conteudo{
+  opacity: 1;
+    transition: 1s;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+main #contact {
+    display: flex;
+    flex-direction: row;
+    justify-content: start;
+    align-items: end;
+    position: relative;
+}
+
+main .contact-section{
+    display: flex;
+    flex-direction: row;
+    background: url("../../assets/imgs/wetravel.svg"), url("../../assets/imgs/Contate\ a\ WeTravel.svg");
+    background-repeat: no-repeat, no-repeat;
+    background-position: center right 40px, left 15% top 15%;
+    background-size: 40%, 300px;
+
+}
+
+main .contact-section .form{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    height: 100%;
+    width: 50%;
+    gap: 30px;
+}
+
+main .contact-section .form .inputs_box{
+    display: flex;
+    flex-direction: column;
+    border: 1px solid var(--white);
+    border-radius: 10px;
+    height: 45px;
+    width: 400px;
+    position: relative;
+}
+
+
+main .contact-section .form .inputs_box label{
+    position: absolute;
+    color: var(--white);
+    background-color: var(--gray-W6-WeTravel);
+    width: 70px;
+    top: -10px;
+    left: 10px;
+    text-align: center;
+}
+
+
+main .contact-section .form .inputs_box input{
+    height: 45px;
+    padding-left: 15px;
+    padding-right: 10px;
+    background-color: transparent;
+    border: none;
+    color: var(--white);
+    outline: none;
+}
+
+
+main .contact-section .form .input_text{
+    border: 1px solid var(--white);
+    display: flex;
+    border-radius: 10px;
+    flex-direction: column;
+    width: 400px;
+    height: 150px;
+    position: relative;
+
+}
+
+main .contact-section .form .input_text label{
+    position: absolute;
+    color: var(--white);
+    background-color: var(--gray-W6-WeTravel);
+    width: 105px;
+    top: -10px;
+    left: 10px;
+    text-align: center;
+}
+
+
+main .contact-section .form .input_text textarea{
+    color: var(--white);
+    padding-top: 15px;
+    padding-left: 10px;
+    background: transparent;
+    border: none;
+    outline: none;
+    height: 100%;
+}
+main .contact-section .form .btn{
+    display: flex;
+    justify-content: end;
+    width: 400px;
+}
+main .contact-section .form .btn button{
+    background: url("../../assets/imgs/Group\ 28.svg");
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    width: 220px;
+    outline: none;
+    border: none;
+    height: 47px;
+    cursor: pointer;
+}
+
+main .contact-section .form .btn button:hover{
+    transform: scale(.9);
+}
