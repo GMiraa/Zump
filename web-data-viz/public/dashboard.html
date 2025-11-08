@@ -170,6 +170,41 @@
       </div>
     </section>
     <section id="clientes_section">
+      <div class="cardCadastroCliente" id="cadastrarCliente">
+        <button class="fecharCadastroCliente" onclick="fecharCardDeCadastroCliente()"></button>
+        <div class="box_cadastro_de_cliente">
+          <h1>Cadastro de cliente</h1>
+          <div class="inputs">
+              <label for="nomeCliente">Nome</label>
+              <input type="text" name="" id="nomeCliente" placeholder="Nome do cliente...">
+          </div>
+          <div class="inputs">
+              <label for="emailCliente">Email</label>
+              <input type="text" name="" id="emailCliente" placeholder="E-mail do cliente...">
+          </div>
+
+          <div class="inputs_cpf_dataNasc">
+            <div class="inputsCpfTel">
+                <label for="cpfCliente">Cpf</label>
+                <input type="text" name="" id="cpfCliente" placeholder="000.000.000-00" maxlength="14">
+            </div>
+            <div class="inputsCpfTel">
+                <label for="dataNascCliente">Data Nasc.</label>
+                <input type="date" name="" id="dataNascCliente">
+            </div>
+          </div>
+          <div class="inputs">
+              <label for="telCliente">Telefone</label>
+              <input type="text" name="" id="telCliente" placeholder="(11) 00000-0000">
+          </div>
+          <div class="inputs">
+              <label for="enderecoCliente">Endereço</label>
+              <input type="text" name="" id="enderecoCliente" placeholder="Endereço do cliente...">
+          </div>
+          <button>cadastrar cliente</button>
+        </div>
+      </div>
+
       <div id="cardDelete">
         <div class="barraTemporizadora"></div>
         <h1>Deseja deletar o cliente?</h1>
@@ -183,13 +218,12 @@
           <button id="btnSim">sim</button>
         </div>
       </div>
-
       <div class="box_topo">
           <div class="inputPesquisar">
             <input type="text" placeholder="pesquisar cliente...">
             <button></button>
           </div>
-          <button id="adicionarCliente">adicionar cliente</button>
+          <button id="adicionarCliente" onclick="abrirCardDeCadastroCliente()">adicionar cliente</button>
           <div class="selecao">
             <p>Filtrar pacote</p>
             <select name="" id="selectPacote">
@@ -246,7 +280,8 @@
     <section id="consultores_section">
       <h1>Consultores</h1>
     </section>
-    
+
+    <script src="https://unpkg.com/imask"></script>
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/chartjs-plugin-datalabels@2"></script>
   </body>
@@ -269,7 +304,7 @@
     validarSessao()
 
   }
-
+abrirCardDeCadastroCliente
   function Userlogado(){
 
         if((nome != null || nome != undefined) && (id != null || id != undefined)){
@@ -291,30 +326,60 @@
   //   vendasPacote.innerHTML = `${ListaValores[0].totalPacotesVendidos}`;
   //   ftrMensal.innerHTML = `R$ ${ListaValores[0].valorTotalGerado}`;
 
-  // }
+  // }enderecoCliente
 
   // ValoresKPI();
 
+    //mascara para inputs
 
+    const cpfMask = IMask(
+      document.getElementById('cpfCliente'),
+      { mask: '000.000.000-00' }
+    );
+     const telMask = IMask(
+      document.getElementById('telCliente'),
+      { mask: '(00) 00000-0000' }
+    );
+
+    let cadastrarCli = document.getElementById("cadastrarCliente");
+
+    function fecharCardDeCadastroCliente(){ 
+      cadastrarCli.style.display = "none";
+      nomeCliente.value = "";
+      cpfCliente.value = "";
+      dataNascCliente.value = "";
+      telCliente.value = "";
+      enderecoCliente.value = "";
+    }
+
+    function abrirCardDeCadastroCliente(){ 
+      cadastrarCli.style.display = "flex";
+    }
 
   let cardDeleteCliente = document.getElementById("cardDelete");
+  let fecharTimeout = null;
 
   function deletarCliente() {
     cardDeleteCliente.style.display = "flex";
 
     const barra = cardDeleteCliente.querySelector(".barraTemporizadora");
     barra.style.animation = "none";
-
     void barra.offsetWidth;
     barra.style.animation = "temporizadora 5s linear forwards";
 
-    setTimeout(() => {
+    if (fecharTimeout) clearTimeout(fecharTimeout);
+    fecharTimeout = setTimeout(() => {
       cardDeleteCliente.style.display = "none";
+      fecharTimeout = null;
     }, 5000);
   }
 
-  function fecharCardDeletarCliente(){
+  function fecharCardDeletarCliente() {
     cardDeleteCliente.style.display = "none";
+    if (fecharTimeout) {
+      clearTimeout(fecharTimeout);
+      fecharTimeout = null;
+    }
   }
 
   function fecharMenu() {
@@ -395,8 +460,8 @@
   });
 
   homeSession.appendChild(barra);
-  dashboardSection.style.display = "none";
-  clientesSection.style.display = "flex";
+  dashboardSection.style.display = "flex";
+  clientesSection.style.display = "none";
   consultoresSection.style.display = "none";
 
   function mudarSessao(ativo, sectionMostrar) {
