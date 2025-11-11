@@ -9,6 +9,7 @@
       type="image/x-icon"
     />
     <link rel="stylesheet" href="css/institutional/dashboard.css" />
+    <link rel="stylesheet" href="css/institutional/dashboardCliente.css" />
     <link rel="stylesheet" href="css/mediaFrames/media-keyframes-zump.css">
     <script src="./js/sessao.js"></script>
     <title>Dashboard - Zump</title>
@@ -170,6 +171,143 @@
       </div>
     </section>
     <section id="clientes_section">
+      <div class="editarCliente" id="telaEdicaoCliente">
+        <div class="conteudoEdit">
+          <div class="formEditCliente">
+            <div class="divVoltar">
+                <button onclick="fecharEdicaoCliente()">voltar</button>
+            </div>
+            <div class="fotoCliente">
+                <h2>NOME CLIENTE</h2>
+            </div>
+            <div class="box_inputs">
+                <div class="input">
+                    <label for="">Email</label>
+                    <input type="text" placeholder="email@gmail.com">
+                </div>
+                <div class="input">
+                    <label for="">Telefone</label>
+                    <input type="text" placeholder="(11) 00000-0000" id="telClienteEdit">
+                </div>
+                <div class="input">
+                    <label for="">Endereço</label>
+                    <input type="text" placeholder="Rua x número x">
+                </div>
+                <div class="input" id="dataBloq">
+                    <label for="">Data Nasc.</label>
+                    <input type="text" placeholder="00/00/0000" disabled>
+                </div>
+            </div>
+          </div>
+          <div class="boxKpiCliente">
+              <div class="cards_pacotes">
+                  <div class="card">
+                      <h1>13</h1>
+                      <p>pacotes fechados</p>
+                  </div>
+                  <div class="card">
+                      <h1>Salvador</h1>
+                      <p>pacotes mais fechados</p>
+                  </div>
+              </div>
+              <div class="cards_comentearios">
+                <div class="comentarios">
+                  <h2>Comentário do consultor em relação ao cliente</h2>
+                  <div class="box_comentarios">
+                      <div class="box_cards_coment">
+                          <div class="card">
+                            <button onclick="abrirComentario(this)" class="btnAbrirComentario"></button>
+                            <div class="fotoConsultor"></div>
+                            <div class="box_infosConsultor">
+                              <h2>Nome Sobrenome</h2>
+                              <p>Borem ipsum dolor sit amet, consectetur adipiscing elit.
+                                 Borem ipsum dolor sit amet, consectetur adipiscing elit. 
+                                 Borem ipsum dolor sit amet, consectetur adipiscing elit.
+                                  Borem ipsum dolor sit amet, consectetur adipiscing elit.
+                                 Borem ipsum dolor sit amet, consectetur adipiscing elit.
+                                 Borem ipsum dolor sit amet, consectetur adipiscing elit.
+                                 Borem ipsum dolor sit amet, consectetur adipiscing elit.
+                                 Borem ipsum dolor sit amet, consectetur adipiscing elit.
+                                 Borem ipsum dolor sit amet, consectetur adipiscing elit.
+                                 Borem ipsum dolor sit amet, consectetur adipiscing elit.
+                                 Borem ipsum dolor sit amet, consectetur adipiscing elit.
+                                 Borem ipsum dolor sit amet, consectetur adipiscing elit.
+                                 Borem ipsum dolor sit amet, consectetur adipiscing elit.
+                                 Borem ipsum dolor sit amet, consectetur adipiscing elit.
+                                 Borem ipsum dolor sit amet, consectetur adipiscing elit.
+                                </p>
+                            </div>
+                          </div>
+                          <div class="card">
+                            <button onclick="abrirComentario(this)" class="btnAbrirComentario"></button>
+                            <div class="fotoConsultor"></div>
+                            <div class="box_infosConsultor">
+                              <h2>Nome Sobrenome</h2>
+                              <p>Borem ipsum dolor sit amet, consectetur adipiscing elit.
+                                 Borem ipsum dolor sit amet, consectetur adipiscing elit. 
+                                 Borem ipsum dolor sit amet, consectetur adipiscing elit.
+                                  Borem ipsum dolor sit amet, consectetur adipiscing elit.
+                                 Borem ipsum dolor sit amet, consectetur adipiscing elit.
+                                 Borem ipsum dolor sit amet, consectetur adipiscing elit.
+                                 Borem ipsum dolor sit amet, consectetur adipiscing elit.
+                                 Borem ipsum dolor sit amet, consectetur adipiscing elit.
+                                 Borem ipsum dolor sit amet, consectetur adipiscing elit.
+                                 Borem ipsum dolor sit amet, consectetur adipiscing elit.
+                                 Borem ipsum dolor sit amet, consectetur adipiscing elit.
+                                 Borem ipsum dolor sit amet, consectetur adipiscing elit.
+                                 Borem ipsum dolor sit amet, consectetur adipiscing elit.
+                                 Borem ipsum dolor sit amet, consectetur adipiscing elit.
+                                 Borem ipsum dolor sit amet, consectetur adipiscing elit.
+                                </p>
+                            </div>
+                          </div>
+                          <div class="card">
+                            <button onclick="abrirComentario(this)" class="btnAbrirComentario"></button>
+                            <div class="fotoConsultor"></div>
+                            <div class="box_infosConsultor">
+                              <h2>Nome Sobrenome</h2>
+                              <p>Borem ipsum dolor sit amet, consectetur adipiscing elit.
+                                 Borem ipsum dolor sit amet, consectetur adipiscing elit. 
+                                 Borem ipsum dolor sit amet, consectetur adipiscing elit.
+                                  Borem ipsum dolor sit amet, consectetur adipiscing elit.
+                                 Borem ipsum dolor sit amet, consectetur adipiscing elit.
+                                 Borem ipsum dolor sit amet, consectetur adipiscing elit.
+                                 Borem ipsum dolor sit amet, consectetur adipiscing elit.
+                                 Borem ipsum dolor sit amet, consectetur adipiscing elit.
+                                 Borem ipsum dolor sit amet, consectetur adipiscing elit.
+                                 Borem ipsum dolor sit amet, consectetur adipiscing elit.
+                                 Borem ipsum dolor sit amet, consectetur adipiscing elit.
+                                 Borem ipsum dolor sit amet, consectetur adipiscing elit.
+                                 Borem ipsum dolor sit amet, consectetur adipiscing elit.
+                                 Borem ipsum dolor sit amet, consectetur adipiscing elit.
+                                 Borem ipsum dolor sit amet, consectetur adipiscing elit.
+                                </p>
+                            </div>
+                          </div>
+                      </div>
+                      <button></button>
+                  </div>
+                </div>
+                <div class="avaliacoes_cards">
+                    <div class="card">
+                      <h1>4.5</h1>
+                      <p>avaliação dos pacotes</p>
+                    </div>
+                    <div class="card">
+                      <h1>2.4 anos</h1>
+                      <p>cliente há</p>
+                    </div>
+                </div>
+              </div>
+              <div class="box_btns">
+                  <div class="buttons">
+                    <button>alterar dados</button>
+                    <button>acessar pacotes</button>
+                  </div>
+              </div>
+          </div>
+        </div>
+      </div>
       <div class="cardCadastroCliente" id="cadastrarCliente">
         <button class="fecharCadastroCliente" onclick="fecharCardDeCadastroCliente()"></button>
         <div class="box_cadastro_de_cliente">
@@ -204,7 +342,6 @@
           <button>cadastrar cliente</button>
         </div>
       </div>
-
       <div id="cardDelete">
         <div class="barraTemporizadora"></div>
         <h1>Deseja deletar o cliente?</h1>
@@ -244,35 +381,7 @@
             <div class="box_buttons">
               <button id="btn_pacote"></button>
               <button id="btn_deletar" onclick="deletarCliente()"></button>
-              <button id="btn_editar"></button>
-            </div>
-          </div>
-          <div class="card_cliente">
-            <div class="box_foto">
-              <img src="assets/icon/Profile.svg" alt="user_img">
-            </div>
-            <div class="infos_cliente">
-              <h2>Nome Cliente</h2>
-              <p>emaildocliente@gmail.com</p>
-            </div>
-            <div class="box_buttons">
-              <button id="btn_pacote"></button>
-              <button id="btn_deletar" onclick="deletarCliente()"></button>
-              <button id="btn_editar"></button>
-            </div>
-          </div>
-          <div class="card_cliente">
-            <div class="box_foto">
-              <img src="assets/icon/Profile.svg" alt="user_img">
-            </div>
-            <div class="infos_cliente">
-              <h2>Nome Cliente</h2>
-              <p>emaildocliente@gmail.com</p>
-            </div>
-            <div class="box_buttons">
-              <button id="btn_pacote"></button>
-              <button id="btn_deletar" onclick="deletarCliente()"></button>
-              <button id="btn_editar"></button>
+              <button id="btn_editar" onclick="abrirEdicaoCliente()"></button>
             </div>
           </div>
       </div>
@@ -291,6 +400,18 @@
 
   const menuNav = document.getElementById("menuNav");
   const abrir = document.getElementById("abrir_menu");
+
+  function abrirComentario(botao){
+  const card = botao.closest('.card');
+  const box = card.querySelector('.box_infosConsultor');
+
+  const aberto = box.style.height === "300px";
+
+  box.style.transition = "1s";
+  box.style.height = aberto ? "70px" : "300px";
+  box.style.overflowY = aberto ? "hidden" : "scroll";
+}
+
 
 /*  var nome = sessionStorage.NOME_USUARIO;
   var id = sessionStorage.ID_USUARIO;
@@ -340,6 +461,24 @@ abrirCardDeCadastroCliente
       document.getElementById('telCliente'),
       { mask: '(00) 00000-0000' }
     );
+     const telMaskEdit = IMask(
+      document.getElementById('telClienteEdit'),
+      { mask: '(00) 00000-0000' }
+    );
+
+
+    function fecharEdicaoCliente(){
+        let fecharEdicao = document.getElementById('telaEdicaoCliente')
+        fecharEdicao.style.display = "none";
+    }
+
+    function abrirEdicaoCliente(){
+        let fecharEdicao = document.getElementById('telaEdicaoCliente')
+        fecharEdicao.style.display = "flex";
+    }
+
+
+
 
     let cadastrarCli = document.getElementById("cadastrarCliente");
 
@@ -460,8 +599,8 @@ abrirCardDeCadastroCliente
   });
 
   homeSession.appendChild(barra);
-  dashboardSection.style.display = "flex";
-  clientesSection.style.display = "none";
+  dashboardSection.style.display = "none";
+  clientesSection.style.display = "flex";
   consultoresSection.style.display = "none";
 
   function mudarSessao(ativo, sectionMostrar) {

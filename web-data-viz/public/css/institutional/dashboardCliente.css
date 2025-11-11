@@ -1,0 +1,815 @@
+@import url("../variables/variables-zump.css");
+@import url('https://fonts.googleapis.com/css2?family=Aclonica&family=Hubot+Sans:ital,wght@0,200..900;1,200..900&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Roboto:ital,wght@0,100..900;1,100..900&family=Shrikhand&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Aclonica&family=Hubot+Sans:ital,wght@0,200..900;1,200..900&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=MuseoModerno:ital,wght@0,100..900;1,100..900&family=Roboto:ital,wght@0,100..900;1,100..900&family=Shrikhand&display=swap');
+
+#clientes_section{
+    flex-direction: column;
+    justify-content: flex-end;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+}
+
+#clientes_section .editarCliente{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 10;
+    width: 80%;
+    height: 100%;
+    background-color: var(--white);
+    position: absolute;
+}
+
+#clientes_section .editarCliente .conteudoEdit{
+    display: flex;
+    width: 90%;
+    height: 90%;
+}
+#clientes_section .editarCliente .formEditCliente{
+    width: 30%;
+    height: 100%;
+}
+#clientes_section .editarCliente .boxKpiCliente{
+    width: 70%;
+    height: 86%;
+}
+
+
+#clientes_section .editarCliente .formEditCliente .divVoltar{
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    background-color: var(--white);
+    width: 100%;
+    height: 10%;
+}
+
+#clientes_section .editarCliente .formEditCliente .divVoltar button{
+    border: none;
+    outline: none;
+    background-color: transparent;
+    cursor: pointer;
+    width: 100px;
+    background-image: url("../../assets/icon/Right\ Arrow.svg");
+    background-repeat: no-repeat;
+    background-size: 20px;
+    background-position: center left;
+}
+
+#clientes_section .editarCliente .formEditCliente .fotoCliente{
+    background-color: var(--white);
+    background-image: url("../../assets/icon/User.svg");
+    background-position: center bottom -20px;
+    background-repeat: no-repeat;
+    background-size: 50%;
+    width: 100%;
+    height: 30%;
+}
+#clientes_section .editarCliente .formEditCliente .fotoCliente h2{
+    margin-top: 10px;
+    font-size: var(--font-size-regular);
+}
+
+#clientes_section .editarCliente .formEditCliente .box_inputs{
+    display: flex;
+    justify-content: space-between;
+    flex-direction: column;
+    padding-top: 35px;
+    width: 100%;
+    height: 45%;
+}
+#clientes_section .editarCliente .formEditCliente .box_inputs .input{
+    position: relative;
+    border: 1px solid #CFCFCF;
+    background-color: #fff;
+    height: 55px;
+    width: 100%;
+    border-radius: 8px;
+}
+#clientes_section .editarCliente .formEditCliente .box_inputs .input:nth-child(2){
+    background-image: url("../../assets/icon/telIco.svg");
+    background-position: center right 20px;
+    background-repeat: no-repeat;
+    background-size: 30px;
+}
+#clientes_section .editarCliente .formEditCliente .box_inputs .input:nth-child(3){
+    background-image: url("../../assets/icon/localeIco.svg");
+    background-position: center right 20px;
+    background-repeat: no-repeat;
+    background-size: 30px;
+}
+#clientes_section .editarCliente .formEditCliente .box_inputs .input:nth-child(4){
+    background-image: url("../../assets/icon/bloq.svg");
+    background-color: #e9e9e9;
+    background-position: center right 20px;
+    background-repeat: no-repeat;
+    background-size: 30px;
+}
+#clientes_section .editarCliente .formEditCliente .box_inputs .input label{
+    position: absolute;
+    top: -25px;
+}
+
+#clientes_section .editarCliente .formEditCliente .box_inputs .input input{
+    width: 100%;
+    height: 55px;
+    border: none;
+    outline: none;
+    background: transparent;
+    padding-left: 15px;
+    padding-right: 20px;
+}
+
+
+
+
+#clientes_section .editarCliente .boxKpiCliente .cards_pacotes{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 2rem;
+    width: 100%;
+    height: 30%;
+}
+
+#clientes_section .editarCliente .boxKpiCliente .cards_pacotes .card{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    width: 350px;
+    height: 180px;
+    background: linear-gradient(40deg, #212E34, #1D3642, #183D4F, #13455D, #0A5579, #006494);
+    border-radius: 5px;
+    position: relative;
+}
+
+#clientes_section .editarCliente .boxKpiCliente .cards_pacotes .card h1{
+    font-size: 4rem;
+    font-weight: var(--font-weight-medium);
+    color: var(--white);
+}
+
+#clientes_section .editarCliente .boxKpiCliente .cards_pacotes .card p{
+    font-size: var(--font-size-regular);
+    position: absolute;
+    color: #AEAEAE;
+    bottom: 10px;
+}
+
+
+#clientes_section .editarCliente .boxKpiCliente .cards_comentearios{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 58%;
+    gap:1rem;
+}
+
+
+#clientes_section .editarCliente .boxKpiCliente .cards_comentearios .comentarios{
+    display: flex;
+    flex-direction: column;
+    width: 50%;
+    height: 100%;
+}
+
+#clientes_section .editarCliente .boxKpiCliente .cards_comentearios .comentarios h2{
+    color: #737373;
+    font-size: 1.2rem;
+    font-weight: var(--font-weight-medium);
+}
+
+#clientes_section .editarCliente .boxKpiCliente .cards_comentearios .comentarios .box_comentarios{
+    width: 100%;
+    max-height: 375px;
+    height: 100%;
+    border: 1px solid #cfcfcf;
+    background-color: #e9e9e9;
+    border-radius: 8px;
+    margin-top: 10px;
+    padding: 15px;
+    display: flex;
+    justify-content: space-between;
+    align-items: end;
+}
+
+#clientes_section .editarCliente .boxKpiCliente .cards_comentearios .comentarios .box_comentarios button{
+    width: 60px;
+    height: 60px;
+    border-radius: 60px;
+    margin-right: 10px;
+    border: none;
+    outline: none;
+    cursor: pointer;
+    background-color: #424242;
+    background-image: url("../../assets/icon/Plus\ Math.svg");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: 30px;
+    transition: .3s;
+}
+
+#clientes_section .editarCliente .boxKpiCliente .cards_comentearios .comentarios .box_comentarios button:hover{
+    background-color: #252525;
+}
+
+#clientes_section .editarCliente .boxKpiCliente .cards_comentearios .comentarios .box_comentarios .box_cards_coment{
+    width: 80%;
+    height: 100%;
+    overflow-y: scroll;
+}
+
+#clientes_section .editarCliente .boxKpiCliente .cards_comentearios .comentarios .box_comentarios .box_cards_coment::-webkit-scrollbar {
+  width: 4px;
+}
+#clientes_section .editarCliente .boxKpiCliente .cards_comentearios .comentarios .box_comentarios .box_cards_coment::-webkit-scrollbar-track {
+  background: #D9D9D9;
+  border-radius: 10px;
+}
+#clientes_section .editarCliente .boxKpiCliente .cards_comentearios .comentarios .box_comentarios .box_cards_coment::-webkit-scrollbar-thumb {
+  background: linear-gradient(180deg, #585858, #000000);
+  border-radius: 10px;
+}
+
+#clientes_section .editarCliente .boxKpiCliente .cards_comentearios .comentarios .box_comentarios .box_cards_coment .card{
+    background-color: var(--white);
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    width: 95%;
+    padding: 10px;
+    gap: 15px;
+    border-radius: 10px;
+     position: relative;
+     margin-bottom: 20px;
+}
+
+#clientes_section .editarCliente .boxKpiCliente .cards_comentearios .comentarios .box_comentarios .box_cards_coment .card button{
+   border: none;
+   background-color: transparent;
+   outline: none;
+   width: 30px;
+   height: 30px;
+   top: 5px;
+   right: -2px;
+   position: absolute;
+   cursor: pointer;
+   background-image: url("../../assets/icon/maximizar.svg");
+   background-position: center;
+   background-repeat: no-repeat;
+   background-size: 20px;
+}
+
+#clientes_section .editarCliente .boxKpiCliente .cards_comentearios .comentarios .box_comentarios .box_cards_coment .card .fotoConsultor{
+    width: 60px;
+    border-radius: 60px;
+    height: 60px;
+    background-color: #D9D9D9;
+    background-image: url("../../assets/icon/User.svg");
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-size: 40px;
+}
+
+
+#clientes_section .editarCliente .boxKpiCliente 
+.cards_comentearios .comentarios .box_comentarios 
+.box_cards_coment .card .box_infosConsultor {
+  width: 70%;
+  overflow: hidden;
+  height: 70px;
+  transition: height 0.8s ease;
+}
+
+
+#clientes_section .editarCliente .boxKpiCliente .cards_comentearios .comentarios .box_comentarios .box_cards_coment .card .box_infosConsultor h2{
+    font-size: var(--font-size-small);
+    font-weight: var(--font-weight-medium);
+    color: var(--black);
+}
+
+#clientes_section .editarCliente .boxKpiCliente .cards_comentearios .comentarios .box_comentarios .box_cards_coment .card .box_infosConsultor p{
+    font-size: var(--font-size-small);
+    margin-top: 5px;
+    font-weight: var(--font-weight-regular);
+    color: var(--black);
+}
+
+
+
+
+
+
+
+
+
+
+
+
+#clientes_section .editarCliente .boxKpiCliente .cards_comentearios .avaliacoes_cards{
+    padding-top: 30px;
+    width: 30%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    gap: 2rem;   
+}
+
+#clientes_section .editarCliente .boxKpiCliente .cards_comentearios .avaliacoes_cards .card{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    width: 90%;
+    height: 150px;
+    border-radius: 5px;
+    position: relative;
+}
+
+#clientes_section .editarCliente .boxKpiCliente .cards_comentearios .avaliacoes_cards .card:nth-child(1){
+    background-image: url("../../assets/icon/star.svg"), linear-gradient(40deg, #212E34, #1D3642, #183D4F, #13455D, #0A5579, #006494);
+    background-position: top 10px right 10px, center;
+    background-repeat: no-repeat;
+    background-size: 40px, cover;
+}
+
+#clientes_section .editarCliente .boxKpiCliente .cards_comentearios .avaliacoes_cards .card:nth-child(2){
+    background-image: url("../../assets/icon/Happy.svg"), linear-gradient(40deg, #212E34, #1D3642, #183D4F, #13455D, #0A5579, #006494);
+    background-position: top 10px right 10px, center;
+    background-repeat: no-repeat;
+    background-size: 40px, cover;
+}
+
+
+
+#clientes_section .editarCliente .boxKpiCliente .cards_comentearios .avaliacoes_cards .card h1{
+    font-size: 3rem;
+    font-weight: var(--font-weight-medium);
+    color: var(--white);
+}
+
+#clientes_section .editarCliente .boxKpiCliente .cards_comentearios .avaliacoes_cards .card p{
+    font-size: var(--font-size-regular);
+    color: #AEAEAE;
+    position: absolute;
+    bottom: 10px;
+}
+
+
+
+#clientes_section .editarCliente .boxKpiCliente .box_btns{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 12%;
+}
+
+
+#clientes_section .editarCliente .boxKpiCliente .box_btns .buttons{
+    width: 80%;
+    margin-left: -12px;
+    height: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: end;
+}
+
+
+#clientes_section .editarCliente .boxKpiCliente .box_btns .buttons button{
+    width: 350px;
+    height: 55px;
+    border-radius: 8px;
+    outline: none;
+    border: none;
+    color: var(--white);
+    font-size: var(--font-size-regular);
+    cursor: pointer;
+}
+
+#clientes_section .editarCliente .boxKpiCliente .box_btns .buttons button:nth-child(1){
+    background:linear-gradient(45deg, #0F537A, #1575AD, #1B98E0);
+}
+#clientes_section .editarCliente .boxKpiCliente .box_btns .buttons button:nth-child(2){
+    text-align: left;
+    padding-left: 80px;
+    background:
+    url("../../assets/icon/pacoteVazio.svg"), linear-gradient(45deg, #131517, #2C2D2E, #464646);
+    background-position: top 10px right 70px, center;
+    background-repeat: no-repeat;
+    background-size: 30px, cover;
+}
+
+
+
+
+
+
+
+
+
+#clientes_section .cardCadastroCliente{
+    position: absolute;
+    display: none;
+    align-items: center;
+    flex-direction: column;
+    width: 900px;
+    height: 625px;
+    border-radius: 15px;
+    background: var(--white);
+    bottom: 10%;
+    border: 1px solid #C9C9C9;
+    box-shadow: 0px 0px 20px 3px #dfdfdf;
+    z-index: 11;
+}
+
+#clientes_section .cardCadastroCliente .fecharCadastroCliente{
+    position: absolute;
+    width: 50px;
+    height: 50px;
+    border-radius: 50px;
+    top: -10px;
+    right: -10px;
+    background-color: var(--white);
+    background-image: url("../../assets/icon/MacOS\ Close.svg");
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-size: 50px;
+    cursor: pointer;
+    border: none;
+    transition: .3s;
+}
+
+
+
+
+
+
+
+
+#clientes_section .cardCadastroCliente .fecharCadastroCliente:hover{
+    background-size: 55px;
+}
+
+#clientes_section .cardCadastroCliente .box_cadastro_de_cliente{
+    padding-top: 20px;
+    padding-bottom: 20px;
+    height: 100%;
+    width: 50%;
+}
+
+#clientes_section .cardCadastroCliente .box_cadastro_de_cliente h1{
+    font-size: var(--font-size-medium);
+}
+
+#clientes_section .cardCadastroCliente .box_cadastro_de_cliente .inputs{
+    border: 1px solid #c9c9c9;
+    margin-top:35px;
+    height: 55px;
+    position: relative;
+    border-radius: 10px;
+}
+
+#clientes_section .cardCadastroCliente .box_cadastro_de_cliente .inputs_cpf_dataNasc{
+    display: flex;
+    margin-top:35px;
+    height: 55px;
+    width: 100%;
+    position: relative;
+    border-radius: 10px;
+    gap: 20px;
+}
+
+#clientes_section .cardCadastroCliente .box_cadastro_de_cliente .inputs_cpf_dataNasc .inputsCpfTel{
+    border-radius: 10px;
+    border: 1px solid #c9c9c9;
+}
+
+#clientes_section .cardCadastroCliente .box_cadastro_de_cliente .inputs_cpf_dataNasc .inputsCpfTel label{
+    position: absolute;
+    top: -25px;
+}
+#clientes_section .cardCadastroCliente .box_cadastro_de_cliente .inputs_cpf_dataNasc .inputsCpfTel input{
+    width: 100%;
+    background: transparent;
+    border: none;
+    outline: none;
+    height: 55px;
+    padding-left: 15px;
+    padding-right: 20px;
+}
+#clientes_section .cardCadastroCliente .box_cadastro_de_cliente .inputs_cpf_dataNasc .inputsCpfTel input:focus{   
+    border: 1px solid #1B98E0;
+    border-radius: 10px;
+}
+
+
+#clientes_section .cardCadastroCliente .box_cadastro_de_cliente .inputs label{
+    position: absolute;
+    top: -25px;
+}
+#clientes_section .cardCadastroCliente .box_cadastro_de_cliente .inputs input{
+    width: 100%;
+    background: transparent;
+    border: none;
+    outline: none;
+    height: 55px;
+    padding-left: 15px;
+    padding-right: 20px;
+    
+}
+
+#clientes_section .cardCadastroCliente .box_cadastro_de_cliente .inputs input:focus{
+   border: 1px solid #1B98E0;
+    border-radius: 10px;
+}
+
+
+
+
+#clientes_section .cardCadastroCliente .box_cadastro_de_cliente button{
+    margin-top: 35px;
+    width: 100%;
+    height: 55px;
+    border-radius: 10px;
+    border: none;
+    outline: none;
+    color: var(--white);
+    background: linear-gradient(45deg, #0F537A, #1575AD, #1B98E0);
+    font-size: var(--font-size-regular);
+    cursor: pointer;
+}
+
+#clientes_section #cardDelete{
+    position: absolute;
+    display: none;
+    flex-direction: column;
+    right: 0px;
+    top: 30px;
+    z-index: 10;
+    background-color: #f8f8f8;
+    border: 1px solid #CFCFCF;
+    width: 400px;
+    height: 210px;
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+#clientes_section #cardDelete .barraTemporizadora{
+    width: 100%;
+    height: 4px;
+    background-color: #ff0000;
+    animation: temporizadora 5s linear forwards;
+}
+
+@keyframes temporizadora {
+    0%{
+        width: 100%;
+    }
+    100%{
+        width: 0%;
+    }
+}
+
+#clientes_section #cardDelete h1{
+    margin-top: 15px;
+    margin-left: 15px;
+    font-size: var(--font-size-regular);
+    font-weight: var(--font-weight-medium);
+}
+#clientes_section #cardDelete .infosCliente{
+    margin-top: 5px;
+    margin-left: 15px;
+    height: 100px;
+    padding-left: 20px;
+}
+#clientes_section #cardDelete .infosCliente h2{
+    margin-top: 2px;
+    font-size: var(--font-size-regular);
+    font-weight: var(--font-weight-regular);
+}
+#clientes_section #cardDelete .opBtn{
+    display: flex;
+    justify-content: end;
+    align-items: center;
+    padding-right: 10px;
+    height: 50px;
+    gap: 10px;
+}
+
+#clientes_section #cardDelete .opBtn button{
+    height: 40px;
+    width: 90px;
+    border-radius: 5px;
+    cursor: pointer;
+    border: none;
+    outline: none;
+    font-size: var(--font-size-regular);
+    font-weight: var(--font-weight-regular);
+}
+
+#clientes_section #cardDelete .opBtn #btnNao{
+    background-color: var(--white);
+    color: #000000;
+}
+
+#clientes_section #cardDelete .opBtn #btnSim{
+    background-color: #e01b1b;
+    color: #fff;
+}
+
+
+
+#clientes_section .box_topo{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 50%;
+    height: 70px;
+}
+#clientes_section .box_topo .inputPesquisar{  
+    border: 1px solid #CFCFCF;
+    background-color: #E9E9E9;
+    height: 50px;
+    width: 400px;
+    position: relative;
+    overflow: hidden;
+    border-radius: 8px;
+}
+#clientes_section .box_topo .inputPesquisar input{ 
+    width: 100%;
+    height: 100%;
+    outline: none;
+    border: none;
+    background-color: transparent;
+    color: #606060;
+    padding-right: 55px;
+    padding-left: 15px;
+    font-size: var(--font-size-regular);
+}
+#clientes_section .box_topo .inputPesquisar button{ 
+    position: absolute;
+    width: 50px;
+    height: 50px;
+    border: none;
+    outline: none;
+    right: 0px;
+    cursor: pointer;
+    background-color: #1B98E0;
+    background-image: url("../../assets/icon/Search.svg");
+    background-position: center center;
+    background-size: 30px;
+    background-repeat: no-repeat;
+    transition: .3s;
+}
+#clientes_section .box_topo .inputPesquisar button:hover{
+    background-color: #066da8;
+}
+
+#clientes_section .box_topo #adicionarCliente{
+    width: 200px;
+    border: none;
+    outline: none;
+    color: var(--white);
+    background-color: #1B98E0;
+    height: 50px;
+    border-radius: 8px;
+    text-align: left;
+    padding-left: 20px;   
+    background-image: url("../../assets/icon/Plus\ Math.svg");
+    background-repeat: no-repeat;
+    background-size: 25px;
+    background-position: center right 20px;
+    cursor: pointer;
+    transition: .3s;
+}
+
+#clientes_section .box_topo #adicionarCliente:hover{
+    background-color: #066da8;
+}
+
+#clientes_section .box_topo .selecao{
+    position: relative;
+}
+#clientes_section .box_topo .selecao p{
+position: absolute;
+top: -30px;
+font-size: var(--font-size-regular);
+}
+#clientes_section .box_topo #selectPacote{
+    width: 160px;
+    height: 50px;
+    background-color: #E9E9E9;
+    border: 1px solid #CFCFCF;
+    border-radius: 8px;
+    color: #606060;
+    padding-left: 10px;
+    appearance: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    background-image: url('data:image/svg+xml;utf8,<svg fill="none" stroke="%23606060" stroke-width="2" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M6 9l6 6 6-6"/></svg>');
+    background-repeat: no-repeat;
+    background-position: right 10px center;
+    background-size: 30px;
+    outline: none;
+    cursor: pointer;
+}
+
+
+
+#clientes_section .box_rodape{
+    width: 50%;
+    height: 60%;
+    margin-top: 50px;
+    overflow: hidden;
+    overflow-y: scroll;
+}
+
+#clientes_section .box_rodape::-webkit-scrollbar {
+  width: 4px;
+}
+
+#clientes_section .box_rodape::-webkit-scrollbar-track {
+  background: #D9D9D9;
+  border-radius: 10px;
+}
+
+#clientes_section .box_rodape::-webkit-scrollbar-thumb {
+  background: linear-gradient(180deg, #585858, #000000);
+  border-radius: 10px;
+}
+
+
+#clientes_section .box_rodape .card_cliente{
+    display: flex;
+    justify-content: baseline;
+    align-items: center;
+    width: 98%;  
+    height: 80px;  
+    border-radius: 10px;
+    position: relative;
+    background: linear-gradient(45deg, #0F537A, #1576AD, #1C98E0);
+    margin-bottom: 25px;
+}
+#clientes_section .box_rodape .card_cliente:hover{
+    background: #0E2936;
+}
+#clientes_section .box_rodape .card_cliente .box_foto{
+    width: 60px;
+    height: 60px;
+    margin-left: 20px;
+    border-radius: 60px;
+    overflow: hidden;
+}
+#clientes_section .box_rodape .card_cliente .box_foto img{
+   width: 100%;
+}
+#clientes_section .box_rodape .card_cliente .infos_cliente{
+    margin-left: 20px;
+}
+#clientes_section .box_rodape .card_cliente .infos_cliente h2,
+#clientes_section .box_rodape .card_cliente .infos_cliente p{
+    font-size: var(--font-size-regular);
+    color: var(--white);
+}
+
+
+#clientes_section .box_rodape .card_cliente .box_buttons{
+    position: absolute;
+    right: 25px;
+    cursor: pointer;
+}
+#clientes_section .box_rodape .card_cliente .box_buttons button{
+    margin-left: 10px;
+    width: 35px;
+    height: 35px;
+    cursor: pointer;
+    background-color: transparent;
+    border: none;
+    outline: none;
+}
+
+
+#clientes_section .box_rodape .card_cliente .box_buttons #btn_pacote{
+    background: url("../../assets/icon/pacoteVazio.svg");
+      background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center center; 
+}
+#clientes_section .box_rodape .card_cliente .box_buttons #btn_deletar{
+    background: url("../../assets/icon/deleteWhite.svg");
+      background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center center; 
+}
+#clientes_section .box_rodape .card_cliente .box_buttons #btn_editar{
+    background: url("../../assets/icon/editWhite.svg");
+      background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center center; 
+}
