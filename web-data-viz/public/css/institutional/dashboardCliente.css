@@ -10,8 +10,590 @@
     height: 100%;
 }
 
-#clientes_section .editarCliente{
+#clientes_section .modalPacotes{
+    display: none;
+    justify-content: center;
+    flex-direction: column;
+    z-index: 15;
+    width: 80%;
+    height: 100%;
+    background-color: var(--white);
+    position: absolute;
+}
+#voltarPacotes{
+    margin: 10px;
+    width: 120px;
+    border: none;
+    outline: none;
+    background-color: transparent;
+    background-image: url("../../assets/icon/Right\ Arrow.svg");
+    background-position: center left;
+    background-repeat: no-repeat;
+    background-size: 20px;
+    cursor: pointer;
+}
+#clientes_section .modalPacotes h1{
+    font-size: var(--font-size-extra-larguer);
+    font-weight: var(--font-size-medium);
+    
+}
+
+#clientes_section .modalPacotes .coteudosPacote{
     display: flex;
+    flex-direction: row;
+    justify-content: center;
+    gap: 2rem;
+    width: 100%;
+    height: 80%;
+}
+
+#clientes_section .modalPacotes .coteudosPacote .boxVendaPacote{
+    display: flex;
+    flex-direction: column;
+    width: 35%;
+    height: 100%;
+}
+#clientes_section .modalPacotes .coteudosPacote .boxVendaPacote .topoBox{
+    display: flex;
+    align-items: center;
+    width: 100%;
+    height: 70px;
+}
+#clientes_section .modalPacotes .coteudosPacote .boxVendaPacote .topoBox h1{
+    font-size: var(--font-size-larguer);
+    font-weight: var(--font-weight-regular);
+}
+#clientes_section .modalPacotes .coteudosPacote .boxVendaPacote .topoBox select{
+    height: 40px;
+    width: 80px;
+    color: #4B4B4B;
+    background-color: #E9E9E9;
+    border-radius: 5px;
+    border: 1px solid #CFCFCF;
+    padding-left: 5px;
+    font-size: var(--font-size-regular);
+    margin-left: 1rem;
+        appearance: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    background-image: url('data:image/svg+xml;utf8,<svg fill="none" stroke="%23606060" stroke-width="2" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M6 9l6 6 6-6"/></svg>');
+    background-repeat: no-repeat;
+    background-position: right 5px center;
+    background-size: 30px;
+    outline: none;
+    cursor: pointer;
+}
+
+
+#clientes_section .modalPacotes .coteudosPacote .boxVendaPacote .box_registro_venda{
+    display: flex;
+    flex-direction: column;
+    border: 1px solid #cfcfcf;
+    background-color: #fff;
+    justify-content: space-evenly;
+    height: 100%;
+    width: 100%;
+    border-radius: 10px;
+    padding: 10px 20px;
+}
+
+#clientes_section .modalPacotes .coteudosPacote .boxVendaPacote .box_registro_venda .topoBox{
+    display: flex;
+    align-items: center;
+    width: 100%;
+}
+#clientes_section .modalPacotes .coteudosPacote .boxVendaPacote .box_registro_venda .topoBox h1{
+    font-size: var(--font-size-regular);
+    font-weight: var(--font-weight-regular);
+}
+#clientes_section .modalPacotes .coteudosPacote .boxVendaPacote .box_registro_venda .topoBox select{
+    height: 40px;
+    width: 200px;
+    color: #4B4B4B;
+    background-color: #E9E9E9;
+    border-radius: 5px;
+    border: 1px solid #CFCFCF;
+    padding-left: 5px;
+    padding-right: 20px;
+    font-size: var(--font-size-regular);
+    margin-left: 1rem;
+        appearance: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    background-image: url('data:image/svg+xml;utf8,<svg fill="none" stroke="%23606060" stroke-width="2" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M6 9l6 6 6-6"/></svg>');
+    background-repeat: no-repeat;
+    background-position: right 5px center;
+    background-size: 30px;
+    outline: none;
+    cursor: pointer;
+}
+
+
+#clientes_section .modalPacotes .coteudosPacote .boxVendaPacote .box_registro_venda .selecaoDePacotes{
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+}
+#clientes_section .modalPacotes .coteudosPacote .boxVendaPacote .box_registro_venda .selecaoDePacotes label{
+    font-size: var(--font-size-regular);
+    font-weight: var(--font-weight-regular);
+}
+#clientes_section .modalPacotes .coteudosPacote .boxVendaPacote .box_registro_venda .selecaoDePacotes select{
+       height: 40px;
+    width: 280px;
+    color: #4B4B4B;
+    background-color: #E9E9E9;
+    border-radius: 5px;
+    border: 1px solid #CFCFCF;
+    padding-left: 5px;
+    padding-right: 20px;
+    font-size: var(--font-size-regular);
+        appearance: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    background-image: url('data:image/svg+xml;utf8,<svg fill="none" stroke="%23606060" stroke-width="2" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M6 9l6 6 6-6"/></svg>');
+    background-repeat: no-repeat;
+    background-position: right 5px center;
+    background-size: 30px;
+    outline: none;
+    cursor: pointer;
+}
+
+
+#clientes_section .modalPacotes .coteudosPacote .boxVendaPacote .box_registro_venda .boxDias{
+    display: flex;
+    gap: 1rem;
+    width: 100%;
+    flex-direction: row;   
+}
+
+#clientes_section .modalPacotes .coteudosPacote .boxVendaPacote .box_registro_venda .boxDias .inputs{
+    display: flex;
+    flex-direction: column;
+}
+
+#clientes_section .modalPacotes .coteudosPacote .boxVendaPacote .box_registro_venda .boxDias .inputs label{
+   font-size: var(--font-size-regular);
+   font-weight: var(--font-weight-regular);
+}
+#clientes_section .modalPacotes .coteudosPacote .boxVendaPacote .box_registro_venda .boxDias .inputs input{
+   border: 1px solid #cfcfcf;
+   background-color: #e9e9e9;
+   height: 40px;
+   width: 120px;
+   border-radius: 5px;
+   padding-left: 10px;
+   padding-right: 5px;
+}
+
+
+#clientes_section .modalPacotes .coteudosPacote .boxVendaPacote .box_registro_venda .boxDescricao{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+#clientes_section .modalPacotes .coteudosPacote .boxVendaPacote .box_registro_venda .boxDescricao label{
+    font-size: var(--font-size-regular);
+   font-weight: var(--font-weight-regular);
+}
+
+#clientes_section .modalPacotes .coteudosPacote .boxVendaPacote .box_registro_venda .boxDescricao textarea{
+    border: 1px solid #cfcfcf;
+    background-color: #e9e9e9;
+    border-radius: 5px;
+    height: 200px;
+    padding: 10px 15px;
+}
+
+
+#clientes_section .modalPacotes .coteudosPacote .boxVendaPacote .box_registro_venda .boxPreco{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+#clientes_section .modalPacotes .coteudosPacote .boxVendaPacote .box_registro_venda .boxPreco .inputs{
+    display: flex;
+    flex-direction: column;
+}
+
+#clientes_section .modalPacotes .coteudosPacote .boxVendaPacote .box_registro_venda .boxPreco .inputs label{
+   font-size: var(--font-size-regular);
+   font-weight: var(--font-weight-regular);
+}
+#clientes_section .modalPacotes .coteudosPacote .boxVendaPacote .box_registro_venda .boxPreco .inputs input{
+   border: 1px solid #cfcfcf;
+   background-color: #e9e9e9;
+   height: 40px;
+   width: 250px;
+   border-radius: 5px;
+   padding-left: 10px;
+   padding-right: 5px;
+}
+
+
+
+
+
+
+#clientes_section .modalPacotes .coteudosPacote .boxVendaPacote .box_registro_venda .boxPagamento{
+    display: flex;
+    align-items: end;
+    width: 100%;
+    justify-content: space-between;
+    flex-direction: row;   
+}
+
+#clientes_section .modalPacotes .coteudosPacote .boxVendaPacote .box_registro_venda .boxPagamento .inputs{
+    display: flex;
+    flex-direction: column;
+}
+
+#clientes_section .modalPacotes .coteudosPacote .boxVendaPacote .box_registro_venda .boxPagamento .inputs label{
+   font-size: var(--font-size-regular);
+   font-weight: var(--font-weight-regular);
+}
+#clientes_section .modalPacotes .coteudosPacote .boxVendaPacote .box_registro_venda .boxPagamento .inputs select{
+       height: 40px;
+    width: 180px;
+    color: #4B4B4B;
+    background-color: #E9E9E9;
+    border-radius: 5px;
+    border: 1px solid #CFCFCF;
+    padding-left: 5px;
+    padding-right: 20px;
+    font-size: var(--font-size-regular);
+        appearance: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    background-image: url('data:image/svg+xml;utf8,<svg fill="none" stroke="%23606060" stroke-width="2" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M6 9l6 6 6-6"/></svg>');
+    background-repeat: no-repeat;
+    background-position: right 5px center;
+    background-size: 30px;
+    outline: none;
+    cursor: pointer;
+}
+#clientes_section .modalPacotes .coteudosPacote .boxVendaPacote .box_registro_venda .boxPagamento .inputs:nth-child(2) select{
+       height: 40px;
+    width: 80px;
+}
+
+#clientes_section .modalPacotes .coteudosPacote .boxVendaPacote .box_registro_venda .boxPagamento button{
+    width: 150px;
+    height: 40px;
+    border-radius: 5px;
+    background: linear-gradient(45deg, #131517, #434343);
+    color: #fff;
+    border: none;
+    outline: none;
+    cursor: pointer;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+#clientes_section .modalPacotes .coteudosPacote .boxDadosClientes{
+    display: flex;
+    flex-direction: column;
+    width: 40%;
+    height: 100%;
+}
+
+#clientes_section .modalPacotes .coteudosPacote .boxDadosClientes .topoBox{
+    display: flex;
+    align-items: center;
+    width: 100%;
+    height: 70px;
+}
+
+#clientes_section .modalPacotes .coteudosPacote .boxDadosClientes .topoBox h1{
+    font-size: var(--font-size-larguer);
+    font-weight: var(--font-weight-regular);
+}
+#clientes_section .modalPacotes .coteudosPacote .boxDadosClientes .informacoesDePacotes{
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    height: 80%;
+}
+#clientes_section .modalPacotes .coteudosPacote .boxDadosClientes .informacoesDePacotes .boxDados{
+    width: 100%;
+    height: 45%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+
+#clientes_section .modalPacotes .coteudosPacote .boxDadosClientes .informacoesDePacotes .boxDados .topoDados{
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    justify-content: space-between;
+}
+
+#clientes_section .modalPacotes .coteudosPacote .boxDadosClientes .informacoesDePacotes .boxDados .topoDados label{
+   font-size: var(--font-size-regular);
+   font-weight: var(--font-weight-regular);
+}
+#clientes_section .modalPacotes .coteudosPacote .boxDadosClientes .informacoesDePacotes .boxDados .topoDados .inputs{ 
+    display: flex;
+    flex-direction: column;
+}
+#clientes_section .modalPacotes .coteudosPacote .boxDadosClientes .informacoesDePacotes .boxDados .topoDados .inputs input{
+   border: 1px solid #cfcfcf;
+   background-color: #e9e9e9;
+   height: 40px;
+   width: 280px;
+   border-radius: 5px;
+   padding-left: 10px;
+   padding-right: 5px;
+}
+
+
+
+
+
+
+#clientes_section .modalPacotes .coteudosPacote .boxDadosClientes .informacoesDePacotes .boxDados .meioDados{
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    justify-content: space-between;
+}
+
+#clientes_section .modalPacotes .coteudosPacote .boxDadosClientes .informacoesDePacotes .boxDados .meioDados label{
+   font-size: var(--font-size-regular);
+   font-weight: var(--font-weight-regular);
+}
+#clientes_section .modalPacotes .coteudosPacote .boxDadosClientes .informacoesDePacotes .boxDados .meioDados .inputs{ 
+    display: flex;
+    flex-direction: column;
+}
+#clientes_section .modalPacotes .coteudosPacote .boxDadosClientes .informacoesDePacotes .boxDados .meioDados .inputs input{
+   border: 1px solid #cfcfcf;
+   background-color: #e9e9e9;
+   height: 40px;
+   width: 280px;
+   border-radius: 5px;
+   padding-left: 10px;
+   padding-right: 5px;
+}
+#clientes_section .modalPacotes .coteudosPacote .boxDadosClientes .informacoesDePacotes .boxDados .meioDados .inputs:nth-child(2) input{
+   height: 40px;
+   width: 120px;
+}
+#clientes_section .modalPacotes .coteudosPacote .boxDadosClientes .informacoesDePacotes .boxDados .meioDados .inputs:nth-child(3) input{
+   height: 40px;
+   width: 150px;
+}
+
+
+
+
+#clientes_section .modalPacotes .coteudosPacote .boxDadosClientes .informacoesDePacotes .boxDados .footerDados{
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    justify-content: space-between;
+}
+
+#clientes_section .modalPacotes .coteudosPacote .boxDadosClientes .informacoesDePacotes .boxDados .footerDados label{
+   font-size: var(--font-size-regular);
+   font-weight: var(--font-weight-regular);
+}
+#clientes_section .modalPacotes .coteudosPacote .boxDadosClientes .informacoesDePacotes .boxDados .footerDados .inputs{ 
+    display: flex;
+    flex-direction: column;
+}
+#clientes_section .modalPacotes .coteudosPacote .boxDadosClientes .informacoesDePacotes .boxDados .footerDados .inputs input{
+   border: 1px solid #cfcfcf;
+   background-color: #e9e9e9;
+   height: 40px;
+   width: 280px;
+   border-radius: 5px;
+   padding-left: 10px;
+   padding-right: 5px;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+#clientes_section .modalPacotes .coteudosPacote .boxDadosClientes .informacoesDePacotes .pacotesAdquiridos{
+    width: 100%;
+    height: 70%;
+}
+
+#clientes_section .modalPacotes .coteudosPacote .boxDadosClientes .informacoesDePacotes .pacotesAdquiridos h2{
+    margin-top: 20px;
+    font-size: var(--font-size-regular);
+    font-weight: var(--font-weight-regular);
+}
+
+#clientes_section .modalPacotes .coteudosPacote .boxDadosClientes .informacoesDePacotes .pacotesAdquiridos .boxDePacotes{
+    border: 1px solid #cfcfcf;
+    background-color: #e9e9e9;
+    width: 100%;
+    height: 90%;
+    border-radius: 10px;
+    padding: 15px;
+}
+
+#clientes_section .modalPacotes .coteudosPacote .boxDadosClientes .informacoesDePacotes .pacotesAdquiridos .boxDePacotes .boxVendidos{
+    padding-left: 15px;
+    padding-right: 30px;
+    width: 100%;
+    height: 80%;
+    overflow-y: scroll;
+}
+
+#clientes_section .modalPacotes .coteudosPacote .boxDadosClientes .informacoesDePacotes .pacotesAdquiridos .boxDePacotes .boxVendidos::-webkit-scrollbar {
+  width: 4px;
+}
+
+#clientes_section .modalPacotes .coteudosPacote .boxDadosClientes .informacoesDePacotes .pacotesAdquiridos .boxDePacotes .boxVendidos::-webkit-scrollbar-track {
+  background: #a7a7a7;
+  border-radius: 10px;
+}
+
+#clientes_section .modalPacotes .coteudosPacote .boxDadosClientes .informacoesDePacotes .pacotesAdquiridos .boxDePacotes .boxVendidos::-webkit-scrollbar-thumb {
+  background: linear-gradient(180deg, #585858, #000000);
+  border-radius: 10px;
+}
+
+#clientes_section .modalPacotes .coteudosPacote .boxDadosClientes .informacoesDePacotes .pacotesAdquiridos .boxDePacotes .boxVendidos .cardPacote{
+    border: 1px solid #CFCFCF;
+    background-color: #fff;
+    height: 75px;
+    border-radius: 5px;
+    width: 100%;
+    margin-bottom: 20px;
+}
+
+
+
+#clientes_section .modalPacotes .coteudosPacote .boxDadosClientes .informacoesDePacotes .pacotesAdquiridos .boxDePacotes .boxVendidos .cardPacote .infosCardPacote{
+    display: flex;
+    width: 100%;
+    height: 100%;
+    justify-content: space-around;
+    align-items: center;
+    position: relative;
+}
+#clientes_section .modalPacotes .coteudosPacote .boxDadosClientes .informacoesDePacotes .pacotesAdquiridos .boxDePacotes .boxVendidos .cardPacote .infosCardPacote h2{
+    margin-top: 0;
+    font-size: var(--font-size-regular);
+    font-weight: var(--font-weight-regular);
+}
+#clientes_section .modalPacotes .coteudosPacote .boxDadosClientes .informacoesDePacotes .pacotesAdquiridos .boxDePacotes .boxVendidos .cardPacote .infosCardPacote h2:nth-child(2){
+    color: #9C9C9C;
+    margin-right: -30px;
+}
+#clientes_section .modalPacotes .coteudosPacote .boxDadosClientes .informacoesDePacotes .pacotesAdquiridos .boxDePacotes .boxVendidos .cardPacote .infosCardPacote p{
+    font-size: .8rem;
+    position: absolute;
+    bottom: 2px;
+    right: 5px;
+}
+
+#clientes_section .modalPacotes .coteudosPacote .boxDadosClientes .informacoesDePacotes .pacotesAdquiridos .boxDePacotes .topoBox{
+    display: flex;
+    align-items: center;
+    width: 100%;
+    height: 55px;
+}
+#clientes_section .modalPacotes .coteudosPacote .boxDadosClientes .informacoesDePacotes .pacotesAdquiridos .boxDePacotes .topoBox h1{
+    font-size: var(--font-size-regular);
+    font-weight: var(--font-weight-regular);
+}
+#clientes_section .modalPacotes .coteudosPacote .boxDadosClientes .informacoesDePacotes .pacotesAdquiridos .boxDePacotes .topoBox select{
+    height: 40px;
+    width: 200px;
+    color: #4B4B4B;
+    background-color: #E9E9E9;
+    border-radius: 5px;
+    border: 1px solid #CFCFCF;
+    padding-left: 5px;
+    padding-right: 20px;
+    font-size: var(--font-size-regular);
+    margin-left: 1rem;
+        appearance: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    background-image: url('data:image/svg+xml;utf8,<svg fill="none" stroke="%23606060" stroke-width="2" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M6 9l6 6 6-6"/></svg>');
+    background-repeat: no-repeat;
+    background-position: right 5px center;
+    background-size: 30px;
+    outline: none;
+    cursor: pointer;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+#clientes_section .editarCliente{
+    display: none;
     justify-content: center;
     align-items: center;
     z-index: 10;

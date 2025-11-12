@@ -10,7 +10,7 @@
     />
     <link rel="stylesheet" href="css/institutional/dashboard.css" />
     <link rel="stylesheet" href="css/institutional/dashboardCliente.css" />
-    <link rel="stylesheet" href="css/mediaFrames/media-keyframes-zump.css">
+    <link rel="stylesheet" href="css/mediaFrames/media-keyframes-zump.css" />
     <script src="./js/sessao.js"></script>
     <title>Dashboard - Zump</title>
   </head>
@@ -85,11 +85,9 @@
       </div>
       <div class="box_meio">
         <div class="box_grafico">
-            <div class="chart-container">
+          <div class="chart-container">
             <canvas id="rendaMensalChart"></canvas>
-            </div>
-                        
-
+          </div>
         </div>
         <div class="box_cidades">
           <h2>Cidades mais visitadas</h2>
@@ -171,173 +169,390 @@
       </div>
     </section>
     <section id="clientes_section">
+      <div class="modalPacotes" id="modalPacotes">
+        <button id="voltarPacotes" onclick="btnFecharModalPacotes()">Voltar</button>
+        <h1>Pacotes</h1>
+        <div class="coteudosPacote">
+          <div class="boxVendaPacote">
+            <div class="topoBox">
+              <h1>Selecione um estado</h1>
+              <select name="" id="">
+                <option value="">SP</option>
+              </select>
+            </div>
+            <div class="box_registro_venda">
+              <div class="topoBox">
+                <h1>Locais disponiveis</h1>
+                <select name="" id="">
+                  <option value="">SP</option>
+                </select>
+              </div>
+              <div class="selecaoDePacotes">
+                <label>Pacotes</label>
+                <select name="" id="">
+                  <option value="">SP</option>
+                </select>
+              </div>
+
+              <div class="boxDias">
+                <div class="inputs">
+                  <label for="">Qtd. de Dias</label>
+                  <input type="number" placeholder="0000" />
+                </div>
+                <div class="inputs">
+                  <label for="">Qtd. de Noites</label>
+                  <input type="number" placeholder="0000" />
+                </div>
+              </div>
+
+              <div class="boxDescricao">
+                <label for="">Descrição</label>
+                <textarea name="" id="">Descrição...</textarea>
+              </div>
+
+              <div class="boxPreco">
+                <div class="inputs">
+                  <label for="">Preço do pacote</label>
+                  <input type="number" placeholder="VALOR:" disabled />
+                </div>
+              </div>
+
+              <div class="boxPagamento">
+                <div class="inputs">
+                  <label for="">Tipo de pagamento</label>
+                  <select name="" id="">
+                    <option value=""></option>
+                  </select>
+                </div>
+                <div class="inputs">
+                  <label for="">Parcelas</label>
+                  <select name="" id="">
+                    <option value=""></option>
+                  </select>
+                </div>
+                <button>confirmar</button>
+              </div>
+            </div>
+          </div>
+          <div class="boxDadosClientes">
+            <div class="topoBox">
+              <h1>Dados do cliente</h1>
+            </div>
+            <div class="informacoesDePacotes">
+              <div class="boxDados">
+                <div class="topoDados">
+                  <div class="inputs">
+                    <label for="">Nome do cliente</label>
+                    <input type="text" placeholder="Nome do cliente" />
+                  </div>
+                  <div class="inputs">
+                    <label for="">Endereço do cliente</label>
+                    <input type="text" placeholder="Rua XXXX" />
+                  </div>
+                </div>
+                <div class="meioDados">
+                  <div class="inputs">
+                    <label for="">E-mail do cliente</label>
+                    <input type="text" placeholder="Nome do cliente" />
+                  </div>
+                  <div class="inputs">
+                    <label for="">cep</label>
+                    <input type="text" placeholder="Rua XXXX" />
+                  </div>
+                  <div class="inputs">
+                    <label for="">num</label>
+                    <input type="text" placeholder="Rua XXXX" />
+                  </div>
+                </div>
+                <div class="footerDados">
+                  <div class="inputs">
+                    <label for="">CPF do cliente</label>
+                    <input type="text" placeholder="Nome do cliente" />
+                  </div>
+                  <div class="inputs">
+                    <label for="">data Nasc.</label>
+                    <input type="text" placeholder="Rua XXXX" />
+                  </div>
+                </div>
+              </div>
+              <div class="pacotesAdquiridos">
+                <h2>Pacotes adquiridos</h2>
+                <div class="boxDePacotes">
+                  <div class="topoBox">
+                    <h1>Selecionar local</h1>
+                    <select name="" id="">
+                      <option value="">Praias</option>
+                    </select>
+                  </div>
+                  <div class="boxVendidos">
+                    <div class="cardPacote">
+                      <div class="infosCardPacote">
+                        <h2>Praia grande, Hotel...</h2>
+                        <h2>Cartão 6x</h2>
+                        <h2>R$ 245,00</h2>
+                        <p>04/11/2025</p>
+                      </div>
+                    </div>
+                    <div class="cardPacote">
+                      <div class="infosCardPacote">
+                        <h2>Praia grande, Hotel...</h2>
+                        <h2>Cartão 6x</h2>
+                        <h2>R$ 245,00</h2>
+                        <p>04/11/2025</p>
+                      </div>
+                    </div>
+                    <div class="cardPacote">
+                      <div class="infosCardPacote">
+                        <h2>Praia grande, Hotel...</h2>
+                        <h2>Cartão 6x</h2>
+                        <h2>R$ 245,00</h2>
+                        <p>04/11/2025</p>
+                      </div>
+                    </div>
+                    <div class="cardPacote">
+                      <div class="infosCardPacote">
+                        <h2>Praia grande, Hotel...</h2>
+                        <h2>Cartão 6x</h2>
+                        <h2>R$ 245,00</h2>
+                        <p>04/11/2025</p>
+                      </div>
+                    </div>
+                    <div class="cardPacote">
+                      <div class="infosCardPacote">
+                        <h2>Praia grande, Hotel...</h2>
+                        <h2>Cartão 6x</h2>
+                        <h2>R$ 245,00</h2>
+                        <p>04/11/2025</p>
+                      </div>
+                    </div>  
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
       <div class="editarCliente" id="telaEdicaoCliente">
         <div class="conteudoEdit">
           <div class="formEditCliente">
             <div class="divVoltar">
-                <button onclick="fecharEdicaoCliente()">voltar</button>
+              <button onclick="fecharEdicaoCliente()">voltar</button>
             </div>
             <div class="fotoCliente">
-                <h2>NOME CLIENTE</h2>
+              <h2>NOME CLIENTE</h2>
             </div>
             <div class="box_inputs">
-                <div class="input">
-                    <label for="">Email</label>
-                    <input type="text" placeholder="email@gmail.com">
-                </div>
-                <div class="input">
-                    <label for="">Telefone</label>
-                    <input type="text" placeholder="(11) 00000-0000" id="telClienteEdit">
-                </div>
-                <div class="input">
-                    <label for="">Endereço</label>
-                    <input type="text" placeholder="Rua x número x">
-                </div>
-                <div class="input" id="dataBloq">
-                    <label for="">Data Nasc.</label>
-                    <input type="text" placeholder="00/00/0000" disabled>
-                </div>
+              <div class="input">
+                <label for="">Email</label>
+                <input type="text" placeholder="email@gmail.com" />
+              </div>
+              <div class="input">
+                <label for="">Telefone</label>
+                <input
+                  type="text"
+                  placeholder="(11) 00000-0000"
+                  id="telClienteEdit"
+                />
+              </div>
+              <div class="input">
+                <label for="">Endereço</label>
+                <input type="text" placeholder="Rua x número x" />
+              </div>
+              <div class="input" id="dataBloq">
+                <label for="">Data Nasc.</label>
+                <input type="text" placeholder="00/00/0000" disabled />
+              </div>
             </div>
           </div>
           <div class="boxKpiCliente">
-              <div class="cards_pacotes">
-                  <div class="card">
-                      <h1>13</h1>
-                      <p>pacotes fechados</p>
-                  </div>
-                  <div class="card">
-                      <h1>Salvador</h1>
-                      <p>pacotes mais fechados</p>
-                  </div>
+            <div class="cards_pacotes">
+              <div class="card">
+                <h1>13</h1>
+                <p>pacotes fechados</p>
               </div>
-              <div class="cards_comentearios">
-                <div class="comentarios">
-                  <h2>Comentário do consultor em relação ao cliente</h2>
-                  <div class="box_comentarios">
-                      <div class="box_cards_coment">
-                          <div class="card">
-                            <button onclick="abrirComentario(this)" class="btnAbrirComentario"></button>
-                            <div class="fotoConsultor"></div>
-                            <div class="box_infosConsultor">
-                              <h2>Nome Sobrenome</h2>
-                              <p>Borem ipsum dolor sit amet, consectetur adipiscing elit.
-                                 Borem ipsum dolor sit amet, consectetur adipiscing elit. 
-                                 Borem ipsum dolor sit amet, consectetur adipiscing elit.
-                                  Borem ipsum dolor sit amet, consectetur adipiscing elit.
-                                 Borem ipsum dolor sit amet, consectetur adipiscing elit.
-                                 Borem ipsum dolor sit amet, consectetur adipiscing elit.
-                                 Borem ipsum dolor sit amet, consectetur adipiscing elit.
-                                 Borem ipsum dolor sit amet, consectetur adipiscing elit.
-                                 Borem ipsum dolor sit amet, consectetur adipiscing elit.
-                                 Borem ipsum dolor sit amet, consectetur adipiscing elit.
-                                 Borem ipsum dolor sit amet, consectetur adipiscing elit.
-                                 Borem ipsum dolor sit amet, consectetur adipiscing elit.
-                                 Borem ipsum dolor sit amet, consectetur adipiscing elit.
-                                 Borem ipsum dolor sit amet, consectetur adipiscing elit.
-                                 Borem ipsum dolor sit amet, consectetur adipiscing elit.
-                                </p>
-                            </div>
-                          </div>
-                          <div class="card">
-                            <button onclick="abrirComentario(this)" class="btnAbrirComentario"></button>
-                            <div class="fotoConsultor"></div>
-                            <div class="box_infosConsultor">
-                              <h2>Nome Sobrenome</h2>
-                              <p>Borem ipsum dolor sit amet, consectetur adipiscing elit.
-                                 Borem ipsum dolor sit amet, consectetur adipiscing elit. 
-                                 Borem ipsum dolor sit amet, consectetur adipiscing elit.
-                                  Borem ipsum dolor sit amet, consectetur adipiscing elit.
-                                 Borem ipsum dolor sit amet, consectetur adipiscing elit.
-                                 Borem ipsum dolor sit amet, consectetur adipiscing elit.
-                                 Borem ipsum dolor sit amet, consectetur adipiscing elit.
-                                 Borem ipsum dolor sit amet, consectetur adipiscing elit.
-                                 Borem ipsum dolor sit amet, consectetur adipiscing elit.
-                                 Borem ipsum dolor sit amet, consectetur adipiscing elit.
-                                 Borem ipsum dolor sit amet, consectetur adipiscing elit.
-                                 Borem ipsum dolor sit amet, consectetur adipiscing elit.
-                                 Borem ipsum dolor sit amet, consectetur adipiscing elit.
-                                 Borem ipsum dolor sit amet, consectetur adipiscing elit.
-                                 Borem ipsum dolor sit amet, consectetur adipiscing elit.
-                                </p>
-                            </div>
-                          </div>
-                          <div class="card">
-                            <button onclick="abrirComentario(this)" class="btnAbrirComentario"></button>
-                            <div class="fotoConsultor"></div>
-                            <div class="box_infosConsultor">
-                              <h2>Nome Sobrenome</h2>
-                              <p>Borem ipsum dolor sit amet, consectetur adipiscing elit.
-                                 Borem ipsum dolor sit amet, consectetur adipiscing elit. 
-                                 Borem ipsum dolor sit amet, consectetur adipiscing elit.
-                                  Borem ipsum dolor sit amet, consectetur adipiscing elit.
-                                 Borem ipsum dolor sit amet, consectetur adipiscing elit.
-                                 Borem ipsum dolor sit amet, consectetur adipiscing elit.
-                                 Borem ipsum dolor sit amet, consectetur adipiscing elit.
-                                 Borem ipsum dolor sit amet, consectetur adipiscing elit.
-                                 Borem ipsum dolor sit amet, consectetur adipiscing elit.
-                                 Borem ipsum dolor sit amet, consectetur adipiscing elit.
-                                 Borem ipsum dolor sit amet, consectetur adipiscing elit.
-                                 Borem ipsum dolor sit amet, consectetur adipiscing elit.
-                                 Borem ipsum dolor sit amet, consectetur adipiscing elit.
-                                 Borem ipsum dolor sit amet, consectetur adipiscing elit.
-                                 Borem ipsum dolor sit amet, consectetur adipiscing elit.
-                                </p>
-                            </div>
-                          </div>
+              <div class="card">
+                <h1>Salvador</h1>
+                <p>pacotes mais fechados</p>
+              </div>
+            </div>
+            <div class="cards_comentearios">
+              <div class="comentarios">
+                <h2>Comentário do consultor em relação ao cliente</h2>
+                <div class="box_comentarios">
+                  <div class="box_cards_coment">
+                    <div class="card">
+                      <button
+                        onclick="abrirComentario(this)"
+                        class="btnAbrirComentario"
+                      ></button>
+                      <div class="fotoConsultor"></div>
+                      <div class="box_infosConsultor">
+                        <h2>Nome Sobrenome</h2>
+                        <p>
+                          Borem ipsum dolor sit amet, consectetur adipiscing
+                          elit. Borem ipsum dolor sit amet, consectetur
+                          adipiscing elit. Borem ipsum dolor sit amet,
+                          consectetur adipiscing elit. Borem ipsum dolor sit
+                          amet, consectetur adipiscing elit. Borem ipsum dolor
+                          sit amet, consectetur adipiscing elit. Borem ipsum
+                          dolor sit amet, consectetur adipiscing elit. Borem
+                          ipsum dolor sit amet, consectetur adipiscing elit.
+                          Borem ipsum dolor sit amet, consectetur adipiscing
+                          elit. Borem ipsum dolor sit amet, consectetur
+                          adipiscing elit. Borem ipsum dolor sit amet,
+                          consectetur adipiscing elit. Borem ipsum dolor sit
+                          amet, consectetur adipiscing elit. Borem ipsum dolor
+                          sit amet, consectetur adipiscing elit. Borem ipsum
+                          dolor sit amet, consectetur adipiscing elit. Borem
+                          ipsum dolor sit amet, consectetur adipiscing elit.
+                          Borem ipsum dolor sit amet, consectetur adipiscing
+                          elit.
+                        </p>
                       </div>
-                      <button></button>
-                  </div>
-                </div>
-                <div class="avaliacoes_cards">
-                    <div class="card">
-                      <h1>4.5</h1>
-                      <p>avaliação dos pacotes</p>
                     </div>
                     <div class="card">
-                      <h1>2.4 anos</h1>
-                      <p>cliente há</p>
+                      <button
+                        onclick="abrirComentario(this)"
+                        class="btnAbrirComentario"
+                      ></button>
+                      <div class="fotoConsultor"></div>
+                      <div class="box_infosConsultor">
+                        <h2>Nome Sobrenome</h2>
+                        <p>
+                          Borem ipsum dolor sit amet, consectetur adipiscing
+                          elit. Borem ipsum dolor sit amet, consectetur
+                          adipiscing elit. Borem ipsum dolor sit amet,
+                          consectetur adipiscing elit. Borem ipsum dolor sit
+                          amet, consectetur adipiscing elit. Borem ipsum dolor
+                          sit amet, consectetur adipiscing elit. Borem ipsum
+                          dolor sit amet, consectetur adipiscing elit. Borem
+                          ipsum dolor sit amet, consectetur adipiscing elit.
+                          Borem ipsum dolor sit amet, consectetur adipiscing
+                          elit. Borem ipsum dolor sit amet, consectetur
+                          adipiscing elit. Borem ipsum dolor sit amet,
+                          consectetur adipiscing elit. Borem ipsum dolor sit
+                          amet, consectetur adipiscing elit. Borem ipsum dolor
+                          sit amet, consectetur adipiscing elit. Borem ipsum
+                          dolor sit amet, consectetur adipiscing elit. Borem
+                          ipsum dolor sit amet, consectetur adipiscing elit.
+                          Borem ipsum dolor sit amet, consectetur adipiscing
+                          elit.
+                        </p>
+                      </div>
                     </div>
+                    <div class="card">
+                      <button
+                        onclick="abrirComentario(this)"
+                        class="btnAbrirComentario"
+                      ></button>
+                      <div class="fotoConsultor"></div>
+                      <div class="box_infosConsultor">
+                        <h2>Nome Sobrenome</h2>
+                        <p>
+                          Borem ipsum dolor sit amet, consectetur adipiscing
+                          elit. Borem ipsum dolor sit amet, consectetur
+                          adipiscing elit. Borem ipsum dolor sit amet,
+                          consectetur adipiscing elit. Borem ipsum dolor sit
+                          amet, consectetur adipiscing elit. Borem ipsum dolor
+                          sit amet, consectetur adipiscing elit. Borem ipsum
+                          dolor sit amet, consectetur adipiscing elit. Borem
+                          ipsum dolor sit amet, consectetur adipiscing elit.
+                          Borem ipsum dolor sit amet, consectetur adipiscing
+                          elit. Borem ipsum dolor sit amet, consectetur
+                          adipiscing elit. Borem ipsum dolor sit amet,
+                          consectetur adipiscing elit. Borem ipsum dolor sit
+                          amet, consectetur adipiscing elit. Borem ipsum dolor
+                          sit amet, consectetur adipiscing elit. Borem ipsum
+                          dolor sit amet, consectetur adipiscing elit. Borem
+                          ipsum dolor sit amet, consectetur adipiscing elit.
+                          Borem ipsum dolor sit amet, consectetur adipiscing
+                          elit.
+                        </p>
+                      </div>
+                    </div>
+                  </div>
+                  <button></button>
                 </div>
               </div>
-              <div class="box_btns">
-                  <div class="buttons">
-                    <button>alterar dados</button>
-                    <button>acessar pacotes</button>
-                  </div>
+              <div class="avaliacoes_cards">
+                <div class="card">
+                  <h1>4.5</h1>
+                  <p>avaliação dos pacotes</p>
+                </div>
+                <div class="card">
+                  <h1>2.4 anos</h1>
+                  <p>cliente há</p>
+                </div>
               </div>
+            </div>
+            <div class="box_btns">
+              <div class="buttons">
+                <button>alterar dados</button>
+                <button onclick="btnAbrirModalPacotes()">acessar pacotes</button>
+              </div>
+            </div>
           </div>
         </div>
       </div>
       <div class="cardCadastroCliente" id="cadastrarCliente">
-        <button class="fecharCadastroCliente" onclick="fecharCardDeCadastroCliente()"></button>
+        <button
+          class="fecharCadastroCliente"
+          onclick="fecharCardDeCadastroCliente()"
+        ></button>
         <div class="box_cadastro_de_cliente">
           <h1>Cadastro de cliente</h1>
           <div class="inputs">
-              <label for="nomeCliente">Nome</label>
-              <input type="text" name="" id="nomeCliente" placeholder="Nome do cliente...">
+            <label for="nomeCliente">Nome</label>
+            <input
+              type="text"
+              name=""
+              id="nomeCliente"
+              placeholder="Nome do cliente..."
+            />
           </div>
           <div class="inputs">
-              <label for="emailCliente">Email</label>
-              <input type="text" name="" id="emailCliente" placeholder="E-mail do cliente...">
+            <label for="emailCliente">Email</label>
+            <input
+              type="text"
+              name=""
+              id="emailCliente"
+              placeholder="E-mail do cliente..."
+            />
           </div>
 
           <div class="inputs_cpf_dataNasc">
             <div class="inputsCpfTel">
-                <label for="cpfCliente">Cpf</label>
-                <input type="text" name="" id="cpfCliente" placeholder="000.000.000-00" maxlength="14">
+              <label for="cpfCliente">Cpf</label>
+              <input
+                type="text"
+                name=""
+                id="cpfCliente"
+                placeholder="000.000.000-00"
+                maxlength="14"
+              />
             </div>
             <div class="inputsCpfTel">
-                <label for="dataNascCliente">Data Nasc.</label>
-                <input type="date" name="" id="dataNascCliente">
+              <label for="dataNascCliente">Data Nasc.</label>
+              <input type="date" name="" id="dataNascCliente" />
             </div>
           </div>
           <div class="inputs">
-              <label for="telCliente">Telefone</label>
-              <input type="text" name="" id="telCliente" placeholder="(11) 00000-0000">
+            <label for="telCliente">Telefone</label>
+            <input
+              type="text"
+              name=""
+              id="telCliente"
+              placeholder="(11) 00000-0000"
+            />
           </div>
           <div class="inputs">
-              <label for="enderecoCliente">Endereço</label>
-              <input type="text" name="" id="enderecoCliente" placeholder="Endereço do cliente...">
+            <label for="enderecoCliente">Endereço</label>
+            <input
+              type="text"
+              name=""
+              id="enderecoCliente"
+              placeholder="Endereço do cliente..."
+            />
           </div>
           <button>cadastrar cliente</button>
         </div>
@@ -356,34 +571,36 @@
         </div>
       </div>
       <div class="box_topo">
-          <div class="inputPesquisar">
-            <input type="text" placeholder="pesquisar cliente...">
-            <button></button>
-          </div>
-          <button id="adicionarCliente" onclick="abrirCardDeCadastroCliente()">adicionar cliente</button>
-          <div class="selecao">
-            <p>Filtrar pacote</p>
-            <select name="" id="selectPacote">
-              <option value="">Sem pacote</option>
-              <option value="">Com pacote</option>
-            </select>
-          </div>
+        <div class="inputPesquisar">
+          <input type="text" placeholder="pesquisar cliente..." />
+          <button></button>
+        </div>
+        <button id="adicionarCliente" onclick="abrirCardDeCadastroCliente()">
+          adicionar cliente
+        </button>
+        <div class="selecao">
+          <p>Filtrar pacote</p>
+          <select name="" id="selectPacote">
+            <option value="">Sem pacote</option>
+            <option value="">Com pacote</option>
+          </select>
+        </div>
       </div>
       <div class="box_rodape" id="clientesList">
-          <div class="card_cliente">
-            <div class="box_foto">
-              <img src="assets/icon/Profile.svg" alt="user_img">
-            </div>
-            <div class="infos_cliente">
-              <h2>Nome Cliente</h2>
-              <p>emaildocliente@gmail.com</p>
-            </div>
-            <div class="box_buttons">
-              <button id="btn_pacote"></button>
-              <button id="btn_deletar" onclick="deletarCliente()"></button>
-              <button id="btn_editar" onclick="abrirEdicaoCliente()"></button>
-            </div>
+        <div class="card_cliente">
+          <div class="box_foto">
+            <img src="assets/icon/Profile.svg" alt="user_img" />
           </div>
+          <div class="infos_cliente">
+            <h2>Nome Cliente</h2>
+            <p>emaildocliente@gmail.com</p>
+          </div>
+          <div class="box_buttons">
+            <button id="btn_pacote" onclick="btnAbrirModalPacotes()"></button>
+            <button id="btn_deletar" onclick="deletarCliente()"></button>
+            <button id="btn_editar" onclick="abrirEdicaoCliente()"></button>
+          </div>
+        </div>
       </div>
     </section>
     <section id="consultores_section">
@@ -397,23 +614,21 @@
 </html>
 
 <script>
-
   const menuNav = document.getElementById("menuNav");
   const abrir = document.getElementById("abrir_menu");
 
-  function abrirComentario(botao){
-  const card = botao.closest('.card');
-  const box = card.querySelector('.box_infosConsultor');
+  function abrirComentario(botao) {
+    const card = botao.closest(".card");
+    const box = card.querySelector(".box_infosConsultor");
 
-  const aberto = box.style.height === "300px";
+    const aberto = box.style.height === "300px";
 
-  box.style.transition = "1s";
-  box.style.height = aberto ? "70px" : "300px";
-  box.style.overflowY = aberto ? "hidden" : "scroll";
-}
+    box.style.transition = "1s";
+    box.style.height = aberto ? "70px" : "300px";
+    box.style.overflowY = aberto ? "hidden" : "scroll";
+  }
 
-
-/*  var nome = sessionStorage.NOME_USUARIO;
+  /*  var nome = sessionStorage.NOME_USUARIO;
   var id = sessionStorage.ID_USUARIO;
 
   var ListaValores = [];
@@ -451,49 +666,53 @@ abrirCardDeCadastroCliente
 
   // ValoresKPI();
 
-    //mascara para inputs
+  //mascara para inputs
 
-    const cpfMask = IMask(
-      document.getElementById('cpfCliente'),
-      { mask: '000.000.000-00' }
-    );
-     const telMask = IMask(
-      document.getElementById('telCliente'),
-      { mask: '(00) 00000-0000' }
-    );
-     const telMaskEdit = IMask(
-      document.getElementById('telClienteEdit'),
-      { mask: '(00) 00000-0000' }
-    );
+  const cpfMask = IMask(document.getElementById("cpfCliente"), {
+    mask: "000.000.000-00",
+  });
+  const telMask = IMask(document.getElementById("telCliente"), {
+    mask: "(00) 00000-0000",
+  });
+  const telMaskEdit = IMask(document.getElementById("telClienteEdit"), {
+    mask: "(00) 00000-0000",
+  });
 
 
-    function fecharEdicaoCliente(){
-        let fecharEdicao = document.getElementById('telaEdicaoCliente')
-        fecharEdicao.style.display = "none";
-    }
-
-    function abrirEdicaoCliente(){
-        let fecharEdicao = document.getElementById('telaEdicaoCliente')
-        fecharEdicao.style.display = "flex";
-    }
-
+  function btnFecharModalPacotes(){
+    let fecharModal = document.getElementById("modalPacotes");
+    fecharModal.style.display = "none";
+  }
+   function btnAbrirModalPacotes(){
+    let fecharModal = document.getElementById("modalPacotes");
+    fecharModal.style.display = "flex";
+  }
 
 
+  function fecharEdicaoCliente() {
+    let fecharEdicao = document.getElementById("telaEdicaoCliente");
+    fecharEdicao.style.display = "none";
+  }
 
-    let cadastrarCli = document.getElementById("cadastrarCliente");
+  function abrirEdicaoCliente() {
+    let fecharEdicao = document.getElementById("telaEdicaoCliente");
+    fecharEdicao.style.display = "flex";
+  }
 
-    function fecharCardDeCadastroCliente(){ 
-      cadastrarCli.style.display = "none";
-      nomeCliente.value = "";
-      cpfCliente.value = "";
-      dataNascCliente.value = "";
-      telCliente.value = "";
-      enderecoCliente.value = "";
-    }
+  let cadastrarCli = document.getElementById("cadastrarCliente");
 
-    function abrirCardDeCadastroCliente(){ 
-      cadastrarCli.style.display = "flex";
-    }
+  function fecharCardDeCadastroCliente() {
+    cadastrarCli.style.display = "none";
+    nomeCliente.value = "";
+    cpfCliente.value = "";
+    dataNascCliente.value = "";
+    telCliente.value = "";
+    enderecoCliente.value = "";
+  }
+
+  function abrirCardDeCadastroCliente() {
+    cadastrarCli.style.display = "flex";
+  }
 
   let cardDeleteCliente = document.getElementById("cardDelete");
   let fecharTimeout = null;
@@ -556,12 +775,12 @@ abrirCardDeCadastroCliente
     const topo = document.querySelector(".box_topo");
     const meio = document.querySelector(".box_meio");
     const rodape = document.querySelector(".box_rodape");
-      topo.style.width = "95%";
-      topo.style.transition = "2s";
-      meio.style.width = "95%";
-      meio.style.transition = "2s";
-      rodape.style.width = "95%";
-      rodape.style.transition = "2s";
+    topo.style.width = "95%";
+    topo.style.transition = "2s";
+    meio.style.width = "95%";
+    meio.style.transition = "2s";
+    rodape.style.width = "95%";
+    rodape.style.transition = "2s";
 
     interagir_menu.style.opacity = 1;
     interagir_menu.style.display = "block";
@@ -573,9 +792,6 @@ abrirCardDeCadastroCliente
       conteudo_menu.style.transition = ".5s linear";
     }, 850);
   }
-
-
-
 
   const barra = document.createElement("div");
   barra.style.position = "absolute";
@@ -599,8 +815,8 @@ abrirCardDeCadastroCliente
   });
 
   homeSession.appendChild(barra);
-  dashboardSection.style.display = "none";
-  clientesSection.style.display = "flex";
+  dashboardSection.style.display = "flex";
+  clientesSection.style.display = "none";
   consultoresSection.style.display = "none";
 
   function mudarSessao(ativo, sectionMostrar) {
@@ -658,9 +874,7 @@ abrirCardDeCadastroCliente
   atualizarHora();
   setInterval(atualizarHora, 1000);
 
-
-
-/* const ctx = document.getElementById('rendaMensalChart').getContext('2d');
+  /* const ctx = document.getElementById('rendaMensalChart').getContext('2d');
 
 // Criar um gradiente suave nas barras
 const gradient = ctx.createLinearGradient(0, 0, 0, 400);
@@ -747,125 +961,131 @@ const rendaMensalChart = new Chart(ctx, {
     plugins: [ChartDataLabels]
 }); */
 
-const ctx = document.getElementById('rendaMensalChart').getContext('2d');
+  const ctx = document.getElementById("rendaMensalChart").getContext("2d");
 
-// Gradiente azul (renda atual)
-const gradientAtual = ctx.createLinearGradient(0, 0, 0, 400);
-gradientAtual.addColorStop(0, '#00bfff');
-gradientAtual.addColorStop(1, '#007bff');
+  // Gradiente azul (renda atual)
+  const gradientAtual = ctx.createLinearGradient(0, 0, 0, 400);
+  gradientAtual.addColorStop(0, "#00bfff");
+  gradientAtual.addColorStop(1, "#007bff");
 
-// Gradiente laranja (crescimento %)
-const gradientCrescimento = ctx.createLinearGradient(0, 0, 0, 400);
-gradientCrescimento.addColorStop(0, '#66ff66'); // verde claro
-gradientCrescimento.addColorStop(1, '#009933'); // verde mais escuro
+  // Gradiente laranja (crescimento %)
+  const gradientCrescimento = ctx.createLinearGradient(0, 0, 0, 400);
+  gradientCrescimento.addColorStop(0, "#66ff66"); // verde claro
+  gradientCrescimento.addColorStop(1, "#009933"); // verde mais escuro
 
-const rendaMensalChart = new Chart(ctx, {
-    type: 'bar',
+  const rendaMensalChart = new Chart(ctx, {
+    type: "bar",
     data: {
-        labels: ['mai/2025', 'jun/2025', 'jul/2025', 'ago/2025', 'set/2025', 'out/2025'],
-        datasets: [
-            {
-                label: 'Renda Atual (R$ mil)',
-                data: [18, 25, 32, 40, 55, 63],
-                backgroundColor: gradientAtual,
-                borderRadius: 8,
-                hoverBackgroundColor: '#33c3ff',
-                yAxisID: 'yRenda'
-            },
-            {
-                label: 'Crescimento (%)',
-                data: [16, 38, 28, 25, 37, 14],
-                backgroundColor: gradientCrescimento,
-                borderRadius: 8,
-                hoverBackgroundColor: '#66ff66',
-                yAxisID: 'yPercent'
-            }
-        ]
+      labels: [
+        "mai/2025",
+        "jun/2025",
+        "jul/2025",
+        "ago/2025",
+        "set/2025",
+        "out/2025",
+      ],
+      datasets: [
+        {
+          label: "Renda Atual (R$ mil)",
+          data: [18, 25, 32, 40, 55, 63],
+          backgroundColor: gradientAtual,
+          borderRadius: 8,
+          hoverBackgroundColor: "#33c3ff",
+          yAxisID: "yRenda",
+        },
+        {
+          label: "Crescimento (%)",
+          data: [16, 38, 28, 25, 37, 14],
+          backgroundColor: gradientCrescimento,
+          borderRadius: 8,
+          hoverBackgroundColor: "#66ff66",
+          yAxisID: "yPercent",
+        },
+      ],
     },
     options: {
-        responsive: true,
-        maintainAspectRatio: false,
-        layout: { padding: 10 },
-        plugins: {
-            title: {
-                display: true,
-                text: 'Renda Mensal (2025)',
-                color: '#ffffff',
-                font: { size: 20, weight: 'bold' },
-                padding: { bottom: 20 }
-            },
-            legend: {
-                labels: {
-                    color: '#ccc',
-                    font: { size: 13 }
-                }
-            },
-            tooltip: {
-                backgroundColor: '#111',
-                titleColor: '#00bfff',
-                bodyColor: '#fff',
-                borderColor: '#00bfff',
-                borderWidth: 1,
-                cornerRadius: 8,
-                padding: 10,
-                callbacks: {
-                    title: (context) => `Mês: ${context[0].label}`,
-                    label: (context) => {
-                        if (context.dataset.label.includes('%')) {
-                            return `${context.dataset.label}: ${context.formattedValue}%`;
-                        } else {
-                            return `${context.dataset.label}: R$ ${context.formattedValue}K`;
-                        }
-                    }
-                }
-            },
-            datalabels: {
-                color: '#fff',
-                anchor: 'end',
-                align: 'start',
-                font: { weight: 'bold' },
-                formatter: (value, context) => {
-                    if (context.dataset.label.includes('%')) {
-                        return `${value}%`;
-                    } else {
-                        return `R$ ${value}k`;
-                    }
-                }
-            }
+      responsive: true,
+      maintainAspectRatio: false,
+      layout: { padding: 10 },
+      plugins: {
+        title: {
+          display: true,
+          text: "Renda Mensal (2025)",
+          color: "#ffffff",
+          font: { size: 20, weight: "bold" },
+          padding: { bottom: 20 },
         },
-        scales: {
-            yRenda: {
-                type: 'linear',
-                position: 'left',
-                beginAtZero: true,
-                ticks: {
-                    color: '#ccc',
-                    font: { size: 12 },
-                    callback: (value) => `R$ ${value}k`
-                },
-                grid: { color: '#222', lineWidth: 1 }
+        legend: {
+          labels: {
+            color: "#ccc",
+            font: { size: 13 },
+          },
+        },
+        tooltip: {
+          backgroundColor: "#111",
+          titleColor: "#00bfff",
+          bodyColor: "#fff",
+          borderColor: "#00bfff",
+          borderWidth: 1,
+          cornerRadius: 8,
+          padding: 10,
+          callbacks: {
+            title: (context) => `Mês: ${context[0].label}`,
+            label: (context) => {
+              if (context.dataset.label.includes("%")) {
+                return `${context.dataset.label}: ${context.formattedValue}%`;
+              } else {
+                return `${context.dataset.label}: R$ ${context.formattedValue}K`;
+              }
             },
-            yPercent: {
-                type: 'linear',
-                position: 'right',
-                beginAtZero: true,
-                ticks: {
-                    color: '#66ff66',
-                    font: { size: 12 },
-                    callback: (value) => `${value}%`
-                },
-                grid: { drawOnChartArea: false } // não mistura as grades
-            },
-            x: {
-                ticks: {
-                    color: '#ccc',
-                    font: { size: 12 }
-                },
-                grid: { display: false }
+          },
+        },
+        datalabels: {
+          color: "#fff",
+          anchor: "end",
+          align: "start",
+          font: { weight: "bold" },
+          formatter: (value, context) => {
+            if (context.dataset.label.includes("%")) {
+              return `${value}%`;
+            } else {
+              return `R$ ${value}k`;
             }
-        }
+          },
+        },
+      },
+      scales: {
+        yRenda: {
+          type: "linear",
+          position: "left",
+          beginAtZero: true,
+          ticks: {
+            color: "#ccc",
+            font: { size: 12 },
+            callback: (value) => `R$ ${value}k`,
+          },
+          grid: { color: "#222", lineWidth: 1 },
+        },
+        yPercent: {
+          type: "linear",
+          position: "right",
+          beginAtZero: true,
+          ticks: {
+            color: "#66ff66",
+            font: { size: 12 },
+            callback: (value) => `${value}%`,
+          },
+          grid: { drawOnChartArea: false }, // não mistura as grades
+        },
+        x: {
+          ticks: {
+            color: "#ccc",
+            font: { size: 12 },
+          },
+          grid: { display: false },
+        },
+      },
     },
-    plugins: [ChartDataLabels]
-});
-
+    plugins: [ChartDataLabels],
+  });
 </script>

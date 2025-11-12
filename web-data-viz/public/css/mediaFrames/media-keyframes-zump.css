@@ -2,7 +2,6 @@
     .menu{
         max-width: 260px;
     }
-    
     #dashboard_section .box_topo{
         width:95%;
     }
@@ -120,6 +119,8 @@
     font-size: var(--font-size-regular);
 }
 }
+
+
 @media screen and (max-width: 1599px) and (min-width: 1501px) {    
     .menu{
         max-width: 260px;
