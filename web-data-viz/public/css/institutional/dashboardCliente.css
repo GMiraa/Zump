@@ -19,6 +19,10 @@
     height: 100%;
     background-color: var(--white);
     position: absolute;
+    background-image: url("../../assets/logos/logo\ zump\ azul.svg");
+    background-repeat: no-repeat;
+    background-size: auto;
+    background-position: bottom 10px right 20px;
 }
 #voltarPacotes{
     margin: 10px;
@@ -1027,13 +1031,6 @@
     transition: .3s;
 }
 
-
-
-
-
-
-
-
 #clientes_section .cardCadastroCliente .fecharCadastroCliente:hover{
     background-size: 55px;
 }
@@ -1126,85 +1123,6 @@
     font-size: var(--font-size-regular);
     cursor: pointer;
 }
-
-#clientes_section #cardDelete{
-    position: absolute;
-    display: none;
-    flex-direction: column;
-    right: 0px;
-    top: 30px;
-    z-index: 10;
-    background-color: #f8f8f8;
-    border: 1px solid #CFCFCF;
-    width: 400px;
-    height: 210px;
-    border-radius: 10px;
-    overflow: hidden;
-}
-
-#clientes_section #cardDelete .barraTemporizadora{
-    width: 100%;
-    height: 4px;
-    background-color: #ff0000;
-    animation: temporizadora 5s linear forwards;
-}
-
-@keyframes temporizadora {
-    0%{
-        width: 100%;
-    }
-    100%{
-        width: 0%;
-    }
-}
-
-#clientes_section #cardDelete h1{
-    margin-top: 15px;
-    margin-left: 15px;
-    font-size: var(--font-size-regular);
-    font-weight: var(--font-weight-medium);
-}
-#clientes_section #cardDelete .infosCliente{
-    margin-top: 5px;
-    margin-left: 15px;
-    height: 100px;
-    padding-left: 20px;
-}
-#clientes_section #cardDelete .infosCliente h2{
-    margin-top: 2px;
-    font-size: var(--font-size-regular);
-    font-weight: var(--font-weight-regular);
-}
-#clientes_section #cardDelete .opBtn{
-    display: flex;
-    justify-content: end;
-    align-items: center;
-    padding-right: 10px;
-    height: 50px;
-    gap: 10px;
-}
-
-#clientes_section #cardDelete .opBtn button{
-    height: 40px;
-    width: 90px;
-    border-radius: 5px;
-    cursor: pointer;
-    border: none;
-    outline: none;
-    font-size: var(--font-size-regular);
-    font-weight: var(--font-weight-regular);
-}
-
-#clientes_section #cardDelete .opBtn #btnNao{
-    background-color: var(--white);
-    color: #000000;
-}
-
-#clientes_section #cardDelete .opBtn #btnSim{
-    background-color: #e01b1b;
-    color: #fff;
-}
-
 
 
 #clientes_section .box_topo{
@@ -1335,7 +1253,7 @@ font-size: var(--font-size-regular);
     height: 80px;  
     border-radius: 10px;
     position: relative;
-    background: linear-gradient(45deg, #0F537A, #1576AD, #1C98E0);
+    background: linear-gradient(45deg, #0E2936, #1B98E0, #0E2936);
     margin-bottom: 25px;
 }
 #clientes_section .box_rodape .card_cliente:hover{
@@ -1344,6 +1262,7 @@ font-size: var(--font-size-regular);
 #clientes_section .box_rodape .card_cliente .box_foto{
     width: 60px;
     height: 60px;
+    background-color: #dfdfdf;
     margin-left: 20px;
     border-radius: 60px;
     overflow: hidden;

@@ -1,0 +1,627 @@
+@import url("../variables/variables-zump.css");
+@import url('https://fonts.googleapis.com/css2?family=Aclonica&family=Hubot+Sans:ital,wght@0,200..900;1,200..900&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Roboto:ital,wght@0,100..900;1,100..900&family=Shrikhand&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Aclonica&family=Hubot+Sans:ital,wght@0,200..900;1,200..900&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=MuseoModerno:ital,wght@0,100..900;1,100..900&family=Roboto:ital,wght@0,100..900;1,100..900&family=Shrikhand&display=swap');
+
+#consultores_section {
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    border-radius: 15px;   
+    position: relative;
+}
+
+
+
+
+
+#consultores_section .modalCadastro{
+    display: none;
+    flex-direction: column;
+    justify-content: flex-start;
+    position: absolute;
+    width: 900px;
+    height:auto;
+    padding-bottom: 10px;
+    border-radius: 10px;
+    background: var(--white);
+    z-index: 10;
+}
+
+#consultores_section .modalCadastro #btnFechar{
+    position: absolute;
+    width: 50px;
+    height: 50px;
+    border-radius: 50px;
+    top: -10px;
+    right: -10px;
+    background-color: var(--white);
+    background-image: url("../../assets/icon/MacOS\ Close.svg");
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-size: 50px;
+    cursor: pointer;
+    border: none;
+    transition: .3s;
+}
+
+#consultores_section .modalCadastro #btnFechar:hover{
+    background-size: 55px;
+}
+
+#consultores_section .modalCadastro .boxTopo{
+    display: flex;
+    padding-left: 15px;
+    align-items: center;
+    height: 60px;
+    width: 100%;
+}
+#consultores_section .modalCadastro .boxTopo h1{
+    font-size: var(--font-size-regular);
+    font-weight: var(--font-weight-medium);
+}
+#consultores_section .modalCadastro .boxMeio{
+    display: flex;
+    flex-direction: row;
+    padding: 0px 2rem;
+    height: calc(100% - 60px);
+    width: 100%;
+    gap: 1.5rem;
+}
+#consultores_section .modalCadastro .boxMeio .boxLeft,
+#consultores_section .modalCadastro .boxMeio .boxRight{
+    width: 50%;
+    height: auto;
+}
+
+
+.boxInputs{
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    height: auto;
+    margin-bottom: 10PX;
+}
+.boxInputs label{
+    font-size: var(--font-size-regular);
+}
+.boxInputs input{
+    margin-top: 5px;
+    width: 100%;
+    height: 50px;
+    border: 1px solid #a8a8a8;
+    border-radius: 8px;
+    padding: 0px 15px 0px 20px;
+    outline: none;
+}
+
+.divDuploInfo{
+    display: flex;
+    flex-direction: row;
+    gap: 15px;
+}
+.divDuploInfo .boxInputs:nth-child(1){
+    width: 70%;
+}
+
+
+
+.inputBtn{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    height: 50px;
+        margin-top: 5px;
+    border: 1px solid #a8a8a8;
+    border-radius: 8px; 
+}
+.inputBtn input{
+    border: none;
+    background: transparent;
+}
+.inputBtn button{
+    width: 70px;
+    height: 50px;
+    cursor: pointer;
+    background-image: url("../../assets/icon/Synchronize.svg");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: 30px;
+    border: none;
+    outline: none;
+    border-top-right-radius: 8px;
+    border-bottom-right-radius: 8px;
+    background-color: #0E2936;
+}
+
+.inputBtn button:hover{
+    background-color: #006494;
+}
+
+#consultores_section .modalCadastro .boxMeio .boxRight #btnCadastrarConsultor{
+    width: 100%;
+    height: 50px;
+    margin-top: 5px;
+    border-radius: 8px;
+    border: none;
+    background: linear-gradient(40deg, #0A3D56, #1B98E0);
+    color: var(--white);
+    font-size: var(--font-size-regular);
+    font-weight: var(--font-weight-medium);
+    cursor: pointer;
+}
+
+#consultores_section .modalCadastro .boxMeio .boxRight #btnCadastrarConsultor:hover{
+    background: #0A3D56;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+#consultores_section .cardBloq{
+    display: none;
+    position: absolute;
+    top:26.2%;
+    height: 70px;
+    width: auto;
+    padding: 0px 2rem;
+    z-index: 5;
+    background: #fff;
+    border-radius: 8px;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+}   
+
+#consultores_section .cardBloq h1{
+    font-weight: var(--font-weight-medium);
+    font-size: var(--font-size-regular);
+}
+#consultores_section .temporizadorBloq{
+    position: absolute;
+    top: 0;
+    left: 0;
+    background:#0A3D56;
+    width: 100%;
+    height: 2px;
+    animation: temporizadora 3s linear forwards;
+}
+
+@keyframes temporizadora {
+    0%{
+        width: 100%;
+    }
+    100%{
+        width: 0%;
+    }
+}
+
+
+#consultores_section .boxTop{
+    width: 100%;
+    height: 30%;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    gap: 5rem;
+}
+
+
+/*  Estilização dos cards para a tela cadastro de consultor */
+#consultores_section .boxTop .card{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 300px;
+    height: 170px;
+    border-radius: 8px;
+    background: linear-gradient(40deg, #131517, #0E2936, #0A3D56, #055075, #006494);
+    position: relative;
+}
+
+
+#consultores_section .boxTop .card p{
+    top: 15px;
+    position: absolute;
+    left: 20px;
+    color: var(--white);
+    font-size: var(--font-size-small);
+}
+#consultores_section .boxTop .card h1{
+    color: var(--white);
+    font-size: 4rem;
+    font-weight: var(--font-weight-medium);
+}
+
+#consultores_section .boxTop .card .actives,
+#consultores_section .boxTop .card .inactive{
+    top: 15px;
+    position: absolute;
+    right: 15px;
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background-color: #878787;
+}
+
+#consultores_section .boxTop .card .actives{
+    animation: ativo 2s infinite;
+}
+
+@keyframes ativo {
+    0% {width: 10px; height: 10px; background-color: #00ff08; box-shadow: 0 0 5px #00ff08, 0 0 10px #00ff08, 0 0 20px #00ff08;}
+    50% { width: 10px; height: 10px; background-color: #81C784; box-shadow: 0 0 10px #81C784, 0 0 20px #81C784, 0 0 30px #81C784; transform: scale(1.3);}
+    100% { width: 10px; height: 10px; background-color: #00ff08; box-shadow: 0 0 5px #00ff08, 0 0 10px #00ff08, 0 0 20px #00ff08;}   
+}
+
+
+#consultores_section .itensBottom{
+    display: flex;    
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    height: 70%;
+
+}
+#consultores_section .boxLeftBottom{
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    width: 65%;
+    padding-left: 5rem;
+    padding-right: 1rem;
+}
+
+#consultores_section .boxLeftBottom h1{
+    font-size: var(--font-size-larguer);
+    font-weight: var(--font-weight-regular);
+}
+
+#consultores_section .boxLeftBottom .boxPesquisa{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    height: 70px;   
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+}
+
+#consultores_section .boxLeftBottom .boxPesquisa .boxInput{
+    border: 1px solid #CFCFCF;
+    background-color: #e9e9e9;
+    height: 60px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    border-radius: 8px;
+    width: 440px;    
+}
+#consultores_section .boxLeftBottom .boxPesquisa .boxInput input{
+    border: none;
+    outline: none;
+    background: transparent;
+    padding-right: 20px;
+    padding-left: 15px;
+    font-size: var(--font-size-regular);
+    height: 60px;
+    width: 380px;
+    border-top-left-radius: 8px;
+    border-bottom-left-radius: 8px;    
+    color: #585858;
+}
+
+
+#consultores_section .boxLeftBottom .boxPesquisa .boxInput input:focus{
+    border: 2px solid #1B98E0;
+}
+
+#consultores_section .boxLeftBottom .boxPesquisa .boxInput button{
+    border: none;
+    outline: none;
+    background-color: #1B98E0;
+    background-image: url("../../assets/icon/Search.svg");
+    background-size: 35px;
+    background-position: center;
+    background-repeat: no-repeat;
+    padding-right: 20px;
+    padding-left: 15px;
+    height: 60px;
+    width: 60px;    
+    cursor: pointer;
+    border-top-right-radius: 8px;
+    border-bottom-right-radius: 8px;    
+     transition: background-color 0.3s ease;    
+}
+#consultores_section .boxLeftBottom .boxPesquisa .boxInput button:hover{
+    background-color: #0E2936;
+}
+
+
+#consultores_section .boxLeftBottom .boxPesquisa select{
+    width: 180px;
+    height: 60px;
+    border-radius: 8px;
+    border: 1px solid #CFCFCF;
+    background-color: #e9e9e9;
+    color: #585858;
+    background-image: url('data:image/svg+xml;utf8,<svg fill="none" stroke="%23606060" stroke-width="2" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M6 9l6 6 6-6"/></svg>');
+    background-position: right 10px center;
+    background-repeat: no-repeat;
+    background-size: 30px;
+    appearance: none;
+    outline: none;
+    font-size: var(--font-size-regular);
+    padding-left: 10px;
+    cursor: pointer;
+}
+#consultores_section .boxLeftBottom .boxPesquisa .adcionarConsultor{
+    width: 280px;
+    height: 60px;
+    border-radius: 8px;
+    border: none;
+    text-align: left;  
+    padding-left: 20px;
+    background-image: url("../../assets/icon/Plus\ Math.svg");
+    background-position: center right 15px;
+    background-repeat: no-repeat;
+    background-size: 30px;
+    background-color: #1B98E0;
+    color: var(--white);
+    font-size: var(--font-size-regular);
+    font-weight: var(--font-weight-medium);
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+#consultores_section .boxLeftBottom .boxPesquisa .adcionarConsultor:hover{
+    background-color: #0E2936;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+#consultores_section .boxLeftBottom .boxCardsConsultores{
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    gap: 1.3rem;
+    width: 100%;
+    height: 100%;
+    overflow-y: scroll;
+    padding-bottom: 20px;
+}
+
+#consultores_section .boxLeftBottom .boxCardsConsultores::-webkit-scrollbar {
+  width: 7px;
+}
+
+#consultores_section .boxLeftBottom .boxCardsConsultores::-webkit-scrollbar-track {
+  background: #D9D9D9;
+  border-radius: 10px;
+}
+
+#consultores_section .boxLeftBottom .boxCardsConsultores::-webkit-scrollbar-thumb {
+  background: linear-gradient(180deg, #585858, #000000);
+  border-radius: 10px;
+}
+
+
+#consultores_section .boxLeftBottom .boxCardsConsultores .cardConsultor{
+    display: flex;
+    flex-direction: row;
+    align-items: center;   
+    width: 97%;
+    min-height: 90px;
+    border-radius: 8px;
+    background: linear-gradient(45deg, #0E2936, #1B98E0, #0E2936);
+    
+    
+}
+#consultores_section .boxLeftBottom .boxCardsConsultores .cardConsultor:hover{
+   background: #0E2936;
+}
+
+
+
+#consultores_section .boxLeftBottom .boxCardsConsultores .cardConsultor .box_foto_consultor{
+    width: 65px;
+    height: 65px;
+    border-radius: 50%;
+    margin-left: .8rem;
+    margin-right: 1rem;
+    background-color: #dfdfdf;
+    background-image: url("../../assets/icon/Profile.svg");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+#consultores_section .boxLeftBottom .boxCardsConsultores .cardConsultor .infos_consultor{
+    margin-left: 1rem;
+    height: 100%;
+    width: 40%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center; 
+    gap: .5rem;   
+}
+#consultores_section .boxLeftBottom .boxCardsConsultores .cardConsultor .infos_consultor h2{
+    color: var(--white);
+    font-size: var(--font-size-regular);
+    font-weight: var(--font-weight-medium);
+}
+#consultores_section .boxLeftBottom .boxCardsConsultores .cardConsultor .infos_consultor p{
+    color: var(--white);
+    font-size: var(--font-size-regular);
+    text-decoration: underline 1px;
+    text-underline-offset: 4px;
+    font-weight: var(--font-weight-regular);
+}
+#consultores_section .boxLeftBottom .boxCardsConsultores .cardConsultor .box_status{
+    height: 100%;
+    width: 20%;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    padding-left: 1.5rem;
+    gap: 2rem;
+}
+
+#consultores_section .boxLeftBottom .boxCardsConsultores .cardConsultor .box_status p{
+    color: var(--white);
+    font-size: var(--font-size-small);
+    font-weight: var(--font-weight-regular);
+}
+
+
+#consultores_section .boxLeftBottom .boxCardsConsultores .cardConsultor .box_status .status_ativo{
+    width: 15px;
+    height: 15px;
+    border-radius: 50%;
+    background-color: #00ff08;
+    animation: ativo 2s infinite;
+}
+#consultores_section .boxLeftBottom .boxCardsConsultores .cardConsultor .status_inativo{
+    width: 15px;
+    height: 15px;
+    border-radius: 50%;
+    background-color: #C4C1C1;
+}
+
+
+#consultores_section .boxLeftBottom .boxCardsConsultores .cardConsultor .boxIcons{
+    height: 100%;
+    width:30%;
+    display: flex;
+    flex-direction: row;
+    justify-content: end; 
+    align-items: center;
+    gap: 1rem;
+    padding-right: 2rem;
+}
+
+
+
+#consultores_section .boxLeftBottom .boxCardsConsultores .cardConsultor .boxIcons button{
+    width: 50px;
+    height: 50px;
+    cursor: pointer;
+    background-color: transparent;
+    border: none;
+    outline: none;
+}
+
+#consultores_section .boxLeftBottom .boxCardsConsultores .cardConsultor .boxIcons .report{
+    background-image: url("../../assets/icon/report.svg");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: 45px;
+}
+#consultores_section .boxLeftBottom .boxCardsConsultores .cardConsultor .boxIcons .edit{
+    background-image: url("../../assets/icon/editWhite.svg");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: 45px;
+}
+
+#consultores_section .boxLeftBottom .boxCardsConsultores .cardConsultor .boxIcons .block{
+    background-image: url("../../assets/icon/aberto.svg");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: 45px;
+}
+
+#consultores_section .boxLeftBottom .boxCardsConsultores .cardConsultor .boxIcons .fechado{
+    background-image: url("../../assets/icon/fechado.svg");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: 30px;
+}
+#consultores_section .boxLeftBottom .boxCardsConsultores .cardConsultor .boxIcons .delete{
+    background-image: url("../../assets/icon/deleteWhite.svg");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: 45px;
+}
+
+
+
+
+
+
+
+
+
+
+#consultores_section .boxRightBottom{
+border: 1px solid red;
+width:35%;
+height: 100%;
+
+}

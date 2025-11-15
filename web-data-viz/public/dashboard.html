@@ -10,11 +10,12 @@
     />
     <link rel="stylesheet" href="css/institutional/dashboard.css" />
     <link rel="stylesheet" href="css/institutional/dashboardCliente.css" />
+    <link rel="stylesheet" href="css/institutional/dashboardConsultor.css">
     <link rel="stylesheet" href="css/mediaFrames/media-keyframes-zump.css" />
     <script src="./js/sessao.js"></script>
     <title>Dashboard - Zump</title>
   </head>
-  <body onload="carregarFuncoes()">
+  <body onload="carregarFuncoes()" id="bodyBackground">
     <button id="abrir_menu" onclick="abrirMenu()"></button>
     <header class="menu" id="menuNav">
       <button id="interagir_menu" onclick="fecharMenu()"></button>
@@ -35,6 +36,19 @@
         </div>
       </div>
     </header>
+     <div id="cardDelete">
+        <div class="barraTemporizadora"></div>
+        <h1>Deseja deletar o cliente?</h1>
+        <div class="infosCliente">
+          <h2>Nome do Cliente</h2>
+          <h2>Email@gmail.com</h2>
+          <h2>Pacotes adquiridos: 127</h2>
+        </div>
+        <div class="opBtn">
+          <button id="btnNao" onclick="fecharCardDeletarCliente()">não</button>
+          <button id="btnSim">sim</button>
+        </div>
+      </div>
 
     <section id="dashboard_section">
       <div class="box_topo">
@@ -557,19 +571,6 @@
           <button>cadastrar cliente</button>
         </div>
       </div>
-      <div id="cardDelete">
-        <div class="barraTemporizadora"></div>
-        <h1>Deseja deletar o cliente?</h1>
-        <div class="infosCliente">
-          <h2>Nome do Cliente</h2>
-          <h2>Email@gmail.com</h2>
-          <h2>Pacotes adquiridos: 127</h2>
-        </div>
-        <div class="opBtn">
-          <button id="btnNao" onclick="fecharCardDeletarCliente()">não</button>
-          <button id="btnSim">sim</button>
-        </div>
-      </div>
       <div class="box_topo">
         <div class="inputPesquisar">
           <input type="text" placeholder="pesquisar cliente..." />
@@ -604,9 +605,212 @@
       </div>
     </section>
     <section id="consultores_section">
-      <h1>Consultores</h1>
-    </section>
+      <div class="modalCadastro" id="modalCadastroConsultor">
+          <button onclick="fecharModalCadastroConsultor()" id="btnFechar"></button>
+          <div class="boxTopo">
+              <h1>Cadastro de consultor</h1>
+          </div>
+          <div class="boxMeio">
+            <div class="boxLeft">
+              <div class="boxInputs">
+                <label for="nomeConsultor">Nome</label>
+                <input type="text" name="" id="nomeConsultor">
+              </div>
+              <div class="boxInputs">
+                <label for="emailConsultor">Email</label>
+                <input type="text" name="" id="emailConsultor">
+              </div>
+              <div class="boxInputs">
+                <label for="cpfConsultor">CPF</label>
+                <input type="text" name="" id="cpfConsultor">
+              </div>
+              <div class="divDuploInfo">
+                <div class="boxInputs">
+                  <label for="dataNascConsultor">Data Nasc.</label>
+                  <input type="date" name="" id="dataNascConsultor">
+                </div>
+                <div class="boxInputs">
+                  <label for="telefoneConsultor">Telefone</label>
+                  <input type="text" name="" id="telefoneConsultor">
+                </div>
+              </div>
+              <div class="boxInputs">
+                <label for="enderecoConsultor">Endereço</label>
+                <input type="text" name="" id="enderecoConsultor">
+              </div>
+            </div>
+            <div class="boxRight">
+              <div class="divDuploInfo">
+                <div class="boxInputs">
+                  <label for="cepConsultor">Cep</label>
+                  <input type="text" name="" id="cepConsultor" oninput="buscarCep()">
+                </div>
+                <div class="boxInputs">
+                  <label for="numeroConsultor">Num</label>
+                  <input type="text" name="" id="numeroConsultor">
+                </div>
+              </div>
+              <div class="boxInputs">
+                <label for="senhaTemporariaConsultor">Senha temporaria</label>
+                <div class="inputBtn">
+                  <input type="text" name="" id="senhaTemporariaConsultor" disabled>
+                  <button onclick="gerarSenhaTemporaria()"></button>
+                </div>
+              </div>
+              <button id="btnCadastrarConsultor" onclick="cadastrarConsultor()">cadastrar consultor</button>
+            </div>
+          </div>
+          
+        </div>
 
+      <div class="cardBloq" id="cardBloq">
+          <h1>Consultor NOME Bloqueado</h1>
+          <div class="temporizadorBloq"></div>
+      </div>
+      <div class="boxTop">
+        <div class="card">
+          <p>Contas (ativas)</p>
+          <h1>145</h1>
+          <div class="actives"></div>
+        </div>
+        <div class="card">
+          <p>Contas (inativas)</p>
+          <h1>234</h1>
+          <div class="inactive"></div>
+        </div>
+        <div class="card">
+          <p>Novos consultores últimos 30 dias</p>
+          <h1>21</h1>
+        </div>
+      </div>
+      <div class="itensBottom">
+        <div class="boxLeftBottom">
+          <h1>Consultores</h1>
+          <div class="boxPesquisa">
+            <div class="boxInput">
+              <input type="text" placeholder="Pesquisar consultor..." />
+              <button onclick=""></button>
+            </div>
+            <select name="" id="">
+              <option value="ativos">Ativos</option>
+              <option value="inativos">Inativos</option>
+              <option value="bloqueados">loqueados</option>
+            </select>
+            <button class="adcionarConsultor" onclick="abrirModalCadastroConsultor()">adicionar consultor</button>
+          </div>
+          <div class="boxCardsConsultores">
+            <div class="cardConsultor">
+              <div class="box_foto_consultor"></div>
+              <div class="infos_consultor">
+                <h2>Matheus Gomes de Oliveira</h2>
+                <p>email@gmail.com</p>
+              </div>
+              <div class="box_status">
+                <div class="status_ativo"></div>
+                <p>Ativo</p>
+              </div>
+              <div class="boxIcons">
+                <button class="report"></button>
+                <button class="edit"></button>
+                <button class="block" onclick="bloquearConsultor(this)"></button>
+                <button class="delete" onclick="deletarCliente()"></button>
+              </div>
+            </div>
+            <div class="cardConsultor">
+              <div class="box_foto_consultor"></div>
+              <div class="infos_consultor">
+                <h2>Samuel Gonçalves Barros</h2>
+                <p>email@gmail.com</p>
+              </div>
+              <div class="box_status">
+                <div class="status_inativo"></div>
+                <p>Inativo</p>
+              </div>
+              <div class="boxIcons">
+                <button class="report"></button>
+                <button class="edit"></button>
+                <button class="block" onclick="bloquearConsultor(this)"></button>
+                <button class="delete" onclick="deletarCliente()"></button>
+              </div>
+            </div>
+            <div class="cardConsultor">
+              <div class="box_foto_consultor"></div>
+              <div class="infos_consultor">
+                <h2>Lucas Calil de Laurindo</h2>
+                <p>email@gmail.com</p>
+              </div>
+              <div class="box_status">
+                <div class="status_ativo"></div>
+                <p>Ativo</p>
+              </div>
+              <div class="boxIcons">
+                <button class="report"></button>
+                <button class="edit"></button>
+                <button class="block" onclick="bloquearConsultor(this)"></button>
+                <button class="delete" onclick="deletarCliente()"></button>
+              </div>
+            </div>
+            <div class="cardConsultor">
+              <div class="box_foto_consultor"></div>
+              <div class="infos_consultor">
+                <h2>Guilherme Faria de Mira</h2>
+                <p>email@gmail.com</p>
+              </div>
+              <div class="box_status">
+                <div class="status_ativo"></div>
+                <p>Ativo</p>
+              </div>
+              <div class="boxIcons">
+                <button class="report"></button>
+                <button class="edit"></button>
+                <button class="block" onclick="bloquearConsultor(this)"></button>
+                <button class="delete" onclick="deletarCliente()"></button>
+              </div>
+            </div>
+            <div class="cardConsultor">
+              <div class="box_foto_consultor"></div>
+              <div class="infos_consultor">
+                <h2>Ana Karoline Gomes Bento</h2>
+                <p>email@gmail.com</p>
+               </div>
+              <div class="box_status">
+                <div class="status_inativo"></div>
+                <p>Inativo</p>
+              </div>
+              <div class="boxIcons">
+                <button class="report"></button>
+                <button class="edit"></button>
+                <button class="block" onclick="bloquearConsultor(this)"></button>
+                <button class="delete" onclick="deletarCliente()"></button>
+
+              </div>
+            </div>
+            <div class="cardConsultor">
+              <div class="box_foto_consultor"></div>
+              <div class="infos_consultor">
+                <h2>Vitor Souza Librelon Restini</h2>
+                <p>email@gmail.com</p>
+              </div>
+              <div class="box_status">
+                <div class="status_inativo"></div>
+                <p>Inativo</p>
+              </div>
+              <div class="boxIcons">
+                <button class="report"></button>
+                <button class="edit"></button>
+                <button class="block" onclick="bloquearConsultor(this)"></button>
+                <button class="delete" onclick="deletarCliente()"></button>
+
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="boxRightBottom"></div>
+      </div>
+    </section>
+    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.68/pdfmake.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.68/vfs_fonts.js"></script>
     <script src="https://unpkg.com/imask"></script>
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/chartjs-plugin-datalabels@2"></script>
@@ -616,6 +820,147 @@
 <script>
   const menuNav = document.getElementById("menuNav");
   const abrir = document.getElementById("abrir_menu");
+
+  function gerarSenhaTemporaria(){
+    let caracteres = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789!@#$%^&*()";
+    let senha = "";
+    for (let i = 0; i < 12; i++) {
+        let indiceAleatorio = Math.floor(Math.random() * caracteres.length);
+        senha += caracteres.charAt(indiceAleatorio);
+    }
+    document.getElementById("senhaTemporariaConsultor").value = senha;
+  }
+
+  function abrirModalCadastroConsultor(){
+    let modal = document.getElementById("modalCadastroConsultor");
+    modal.style.display = "block";
+  }
+  function fecharModalCadastroConsultor(){
+      let modal = document.getElementById("modalCadastroConsultor");
+      modal.style.display = "none";
+      document.getElementById("nomeConsultor").value = "";
+      document.getElementById("emailConsultor").value = "";
+      document.getElementById("cpfConsultor").value = "";
+      document.getElementById("dataNascConsultor").value = "";
+      document.getElementById("telefoneConsultor").value = "";
+      document.getElementById("enderecoConsultor").value = "";
+      document.getElementById("cepConsultor").value = "";
+      document.getElementById("numeroConsultor").value = "";
+      document.getElementById("senhaTemporariaConsultor").value = "";
+  }
+
+
+  async function buscarCep() {
+    const cep = document.getElementById("cepConsultor").value.replace(/\D/g, "");
+
+    if (cep.length !== 8) {
+        return;
+    }
+
+    try {
+        const resposta = await fetch(`https://viacep.com.br/ws/${cep}/json/`);
+        const dados = await resposta.json();
+
+        if (dados.erro) {
+            alert("CEP não encontrado!");
+            return;
+        }
+
+        // Preenche SOMENTE o endereço
+        document.getElementById("enderecoConsultor").value = dados.logradouro || "";
+
+    } catch (erro) {
+        alert("Erro ao buscar o CEP.");
+        console.error("Erro CEP:", erro);
+    }
+}
+
+  
+  function cadastrarConsultor(){
+    let nome = document.getElementById("nomeConsultor").value;
+    let email = document.getElementById("emailConsultor").value;
+    let cpf = document.getElementById("cpfConsultor").value;
+    let dataNasc = document.getElementById("dataNascConsultor").value;
+    let telefone = document.getElementById("telefoneConsultor").value;
+    let endereco = document.getElementById("enderecoConsultor").value;
+    let cep =  document.getElementById("cepConsultor").value;
+    let numero = document.getElementById("numeroConsultor").value;
+    let senhaTemporaria = document.getElementById("senhaTemporariaConsultor").value;
+
+
+    
+
+
+    const docDefinition = {
+    content: [
+        {
+            text: 'Cadastro de Consultor - ZUMP',
+            style: 'titulo'
+        },
+
+        {
+            text: 'Dados do Consultor',
+            style: 'subtitulo'
+        },
+
+        {
+            style: 'card',
+            table: {
+                widths: ['35%', '*'],
+                body: [
+                    ['Nome:', nome],
+                    ['Email:', email],
+                    ['CPF:', cpf],
+                    ['Data de Nasc.:', dataNasc],
+                    ['Telefone:', telefone],
+                    ['Endereço:', endereco],
+                    ['CEP:', cep],
+                    ['Número:', numero],
+                    ['Senha Temporária:', senhaTemporaria],
+                ]
+            },
+            layout: {
+                fillColor: function (rowIndex, node, columnIndex) {
+                    return (rowIndex % 2 === 0) ? '#F5F5F5' : null;
+                },
+                hLineColor: '#CCCCCC',
+                vLineColor: '#CCCCCC',
+            }
+        }
+    ],
+
+    styles: {
+            titulo: {
+                fontSize: 22,
+                bold: true,
+                alignment: 'center',
+                margin: [0, 0, 0, 20]
+            },
+            subtitulo: {
+                fontSize: 14,
+                bold: true,
+                color: '#444444',
+                margin: [0, 0, 0, 10]
+            },
+            card: {
+                margin: [0, 0, 0, 20]
+            }
+        }
+    };
+    
+
+    if(!nome || !email || !cpf || !dataNasc || !telefone || !endereco || !cep || !numero || !senhaTemporaria){
+        return;
+    }else{
+            pdfMake.createPdf(docDefinition).download(`Cadastro_${nome}.pdf`);
+    }
+
+
+    fecharModalCadastroConsultor();
+}
+
+
+
 
   function abrirComentario(botao) {
     const card = botao.closest(".card");
@@ -678,25 +1023,85 @@ abrirCardDeCadastroCliente
     mask: "(00) 00000-0000",
   });
 
+  let fecharTimeoutBloq = null;
 
-  function btnFecharModalPacotes(){
-    let fecharModal = document.getElementById("modalPacotes");
-    fecharModal.style.display = "none";
+  
+
+  function bloquearConsultor(botao) {
+    let cardBloqueado = document.getElementById("cardBloq");
+    let titulo = cardBloqueado.querySelector("h1");
+
+    // Pega o nome do consultor
+    let nome = botao.closest(".cardConsultor")
+                    .querySelector(".infos_consultor h2")
+                    .textContent;
+
+    // Alterna bloqueado/desbloqueado
+    botao.classList.toggle("fechado");
+
+    // Define a frase conforme o estado
+    if (botao.classList.contains("fechado")) {
+      titulo.textContent = `Consultor ${nome} Bloqueado`;
+    } else {
+      titulo.textContent = `Consultor ${nome} Desbloqueado`;
+    }
+
+
+    // Exibe o card
+    cardBloqueado.style.display = "flex";
+    const barra = cardBloqueado.querySelector(".temporizadorBloq");
+    barra.style.animation = "none";
+    void barra.offsetWidth;
+    barra.style.animation = "temporizadora 3s linear forwards";
+
+
+    // Timeout para fechar
+    if (fecharTimeoutBloq) clearTimeout(fecharTimeoutBloq);
+
+    fecharTimeoutBloq = setTimeout(() => {
+      cardBloqueado.style.display = "none";
+      fecharTimeoutBloq = null;
+    }, 3000);
   }
-   function btnAbrirModalPacotes(){
+
+
+
+
+  function btnFecharModalPacotes() {
     let fecharModal = document.getElementById("modalPacotes");
+    let bodyColor = document.getElementById("bodyBackground");
+    let abrirEdicao = document.getElementById("telaEdicaoCliente");
+
+    fecharModal.style.display = "none";
+
+    if (abrirEdicao.style.display === "flex") {
+      bodyColor.style.background = "#FFFFFF";
+    } else {
+      bodyColor.style.background = "linear-gradient(45deg, #76a1b6, #FFFFFF)";
+    }
+  }
+
+
+  function btnAbrirModalPacotes(){
+    let fecharModal = document.getElementById("modalPacotes");
+    let bodyColor = document.getElementById("bodyBackground")
     fecharModal.style.display = "flex";
+    bodyColor.style.background = "#fff";
   }
 
 
   function fecharEdicaoCliente() {
+    let bodyColor = document.getElementById("bodyBackground");
     let fecharEdicao = document.getElementById("telaEdicaoCliente");
     fecharEdicao.style.display = "none";
+    bodyColor.style.background = "linear-gradient(45deg, #76a1b6, #FFFFFF)";
   }
 
   function abrirEdicaoCliente() {
-    let fecharEdicao = document.getElementById("telaEdicaoCliente");
-    fecharEdicao.style.display = "flex";
+    let bodyColor = document.getElementById("bodyBackground");
+    let abrirEdicao = document.getElementById("telaEdicaoCliente");
+    abrirEdicao.style.display = "flex";
+    bodyColor.style.background = "#fff";
   }
 
   let cadastrarCli = document.getElementById("cadastrarCliente");
@@ -715,7 +1120,7 @@ abrirCardDeCadastroCliente
   }
 
   let cardDeleteCliente = document.getElementById("cardDelete");
-  let fecharTimeout = null;
+  let fecharTimeout = null;  
 
   function deletarCliente() {
     cardDeleteCliente.style.display = "flex";
@@ -815,9 +1220,9 @@ abrirCardDeCadastroCliente
   });
 
   homeSession.appendChild(barra);
-  dashboardSection.style.display = "flex";
+  dashboardSection.style.display = "none";
   clientesSection.style.display = "none";
-  consultoresSection.style.display = "none";
+  consultoresSection.style.display = "flex";
 
   function mudarSessao(ativo, sectionMostrar) {
     ativo.appendChild(barra);
