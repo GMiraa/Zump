@@ -112,7 +112,6 @@ body #cardDelete .opBtn #btnSim{
     height: 100%;
     width: 100%;
     max-width: 290px;
-    border-radius: 0px 290px 290px 0px;
     position: relative;
     background: linear-gradient(90deg, #0F537A, #1B98E0);   
     z-index: 999;
