@@ -10,7 +10,7 @@
     />
     <link rel="stylesheet" href="css/institutional/dashboard.css" />
     <link rel="stylesheet" href="css/institutional/dashboardCliente.css" />
-    <link rel="stylesheet" href="css/institutional/dashboardConsultor.css">
+    <link rel="stylesheet" href="css/institutional/dashboardConsultor.css" />
     <link rel="stylesheet" href="css/mediaFrames/media-keyframes-zump.css" />
     <script src="./js/sessao.js"></script>
     <title>Dashboard - Zump</title>
@@ -36,155 +36,63 @@
         </div>
       </div>
     </header>
-     <div id="cardDelete">
-        <div class="barraTemporizadora"></div>
-        <h1>Deseja deletar o cliente?</h1>
-        <div class="infosCliente">
-          <h2>Nome do Cliente</h2>
-          <h2>Email@gmail.com</h2>
-          <h2>Pacotes adquiridos: 127</h2>
-        </div>
-        <div class="opBtn">
-          <button id="btnNao" onclick="fecharCardDeletarCliente()">não</button>
-          <button id="btnSim">sim</button>
-        </div>
+    <div id="cardDelete">
+      <div class="barraTemporizadora"></div>
+      <h1>Deseja deletar o cliente?</h1>
+      <div class="infosCliente">
+        <h2>Nome do Cliente</h2>
+        <h2>Email@gmail.com</h2>
+        <h2>Pacotes adquiridos: 127</h2>
       </div>
+      <div class="opBtn">
+        <button id="btnNao" onclick="fecharCardDeletarCliente()">não</button>
+        <button id="btnSim">sim</button>
+      </div>
+    </div>
 
     <section id="dashboard_section">
-      <div class="box_topo">
-        <div class="card">
-          <h2>
-            <img src="assets/icon/Arrow up-right.svg" alt="arrow" /><span
-              id="porcentFaturaMensal"
-              >7%</span
-            >
-            - <span id="aumentoFaturamento">79,450.00</span>
-          </h2>
-          <p id="ftrMensal">R$ 149,300.00</p>
-          <p>faturamento mensal</p>
-        </div>
-        <div class="card">
-          <h2>
-            <img src="assets/icon/Arrow up-right.svg" alt="arrow" /><span
-              id="qtdUnidadesVendas"
-              >5</span
-            >
-            - unidades
-          </h2>
-          <p id="vendasPacote">42</p>
-          <p>vendas de pacote</p>
-        </div>
-        <div class="card">
-          <h2>
-            <img src="assets/icon/Arrow up-right.svg" alt="arrow" /><span
-              id="porcentMedia"
-              >15%</span
-            >
-            - <span id="aumentoMedia">3,400.00</span>
-          </h2>
-          <p id="medVendas">R$ 149,300.00</p>
-          <p>média de vendas</p>
-        </div>
-        <div class="card">
-          <h2>
-            <img src="assets/icon/Arrow Down-right.svg" alt="arrow" /><span
-              id="porcentClientNovos"
-              >4%</span
-            >
-            - <span id="qdtClientesNovos">7</span> clientes
-          </h2>
-          <p id="clientesNovos">5</p>
-          <p>clientes novos</p>
-        </div>
-      </div>
-      <div class="box_meio">
-        <div class="box_grafico">
+      <!-- <div class="box_grafico">
           <div class="chart-container">
             <canvas id="rendaMensalChart"></canvas>
           </div>
+        </div> -->
+
+      <h1 id="titleDash">Dashboard</h1>
+      <div class="boxConteudo">
+        <div class="boxLeft">
+          <div class="card"></div>
+          <div class="card"></div>
+          <div class="card"></div>
+          <div class="card"></div>
+
         </div>
-        <div class="box_cidades">
-          <h2>Cidades mais visitadas</h2>
-          <div class="box_cidades_aninhamento">
-            <div class="cidades_row">
-              <img src="assets/icon/Chevron up.svg" alt="" />
-              <p>São Paulo</p>
-              <p class="qtdViagens">193 viagens</p>
-            </div>
-            <div class="cidades_row">
-              <img src="assets/icon/Chevron Down.svg" alt="" />
-              <p>Salvador</p>
-              <p class="qtdViagens">142 viagens</p>
-            </div>
-            <div class="cidades_row">
-              <img src="assets/icon/Chevron up.svg" alt="" />
-              <p>João Pessoa</p>
-              <p class="qtdViagens">102 viagens</p>
-            </div>
-            <div class="cidades_row">
-              <img src="assets/icon/Parallel Symbol.svg" alt="" />
-              <p>Rio Branco</p>
-              <p class="qtdViagens">98 viagens</p>
-            </div>
+        <div class="boxRight">
+          <div class="areaGrafico">
+              <div class="chart-container">
+                <canvas id="rendaMensalChart"></canvas>
+              </div>
           </div>
-        </div>
-      </div>
-      <div class="box_rodape">
-        <div class="box_consultores">
-          <h2>Consultores com mais vendas</h2>
-          <div class="box_consultores_aninhamento">
-            <div class="consultores_row">
-              <img src="assets/icon/Chevron up.svg" alt="" />
-              <p>Vitor</p>
-              <p class="qtdFaturamento">41 - R$ 17,780.00</p>
-            </div>
-            <div class="consultores_row">
-              <img src="assets/icon/Chevron Down.svg" alt="" />
-              <p>Matheus</p>
-              <p class="qtdFaturamento">19 - R$ 11,543.70</p>
-            </div>
-            <div class="consultores_row">
-              <img src="assets/icon/Chevron up.svg" alt="" />
-              <p>Calil</p>
-              <p class="qtdFaturamento">18 - R$ 9,322.90</p>
-            </div>
-            <div class="consultores_row">
-              <img src="assets/icon/Parallel Symbol.svg" alt="" />
-              <p>Karol</p>
-              <p class="qtdFaturamento">12 - R$ 5,200.00</p>
-            </div>
+          <div class="areaConsultoresCards">
+            <h2 id="titleConsultores">📊 Consultores com mais vendas</h2>
+            <div class="cardsConsultores"></div>
+            <div class="cardsConsultores"></div>
+
           </div>
-        </div>
-        <div class="box_pacotes">
-          <h2>Pacotes mais vendidos</h2>
-          <div class="box_pacotes_aninhamento">
-            <div class="pacotes_row">
-              <img src="assets/icon/Chevron up.svg" alt="" />
-              <p>SP - Zona Sul 01</p>
-              <p class="qtdVendas">121 vendas</p>
-            </div>
-            <div class="pacotes_row">
-              <img src="assets/icon/Chevron Down.svg" alt="" />
-              <p>SA - Litoral 03</p>
-              <p class="qtdVendas">118 vendas</p>
-            </div>
-            <div class="pacotes_row">
-              <img src="assets/icon/Chevron up.svg" alt="" />
-              <p>JP - Litoral 08</p>
-              <p class="qtdVendas">102 vendas</p>
-            </div>
-            <div class="pacotes_row">
-              <img src="assets/icon/Parallel Symbol.svg" alt="" />
-              <p>RB - Cultural 04</p>
-              <p class="qtdVendas">98 vendas</p>
-            </div>
+          <h2 id="titlePacotes">🎒 Pacotes mais vendidos</h2>
+          <div class="areaPacotesCards">
+            <div class="cardsPacotes"></div>
+            <div class="cardsPacotes"></div>
+            <div class="cardsPacotes"></div>
+            
           </div>
         </div>
       </div>
     </section>
     <section id="clientes_section">
       <div class="modalPacotes" id="modalPacotes">
-        <button id="voltarPacotes" onclick="btnFecharModalPacotes()">Voltar</button>
+        <button id="voltarPacotes" onclick="btnFecharModalPacotes()">
+          Voltar
+        </button>
         <h1>Pacotes</h1>
         <div class="coteudosPacote">
           <div class="boxVendaPacote">
@@ -338,7 +246,7 @@
                         <h2>R$ 245,00</h2>
                         <p>04/11/2025</p>
                       </div>
-                    </div>  
+                    </div>
                   </div>
                 </div>
               </div>
@@ -502,7 +410,9 @@
             <div class="box_btns">
               <div class="buttons">
                 <button>alterar dados</button>
-                <button onclick="btnAbrirModalPacotes()">acessar pacotes</button>
+                <button onclick="btnAbrirModalPacotes()">
+                  acessar pacotes
+                </button>
               </div>
             </div>
           </div>
@@ -606,45 +516,73 @@
     </section>
     <section id="consultores_section">
       <div class="modalEditConsultor" id="modalEditConsultor">
-        <button class="fecharModalEdit" onclick="fecharModalEditarConsultor()">voltar</button>
+        <button class="fecharModalEdit" onclick="fecharModalEditarConsultor()">
+          voltar
+        </button>
         <div class="boxLeft">
-            <div class="boxInfos">
-              <div class="boxLeftInfo">
-                <div class="boxInput">
-                  <label for="">Email</label>
-                  <input type="text" placeholder="email@gmail.com" disabled id="emailConsultorEdit"/>
-                </div>
-                <div class="boxInput">
-                  <label for="">CEP</label>
-                  <input type="text" placeholder="00000-000" id="cepConsultorEdit"/>
-                </div>
-                <div class="boxInput">
-                  <label for="">Telefone</label>
-                  <input type="text" placeholder="(11) 00000-0000" id="telConsultorEdit"/>
-                </div>
+          <div class="boxInfos">
+            <div class="boxLeftInfo">
+              <div class="boxInput">
+                <label for="">Email</label>
+                <input
+                  type="text"
+                  placeholder="email@gmail.com"
+                  disabled
+                  id="emailConsultorEdit"
+                />
               </div>
-              <div class="boxRightInfo">
-                <div class="boxInput">
-                  <label for="">Endereço</label>
-                  <input type="text" placeholder="Endereço do consultor" id="enderecoConsultorEdit" />
-                </div>
-                <div class="boxInput">
-                  <label for="">CPF</label>
-                  <input type="text" placeholder="000.000.000-00" disabled id="cpfConsultorEdit"/>
-                </div>
-                <div class="boxInput">
-                  <label for="">Data Nasc.</label>
-                  <input type="text" placeholder="00/00/0000" disabled id="dataNascConsultorEdit"/>
-                </div>
+              <div class="boxInput">
+                <label for="">CEP</label>
+                <input
+                  type="text"
+                  placeholder="00000-000"
+                  id="cepConsultorEdit"
+                />
               </div>
-
+              <div class="boxInput">
+                <label for="">Telefone</label>
+                <input
+                  type="text"
+                  placeholder="(11) 00000-0000"
+                  id="telConsultorEdit"
+                />
+              </div>
             </div>
-            <div class="boxGrafico">
-               <div class="chart-container">
-                  <canvas id="rendaMensalChartConsultor"></canvas>
-                </div>
+            <div class="boxRightInfo">
+              <div class="boxInput">
+                <label for="">Endereço</label>
+                <input
+                  type="text"
+                  placeholder="Endereço do consultor"
+                  id="enderecoConsultorEdit"
+                />
+              </div>
+              <div class="boxInput">
+                <label for="">CPF</label>
+                <input
+                  type="text"
+                  placeholder="000.000.000-00"
+                  disabled
+                  id="cpfConsultorEdit"
+                />
+              </div>
+              <div class="boxInput">
+                <label for="">Data Nasc.</label>
+                <input
+                  type="text"
+                  placeholder="00/00/0000"
+                  disabled
+                  id="dataNascConsultorEdit"
+                />
+              </div>
             </div>
-            <button class="btnAlteracaoConsultor">alterar dados</button>
+          </div>
+          <div class="boxGrafico">
+            <div class="chart-container">
+              <canvas id="rendaMensalChartConsultor"></canvas>
+            </div>
+          </div>
+          <button class="btnAlteracaoConsultor">alterar dados</button>
         </div>
         <div class="boxRight">
           <h1>Nome</h1>
@@ -652,12 +590,12 @@
           <div class="boxCards">
             <div class="card">
               <div class="boxTopo">
-                  <div class="arrow">
-                    <img src="assets/icon/Arrow up-right.svg" alt="">
-                  </div>
-                  <div class="porcent"><h2>16%</h2></div>
-                  <h2>-</h2>
-                  <div class="aumento"><h2>+ R$ 7,890.00</h2></div>
+                <div class="arrow">
+                  <img src="assets/icon/Arrow up-right.svg" alt="" />
+                </div>
+                <div class="porcent"><h2>16%</h2></div>
+                <h2>-</h2>
+                <div class="aumento"><h2>+ R$ 7,890.00</h2></div>
               </div>
               <div class="boxMeio">
                 <h1>R$ 57,890.00</h1>
@@ -681,71 +619,84 @@
               <div class="boxRodapePadrao">
                 <h2>Pacotes mais vendidos</h2>
               </div>
-              
             </div>
           </div>
         </div>
       </div>
       <div class="modalCadastro" id="modalCadastroConsultor">
-          <button onclick="fecharModalCadastroConsultor()" id="btnFechar"></button>
-          <div class="boxTopo">
-              <h1>Cadastro de consultor</h1>
-          </div>
-          <div class="boxMeio">
-            <div class="boxLeft">
-              <div class="boxInputs">
-                <label for="nomeConsultor">Nome</label>
-                <input type="text" name="" id="nomeConsultor">
-              </div>
-              <div class="boxInputs">
-                <label for="emailConsultor">Email</label>
-                <input type="text" name="" id="emailConsultor">
-              </div>
-              <div class="boxInputs">
-                <label for="cpfConsultor">CPF</label>
-                <input type="text" name="" id="cpfConsultor">
-              </div>
-              <div class="divDuploInfo">
-                <div class="boxInputs">
-                  <label for="dataNascConsultor">Data Nasc.</label>
-                  <input type="date" name="" id="dataNascConsultor">
-                </div>
-                <div class="boxInputs">
-                  <label for="telefoneConsultor">Telefone</label>
-                  <input type="text" name="" id="telefoneConsultor">
-                </div>
-              </div>
-              <div class="boxInputs">
-                <label for="enderecoConsultor">Endereço</label>
-                <input type="text" name="" id="enderecoConsultor" disabled>
-              </div>
-            </div>
-            <div class="boxRight">
-              <div class="divDuploInfo">
-                <div class="boxInputs">
-                  <label for="cepConsultor">Cep</label>
-                  <input type="text" name="" id="cepConsultor" oninput="buscarCep()">
-                </div>
-                <div class="boxInputs">
-                  <label for="numeroConsultor">Num</label>
-                  <input type="text" name="" id="numeroConsultor">
-                </div>
-              </div>
-              <div class="boxInputs">
-                <label for="senhaTemporariaConsultor">Senha temporaria</label>
-                <div class="inputBtn">
-                  <input type="text" name="" id="senhaTemporariaConsultor" disabled>
-                  <button onclick="gerarSenhaTemporaria()"></button>
-                </div>
-              </div>
-              <button id="btnCadastrarConsultor" onclick="cadastrarConsultor()">cadastrar consultor</button>
-            </div>
-          </div>
-          
+        <button
+          onclick="fecharModalCadastroConsultor()"
+          id="btnFechar"
+        ></button>
+        <div class="boxTopo">
+          <h1>Cadastro de consultor</h1>
         </div>
+        <div class="boxMeio">
+          <div class="boxLeft">
+            <div class="boxInputs">
+              <label for="nomeConsultor">Nome</label>
+              <input type="text" name="" id="nomeConsultor" />
+            </div>
+            <div class="boxInputs">
+              <label for="emailConsultor">Email</label>
+              <input type="text" name="" id="emailConsultor" />
+            </div>
+            <div class="boxInputs">
+              <label for="cpfConsultor">CPF</label>
+              <input type="text" name="" id="cpfConsultor" />
+            </div>
+            <div class="divDuploInfo">
+              <div class="boxInputs">
+                <label for="dataNascConsultor">Data Nasc.</label>
+                <input type="date" name="" id="dataNascConsultor" />
+              </div>
+              <div class="boxInputs">
+                <label for="telefoneConsultor">Telefone</label>
+                <input type="text" name="" id="telefoneConsultor" />
+              </div>
+            </div>
+            <div class="boxInputs">
+              <label for="enderecoConsultor">Endereço</label>
+              <input type="text" name="" id="enderecoConsultor" disabled />
+            </div>
+          </div>
+          <div class="boxRight">
+            <div class="divDuploInfo">
+              <div class="boxInputs">
+                <label for="cepConsultor">Cep</label>
+                <input
+                  type="text"
+                  name=""
+                  id="cepConsultor"
+                  oninput="buscarCep()"
+                />
+              </div>
+              <div class="boxInputs">
+                <label for="numeroConsultor">Num</label>
+                <input type="text" name="" id="numeroConsultor" />
+              </div>
+            </div>
+            <div class="boxInputs">
+              <label for="senhaTemporariaConsultor">Senha temporaria</label>
+              <div class="inputBtn">
+                <input
+                  type="text"
+                  name=""
+                  id="senhaTemporariaConsultor"
+                  disabled
+                />
+                <button onclick="gerarSenhaTemporaria()"></button>
+              </div>
+            </div>
+            <button id="btnCadastrarConsultor" onclick="cadastrarConsultor()">
+              cadastrar consultor
+            </button>
+          </div>
+        </div>
+      </div>
       <div class="cardBloq" id="cardBloq">
-          <h1>Consultor NOME Bloqueado</h1>
-          <div class="temporizadorBloq"></div>
+        <h1>Consultor NOME Bloqueado</h1>
+        <div class="temporizadorBloq"></div>
       </div>
       <div class="boxTop">
         <div class="card">
@@ -780,7 +731,12 @@
               <option value="inativos">Inativos</option>
               <option value="bloqueados">Bloqueados</option>
             </select>
-            <button class="adcionarConsultor" onclick="abrirModalCadastroConsultor()">adicionar consultor</button>
+            <button
+              class="adcionarConsultor"
+              onclick="abrirModalCadastroConsultor()"
+            >
+              adicionar consultor
+            </button>
           </div>
           <div class="boxCardsConsultores">
             <div class="cardConsultor">
@@ -795,8 +751,14 @@
               </div>
               <div class="boxIcons">
                 <button class="report"></button>
-                <button class="edit" onclick="abrirModalEditarConsultor()"></button>
-                <button class="block" onclick="bloquearConsultor(this)"></button>
+                <button
+                  class="edit"
+                  onclick="abrirModalEditarConsultor()"
+                ></button>
+                <button
+                  class="block"
+                  onclick="bloquearConsultor(this)"
+                ></button>
                 <button class="delete" onclick="deletarCliente()"></button>
               </div>
             </div>
@@ -812,8 +774,14 @@
               </div>
               <div class="boxIcons">
                 <button class="report"></button>
-                <button class="edit" onclick="abrirModalEditarConsultor()"></button>
-                <button class="block" onclick="bloquearConsultor(this)"></button>
+                <button
+                  class="edit"
+                  onclick="abrirModalEditarConsultor()"
+                ></button>
+                <button
+                  class="block"
+                  onclick="bloquearConsultor(this)"
+                ></button>
                 <button class="delete" onclick="deletarCliente()"></button>
               </div>
             </div>
@@ -829,8 +797,14 @@
               </div>
               <div class="boxIcons">
                 <button class="report"></button>
-                <button class="edit" onclick="abrirModalEditarConsultor()"></button>
-                <button class="block" onclick="bloquearConsultor(this)"></button>
+                <button
+                  class="edit"
+                  onclick="abrirModalEditarConsultor()"
+                ></button>
+                <button
+                  class="block"
+                  onclick="bloquearConsultor(this)"
+                ></button>
                 <button class="delete" onclick="deletarCliente()"></button>
               </div>
             </div>
@@ -846,8 +820,14 @@
               </div>
               <div class="boxIcons">
                 <button class="report"></button>
-                <button class="edit" onclick="abrirModalEditarConsultor()"></button>
-                <button class="block" onclick="bloquearConsultor(this)"></button>
+                <button
+                  class="edit"
+                  onclick="abrirModalEditarConsultor()"
+                ></button>
+                <button
+                  class="block"
+                  onclick="bloquearConsultor(this)"
+                ></button>
                 <button class="delete" onclick="deletarCliente()"></button>
               </div>
             </div>
@@ -856,17 +836,22 @@
               <div class="infos_consultor">
                 <h2>Ana Karoline Gomes Bento</h2>
                 <p>email@gmail.com</p>
-               </div>
+              </div>
               <div class="box_status">
                 <div class="status_inativo"></div>
                 <p>Inativo</p>
               </div>
               <div class="boxIcons">
                 <button class="report"></button>
-                <button class="edit" onclick="abrirModalEditarConsultor()"></button>
-                <button class="block" onclick="bloquearConsultor(this)"></button>
+                <button
+                  class="edit"
+                  onclick="abrirModalEditarConsultor()"
+                ></button>
+                <button
+                  class="block"
+                  onclick="bloquearConsultor(this)"
+                ></button>
                 <button class="delete" onclick="deletarCliente()"></button>
-
               </div>
             </div>
             <div class="cardConsultor">
@@ -881,10 +866,15 @@
               </div>
               <div class="boxIcons">
                 <button class="report"></button>
-                <button class="edit" onclick="abrirModalEditarConsultor()"></button>
-                <button class="block" onclick="bloquearConsultor(this)"></button>
+                <button
+                  class="edit"
+                  onclick="abrirModalEditarConsultor()"
+                ></button>
+                <button
+                  class="block"
+                  onclick="bloquearConsultor(this)"
+                ></button>
                 <button class="delete" onclick="deletarCliente()"></button>
-
               </div>
             </div>
           </div>
@@ -892,28 +882,27 @@
         <div class="boxRightBottom">
           <div class="boxHistorico">
             <div class="boxSelecao">
-                <h2>Histórico (atividades)</h2>
-                <select name="" id="">
-                  <option value="">Últimos 15 dias</option>
-                  <option value="">Últimos 30 dias</option>
-                  <option value="">Últimos 90 dias</option>
-                </select>
+              <h2>Histórico (atividades)</h2>
+              <select name="" id="">
+                <option value="">Últimos 15 dias</option>
+                <option value="">Últimos 30 dias</option>
+                <option value="">Últimos 90 dias</option>
+              </select>
             </div>
             <div class="boxCards">
-                <div class="card">
-                  <div class="imgUser"></div>
-                  <div class="infos">
-                    <h2>Nome consultor</h2>
-                    <p>20 ago 12:00 – Cadastrado por jonas01@zump...</p>
-                  </div>
+              <div class="card">
+                <div class="imgUser"></div>
+                <div class="infos">
+                  <h2>Nome consultor</h2>
+                  <p>20 ago 12:00 – Cadastrado por jonas01@zump...</p>
                 </div>
-                
+              </div>
             </div>
           </div>
         </div>
       </div>
     </section>
-    
+
     <script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.68/pdfmake.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.68/vfs_fonts.js"></script>
     <script src="https://unpkg.com/imask"></script>
@@ -926,154 +915,160 @@
   const menuNav = document.getElementById("menuNav");
   const abrir = document.getElementById("abrir_menu");
 
-  function abrirModalEditarConsultor(){
+  function abrirModalEditarConsultor() {
     let modal = document.getElementById("modalEditConsultor");
     modal.style.display = "flex";
   }
 
-  function fecharModalEditarConsultor(){
-      let modal = document.getElementById("modalEditConsultor");
-      modal.style.display = "none";
+  function fecharModalEditarConsultor() {
+    let modal = document.getElementById("modalEditConsultor");
+    modal.style.display = "none";
   }
 
-  function gerarSenhaTemporaria(){
-    let caracteres = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789!@#$%^&*()";
+  function gerarSenhaTemporaria() {
+    let caracteres =
+      "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789!@#$%^&*()";
     let senha = "";
     for (let i = 0; i < 15; i++) {
-        let indiceAleatorio = Math.floor(Math.random() * caracteres.length);
-        senha += caracteres.charAt(indiceAleatorio);
+      let indiceAleatorio = Math.floor(Math.random() * caracteres.length);
+      senha += caracteres.charAt(indiceAleatorio);
     }
     document.getElementById("senhaTemporariaConsultor").value = senha;
   }
 
-  function abrirModalCadastroConsultor(){
+  function abrirModalCadastroConsultor() {
     let modal = document.getElementById("modalCadastroConsultor");
     modal.style.display = "block";
   }
-  function fecharModalCadastroConsultor(){
-      let modal = document.getElementById("modalCadastroConsultor");
-      modal.style.display = "none";
-      document.getElementById("nomeConsultor").value = "";
-      document.getElementById("emailConsultor").value = "";
-      document.getElementById("cpfConsultor").value = "";
-      document.getElementById("dataNascConsultor").value = "";
-      document.getElementById("telefoneConsultor").value = "";
-      document.getElementById("enderecoConsultor").value = "";
-      document.getElementById("cepConsultor").value = "";
-      document.getElementById("numeroConsultor").value = "";
-      document.getElementById("senhaTemporariaConsultor").value = "";
+  function fecharModalCadastroConsultor() {
+    let modal = document.getElementById("modalCadastroConsultor");
+    modal.style.display = "none";
+    document.getElementById("nomeConsultor").value = "";
+    document.getElementById("emailConsultor").value = "";
+    document.getElementById("cpfConsultor").value = "";
+    document.getElementById("dataNascConsultor").value = "";
+    document.getElementById("telefoneConsultor").value = "";
+    document.getElementById("enderecoConsultor").value = "";
+    document.getElementById("cepConsultor").value = "";
+    document.getElementById("numeroConsultor").value = "";
+    document.getElementById("senhaTemporariaConsultor").value = "";
   }
 
-
   async function buscarCep() {
-    const cep = document.getElementById("cepConsultor").value.replace(/\D/g, "");
+    const cep = document
+      .getElementById("cepConsultor")
+      .value.replace(/\D/g, "");
 
     if (cep.length !== 8) {
-        return;
+      return;
     }
 
     try {
-        const resposta = await fetch(`https://viacep.com.br/ws/${cep}/json/`);
-        const dados = await resposta.json();
+      const resposta = await fetch(`https://viacep.com.br/ws/${cep}/json/`);
+      const dados = await resposta.json();
 
-        if (dados.erro) {
-            alert("CEP não encontrado!");
-            return;
-        }
+      if (dados.erro) {
+        alert("CEP não encontrado!");
+        return;
+      }
 
-        // Preenche SOMENTE o endereço
-        document.getElementById("enderecoConsultor").value = dados.logradouro || "";
-
+      // Preenche SOMENTE o endereço
+      document.getElementById("enderecoConsultor").value =
+        dados.logradouro || "";
     } catch (erro) {
-        alert("Erro ao buscar o CEP.");
-        console.error("Erro CEP:", erro);
+      alert("Erro ao buscar o CEP.");
+      console.error("Erro CEP:", erro);
     }
-}
+  }
 
-  function cadastrarConsultor(){
+  function cadastrarConsultor() {
     let nome = document.getElementById("nomeConsultor").value;
     let email = document.getElementById("emailConsultor").value;
     let cpf = document.getElementById("cpfConsultor").value;
     let dataNasc = document.getElementById("dataNascConsultor").value;
     let telefone = document.getElementById("telefoneConsultor").value;
     let endereco = document.getElementById("enderecoConsultor").value;
-    let cep =  document.getElementById("cepConsultor").value;
+    let cep = document.getElementById("cepConsultor").value;
     let numero = document.getElementById("numeroConsultor").value;
-    let senhaTemporaria = document.getElementById("senhaTemporariaConsultor").value;
-
-
-    
-
+    let senhaTemporaria = document.getElementById(
+      "senhaTemporariaConsultor"
+    ).value;
 
     const docDefinition = {
-    content: [
+      content: [
         {
-            text: 'Cadastro de Consultor - ZUMP',
-            style: 'titulo'
+          text: "Cadastro de Consultor - ZUMP",
+          style: "titulo",
         },
 
         {
-            text: 'Dados do Consultor',
-            style: 'subtitulo'
+          text: "Dados do Consultor",
+          style: "subtitulo",
         },
 
         {
-            style: 'card',
-            table: {
-                widths: ['35%', '*'],
-                body: [
-                    ['Nome:', nome],
-                    ['Email:', email],
-                    ['CPF:', cpf],
-                    ['Data de Nasc.:', dataNasc],
-                    ['Telefone:', telefone],
-                    ['Endereço:', endereco],
-                    ['CEP:', cep],
-                    ['Número:', numero],
-                    ['Senha Temporária:', senhaTemporaria],
-                ]
+          style: "card",
+          table: {
+            widths: ["35%", "*"],
+            body: [
+              ["Nome:", nome],
+              ["Email:", email],
+              ["CPF:", cpf],
+              ["Data de Nasc.:", dataNasc],
+              ["Telefone:", telefone],
+              ["Endereço:", endereco],
+              ["CEP:", cep],
+              ["Número:", numero],
+              ["Senha Temporária:", senhaTemporaria],
+            ],
+          },
+          layout: {
+            fillColor: function (rowIndex, node, columnIndex) {
+              return rowIndex % 2 === 0 ? "#F5F5F5" : null;
             },
-            layout: {
-                fillColor: function (rowIndex, node, columnIndex) {
-                    return (rowIndex % 2 === 0) ? '#F5F5F5' : null;
-                },
-                hLineColor: '#CCCCCC',
-                vLineColor: '#CCCCCC',
-            }
-        }
-    ],
+            hLineColor: "#CCCCCC",
+            vLineColor: "#CCCCCC",
+          },
+        },
+      ],
 
-    styles: {
-            titulo: {
-                fontSize: 22,
-                bold: true,
-                alignment: 'center',
-                margin: [0, 0, 0, 20]
-            },
-            subtitulo: {
-                fontSize: 14,
-                bold: true,
-                color: '#444444',
-                margin: [0, 0, 0, 10]
-            },
-            card: {
-                margin: [0, 0, 0, 20]
-            }
-        }
+      styles: {
+        titulo: {
+          fontSize: 22,
+          bold: true,
+          alignment: "center",
+          margin: [0, 0, 0, 20],
+        },
+        subtitulo: {
+          fontSize: 14,
+          bold: true,
+          color: "#444444",
+          margin: [0, 0, 0, 10],
+        },
+        card: {
+          margin: [0, 0, 0, 20],
+        },
+      },
     };
 
-    if(!nome || !email || !cpf || !dataNasc || !telefone || !endereco || !cep || !numero || !senhaTemporaria){
-        return;
-    }else{
-            pdfMake.createPdf(docDefinition).download(`Cadastro_${nome}.pdf`);
+    if (
+      !nome ||
+      !email ||
+      !cpf ||
+      !dataNasc ||
+      !telefone ||
+      !endereco ||
+      !cep ||
+      !numero ||
+      !senhaTemporaria
+    ) {
+      return;
+    } else {
+      pdfMake.createPdf(docDefinition).download(`Cadastro_${nome}.pdf`);
     }
 
-
     fecharModalCadastroConsultor();
-}
-
-
-
+  }
 
   function abrirComentario(botao) {
     const card = botao.closest(".card");
@@ -1130,10 +1125,9 @@ abrirCardDeCadastroCliente
     mask: "000.000.000-00",
   });
 
- const cpfMaskConsultor = IMask(document.getElementById("cpfConsultor"), {
+  const cpfMaskConsultor = IMask(document.getElementById("cpfConsultor"), {
     mask: "000.000.000-00",
   });
-
 
   const telMask = IMask(document.getElementById("telCliente"), {
     mask: "(00) 00000-0000",
@@ -1141,21 +1135,19 @@ abrirCardDeCadastroCliente
   const telMaskEdit = IMask(document.getElementById("telClienteEdit"), {
     mask: "(00) 00000-0000",
   });
- const telMaskConsultor = IMask(document.getElementById("telefoneConsultor"), {
+  const telMaskConsultor = IMask(document.getElementById("telefoneConsultor"), {
     mask: "(00) 00000-0000",
   });
   let fecharTimeoutBloq = null;
-
-  
 
   function bloquearConsultor(botao) {
     let cardBloqueado = document.getElementById("cardBloq");
     let titulo = cardBloqueado.querySelector("h1");
 
     // Pega o nome do consultor
-    let nome = botao.closest(".cardConsultor")
-                    .querySelector(".infos_consultor h2")
-                    .textContent;
+    let nome = botao
+      .closest(".cardConsultor")
+      .querySelector(".infos_consultor h2").textContent;
 
     // Alterna bloqueado/desbloqueado
     botao.classList.toggle("fechado");
@@ -1167,14 +1159,12 @@ abrirCardDeCadastroCliente
       titulo.textContent = `Consultor ${nome} Desbloqueado`;
     }
 
-
     // Exibe o card
     cardBloqueado.style.display = "flex";
     const barra = cardBloqueado.querySelector(".temporizadorBloq");
     barra.style.animation = "none";
     void barra.offsetWidth;
     barra.style.animation = "temporizadora 3s linear forwards";
-
 
     // Timeout para fechar
     if (fecharTimeoutBloq) clearTimeout(fecharTimeoutBloq);
@@ -1184,9 +1174,6 @@ abrirCardDeCadastroCliente
       fecharTimeoutBloq = null;
     }, 3000);
   }
-
-
-
 
   function btnFecharModalPacotes() {
     let fecharModal = document.getElementById("modalPacotes");
@@ -1198,24 +1185,22 @@ abrirCardDeCadastroCliente
     if (abrirEdicao.style.display === "flex") {
       bodyColor.style.background = "#FFFFFF";
     } else {
-      bodyColor.style.background = "linear-gradient(45deg, #76a1b6, #FFFFFF)";
+      bodyColor.style.background = "linear-gradient(45deg, #999999, #FFFFFF)";
     }
   }
 
-
-  function btnAbrirModalPacotes(){
+  function btnAbrirModalPacotes() {
     let fecharModal = document.getElementById("modalPacotes");
-    let bodyColor = document.getElementById("bodyBackground")
+    let bodyColor = document.getElementById("bodyBackground");
     fecharModal.style.display = "flex";
     bodyColor.style.background = "#fff";
   }
-
 
   function fecharEdicaoCliente() {
     let bodyColor = document.getElementById("bodyBackground");
     let fecharEdicao = document.getElementById("telaEdicaoCliente");
     fecharEdicao.style.display = "none";
-    bodyColor.style.background = "linear-gradient(45deg, #76a1b6, #FFFFFF)";
+    bodyColor.style.background = "linear-gradient(45deg, #999999, #FFFFFF)";
   }
 
   function abrirEdicaoCliente() {
@@ -1241,7 +1226,7 @@ abrirCardDeCadastroCliente
   }
 
   let cardDeleteCliente = document.getElementById("cardDelete");
-  let fecharTimeout = null;  
+  let fecharTimeout = null;
 
   function deletarCliente() {
     cardDeleteCliente.style.display = "flex";
@@ -1272,9 +1257,6 @@ abrirCardDeCadastroCliente
     conteudo_menu.style.opacity = "0";
     conteudo_menu.style.transition = "none";
     interagir_menu.style.transform = "Rotate(180deg)";
-    const topo = document.querySelector(".box_topo");
-    const meio = document.querySelector(".box_meio");
-    const rodape = document.querySelector(".box_rodape");
 
     setTimeout(() => {
       interagir_menu.style.opacity = 0;
@@ -1286,27 +1268,12 @@ abrirCardDeCadastroCliente
       abrir.classList.add("animar");
       abrir.style.opacity = 1;
       interagir_menu.style.display = "none";
-      topo.style.width = "85%";
-      topo.style.transition = "1s linear";
-      meio.style.width = "85%";
-      meio.style.transition = "1s linear";
-      rodape.style.width = "85%";
-      rodape.style.transition = "1s linear";
     }, 1000);
   }
 
   function abrirMenu() {
     menuNav.style.width = "100%";
     menuNav.style.transition = "3s linear";
-    const topo = document.querySelector(".box_topo");
-    const meio = document.querySelector(".box_meio");
-    const rodape = document.querySelector(".box_rodape");
-    topo.style.width = "95%";
-    topo.style.transition = "2s";
-    meio.style.width = "95%";
-    meio.style.transition = "2s";
-    rodape.style.width = "95%";
-    rodape.style.transition = "2s";
 
     interagir_menu.style.opacity = 1;
     interagir_menu.style.display = "block";
@@ -1400,142 +1367,39 @@ abrirCardDeCadastroCliente
   atualizarHora();
   setInterval(atualizarHora, 1000);
 
- const ctxC = document.getElementById('rendaMensalChartConsultor').getContext('2d');
+  const ctxC = document
+    .getElementById("rendaMensalChartConsultor")
+    .getContext("2d");
 
-// Gradiente azul moderno
-const gradient = ctxC.createLinearGradient(0, 0, 0, 400);
-gradient.addColorStop(0, '#4dc8ff');   // azul claro
-gradient.addColorStop(1, '#0066ff');   // azul forte
+  // Gradiente azul moderno
+  const gradient = ctxC.createLinearGradient(0, 0, 0, 400);
+  gradient.addColorStop(0, "#4dc8ff"); // azul claro
+  gradient.addColorStop(1, "#0066ff"); // azul forte
 
-const rendaMensalChartConsultor = new Chart(ctxC, {
-    type: 'bar',
-    data: {
-        labels: ['jan', 'fev', 'mar', 'abr', 'mai', 'jun', 'jul', 'ago', 'set', 'out'],
-        datasets: [{
-            label: 'Faturamento (R$ mil)',
-            data: [12, 15, 20, 24, 18, 25, 32, 28, 35, 40],
-            backgroundColor: gradient,
-            borderWidth: 1.5,
-            borderRadius: 10,
-            hoverBackgroundColor: '#66d0ff',
-            hoverBorderColor: '#99e0ff'
-        }]
-    },
-    options: {
-        responsive: true,
-        maintainAspectRatio: false,
-        layout: { padding: 10 },
-
-        plugins: {
-            title: {
-                display: true,
-                text: 'Faturamento Mensal do Consultor',
-                color: '#dceaff',
-                font: {
-                    size: 20,
-                    weight: 'bold'
-                },
-                padding: { bottom: 25 }
-            },
-
-            legend: {
-                display: false
-            },
-
-            tooltip: {
-                backgroundColor: '#0d0f1a',
-                titleColor: '#66cfff',
-                bodyColor: '#fff',
-                borderColor: '#1a75ff',
-                borderWidth: 1.5,
-                cornerRadius: 10,
-                padding: 12,
-                displayColors: false,
-                shadowOffsetX: 2,
-                shadowOffsetY: 2,
-                shadowBlur: 8,
-                shadowColor: 'rgba(0,150,255,0.4)'
-            },
-
-            datalabels: {
-                color: '#ffffff',
-                anchor: 'end',
-                align: 'top',
-                font: {
-                    weight: 'bold',
-                    size: 12
-                },
-                offset: -2,
-                formatter: (value) => `R$ ${value}k`
-            }
-        },
-
-        scales: {
-            y: {
-                beginAtZero: true,
-                ticks: {
-                    color: '#b8d4ff',
-                    font: { size: 12 },
-                    callback: (value) => `R$ ${value}k`
-                },
-                grid: {
-                    color: '#444444',
-                    lineWidth: 1
-                }
-            },
-            x: {
-                ticks: {
-                    color: '#b8d4ff',
-                    font: { size: 12 }
-                },
-                grid: { display: false }
-            }
-        }
-    },
-
-    plugins: [ChartDataLabels]
-});
-
-
-  const ctx = document.getElementById("rendaMensalChart").getContext("2d");
-
-  // Gradiente azul (renda atual)
-  const gradientAtual = ctx.createLinearGradient(0, 0, 0, 400);
-  gradientAtual.addColorStop(0, "#00bfff");
-  gradientAtual.addColorStop(1, "#007bff");
-
-  // Gradiente laranja (crescimento %)
-  const gradientCrescimento = ctx.createLinearGradient(0, 0, 0, 400);
-  gradientCrescimento.addColorStop(0, "#66ff66"); // verde claro
-  gradientCrescimento.addColorStop(1, "#009933"); // verde mais escuro
-
-  const rendaMensalChart = new Chart(ctx, {
+  const rendaMensalChartConsultor = new Chart(ctxC, {
     type: "bar",
     data: {
       labels: [
-        "mai/2025",
-        "jun/2025",
-        "jul/2025",
-        "ago/2025",
-        "set/2025",
-        "out/2025",
+        "jan",
+        "fev",
+        "mar",
+        "abr",
+        "mai",
+        "jun",
+        "jul",
+        "ago",
+        "set",
+        "out",
       ],
       datasets: [
         {
-          label: "Renda Atual (R$ mil)",
-          data: [18, 25, 32, 40, 55, 63],
-          backgroundColor: gradientAtual,
-          borderRadius: 8,
-          hoverBackgroundColor: "#33c3ff",
-          yAxisID: "yRenda",
-        },
-        {
-          label: "Crescimento (%)",
-          data: [16, 38, 28, 25, 37, 14],
-          backgroundColor: gradientCrescimento,
-          borderRadius: 8,
-          hoverBackgroundColor: "#66ff66",
-          yAxisID: "yPercent",
+          label: "Faturamento (R$ mil)",
+          data: [12, 15, 20, 24, 18, 25, 32, 28, 35, 40],
+          backgroundColor: gradient,
+          borderWidth: 1.5,
+          borderRadius: 10,
+          hoverBackgroundColor: "#66d0ff",
+          hoverBorderColor: "#99e0ff",
         },
       ],
     },
@@ -1543,85 +1407,196 @@ const rendaMensalChartConsultor = new Chart(ctxC, {
       responsive: true,
       maintainAspectRatio: false,
       layout: { padding: 10 },
+
       plugins: {
         title: {
           display: true,
-          text: "Renda Mensal (2025)",
-          color: "#ffffff",
-          font: { size: 20, weight: "bold" },
-          padding: { bottom: 20 },
+          text: "Faturamento Mensal do Consultor",
+          color: "#dceaff",
+          font: {
+            size: 20,
+            weight: "bold",
+          },
+          padding: { bottom: 25 },
         },
+
         legend: {
-          labels: {
-            color: "#ccc",
-            font: { size: 13 },
-          },
+          display: false,
         },
+
         tooltip: {
-          backgroundColor: "#111",
-          titleColor: "#00bfff",
+          backgroundColor: "#0d0f1a",
+          titleColor: "#66cfff",
           bodyColor: "#fff",
-          borderColor: "#00bfff",
-          borderWidth: 1,
-          cornerRadius: 8,
-          padding: 10,
-          callbacks: {
-            title: (context) => `Mês: ${context[0].label}`,
-            label: (context) => {
-              if (context.dataset.label.includes("%")) {
-                return `${context.dataset.label}: ${context.formattedValue}%`;
-              } else {
-                return `${context.dataset.label}: R$ ${context.formattedValue}K`;
-              }
-            },
-          },
+          borderColor: "#1a75ff",
+          borderWidth: 1.5,
+          cornerRadius: 10,
+          padding: 12,
+          displayColors: false,
+          shadowOffsetX: 2,
+          shadowOffsetY: 2,
+          shadowBlur: 8,
+          shadowColor: "rgba(0,150,255,0.4)",
         },
+
         datalabels: {
-          color: "#fff",
+          color: "#ffffff",
           anchor: "end",
-          align: "start",
-          font: { weight: "bold" },
-          formatter: (value, context) => {
-            if (context.dataset.label.includes("%")) {
-              return `${value}%`;
-            } else {
-              return `R$ ${value}k`;
-            }
+          align: "top",
+          font: {
+            weight: "bold",
+            size: 12,
           },
+          offset: -2,
+          formatter: (value) => `R$ ${value}k`,
         },
       },
+
       scales: {
-        yRenda: {
-          type: "linear",
-          position: "left",
+        y: {
           beginAtZero: true,
           ticks: {
-            color: "#ccc",
+            color: "#b8d4ff",
             font: { size: 12 },
             callback: (value) => `R$ ${value}k`,
           },
-          grid: { color: "#222", lineWidth: 1 },
-        },
-        yPercent: {
-          type: "linear",
-          position: "right",
-          beginAtZero: true,
-          ticks: {
-            color: "#66ff66",
-            font: { size: 12 },
-            callback: (value) => `${value}%`,
+          grid: {
+            color: "#444444",
+            lineWidth: 1,
           },
-          grid: { drawOnChartArea: false }, // não mistura as grades
         },
         x: {
           ticks: {
-            color: "#ccc",
+            color: "#b8d4ff",
             font: { size: 12 },
           },
           grid: { display: false },
         },
       },
     },
+
     plugins: [ChartDataLabels],
   });
+
+  const ctx = document.getElementById("rendaMensalChart").getContext("2d");
+
+// Novo gradiente azul (renda total)
+const gradientAtual = ctx.createLinearGradient(0, 0, 0, 400);
+gradientAtual.addColorStop(0, "#74C0FC"); // Azul claro luminoso
+gradientAtual.addColorStop(1, "#1B98E0"); // Azul médio elegante
+
+// Novo gradiente verde (crescimento %)
+const gradientCrescimento = ctx.createLinearGradient(0, 0, 0, 400);
+gradientCrescimento.addColorStop(0, "#7DFFBA"); // Verde neon suave
+gradientCrescimento.addColorStop(1, "#0BBF74"); // Verde escuro polido
+
+const rendaMensalChart = new Chart(ctx, {
+  type: "bar",
+  data: {
+    labels: ["jun/2025", "jul/2025", "ago/2025", "set/2025", "out/2025"],
+    datasets: [
+      {
+        label: "Renda total (R$ mil)",
+        data: [25, 32, 40, 55, 63],
+        backgroundColor: gradientAtual,
+        borderRadius: 8,
+        hoverBackgroundColor: "#6CA3FF",
+        yAxisID: "yRenda",
+      },
+      {
+        label: "Crescimento (%)",
+        data: [38, 28, 25, 37, 14],
+        backgroundColor: gradientCrescimento,
+        borderRadius: 8,
+        hoverBackgroundColor: "#7DFFBA",
+        yAxisID: "yPercent",
+      },
+    ],
+  },
+  options: {
+    responsive: true,
+    maintainAspectRatio: false,
+    layout: { padding: 10 },
+    plugins: {
+      title: {
+        display: true,
+        text: "📈 Renda mensal",
+        color: "#fff",
+        font: { size: 20, weight: "bold" },
+        padding: { bottom: 20 },
+      },
+      legend: {
+        labels: {
+          color: "#fff",
+          font: { size: 14 },
+        },
+      },
+      tooltip: {
+        backgroundColor: "#0D1117",
+        titleColor: "#4F8BFF",
+        bodyColor: "#E6E6E6",
+        borderColor: "#4F8BFF",
+        borderWidth: 1,
+        cornerRadius: 8,
+        padding: 10,
+        callbacks: {
+          title: (context) => `Mês: ${context[0].label}`,
+          label: (context) => {
+            if (context.dataset.label.includes("%")) {
+              return `${context.dataset.label}: ${context.formattedValue}%`;
+            } else {
+              return `${context.dataset.label}: R$ ${context.formattedValue}K`;
+            }
+          },
+        },
+      },
+      datalabels: {
+        color: "#000",
+        anchor: "end",
+        align: "start",
+        font: { weight: "bold" },
+        formatter: (value, context) => {
+          if (context.dataset.label.includes("%")) {
+            return `${value}%`;
+          } else {
+            return `R$ ${value}k`;
+          }
+        },
+      },
+    },
+    scales: {
+      yRenda: {
+        type: "linear",
+        position: "left",
+        beginAtZero: true,
+        ticks: {
+          color: "#fff",
+          font: { size: 15 },
+          callback: (value) => `R$ ${value}k`,
+        },
+        grid: { color: "#494949", lineWidth: 1 },
+      },
+      yPercent: {
+        type: "linear",
+        position: "right",
+        beginAtZero: true,
+        ticks: {
+          color: "#fff",
+          font: { size: 15 },
+          callback: (value) => `${value}%`,
+        },
+        grid: { drawOnChartArea: false },
+      },
+      x: {
+        ticks: {
+          color: "#fff",
+          font: { size: 20 },
+        },
+        grid: { display: false },
+      },
+    },
+  },
+  plugins: [ChartDataLabels],
+});
+
 </script>

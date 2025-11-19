@@ -12,10 +12,10 @@
 
 body{
     width: 100%;
-    max-width: 1900px;
+    max-width: 1920px;
     height: 100vh;
     max-height: 1080px;
-    background: linear-gradient(45deg, #76a1b6, #FFFFFF);
+    background: #fff;
     position: relative;
     overflow: hidden;
     display: flex;
@@ -274,371 +274,148 @@ body #cardDelete .opBtn #btnSim{
     animation: aparecerSuave 0.6s ease forwards;
 }
 
-
-
 section {
     flex: 1;
     display: flex;
 }
+
+
 #dashboard_section {
-    align-items: flex-end;
-    flex-direction: column;
-    padding-right: 5%;
-}
-#dashboard_section .box_topo{
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    height: 25%;
-    width:95%;
-    max-width:95%;
-}
-
-
-#dashboard_section .box_topo .card{
     display: flex;
     flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    height: 180px;
-    width: 310px;
-    background: linear-gradient(40deg, #212E34, #1D3642, #183D4F, #13455D, #0A5579, #006494);
-    border-radius: 10px;
-    transition: .6s linear;
 }
 
-#dashboard_section .box_topo .card h2{
+#dashboard_section #titleDash{
+    font-size: 2.5rem;
+    width: 100%;
     display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 30px;
-    position: relative;
-    transition: .6s linear;
-}
-#dashboard_section .box_topo .card h2, 
-#dashboard_section .box_topo .card span{
-    color: #9E9E9E;
-    font-size: var(--font-size-regular);
-    font-weight: var(--font-weight-medium);
-    transition: .6s linear;
-}
-#dashboard_section .box_topo .card h2 img{
-        position: absolute;
-    width: 40px;
-    height: 40px;
-    left: -50px;
-    transition: .6s linear;
-}
-#dashboard_section .box_topo .card p{
-    color: #9E9E9E;
-    font-size: var(--font-size-regular);
-    font-weight: var(--font-weight-medium);
-    transition: .6s linear;
+    justify-content: flex-end;
+    padding: 1rem 2rem 1rem 0rem;
+    color: #B9B9B9;
 }
 
-#dashboard_section .box_topo .card #ftrMensal{
-    display: block;
-    color: var(--white);
-    font-size: var(--font-size-larguer);
-    line-height: 100px;
-    text-align: center; 
-    font-weight: var(--font-weight-medium);
-    transition: .6s linear;
-}
-
-#dashboard_section .box_topo .card #medVendas{
-    display: block;
-    color: var(--white);
-    font-size: var(--font-size-larguer);
-    line-height: 100px;
-    text-align: center; 
-    font-weight: var(--font-weight-medium);
-    transition: .6s linear;
-}
-
-#dashboard_section .box_topo .card #clientesNovos{
-    display: block;
-    color: var(--white);
-    line-height: 100px;
-    text-align: center; 
-    font-size: 4rem;
-    font-weight: var(--font-weight-medium);
-    transition: .6s linear;
-}
-
-#dashboard_section .box_topo .card #vendasPacote{
-    display: block;
-    color: var(--white);
-    line-height: 100px;
-    text-align: center; 
-    font-size: 4rem;
-    font-weight: var(--font-weight-medium);
-    transition: .6s linear;
-}
-
-#dashboard_section .box_meio{
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    height: 40%;
-    width:95%;
-    max-width:95%;
-}
-#dashboard_section .box_meio .box_grafico{
-    background: #131517;
-    height: 350px;
-    width: 800px;
-    border-radius: 15px;   
-    transition: .6s linear;
-}
-
-#dashboard_section .box_meio .box_grafico .chart-container {
-  border-radius: 15px;
-  padding: 20px;
-  height: 360px;
-  width: 100%;
-    transition: .6s linear;
-}
-
-canvas {
-  width: 100% !important;
-  height: 100% !important;
-    transition: .6s linear;
-}
-
-
-
-
-
-
-
-
-#dashboard_section .box_meio .box_cidades{
-    display: flex;
-    flex-direction: column;
-    background: linear-gradient(40deg, #131517, #0E2936, #0A3D56, #055075, #006494);
-     height: 350px;
-    width: 500px;
-    border-radius: 15px;   
-    transition: .6s linear;
-
-}
-
-#dashboard_section .box_meio .box_cidades h2{
-    margin-top: 20px;
-    margin-left: 20px;
-    font-size: var(--font-size-regular);
-    font-weight: var(--font-weight-regular);
-    color: var(--white);
-    transition: .6s linear;
-
-}
-#dashboard_section .box_meio .box_cidades .box_cidades_aninhamento{
-    display: flex;
-    flex-direction: column;
-    justify-content: space-evenly;
+#dashboard_section .boxConteudo{
     width: 100%;
     height: 100%;
-    transition: .6s linear;
-
-}
-#dashboard_section .box_meio .box_cidades .box_cidades_aninhamento .cidades_row{
-     display: flex;
-     justify-content: flex-start;
-     align-items: center;
-     margin-left: 2rem;
-    flex-direction: row;
-    gap: 3rem;
-    width: 100%;
-    transition: .6s linear;
-
-}
-#dashboard_section .box_meio .box_cidades .box_cidades_aninhamento .cidades_row img{
-    width: 30px;
-    transition: .6s linear;
-
-}
-#dashboard_section .box_meio .box_cidades .box_cidades_aninhamento .cidades_row p{
-    font-size: var(--font-size-regular);
-    color: var(--white);
-    font-weight: var(--font-weight-medium);
-    transition: .6s linear;
-
-}
-#dashboard_section .box_meio .box_cidades .box_cidades_aninhamento .cidades_row .qtdViagens{
-    font-size: var(--font-size-regular);
-    color: #AEAEAE;
-    font-weight: var(--font-weight-regular);
-    transition: .6s linear;
-
-}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-#dashboard_section .box_rodape{
+    padding: 0px 2rem 0px 4rem;
     display: flex;
-    justify-content: space-between;
+}
+
+#dashboard_section .boxConteudo .boxLeft{
+    display: flex;
+    flex-direction: column;
     align-items: center;
-    height: 35%;
-    width:95%;
-    max-width:95%;
+    width: 25%;
+    height: 100vh;
+    padding: 0px 1rem;
+    gap: 2rem;
+    padding-top: 20px;
 }
-#dashboard_section .box_rodape .box_consultores{
-    background: #131517;
-    width: 600px;
-    height: 280px;
-    border-radius: 15px;   
-    transition: .6s linear;
-
+#dashboard_section .boxConteudo .boxLeft .card{
+    width: 330px;
+    height: 180px;
+    background: linear-gradient(45deg, #212E34, #1D3642, #183D4F, #13455D, #0A5579, #006494);
+    border-radius: 8px;
 }
 
 
-#dashboard_section .box_rodape .box_consultores h2{
-    margin-top: 20px;
-    margin-left: 20px;
-    font-size: var(--font-size-regular);
-    font-weight: var(--font-weight-regular);
-    color: var(--white);
-    transition: .6s linear;
 
-}
-#dashboard_section .box_rodape .box_consultores .box_consultores_aninhamento{
+
+#dashboard_section .boxConteudo .boxRight{
     display: flex;
     flex-direction: column;
-    justify-content: space-evenly;
-    width: 100%;
-    height: 230px;
-    transition: .6s linear;
-
+    align-items: center;
+    width: 75%;
+    height: 100vh;
+    gap: 2rem;
+    overflow-y: scroll;
 }
-#dashboard_section .box_rodape .box_consultores .box_consultores_aninhamento .consultores_row{
-     display: flex;
-     justify-content: flex-start;
-     align-items: center;
-     margin-left: 2rem;
-    flex-direction: row;
-    gap: 6rem;
-    width: 100%;
-    transition: .6s linear;
 
+#dashboard_section .boxConteudo .boxRight::-webkit-scrollbar {
+  width: 7px;
 }
-#dashboard_section .box_rodape .box_consultores .box_consultores_aninhamento .consultores_row img{
-    width: 30px;
-    transition: .6s linear;
 
+#dashboard_section .boxConteudo .boxRight::-webkit-scrollbar-track {
+  background: #D9D9D9;
+  border-radius: 10px;
 }
-#dashboard_section .box_rodape .box_consultores .box_consultores_aninhamento .consultores_row p{
-    font-size: var(--font-size-regular);
-    color: var(--white);
-    font-weight: var(--font-weight-medium);
-    transition: .6s linear;
 
-}
-#dashboard_section .box_rodape .box_consultores .box_consultores_aninhamento .consultores_row .qtdFaturamento{
-    font-size: var(--font-size-regular);
-    color: #AEAEAE;
-    font-weight: var(--font-weight-regular);
-    transition: .6s linear;
-
+#dashboard_section .boxConteudo .boxRight::-webkit-scrollbar-thumb {
+  background: linear-gradient(180deg, #585858, #000000);
+  border-radius: 10px;
 }
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-#dashboard_section .box_rodape .box_pacotes{
-    background: #131517;
-    width: 600px;
-    height: 280px;
-    border-radius: 15px;   
-    transition: .6s linear;
-
-}
-
-
-
-#dashboard_section .box_rodape .box_pacotes h2{
+#dashboard_section .boxConteudo .boxRight .areaGrafico{
+    width: 90%;
+    min-height: 50%;
+    border-radius: 15px;
+    background: linear-gradient(45deg, #131517,#464646) ;
+    padding: 10px;
+    box-shadow: 0 4px 25px rgba(0,0,0,0.3);
     margin-top: 20px;
-    margin-left: 20px;
-    font-size: var(--font-size-regular);
-    font-weight: var(--font-weight-regular);
-    color: var(--white);
-    transition: .6s linear;
+}
+#dashboard_section .boxConteudo .boxRight .areaGrafico .chart-container{
+    width: 100%;
+    height: 100%;
 
 }
-#dashboard_section .box_rodape .box_pacotes .box_pacotes_aninhamento{
+
+#dashboard_section .boxConteudo .boxRight .areaConsultoresCards{
     display: flex;
-    flex-direction: column;
-    justify-content: space-evenly;
-    width: 100%;
-    height: 230px;
-    transition: .6s linear;
-
-}
-#dashboard_section .box_rodape .box_pacotes .box_pacotes_aninhamento .pacotes_row{
-     display: flex;
-     justify-content: flex-start;
-     align-items: center;
-     margin-left: 2rem;
     flex-direction: row;
-    gap: 6rem;
-    width: 100%;
-    transition: .6s linear;
-
+    width: 90%;
+    min-height: 35%;
+    border-radius: 10px;
+    position: relative;
+    padding-top: 2rem;
+    gap: 2rem;
 }
-#dashboard_section .box_rodape .box_pacotes .box_pacotes_aninhamento .pacotes_row img{
-    width: 30px;
-    transition: .6s linear;
 
-}
-#dashboard_section .box_rodape .box_pacotes .box_pacotes_aninhamento .pacotes_row p{
-    font-size: var(--font-size-regular);
-    color: var(--white);
+#dashboard_section .boxConteudo .boxRight .areaConsultoresCards #titleConsultores{
+    position: absolute;
+    top: -10px;
+    left: 0;
     font-weight: var(--font-weight-medium);
-    transition: .6s linear;
-
-}
-#dashboard_section .box_rodape .box_pacotes .box_pacotes_aninhamento .pacotes_row .qtdVendas{
     font-size: var(--font-size-regular);
-    color: #AEAEAE;
-    font-weight: var(--font-weight-regular);
-    transition: .6s linear;
+}
 
+
+#dashboard_section .boxConteudo .boxRight .areaConsultoresCards .cardsConsultores{
+    width: 50%;
+    height: 100%;
+    border-radius: 8px;
+    background: linear-gradient(45deg, #131517,#464646) ;
 }
 
 
 
+
+
+
+#dashboard_section .boxConteudo .boxRight .areaPacotesCards{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    width: 90%;
+    min-height: 45%;
+    margin-bottom: 7rem;
+    overflow-x: scroll;
+    overflow-y: visible;   /* ⬅ permite que o título saia */
+    gap: 2rem;
+    position: relative;
+    margin-top: -2rem;
+}
+
+#dashboard_section .boxConteudo .boxRight #titlePacotes{
+    width: 90%;
+    font-weight: var(--font-weight-medium);
+    font-size: var(--font-size-regular);
+}
+
+#dashboard_section .boxConteudo .boxRight .areaPacotesCards .cardsPacotes{
+    height: 90%;
+    min-width: 40%;
+    border-radius: 8px;
+    background: linear-gradient(45deg, #131517, #0E2936, #0A3D56, #055075, #006494);
+}
