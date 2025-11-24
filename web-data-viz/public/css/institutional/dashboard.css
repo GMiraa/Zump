@@ -19,7 +19,6 @@ body{
     position: relative;
     overflow: hidden;
     display: flex;
-    transition: 1s linear;
 }
 
 
@@ -290,26 +289,32 @@ section {
     width: 100%;
     display: flex;
     justify-content: flex-end;
-    padding: 1rem 2rem 1rem 0rem;
+    line-height: 80px;    
     color: #B9B9B9;
+    padding: 0px 2rem;
 }
 
 #dashboard_section .boxConteudo{
     width: 100%;
-    height: 100%;
+    height: calc(100% - 80px);
+    border: 1px solid green;
     padding: 0px 2rem 0px 4rem;
     display: flex;
+    align-items: center;
 }
 
 #dashboard_section .boxConteudo .boxLeft{
     display: flex;
+    justify-content: space-between;
     flex-direction: column;
     align-items: center;
     width: 25%;
-    height: 100vh;
+    height: 100%;
     padding: 0px 1rem;
-    gap: 2rem;
     padding-top: 20px;
+    border: 1px solid red;
+    padding-bottom: 1rem;
+
 }
 #dashboard_section .boxConteudo .boxLeft .card{
     width: 330px;
@@ -318,37 +323,22 @@ section {
     border-radius: 8px;
 }
 
-
-
-
 #dashboard_section .boxConteudo .boxRight{
     display: flex;
     flex-direction: column;
     align-items: center;
     width: 75%;
-    height: 100vh;
-    gap: 2rem;
-    overflow-y: scroll;
+    height: 100%;
+    justify-content: space-between;    
+    border: 2px solid blue;
+    padding-bottom: 1rem;
 }
 
-#dashboard_section .boxConteudo .boxRight::-webkit-scrollbar {
-  width: 7px;
-}
-
-#dashboard_section .boxConteudo .boxRight::-webkit-scrollbar-track {
-  background: #D9D9D9;
-  border-radius: 10px;
-}
-
-#dashboard_section .boxConteudo .boxRight::-webkit-scrollbar-thumb {
-  background: linear-gradient(180deg, #585858, #000000);
-  border-radius: 10px;
-}
 
 
 #dashboard_section .boxConteudo .boxRight .areaGrafico{
     width: 90%;
-    min-height: 50%;
+    min-height: 55%;
     border-radius: 15px;
     background: linear-gradient(45deg, #131517,#464646) ;
     padding: 10px;
@@ -365,7 +355,7 @@ section {
     display: flex;
     flex-direction: row;
     width: 90%;
-    min-height: 35%;
+    min-height: 40%;
     border-radius: 10px;
     position: relative;
     padding-top: 2rem;
@@ -385,37 +375,10 @@ section {
     width: 50%;
     height: 100%;
     border-radius: 8px;
-    background: linear-gradient(45deg, #131517,#464646) ;
+    background: linear-gradient(45deg, #131517,#464646);
 }
 
 
 
 
 
-
-#dashboard_section .boxConteudo .boxRight .areaPacotesCards{
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    width: 90%;
-    min-height: 45%;
-    margin-bottom: 7rem;
-    overflow-x: scroll;
-    overflow-y: visible;   /* ⬅ permite que o título saia */
-    gap: 2rem;
-    position: relative;
-    margin-top: -2rem;
-}
-
-#dashboard_section .boxConteudo .boxRight #titlePacotes{
-    width: 90%;
-    font-weight: var(--font-weight-medium);
-    font-size: var(--font-size-regular);
-}
-
-#dashboard_section .boxConteudo .boxRight .areaPacotesCards .cardsPacotes{
-    height: 90%;
-    min-width: 40%;
-    border-radius: 8px;
-    background: linear-gradient(45deg, #131517, #0E2936, #0A3D56, #055075, #006494);
-}
