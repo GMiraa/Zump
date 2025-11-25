@@ -5,7 +5,7 @@
 }
 
 
-@media screen and (max-width: 1600px) and (min-width: 1440px) and (max-height: 1080px) and (min-height: 900px){
+@media screen and (max-width: 1600px) {
     .menu {
         width: 250px;
     }
@@ -45,11 +45,10 @@
 }
 }
 
-
-
-@media screen and (max-width: 1439px) and (max-height: 800px) and (min-width: 768px){
-        .menu {
+@media screen and (max-width: 1440px){    
+    .menu {
         width: 220px;
+        max-width: 220px;
     }
     .menu .conteudo .boxFoto{
         height: 200px;
@@ -118,9 +117,10 @@
 
 }
 
-@media screen and (max-width: 1240px) and (max-height: 768px){
+@media screen and (max-width: 1280px){
     .menu {
         width: 200px;
+        max-width: 200px;
     }
     .menu .conteudo .boxFoto{
         height: 200px;
@@ -210,10 +210,10 @@
 
 }
 
-
-@media screen and (max-width: 1190px) and (max-height: 768px){
+@media screen and (max-width: 1024px){
     .menu {
         width: 200px;
+        max-width: 200px;
     }
 
     .menu .conteudo .boxFoto{
@@ -320,7 +320,7 @@
 
 }
 
-@media screen and (max-width: 1060px) and (max-height: 768px){
+@media screen and (max-width: 900px){
     .menu{
         position: absolute;
         width: 20px;
@@ -331,7 +331,7 @@
         width: 40px;
         height: 40px;
         left: 30px;
-        top: 15px;
+        top: 8px;
         opacity: 1;
     }
 
@@ -449,312 +449,15 @@
         border: 1px solid red;
         min-height: 40%;
     }
-
-}
-
-@media screen and (max-width: 1060px) and (max-height: 600px){
-
-    .menu .conteudo{
-    background-position: center bottom 40px;
-    background-size: 100px;
-}
-
-    .menu .conteudo .boxFoto{
-        height: 200px;
-        border: 1px solid red;
-    }
-
-    .menu .conteudo .boxFoto #foto_user{
-        width: 80px;
-        height: 80px;
-    }
-
-    .menu .conteudo .boxFoto h3{
-        font-size: var(--font-size-regular);
-    }
-
-    .menu .conteudo .boxFoto button{
-        right: 15px;
-        font-size: var(--font-size-small);
-        background-size: 20px;
-        padding-right: 30px;
-    }
-
-    .box_hora h2{
-        font-size: var(--font-size-larguer);
-    }
-
-    .box_hora h3{
-        padding: 0px 1rem;
-        text-align: center;
-    }
-
-    .box_sessoes{
-        height: 170px;
-        gap: 20px;
-        border: 1px solid darkblue;
-    }
-
-    .box_sessoes h2{
-        margin-left: 20px;
+    #dashboard_section .boxConteudo .boxRight .areaConsultoresCards #titleConsultores{
+        top: -4px;
         font-size: var(--font-size-small);
     }
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-    #dashboard_section #titleDash{
-        font-size: 2rem;
-        line-height: 50px;
-    }
-
-    #dashboard_section .boxConteudo{
-        height: calc(100% - 50px);
-        padding: 0px 2rem 0px 2rem;
-    }
-
-    #dashboard_section .boxConteudo .boxLeft .card{
-        width: 220px;
-        height: 140px;
-    }
-    #dashboard_section .boxConteudo .boxRight .areaGrafico{
-        width: 90%;
-        min-height: 55%;
-    }
-
-    #dashboard_section .boxConteudo .boxRight .areaConsultoresCards{
-        border: 1px solid red;
-        min-height: 40%;
-    }
-
 }
 
-@media screen and (max-width: 1000px) and (max-height: 768px){
-    body{
-    width: 100%;
-    min-width: none;
-    height: 100vh;
-    min-height: none;
-}
-    .menu{
-        position: absolute;
-        width: 20px;
-        max-width: 220px;
-    }
-    #abrir_menu {
-        display: block;
-        width: 40px;
-        height: 40px;
-        left: 30px;
-        top: 10px;
-        opacity: 1;
-    }
-
-     #conteudo_menu{
-        opacity: 0;
-        transition: none
-     }
-    #interagir_menu{
-        display: none;
-        right: -22.5px;
-        width: 45px;
-        height: 45px;
-        border-radius: 45px;
-        background-size: 25px;
-    }
-    
-    .menu .conteudo .boxFoto{
-        height: 200px;
-        border: 1px solid red;
-    }
-
-    .menu .conteudo .boxFoto #foto_user{
-        width: 80px;
-        height: 80px;
-    }
-
-    .menu .conteudo .boxFoto h3{
-        font-size: var(--font-size-regular);
-    }
-
-    .menu .conteudo .boxFoto button{
-        right: 15px;
-        font-size: var(--font-size-small);
-        background-size: 20px;
-        padding-right: 30px;
-    }
-
-    .box_hora h2{
-        font-size: var(--font-size-larguer);
-    }
-
-    .box_hora h3{
-        padding: 0px 1rem;
-        text-align: center;
-    }
-
-    .box_sessoes{
-        height: 200px;
-        gap: 20px;
-        border: 1px solid darkblue;
-    }
-
-    .box_sessoes h2{
-        margin-left: 20px;
-    }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-    #dashboard_section #titleDash{
-        font-size: 2rem;
-        line-height: 50px;
-    }
-
-    #dashboard_section .boxConteudo{
-        height: calc(100% - 50px);
-        padding: 0px 2rem 0px 2rem;
-        flex-direction: column;
-    }
-    #dashboard_section .boxConteudo .boxLeft{
-        flex-direction: row;
-        width: 100%;
-        height: 20%;
-    }
-    #dashboard_section .boxConteudo .boxLeft .card{
-        width: 220px;
-        height: 140px;
-    }
-    #dashboard_section .boxConteudo .boxRight{
-        width: 100%;
-        height:100%;
-        padding: 0px 1rem 1rem;
-    }
-    #dashboard_section .boxConteudo .boxRight .areaGrafico{
-        width: 100%;
-        min-height: 55%;
-    }
-
-    #dashboard_section .boxConteudo .boxRight .areaConsultoresCards{
-        border: 1px solid red;
-        min-height: 40%;
-    }
-
-}
-@media screen and (max-width: 999px) and (max-height: 768px){
-    body{
-        width: 100%;
-        min-width: none;
-        height: 100vh;
-        min-height: none;
-    }
-
-    #dashboard_section #titleDash{
-        font-size: 2rem;
-        line-height: 50px;
-    }
-
-    #dashboard_section .boxConteudo{
-        height: calc(100% - 50px);
-        padding: 0px 2rem 0px 2rem;
-        flex-direction: column;
-    }
-    #dashboard_section .boxConteudo .boxLeft{
-        flex-direction: row;
-        width: 95%;
-        height: 20%;
-    }
-    #dashboard_section .boxConteudo .boxLeft .card{
-        width: 100%;
-        height: 140px;
-    }
-    #dashboard_section .boxConteudo .boxRight{
-        width: 95%;
-        height:100%;
-        padding: 0px 1rem 1rem;
-    }
-    #dashboard_section .boxConteudo .boxRight .areaGrafico{
-        width: 95%;
-        min-height: 55%;
-    }
-
-    #dashboard_section .boxConteudo .boxRight .areaConsultoresCards{
-        min-height: 40%;
-    }
-
-}
-
-@media screen and (max-width: 900px) and (max-height: 768px){
+@media screen and (max-width: 800px){
 
     #dashboard_section #titleDash{
         font-size: 2rem;
@@ -768,16 +471,16 @@
         overflow-y: scroll;
     }
     #dashboard_section .boxConteudo .boxLeft{
-        flex-direction: row;     /* Agora será lado a lado */
-        flex-wrap: wrap;         /* Permite quebrar linha */
+        flex-direction: row;    
+        flex-wrap: wrap;       
         width: 90%;
-        height: auto;            /* Altura ajusta automaticamente */
+        height: auto;            
         justify-content: center;
         gap: 1rem;
     }
 
     #dashboard_section .boxConteudo .boxLeft .card{
-        width: calc(50% - 1rem); /* 2 por linha */
+        width: calc(50% - 1rem); 
         height: 140px;
     }
     #dashboard_section .boxConteudo .boxRight{
@@ -794,10 +497,87 @@
         min-height: 50%;
         padding-bottom: 1rem;
     }
+    #dashboard_section .boxConteudo .boxRight .areaConsultoresCards #titleConsultores{
+        top: -4px;
+        font-size: var(--font-size-small);
+    }
+
 
 }
 
-@media screen and (max-width: 800px) and (max-height: 768px){
+@media screen and (max-width: 600px){
+    .menu{
+        position: absolute;
+        width: 10px;
+        max-width: 100%;
+    }
+    #abrir_menu {
+        left: 20px;
+    }
+
+    #interagir_menu{
+        right: 10px;
+        top: 10px;
+        z-index: 999;
+    }
+    
+    .menu .conteudo .boxFoto{
+        height: 200px;
+        border: 1px solid red;
+    }
+
+    .menu .conteudo .boxFoto #foto_user{
+        width: 80px;
+        height: 80px;
+    }
+
+    .menu .conteudo .boxFoto h3{
+        font-size: var(--font-size-regular);
+    }
+
+    .menu .conteudo .boxFoto button{
+        right: 15px;
+        font-size: var(--font-size-small);
+        background-size: 20px;
+        padding-right: 30px;
+    }
+
+    .box_hora h2{
+        font-size: var(--font-size-larguer);
+    }
+
+    .box_hora h3{
+        padding: 0px 1rem;
+        text-align: center;
+    }
+
+    .box_sessoes{
+        height: 200px;
+        gap: 20px;
+        border: 1px solid darkblue;
+    }
+
+    .box_sessoes h2{
+        margin-left: 20px;
+    }
+
+    .menu .conteudo{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        width: 100%;
+        height: 100%;
+        overflow: hidden;
+        background-image: url("../../assets/logos/logo\ zump\ 1.png");
+        background-position: center bottom 40px;
+        background-repeat: no-repeat;
+        background-size: 130px;
+    }
+
+
+
+
+
 
     #dashboard_section #titleDash{
         font-size: 2rem;
@@ -805,34 +585,187 @@
     }
 
     #dashboard_section .boxConteudo{
-        height: calc(100% - 50px);
-        padding: 0px 2rem 0px 2rem;
         flex-direction: column;
-        overflow-y: scroll;
+        width: 100vw;
+        height: calc(auto - 50px);
+        padding: 0px;
     }
-    #dashboard_section .boxConteudo .boxLeft{
-        width: 100%;
+    #dashboard_section .boxConteudo .boxLeft {
+        flex-wrap: nowrap;
+        justify-content: start;
+        overflow: hidden;
+        overflow-x: scroll;
+        min-height: 30%;
     }
 
-    #dashboard_section .boxConteudo .boxLeft .card{
-        width: calc(45% - 1rem);
-        height: 140px;
-    }
-    #dashboard_section .boxConteudo .boxRight{
+    #dashboard_section .boxConteudo .boxLeft .card {
         width: 100%;
-        padding: 0px 1rem 1rem;
+        min-width: 240px;
+        margin: 1rem 0rem 1rem 0rem;
     }
+
     #dashboard_section .boxConteudo .boxRight .areaGrafico{
-        width: 95%;
-        min-height: 80%;
+        width: 100%;
+        min-height: 40%;
+        min-height: auto;
+        border-radius: 8px;
+    }
+
+    #dashboard_section .boxConteudo .boxRight .areaGrafico .chart-container{
+        width: 100%;
+        height: 35vh;
+        margin: 0 auto;
+       
     }
 
     #dashboard_section .boxConteudo .boxRight .areaConsultoresCards{
-        width: 95%;
-        min-height: 50%;
-        padding-bottom: 1rem;
+        width: 100%;
+        flex-direction: column;
+        justify-content: start;
+        align-items: center;
+        min-height: auto;
     }
+    #dashboard_section .boxConteudo .boxRight .areaConsultoresCards .cardsConsultores{
+        width: 100%;
+        height: 200px;
+    }
+    #dashboard_section .boxConteudo .boxRight .areaConsultoresCards #titleConsultores{
+        top: -4px;
+        font-size: var(--font-size-small);
+    }
+
 
 }
 
+@media screen and (max-width: 480px){
+    .menu{
+        position: absolute;
+        width: 10px;
+        max-width: 100%;
+    }
+    #abrir_menu {
+        left: 20px;
+    }
+
+    #interagir_menu{
+        right: 10px;
+        top: 10px;
+        z-index: 999;
+    }
+    
+    .menu .conteudo .boxFoto{
+        height: 200px;
+        border: 1px solid red;
+    }
+
+    .menu .conteudo .boxFoto #foto_user{
+        width: 80px;
+        height: 80px;
+    }
+
+    .menu .conteudo .boxFoto h3{
+        font-size: var(--font-size-regular);
+    }
+
+    .menu .conteudo .boxFoto button{
+        right: 15px;
+        font-size: var(--font-size-small);
+        background-size: 20px;
+        padding-right: 30px;
+    }
+
+    .box_hora h2{
+        font-size: var(--font-size-larguer);
+    }
+
+    .box_hora h3{
+        padding: 0px 1rem;
+        text-align: center;
+    }
+
+    .box_sessoes{
+        height: 200px;
+        gap: 20px;
+        border: 1px solid darkblue;
+    }
+
+    .box_sessoes h2{
+        margin-left: 20px;
+    }
+
+    .menu .conteudo{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        width: 100%;
+        height: 100%;
+        overflow: hidden;
+        background-image: url("../../assets/logos/logo\ zump\ 1.png");
+        background-position: center bottom 40px;
+        background-repeat: no-repeat;
+        background-size: 130px;
+    }
+
+
+
+
+
+
+    #dashboard_section #titleDash{
+        font-size: 2rem;
+        line-height: 50px;
+    }
+
+    #dashboard_section .boxConteudo{
+        flex-direction: column;
+        width: 100vw;
+        height: calc(auto - 50px);
+        padding: 0px;
+    }
+    #dashboard_section .boxConteudo .boxLeft {
+        flex-wrap: nowrap;
+        justify-content: start;
+        overflow: hidden;
+        overflow-x: scroll;
+        min-height: 30%;
+    }
+
+    #dashboard_section .boxConteudo .boxLeft .card {
+        width: 100%;
+        min-width: 240px;
+        margin: 1rem 0rem 1rem 0rem;
+    }
+
+    #dashboard_section .boxConteudo .boxRight .areaGrafico{
+        width: 100%;
+        min-height: 40%;
+        min-height: auto;
+        border-radius: 8px;
+    }
+
+    #dashboard_section .boxConteudo .boxRight .areaGrafico .chart-container{
+        width: 100%;
+        height: 28vh;
+        margin: 0 auto;
+       
+    }
+
+    #dashboard_section .boxConteudo .boxRight .areaConsultoresCards{
+        width: 100%;
+        flex-direction: column;
+        justify-content: start;
+        align-items: center;
+        min-height: auto;
+    }
+    #dashboard_section .boxConteudo .boxRight .areaConsultoresCards .cardsConsultores{
+        width: 100%;
+        height: 200px;
+    }
+    #dashboard_section .boxConteudo .boxRight .areaConsultoresCards #titleConsultores{
+        top: -4px;
+        font-size: var(--font-size-small);
+    }
+
+
+}
 

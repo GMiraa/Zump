@@ -19,7 +19,7 @@ body{
     position: relative;
     overflow: hidden;
     display: flex;
-    margin: auto;
+   
     transition: all 0.6s linear;
 }
 
