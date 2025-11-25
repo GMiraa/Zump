@@ -76,14 +76,6 @@
             <h2 id="titleConsultores">📊 Consultores com mais vendas</h2>
             <div class="cardsConsultores"></div>
             <div class="cardsConsultores"></div>
-
-          </div>
-          <h2 id="titlePacotes">🎒 Pacotes mais vendidos</h2>
-          <div class="areaPacotesCards">
-            <div class="cardsPacotes"></div>
-            <div class="cardsPacotes"></div>
-            <div class="cardsPacotes"></div>
-            
           </div>
         </div>
       </div>
@@ -470,15 +462,15 @@
             />
           </div>
           <div class="inputs">
-            <label for="enderecoCliente">Endereço</label>
+            <label for="enderecoCliente">Cidade</label>
             <input
               type="text"
               name=""
               id="enderecoCliente"
-              placeholder="Endereço do cliente..."
+              placeholder="Cidade do cliente..."
             />
           </div>
-          <button>cadastrar cliente</button>
+          <button onclick="cadastrarCliente()">cadastrar cliente</button>
         </div>
       </div>
       <div class="box_topo">
@@ -1081,8 +1073,9 @@
     box.style.overflowY = aberto ? "hidden" : "scroll";
   }
 
-  /*  var nome = sessionStorage.NOME_USUARIO;
+  var nome = sessionStorage.NOME_USUARIO;
   var id = sessionStorage.ID_USUARIO;
+  var fkempresa = sessionStorage.FK_EMPRESA
 
   var ListaValores = [];
 
@@ -1102,22 +1095,44 @@ abrirCardDeCadastroCliente
 
         }
 
-  } */
+  }
 
-  // async function ValoresKPI(){
+  function cadastrarCliente(){
 
-  //   const resposta = await fetch(`/dashboard/buscarValores`);
-  //   const dados = await resposta.json();
-  //   ListaValores = dados;
+    var nome = nomeCliente.value;
+    var email = emailCliente.value;
+    var cpf = cpfCliente.value;
+    var dtNasc = dataNascCliente.value;
+    var telefone = telCliente.value;
+    var endereco = enderecoCliente.value;
 
-  //   console.log(ListaValores);
+    if(nome == "" || email == "" || cpf == "" || dtNasc == "" || telefone == "" || endereco == ""){
+      alert("Preencha todos os campos");
+    }
+    else {
 
-  //   vendasPacote.innerHTML = `${ListaValores[0].totalPacotesVendidos}`;
-  //   ftrMensal.innerHTML = `R$ ${ListaValores[0].valorTotalGerado}`;
+      fetch('/dashboard/cadastrarCliente', {
+            method: "POST",
+            headers: {
+              "Content-Type": "application/json"
+            },
+            body: JSON.stringify({
+              nomeCliente: nome,
+              emailCliente: email,
+              cpfCliente: cpf,
+              DataNascimento: dtNasc,
+              telefoneUsuario: telefone,
+              endUsuario: endereco
+            })
+          })
+          alert("Cadastro realizado com sucesso")
+          setTimeout(() => {
+            fecharCardDeCadastroCliente();
+          }, 1000);
+      
+    }
 
-  // }enderecoCliente
-
-  // ValoresKPI();
+  }
 
   //mascara para inputs
 
