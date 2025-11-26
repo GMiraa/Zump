@@ -1125,12 +1125,26 @@
 }
 
 
+
+
+
+
+
+/* Início sessao cliente */
+
 #clientes_section .box_topo{
     display: flex;
-    justify-content: space-between;
     align-items: center;
+    justify-content: center;
     width: 50%;
     height: 70px;
+    gap: 1rem;
+    transition: all 0.3s ease;
+    
+}
+#clientes_section .box_topo .linha-baixo{
+    display: flex;
+    gap: 1rem;
 }
 #clientes_section .box_topo .inputPesquisar{  
     border: 1px solid #CFCFCF;
@@ -1228,6 +1242,7 @@ font-size: var(--font-size-regular);
     margin-top: 50px;
     overflow: hidden;
     overflow-y: scroll;
+    transition: all 0.6s ease;
 }
 
 #clientes_section .box_rodape::-webkit-scrollbar {

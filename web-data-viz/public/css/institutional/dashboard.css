@@ -317,6 +317,7 @@ section {
     border: 1px solid red;
     gap: 1rem;
     padding-bottom: 1rem;
+    transition: all 0.3s ease-in-out;
 }
 #dashboard_section .boxConteudo .boxLeft .card{
     width: 330px;

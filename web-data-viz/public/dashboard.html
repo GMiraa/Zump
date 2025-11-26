@@ -478,6 +478,7 @@
           <input type="text" placeholder="pesquisar cliente..." />
           <button></button>
         </div>
+        <div class="linha-baixo">
         <button id="adicionarCliente" onclick="abrirCardDeCadastroCliente()">
           adicionar cliente
         </button>
@@ -487,6 +488,7 @@
             <option value="">Sem pacote</option>
             <option value="">Com pacote</option>
           </select>
+        </div>
         </div>
       </div>
       <div class="box_rodape" id="clientesList">
@@ -1300,8 +1302,8 @@ abrirCardDeCadastroCliente
   });
 
   homeSession.appendChild(barra);
-  dashboardSection.style.display = "flex";
-  clientesSection.style.display = "none";
+  dashboardSection.style.display = "none";
+  clientesSection.style.display = "flex";
   consultoresSection.style.display = "none";
 
   function mudarSessao(ativo, sectionMostrar) {
