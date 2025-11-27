@@ -299,7 +299,6 @@ section {
 #dashboard_section .boxConteudo{
     width: 100%;
     height: calc(100% - 80px);
-    border: 1px solid green;
     padding: 0px 2rem 0px 4rem;
     display: flex;
     align-items: center;
@@ -314,7 +313,6 @@ section {
     height: 100%;
     padding: 0px 1rem;
     padding-top: 20px;
-    border: 1px solid red;
     gap: 1rem;
     padding-bottom: 1rem;
     transition: all 0.3s ease-in-out;
@@ -333,7 +331,6 @@ section {
     width: 75%;
     height: 100%;
     justify-content: space-between;    
-    border: 2px solid blue;
     gap: 1rem;
     padding-bottom: 1rem;
 }
