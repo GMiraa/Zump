@@ -212,7 +212,7 @@ body #cardDelete .opBtn #btnSim{
     gap: 25px;
 }
 
-.box_sessoes h2{
+.box_sessoes a{
     display: block;
     width: fit-content;
     text-align: left;

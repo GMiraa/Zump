@@ -37,57 +37,9 @@
     }, 850);
   }
 
-  const barra = document.createElement("div");
-  barra.style.position = "absolute";
-  barra.style.width = "0";
-  barra.style.height = "3px";
-  barra.style.backgroundColor = "white";
-  barra.style.bottom = "-10px";
-  barra.style.borderRadius = "3px";
-  barra.style.transition = "width 0.3s ease";
 
-  const homeSession = document.getElementById("home_session");
-  const clientesSession = document.getElementById("clientes_session");
-  const consultoresSession = document.getElementById("consultores_session");
-  const dashboardSection = document.getElementById("dashboard_section");
-  const clientesSection = document.getElementById("clientes_section");
-  const consultoresSection = document.getElementById("consultores_section");
+ 
 
-  [homeSession, clientesSession, consultoresSession].forEach((el) => {
-    el.style.position = "relative";
-    el.style.cursor = "pointer";
-  });
-
-  homeSession.appendChild(barra);
-  dashboardSection.style.display = "flex";
-  clientesSection.style.display = "none";
-  consultoresSection.style.display = "none";
-
-  function mudarSessao(ativo, sectionMostrar) {
-    ativo.appendChild(barra);
-    barra.style.width = "0";
-    setTimeout(() => {
-      barra.style.width = "40px";
-    }, 10);
-    document
-      .querySelectorAll(".box_sessoes h2")
-      .forEach((el) => el.classList.remove("active"));
-    ativo.classList.add("active");
-    dashboardSection.style.display = "none";
-    clientesSection.style.display = "none";
-    consultoresSection.style.display = "none";
-    sectionMostrar.style.display = "flex";
-  }
-
-  homeSession.addEventListener("click", () =>
-    mudarSessao(homeSession, dashboardSection)
-  );
-  clientesSession.addEventListener("click", () =>
-    mudarSessao(clientesSession, clientesSection)
-  );
-  consultoresSession.addEventListener("click", () =>
-    mudarSessao(consultoresSession, consultoresSection)
-  );
 
   function atualizarHora() {
     const agora = new Date();
