@@ -27,9 +27,10 @@ function cadastrarCliente(req, res) {
     var cpf = req.body.cpfCliente;
     var dtNasc = req.body.DataNascimento;
     var telefone = req.body.telefoneUsuario;
-    var endereco = req.body.endUsuario
+    var endereco = req.body.endUsuario;
+    var fkUsuario = req.body.fkCliente;
     
-        dashboardModel.cadastrarCliente(nome, email, cpf, dtNasc, telefone, endereco)
+        dashboardModel.cadastrarCliente(nome, email, cpf, dtNasc, telefone, endereco, fkUsuario)
             .then(
                 function (resultado) {
                     res.json(resultado);
@@ -46,7 +47,52 @@ function cadastrarCliente(req, res) {
             );
     }
 
+    function buscarClientes(req, res) {
+
+    var fkEmpresa = req.params.fkempresa;
+
+    dashboardModel.buscarClientes(fkEmpresa)
+        .then(
+            function (resultado) {
+                res.json(resultado);
+            }
+        ).catch(
+            function (erro) {
+                console.log(erro);
+                console.log(
+                    "\nHouve um erro ao realizar a busca! Erro: ",
+                    erro.sqlMessage
+                );
+                res.status(500).json(erro.sqlMessage);
+            }
+        );
+}
+
+function apagarCliente(req, res) {
+    // Crie uma variável que vá recuperar os valores do arquivo cadastro.html
+    var id = req.params.clienteId;
+    
+        dashboardModel.apagarCliente(id)
+            .then(
+                function (resultado) {
+                    res.json(resultado);
+                }
+            ).catch(
+                function (erro) {
+                    console.log(erro);
+                    console.log(
+                        "\nHouve um erro ao excluir o cliente Erro: ",
+                        erro.sqlMessage
+                    );
+                    res.status(500).json(erro.sqlMessage);
+                } 
+            );
+    }
+
+
 module.exports = {
     buscarValores,
-    cadastrarCliente
+    cadastrarCliente,
+    buscarClientes,
+    apagarCliente
 }

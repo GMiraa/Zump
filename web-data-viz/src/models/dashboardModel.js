@@ -16,17 +16,27 @@ function buscarValores(){
     return database.executar(instrucaoSql);
   }
 
-  function cadastrarCliente(nome, email, cpf, dtNasc, telefone, endereco){
+  function cadastrarCliente(nome, email, cpf, dtNasc, telefone, endereco, fkUsuario){
 
-    var instrucaoSql = `INSERT INTO cliente (nome, cpf, telefone, email, cidade, Dtnascimento) VALUES ('${nome}', '${cpf}', '${telefone}', '${email}', '${endereco}', '${dtNasc}')`;
+    var instrucaoSql = `INSERT INTO cliente (nome, cpf, telefone, email, cidade, Dtnascimento, FkEmpresaCliente) VALUES ('${nome}', '${cpf}', '${telefone}', '${email}', '${endereco}', '${dtNasc}', ${fkUsuario})`;
   
     console.log("Executando a instrução SQL: \n" + instrucaoSql);
     return database.executar(instrucaoSql);
   }
 
-  function buscarCLientes(){
+  function buscarClientes(fkEmpresa){
 
-    var instrucaoSql = `INSERT INTO cliente (nome, cpf, telefone, email, cidade, Dtnascimento) VALUES ('${nome}', '${cpf}', '${telefone}', '${email}', '${endereco}', '${dtNasc}')`;
+    var instrucaoSql = `SELECT * FROM cliente WHERE FkEmpresaCliente = ${fkEmpresa};`;
+  
+    console.log("Executando a instrução SQL: \n" + instrucaoSql);
+    return database.executar(instrucaoSql);
+  }
+
+  function apagarCliente(clienteId){
+
+    console.log("Id do cliente: " + clienteId)
+    
+    var instrucaoSql = `DELETE FROM cliente WHERE idCliente = ${clienteId};`;
   
     console.log("Executando a instrução SQL: \n" + instrucaoSql);
     return database.executar(instrucaoSql);
@@ -35,5 +45,6 @@ function buscarValores(){
 module.exports = {
     buscarValores,
     cadastrarCliente,
-    buscarCLientes
+    buscarClientes,
+    apagarCliente
 };

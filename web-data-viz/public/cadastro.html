@@ -50,6 +50,10 @@
                         <label for="input_confirmar">Confirmar senha</label>
                         <input type="password" placeholder="Confirmar senha..." id="input_confirmar">
                     </div>
+                    <div class="inputs">
+                        <label for="input_fkempresa">Fk Empresa</label>
+                        <input type="text" placeholder="Código da empresa" id="input_fkempresa">
+                    </div>
                 </div>
                 <div class="infosBox">
                     <p>Já possui uma conta? <span><a href="login.html">clique aqui</a></span></p>
@@ -93,10 +97,11 @@
       var confSenha = input_confirmar.value;
       var senha = input_senha.value;
       var cpf = input_cpf.value;
-      var tipo = "Comum"
+      var tipo = "Funcionário"
       var imagem = "";
+      var fk = input_fkempresa.value;
     
-        if(nome == "" || email == "" || senha == "" || confSenha == "" || cpf == "" ){
+        if(nome == "" || email == "" || senha == "" || confSenha == "" || cpf == "" || fk == ""){
 
             mensagem.innerHTML = `<p style="background: white; color: red; padding: 5px 10px; border-radius: 5px;">Um ou mais campos <b>obrigatórios</b> vazios</p>`;
             setTimeout(() => {
@@ -123,7 +128,8 @@
               emailUsuario: email,
               senhaUsuario: senha,
               tipoUsuario: tipo,
-              cpfUsuario: cpf
+              cpfUsuario: cpf,
+              fkUsuario: fk
             })
           })
           alert("Cadastro realizado com sucesso")

@@ -11,5 +11,12 @@ router.post("/cadastrarCliente", function (req, res) {
     dashboardController.cadastrarCliente(req, res);
 })
 
+router.get("/buscarClientes/:fkempresa", function (req, res) {
+    dashboardController.buscarClientes(req, res);
+})
+
+router.post("/apagarCliente/:clienteId", function (req, res) {
+    dashboardController.apagarCliente(req, res);
+})
 
 module.exports = router;
