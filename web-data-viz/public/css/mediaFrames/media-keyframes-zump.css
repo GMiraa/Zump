@@ -1,787 +1,1158 @@
-@media screen and (max-width: 1899px) and (min-width: 1600px) {    
-    .menu{
-        max-width: 260px;
+@media screen and (max-width: 1920px) and (min-width: 1060px) and (max-height: 1080px) and (min-height: 768px){    
+    .menu #interagir_menu{
+        display: none;
     }
-    #dashboard_section .box_topo{
-        width:95%;
+}
+
+
+@media screen and (max-width: 1600px) {
+    .menu {
+        width: 250px;
     }
-    #dashboard_section .box_topo .card{
-        height: 130px;
-        width: 250px;        
+    
+    #dashboard_section #titleDash{
+        font-size: 2rem;
+        line-height: 50px;
     }
 
-    #dashboard_section .box_topo .card h2, 
-    #dashboard_section .box_topo .card span{
+    #dashboard_section .boxConteudo{
+        height: calc(100% - 50px);
+        padding: 0px 2rem 0px 2rem;
+    }
+
+
+    #dashboard_section .boxConteudo .boxLeft .card{
+        width: 260px;
+        height: 140px;
+    }
+
+    #dashboard_section .boxConteudo .boxRight .areaGrafico{
+        width: 90%;
+        min-height: 55%;
+    }
+
+    #dashboard_section .boxConteudo .boxRight .areaConsultoresCards{
+        min-height: 40%;
+    }
+        #dashboard_section .boxConteudo .boxLeft{
+    height: 80%;
+}
+
+
+#dashboard_section .boxConteudo .boxRight{
+    height: 80%;
+}
+}
+
+@media screen and (max-width: 1440px){    
+    .menu {
+        width: 220px;
+        max-width: 220px;
+    }
+    .menu .conteudo .boxFoto{
+        height: 200px;
+    }
+
+    .menu .conteudo .boxFoto #foto_user{
+        width: 80px;
+        height: 80px;
+    }
+
+    .menu .conteudo .boxFoto h3{
         font-size: var(--font-size-regular);
     }
-    #dashboard_section .box_topo .card h2 img{
-        position: absolute;
-        width: 30px;
-        height: 30px;
-        left: -30px;
-    }
-    #dashboard_section .box_topo .card p{
-    color: #9E9E9E;
-    font-size: var(--font-size-regular);
-    font-weight: var(--font-weight-medium);
-}
 
-
-#dashboard_section .box_topo .card #ftrMensal{
-    font-size: var(--font-size-larguer);
-    line-height: 60px;
-}
-
-#dashboard_section .box_topo .card #medVendas{
-    font-size: var(--font-size-larguer);
-    line-height: 60px;
-}
-
-#dashboard_section .box_topo .card #clientesNovos{
-    line-height: 60px;
-    font-size: 3rem; 
-}
-
-#dashboard_section .box_topo .card #vendasPacote{
-    line-height: 60px;
-    font-size: 3rem;
-}
-#dashboard_section .box_meio{
-    width:95%;
-}
-
-#dashboard_section .box_meio .box_grafico{
-    height: 300px;
-    width: 660px;
-}
-
-#dashboard_section .box_meio .box_grafico .chart-container {
-  padding: 0px;
-  height: 300px;
-}
-
-/* cidade área*/
-#dashboard_section .box_meio .box_cidades{
-     height: 300px;
-    width: 440px;
-}
-
-#dashboard_section .box_meio .box_cidades .box_cidades_aninhamento .cidades_row img{
-    width: 30px;
-}
-#dashboard_section .box_meio .box_cidades .box_cidades_aninhamento .cidades_row p{
-    font-size: var(--font-size-regular);
-}
-#dashboard_section .box_meio .box_cidades .box_cidades_aninhamento .cidades_row .qtdViagens{
-    font-size: var(--font-size-regular);
-}
-
-
-/* rodape área */
-#dashboard_section .box_rodape{
-    width:95%;
-}
-#dashboard_section .box_rodape .box_consultores{
-    width: 540px;
-    height: 250px;
-}
-
-#dashboard_section .box_rodape .box_consultores .box_consultores_aninhamento{
-    height: 200px;
-}
-#dashboard_section .box_rodape .box_consultores .box_consultores_aninhamento .consultores_row{
-    gap: 6rem;
-}
-#dashboard_section .box_rodape .box_consultores .box_consultores_aninhamento .consultores_row p{
-    font-size: var(--font-size-regular);
-    color: var(--white);
-    font-weight: var(--font-weight-medium);
-}
-#dashboard_section .box_rodape .box_consultores .box_consultores_aninhamento .consultores_row .qtdFaturamento{
-    font-size: var(--font-size-regular);
-    color: #AEAEAE;
-    font-weight: var(--font-weight-regular);
-}
-#dashboard_section .box_rodape .box_pacotes{
-    width: 540px;
-    height: 250px;
-}
-#dashboard_section .box_rodape .box_pacotes .box_pacotes_aninhamento{
-    height: 200px;
-}
-#dashboard_section .box_rodape .box_pacotes .box_pacotes_aninhamento .pacotes_row{
-    gap: 6rem;
-}
-#dashboard_section .box_rodape .box_pacotes .box_pacotes_aninhamento .pacotes_row p{
-    font-size: var(--font-size-regular);
-}
-#dashboard_section .box_rodape .box_pacotes .box_pacotes_aninhamento .pacotes_row .qtdVendas{
-    font-size: var(--font-size-regular);
-}
-}
-
-
-@media screen and (max-width: 1599px) and (min-width: 1501px) {    
-    .menu{
-        max-width: 260px;
-    }
-    
-    #dashboard_section .box_topo{
-        width:95%;
-    }
-    #dashboard_section .box_topo .card{
-        height: 130px;
-        width: 250px;        
-    }
-
-    #dashboard_section .box_topo .card h2, 
-    #dashboard_section .box_topo .card span{
+    .menu .conteudo .boxFoto button{
+        right: 15px;
         font-size: var(--font-size-small);
-    }
-    #dashboard_section .box_topo .card h2 img{
-        position: absolute;
-        width: 30px;
-        height: 30px;
-        left: -30px;
-    }
-    #dashboard_section .box_topo .card p{
-    color: #9E9E9E;
-    font-size: var(--font-size-small);
-    font-weight: var(--font-weight-medium);
-}
-
-
-#dashboard_section .box_topo .card #ftrMensal{
-    font-size: var(--font-size-larguer);
-    line-height: 60px;
-}
-
-#dashboard_section .box_topo .card #medVendas{
-    font-size: var(--font-size-larguer);
-    line-height: 60px;
-}
-
-#dashboard_section .box_topo .card #clientesNovos{
-    line-height: 60px;
-    font-size: 3rem; 
-}
-
-#dashboard_section .box_topo .card #vendasPacote{
-    line-height: 60px;
-    font-size: 3rem;
-}
-#dashboard_section .box_meio{
-    width:95%;
-}
-
-#dashboard_section .box_meio .box_grafico{
-    height: 300px;
-    width: 580px;
-}
-
-#dashboard_section .box_meio .box_grafico .chart-container {
-  padding: 0px;
-  height: 300px;
-}
-
-/* cidade área*/
-#dashboard_section .box_meio .box_cidades{
-     height: 300px;
-    width: 440px;
-}
-
-#dashboard_section .box_meio .box_cidades .box_cidades_aninhamento .cidades_row img{
-    width: 30px;
-}
-#dashboard_section .box_meio .box_cidades .box_cidades_aninhamento .cidades_row p{
-    font-size: var(--font-size-regular);
-}
-#dashboard_section .box_meio .box_cidades .box_cidades_aninhamento .cidades_row .qtdViagens{
-    font-size: var(--font-size-regular);
-}
-
-
-/* rodape área */
-#dashboard_section .box_rodape{
-    width:95%;
-}
-#dashboard_section .box_rodape .box_consultores{
-    width: 460px;
-    height: 250px;
-}
-
-#dashboard_section .box_rodape .box_consultores .box_consultores_aninhamento{
-    height: 200px;
-}
-#dashboard_section .box_rodape .box_consultores .box_consultores_aninhamento .consultores_row{
-    gap: 4rem;
-}
-#dashboard_section .box_rodape .box_consultores .box_consultores_aninhamento .consultores_row p{
-    font-size: var(--font-size-regular);
-    color: var(--white);
-    font-weight: var(--font-weight-medium);
-}
-#dashboard_section .box_rodape .box_consultores .box_consultores_aninhamento .consultores_row .qtdFaturamento{
-    font-size: var(--font-size-regular);
-    color: #AEAEAE;
-    font-weight: var(--font-weight-regular);
-}
-#dashboard_section .box_rodape .box_pacotes{
-    width: 460px;
-    height: 250px;
-}
-#dashboard_section .box_rodape .box_pacotes .box_pacotes_aninhamento{
-    height: 200px;
-}
-#dashboard_section .box_rodape .box_pacotes .box_pacotes_aninhamento .pacotes_row{
-    gap: 4rem;
-}
-#dashboard_section .box_rodape .box_pacotes .box_pacotes_aninhamento .pacotes_row p{
-    font-size: var(--font-size-regular);
-}
-#dashboard_section .box_rodape .box_pacotes .box_pacotes_aninhamento .pacotes_row .qtdVendas{
-    font-size: var(--font-size-regular);
-}
-}
-
-@media screen and (max-width: 1500px) and (min-width: 1441px){
-    .menu{
-        max-width: 220px;
-    }
-    
-    #dashboard_section .box_topo{
-        width:95%;
-    }
-    #dashboard_section .box_topo .card{
-        height: 130px;
-        width: 230px;        
+        background-size: 20px;
+        padding-right: 30px;
     }
 
-    #dashboard_section .box_topo .card h2, 
-    #dashboard_section .box_topo .card span{
-        color: #9E9E9E;
-        font-size: var(--font-size-small);
-        font-weight: var(--font-weight-medium);
-    }
-    #dashboard_section .box_topo .card h2 img{
-        position: absolute;
-        width: 30px;
-        height: 30px;
-        left: -30px;
-    }
-    #dashboard_section .box_topo .card p{
-    color: #9E9E9E;
-    font-size: var(--font-size-small);
-    font-weight: var(--font-weight-medium);
-}
-
-
-#dashboard_section .box_topo .card #ftrMensal{
-    font-size: var(--font-size-regular);
-    line-height: 60px;
-}
-
-#dashboard_section .box_topo .card #medVendas{
-    font-size: var(--font-size-regular);
-    line-height: 60px;
-}
-
-#dashboard_section .box_topo .card #clientesNovos{
-    line-height: 60px;
-    font-size: 3rem; 
-}
-
-#dashboard_section .box_topo .card #vendasPacote{
-    line-height: 60px;
-    font-size: 3rem;
-}
-#dashboard_section .box_meio{
-    width:95%;
-}
-
-#dashboard_section .box_meio .box_grafico{
-    height: 300px;
-    width: 540px;
-}
-
-#dashboard_section .box_meio .box_grafico .chart-container {
-  padding: 0px;
-  height: 300px;
-}
-
-/* cidade área*/
-#dashboard_section .box_meio .box_cidades{
-     height: 300px;
-    width: 400px;
-}
-
-#dashboard_section .box_meio .box_cidades .box_cidades_aninhamento .cidades_row img{
-    width: 30px;
-}
-#dashboard_section .box_meio .box_cidades .box_cidades_aninhamento .cidades_row p{
-    font-size: var(--font-size-regular);
-}
-#dashboard_section .box_meio .box_cidades .box_cidades_aninhamento .cidades_row .qtdViagens{
-    font-size: var(--font-size-small);
-}
-
-
-/* rodape área */
-#dashboard_section .box_rodape{
-    width:95%;
-}
-#dashboard_section .box_rodape .box_consultores{
-    width: 440px;
-    height: 250px;
-}
-
-#dashboard_section .box_rodape .box_consultores .box_consultores_aninhamento{
-    height: 200px;
-}
-#dashboard_section .box_rodape .box_consultores .box_consultores_aninhamento .consultores_row{
-    gap: 3rem;
-}
-#dashboard_section .box_rodape .box_consultores .box_consultores_aninhamento .consultores_row p{
-    font-size: var(--font-size-regular);
-    color: var(--white);
-    font-weight: var(--font-weight-medium);
-}
-#dashboard_section .box_rodape .box_consultores .box_consultores_aninhamento .consultores_row .qtdFaturamento{
-    font-size: var(--font-size-small);
-    color: #AEAEAE;
-    font-weight: var(--font-weight-regular);
-}
-#dashboard_section .box_rodape .box_pacotes{
-    width: 440px;
-    height: 250px;
-}
-#dashboard_section .box_rodape .box_pacotes .box_pacotes_aninhamento{
-    height: 200px;
-}
-#dashboard_section .box_rodape .box_pacotes .box_pacotes_aninhamento .pacotes_row{
-    gap: 3rem;
-}
-#dashboard_section .box_rodape .box_pacotes .box_pacotes_aninhamento .pacotes_row p{
-    font-size: var(--font-size-regular);
-}
-#dashboard_section .box_rodape .box_pacotes .box_pacotes_aninhamento .pacotes_row .qtdVendas{
-    font-size: var(--font-size-small);
-}
-}
-
-@media screen and (max-width: 1440px) and (min-width: 1280px){
-    .menu{
-        max-width: 220px;
-    }
-    
-    #dashboard_section .box_topo{
-        width:95%;
-    }
-    #dashboard_section .box_topo .card{
-        height: 130px;
-        width: 220px;        
+    .box_hora h2{
+        font-size: var(--font-size-larguer);
     }
 
-    #dashboard_section .box_topo .card h2, 
-    #dashboard_section .box_topo .card span{
-        color: #9E9E9E;
-        font-size: var(--font-size-small);
-        font-weight: var(--font-weight-medium);
+    .box_hora h3{
+        padding: 0px 1rem;
+        text-align: center;
     }
-    #dashboard_section .box_topo .card h2 img{
-        position: absolute;
-        width: 30px;
-        height: 30px;
-        left: -30px;
+
+    .box_sessoes{
+        height: 200px;
+        gap: 20px;
     }
-    #dashboard_section .box_topo .card p{
-    color: #9E9E9E;
-    font-size: var(--font-size-small);
-    font-weight: var(--font-weight-medium);
-}
 
-
-#dashboard_section .box_topo .card #ftrMensal{
-    font-size: var(--font-size-regular);
-    line-height: 60px;
-}
-
-#dashboard_section .box_topo .card #medVendas{
-    font-size: var(--font-size-regular);
-    line-height: 60px;
-}
-
-#dashboard_section .box_topo .card #clientesNovos{
-    line-height: 60px;
-    font-size: 3rem; 
-}
-
-#dashboard_section .box_topo .card #vendasPacote{
-    line-height: 60px;
-    font-size: 3rem;
-}
-#dashboard_section .box_meio{
-    width:95%;
-}
-
-#dashboard_section .box_meio .box_grafico{
-    height: 280px;
-    width: 480px;
-}
-
-#dashboard_section .box_meio .box_grafico .chart-container {
-  padding: 0px;
-  height: 280px;
-}
-
-/* cidade área*/
-#dashboard_section .box_meio .box_cidades{
-     height: 280px;
-    width: 400px;
-}
-
-#dashboard_section .box_meio .box_cidades .box_cidades_aninhamento .cidades_row img{
-    width: 30px;
-}
-#dashboard_section .box_meio .box_cidades .box_cidades_aninhamento .cidades_row p{
-    font-size: var(--font-size-regular);
-}
-#dashboard_section .box_meio .box_cidades .box_cidades_aninhamento .cidades_row .qtdViagens{
-    font-size: var(--font-size-small);
-}
-
-
-/* rodape área */
-#dashboard_section .box_rodape{
-    width:95%;
-}
-#dashboard_section .box_rodape .box_consultores{
-    width: 440px;
-    height: 250px;
-}
-
-#dashboard_section .box_rodape .box_consultores .box_consultores_aninhamento{
-    height: 200px;
-}
-#dashboard_section .box_rodape .box_consultores .box_consultores_aninhamento .consultores_row{
-    gap: 3rem;
-}
-#dashboard_section .box_rodape .box_consultores .box_consultores_aninhamento .consultores_row p{
-    font-size: var(--font-size-regular);
-    color: var(--white);
-    font-weight: var(--font-weight-medium);
-}
-#dashboard_section .box_rodape .box_consultores .box_consultores_aninhamento .consultores_row .qtdFaturamento{
-    font-size: var(--font-size-small);
-    color: #AEAEAE;
-    font-weight: var(--font-weight-regular);
-}
-#dashboard_section .box_rodape .box_pacotes{
-    width: 440px;
-    height: 250px;
-}
-#dashboard_section .box_rodape .box_pacotes .box_pacotes_aninhamento{
-    height: 200px;
-}
-#dashboard_section .box_rodape .box_pacotes .box_pacotes_aninhamento .pacotes_row{
-    gap: 3rem;
-}
-#dashboard_section .box_rodape .box_pacotes .box_pacotes_aninhamento .pacotes_row p{
-    font-size: var(--font-size-regular);
-}
-#dashboard_section .box_rodape .box_pacotes .box_pacotes_aninhamento .pacotes_row .qtdVendas{
-    font-size: var(--font-size-small);
-}
-}
-@media screen and (max-width: 1279px) and (min-width: 1180px){
-    .menu{
-        max-width: 200px;
+    .box_sessoes h2{
+        margin-left: 20px;
     }
-    
-    #dashboard_section .box_topo{
-        width:95%;
+
+
+    #dashboard_section #titleDash{
+        font-size: 2rem;
+        line-height: 50px;
     }
-    #dashboard_section .box_topo .card{
+
+    #dashboard_section .boxConteudo{
+        height: calc(100% - 50px);
+        padding: 0px 2rem 0px 2rem;
+    }
+
+    #dashboard_section .boxConteudo .boxLeft .card{
+        width: 260px;
         height: 140px;
-        width: 200px;        
+    }
+    #dashboard_section .boxConteudo .boxRight .areaGrafico{
+        width: 90%;
+        min-height: 55%;
     }
 
-    #dashboard_section .box_topo .card h2, 
-    #dashboard_section .box_topo .card span{
-        color: #9E9E9E;
-        font-size: var(--font-size-small);
-        font-weight: var(--font-weight-medium);
+    #dashboard_section .boxConteudo .boxRight .areaConsultoresCards{
+        min-height: 40%;
     }
-    #dashboard_section .box_topo .card h2 img{
-        position: absolute;
-        width: 30px;
-        height: 30px;
-        left: -30px;
+
+
+
+
+
+
+    /* Tela de cliente */
+
+
+    #clientes_section .box_topo{
+        width: 70%;
+        gap: 1rem;
     }
-    #dashboard_section .box_topo .card p{
-    color: #9E9E9E;
-    font-size: var(--font-size-small);
-    font-weight: var(--font-weight-medium);
-}
+
+    #clientes_section .box_topo #adicionarCliente{
+        background-position: center right 15px;
+    }
+        
+
+    #clientes_section .box_rodape{
+        width: 70%;
+    }
 
 
-#dashboard_section .box_topo .card #ftrMensal{
-    font-size: var(--font-size-regular);
-    line-height: 60px;
 }
 
-#dashboard_section .box_topo .card #medVendas{
-    font-size: var(--font-size-regular);
-    line-height: 60px;
-}
-
-#dashboard_section .box_topo .card #clientesNovos{
-    line-height: 60px;
-    font-size: 2.5rem; 
-}
-
-#dashboard_section .box_topo .card #vendasPacote{
-    line-height: 60px;
-    font-size: 2.5rem;
-}
-#dashboard_section .box_meio{
-    width:95%;
-}
-
-#dashboard_section .box_meio .box_grafico{
-    height: 280px;
-    width: 500px;
-}
-
-#dashboard_section .box_meio .box_grafico .chart-container {
-  padding: 0px;
-  height: 280px;
-}
-
-/* cidade área*/
-#dashboard_section .box_meio .box_cidades{
-     height: 280px;
-    width: 300px;
-}
-#dashboard_section .box_meio .box_cidades .box_cidades_aninhamento .cidades_row{
-    gap: 1rem;
-}
-
-#dashboard_section .box_meio .box_cidades .box_cidades_aninhamento .cidades_row img{
-    width: 30px;
-}
-#dashboard_section .box_meio .box_cidades .box_cidades_aninhamento .cidades_row p{
-    font-size: var(--font-size-small);
-}
-#dashboard_section .box_meio .box_cidades .box_cidades_aninhamento .cidades_row .qtdViagens{
-    font-size: var(--font-size-small);
-}
-
-
-/* rodape área */
-#dashboard_section .box_rodape{
-    width:95%;
-}
-#dashboard_section .box_rodape .box_consultores{
-    width: 400px;
-    height: 250px;
-}
-
-#dashboard_section .box_rodape .box_consultores .box_consultores_aninhamento{
-    height: 200px;
-}
-#dashboard_section .box_rodape .box_consultores .box_consultores_aninhamento .consultores_row{
-    gap: 3rem;
-}
-#dashboard_section .box_rodape .box_consultores .box_consultores_aninhamento .consultores_row p{
-    font-size: var(--font-size-small);
-    color: var(--white);
-    font-weight: var(--font-weight-medium);
-}
-#dashboard_section .box_rodape .box_consultores .box_consultores_aninhamento .consultores_row .qtdFaturamento{
-    font-size: var(--font-size-small);
-    color: #AEAEAE;
-    font-weight: var(--font-weight-regular);
-}
-#dashboard_section .box_rodape .box_pacotes{
-    width: 400px;
-    height: 250px;
-}
-#dashboard_section .box_rodape .box_pacotes .box_pacotes_aninhamento{
-    height: 200px;
-}
-#dashboard_section .box_rodape .box_pacotes .box_pacotes_aninhamento .pacotes_row{
-    gap: 1rem;
-}
-#dashboard_section .box_rodape .box_pacotes .box_pacotes_aninhamento .pacotes_row p{
-    font-size: var(--font-size-small);
-}
-#dashboard_section .box_rodape .box_pacotes .box_pacotes_aninhamento .pacotes_row .qtdVendas{
-    font-size: var(--font-size-small);
-}
-}
-@media screen and (max-width: 1179px) and (min-width: 1024px){
-    .menu{
+@media screen and (max-width: 1320px){
+    .menu {
+        width: 200px;
         max-width: 200px;
     }
-    
-    #dashboard_section .box_topo{
-        width:95%;
-    }
-    #dashboard_section .box_topo .card{
-        height: 120px;
-        width: 180px;        
+    .menu .conteudo .boxFoto{
+        height: 200px;
     }
 
-    #dashboard_section .box_topo .card h2, 
-    #dashboard_section .box_topo .card span{
-        color: #9E9E9E;
+    .menu .conteudo .boxFoto #foto_user{
+        width: 80px;
+        height: 80px;
+    }
+
+    .menu .conteudo .boxFoto h3{
+        font-size: var(--font-size-regular);
+    }
+
+    .menu .conteudo .boxFoto button{
+        right: 15px;
         font-size: var(--font-size-small);
-        font-weight: var(--font-weight-medium);
+        background-size: 20px;
+        padding-right: 30px;
     }
-    #dashboard_section .box_topo .card h2 img{
+
+    .box_hora h2{
+        font-size: var(--font-size-larguer);
+    }
+
+    .box_hora h3{
+        padding: 0px 1rem;
+        text-align: center;
+    }
+
+    .box_sessoes{
+        height: 200px;
+        gap: 20px;
+    }
+
+    .box_sessoes h2{
+        margin-left: 20px;
+    }
+
+
+
+
+    #dashboard_section .boxConteudo .boxLeft .card{
+        width: 240px;
+        height: 140px;
+    }
+
+
+    /* Tela cliente */
+    #clientes_section .box_topo #adicionarCliente{   
+        padding-left: 0px;
+        text-align: center;
+        background-image: none;
+    }
+
+}
+
+@media screen and (max-width: 1130px){
+
+    #dashboard_section #titleDash{
+        box-shadow: 0px 12px 40px rgba(170, 170, 170, 0.541);
+    }
+
+    .menu{
         position: absolute;
-        width: 30px;
-        height: 30px;
-        left: -30px;
+        width: 20px;
+        max-width: 220px;
     }
-    #dashboard_section .box_topo .card p{
-    color: #9E9E9E;
-    font-size: var(--font-size-small);
-    font-weight: var(--font-weight-medium);
-}
+    #abrir_menu {
+        display: block;
+        width: 40px;
+        height: 40px;
+        left: 30px;
+        top: 8px;
+        opacity: 1;
+    }
+
+     #conteudo_menu{
+        opacity: 0;
+        transition: none
+     }
+    #interagir_menu{
+        display: none;
+        right: -22.5px;
+        width: 45px;
+        height: 45px;
+        border-radius: 45px;
+        background-size: 25px;
+    }
+    
+    .menu .conteudo .boxFoto{
+        height: 200px;
+    }
+
+    .menu .conteudo .boxFoto #foto_user{
+        width: 80px;
+        height: 80px;
+    }
+
+    .menu .conteudo .boxFoto h3{
+        font-size: var(--font-size-regular);
+    }
+
+    .menu .conteudo .boxFoto button{
+        right: 15px;
+        font-size: var(--font-size-small);
+        background-size: 20px;
+        padding-right: 30px;
+    }
+
+    .box_hora h2{
+        font-size: var(--font-size-larguer);
+    }
+
+    .box_hora h3{
+        padding: 0px 1rem;
+        text-align: center;
+    }
+
+    .box_sessoes{
+        height: 200px;
+        gap: 20px;
+    }
+
+    .box_sessoes h2{
+        margin-left: 20px;
+    }
 
 
-#dashboard_section .box_topo .card #ftrMensal{
-    font-size: var(--font-size-regular);
-    line-height: 50px;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    #dashboard_section #titleDash{
+        font-size: 2rem;
+        line-height: 50px;
+    }
+
+    #dashboard_section .boxConteudo{
+        height: calc(100% - 50px);
+        padding: 0px 2rem 0px 2rem;
+        flex-direction: column;
+    }
+
+    #dashboard_section .boxConteudo .boxLeft{
+        flex-direction: row;
+        width: 100%;
+        height: 140px;
+        justify-content: center;
+    }
+
+    #dashboard_section .boxConteudo .boxLeft .card{
+        width: 220px;
+        height: 140px;
+    }
+    #dashboard_section .boxConteudo .boxRight .areaGrafico{
+        width: 90%;
+        min-height: 55%;
+    }
+
+    #dashboard_section .boxConteudo .boxRight .areaConsultoresCards{
+        min-height: 40%;
+    }
+
+} 
+@media screen and (max-width: 1024px){
+    .menu{
+        position: absolute;
+        width: 20px;
+        max-width: 220px;
+    }
+    #abrir_menu {
+        display: block;
+        width: 40px;
+        height: 40px;
+        left: 30px;
+        top: 8px;
+        opacity: 1;
+    }
+
+     #conteudo_menu{
+        opacity: 0;
+        transition: none
+     }
+    #interagir_menu{
+        display: none;
+        right: -22.5px;
+        width: 45px;
+        height: 45px;
+        border-radius: 45px;
+        background-size: 25px;
+    }
+    
+    .menu .conteudo .boxFoto{
+        height: 200px;
+    }
+
+    .menu .conteudo .boxFoto #foto_user{
+        width: 80px;
+        height: 80px;
+    }
+
+    .menu .conteudo .boxFoto h3{
+        font-size: var(--font-size-regular);
+    }
+
+    .menu .conteudo .boxFoto button{
+        right: 15px;
+        font-size: var(--font-size-small);
+        background-size: 20px;
+        padding-right: 30px;
+    }
+
+    .box_hora h2{
+        font-size: var(--font-size-larguer);
+    }
+
+    .box_hora h3{
+        padding: 0px 1rem;
+        text-align: center;
+    }
+
+    .box_sessoes{
+        height: 200px;
+        gap: 20px;
+    }
+
+    .box_sessoes h2{
+        margin-left: 20px;
+    }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    #dashboard_section #titleDash{
+        font-size: 2rem;
+        line-height: 50px;
+    }
+
+    #dashboard_section .boxConteudo{
+        height: calc(100% - 50px);
+        padding: 0px 2rem 0px 2rem;
+        flex-direction: column;
+    }
+
+    #dashboard_section .boxConteudo .boxLeft{
+        flex-direction: row;
+        width: 100%;
+        height: 140px;
+        justify-content: center;
+    }
+
+    #dashboard_section .boxConteudo .boxLeft .card{
+        width: 180px;
+        height: 120px;
+    }
+    #dashboard_section .boxConteudo .boxRight .areaGrafico{
+        width: 90%;
+        min-height: 55%;
+    }
+
+    #dashboard_section .boxConteudo .boxRight .areaConsultoresCards{
+        min-height: 40%;
+    }
+
+
+
+     /* Tela de clientes */
+    #clientes_section .box_topo{
+        width: 90%;
+    }
+
+    #clientes_section .box_rodape{
+        width: 90%;
+    }
+
+
+} 
+
+@media screen and (max-width: 900px){
+
+    #dashboard_section #titleDash{
+        font-size: 2rem;
+        line-height: 50px;
+    }
+
+    #dashboard_section .boxConteudo{
+        height: calc(100% - 50px);
+        padding: 0px 2rem 0px 2rem;
+        flex-direction: column;
+        overflow-y: scroll;
+    }
+    #dashboard_section .boxConteudo .boxLeft{
+        flex-direction: row;    
+        flex-wrap: wrap;       
+        width: 90%;
+        height: auto;            
+        justify-content: center;
+        gap: 1rem;
+    }
+
+    #dashboard_section .boxConteudo .boxLeft .card{
+        width: calc(50% - 1rem); 
+        height: 140px;
+    }
+    #dashboard_section .boxConteudo .boxRight{
+        width: 90%;
+        padding: 0px 1rem 1rem;
+    }
+    #dashboard_section .boxConteudo .boxRight .areaGrafico{
+        width: 95%;
+        min-height: 80%;
+    }
+
+    #dashboard_section .boxConteudo .boxRight .areaConsultoresCards{
+        width: 95%;
+        min-height: 50%;
+        padding-bottom: 1rem;
+    }
+    #dashboard_section .boxConteudo .boxRight .areaConsultoresCards #titleConsultores{
+        top: -4px;
+        font-size: var(--font-size-small);
+    }
+
+
+
+
+    /* Tela de clientes */
+    #clientes_section .box_topo{
+        width: 90%;
+    }
+
+    #clientes_section .box_rodape{
+        width: 90%;
+    }
+
 }
 
-#dashboard_section .box_topo .card #medVendas{
-    font-size: var(--font-size-regular);
-    line-height: 50px;
+@media screen and (max-width: 800px){
+
+    #dashboard_section #titleDash{
+        font-size: 2rem;
+        line-height: 50px;
+    }
+
+    #dashboard_section .boxConteudo{
+        height: calc(100% - 50px);
+        padding: 0px 2rem 0px 2rem;
+        flex-direction: column;
+        overflow-y: scroll;
+    }
+    #dashboard_section .boxConteudo .boxLeft{
+        flex-direction: row;    
+        flex-wrap: wrap;       
+        width: 90%;
+        height: auto;            
+        justify-content: center;
+        gap: 1rem;
+    }
+
+    #dashboard_section .boxConteudo .boxLeft .card{
+        width: calc(50% - 1rem); 
+        height: 140px;
+    }
+    #dashboard_section .boxConteudo .boxRight{
+        width: 90%;
+        padding: 0px 1rem 1rem;
+    }
+    #dashboard_section .boxConteudo .boxRight .areaGrafico{
+        width: 95%;
+        min-height: 80%;
+    }
+
+    #dashboard_section .boxConteudo .boxRight .areaConsultoresCards{
+        width: 95%;
+        min-height: 50%;
+        padding-bottom: 1rem;
+    }
+    #dashboard_section .boxConteudo .boxRight .areaConsultoresCards #titleConsultores{
+        top: -4px;
+        font-size: var(--font-size-small);
+    }
+
+
+
+
+
+
+
+
+    /* inicio tela de cliente */
+    
+
+    #clientes_section .box_topo{
+        flex-direction: column;
+        height: auto;
+        gap: 2.5rem;
+    }
+    #clientes_section .box_topo .selecao p{
+        top: -25px;
+        font-size: var(--font-size-small);
+    }
+
+    #clientes_section .box_rodape{
+        width: 92%;
+        margin-right: -30px;
+    }
+    #clientes_section .box_rodape .card_cliente .box_foto{
+        width: 50px;
+        height: 50px;
+        margin-left: 15px;
+        border-radius: 50px;
+    }
+
+    #clientes_section .box_rodape .card_cliente .infos_cliente{
+        margin-left: 15px;
+    }
+
+    #clientes_section .box_rodape .card_cliente .infos_cliente h2,
+    #clientes_section .box_rodape .card_cliente .infos_cliente p{
+        font-size: var(--font-size-small);
+        color: var(--white);
+    }
+
+
+#clientes_section .box_rodape .card_cliente .box_buttons{
+    right: 20px;
+}
+#clientes_section .box_rodape .card_cliente .box_buttons button{
+    margin-left: 10px;
+    width: 30px;
+    height: 30px;
 }
 
-#dashboard_section .box_topo .card #clientesNovos{
-    line-height: 50px;
-    font-size: 2.5rem; 
 }
 
-#dashboard_section .box_topo .card #vendasPacote{
-    line-height: 50px;
-    font-size: 2.5rem;
-}
-#dashboard_section .box_meio{
-    width:95%;
+@media screen and (max-width: 600px){
+
+
+    body #cardDelete{
+        top: 10%;
+        width: calc(100% - 30px);
+        height: 180px;
+    }
+    body #cardDelete h1{
+        margin-top: 10px;
+        margin-left: 10px;
+    }
+    body #cardDelete .infosCliente{
+        margin-left: 5px;
+        margin-top: 10px;
+    }
+    body #cardDelete .infosCliente h2{
+        font-size: var(--font-size-small);
+        font-weight: var(--font-weight-regular);
+    }
+    body #cardDelete .opBtn{
+        padding-right: 10px;
+        padding-bottom: 10px;
+        height: 45px;
+    }
+
+    body #cardDelete .opBtn button{
+        height: 35px;
+        width: 90px;
+    }
+
+
+
+
+
+
+    .menu{
+        position: absolute;
+        width: 10px;
+        max-width: 100%;
+    }
+    #abrir_menu {
+        left: 20px;
+    }
+
+    #interagir_menu{
+        right: 10px;
+        top: 10px;
+        z-index: 999;
+    }
+    
+    .menu .conteudo .boxFoto{
+        height: 200px;
+    }
+
+    .menu .conteudo .boxFoto #foto_user{
+        width: 80px;
+        height: 80px;
+    }
+
+    .menu .conteudo .boxFoto h3{
+        font-size: var(--font-size-regular);
+    }
+
+    .menu .conteudo .boxFoto button{
+        right: 15px;
+        font-size: var(--font-size-small);
+        background-size: 20px;
+        padding-right: 30px;
+    }
+
+    .box_hora h2{
+        font-size: var(--font-size-larguer);
+    }
+
+    .box_hora h3{
+        padding: 0px 1rem;
+        text-align: center;
+    }
+
+    .box_sessoes{
+        height: 200px;
+        gap: 20px;
+    }
+
+    .box_sessoes h2{
+        margin-left: 20px;
+    }
+
+    .menu .conteudo{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        width: 100%;
+        height: 100%;
+        overflow: hidden;
+        background-image: url("../../assets/logos/logo\ zump\ 1.png");
+        background-position: center bottom 40px;
+        background-repeat: no-repeat;
+        background-size: 130px;
+    }
+
+
+
+
+
+
+    #dashboard_section #titleDash{
+        font-size: 2rem;
+        line-height: 50px;
+    }
+
+    #dashboard_section .boxConteudo{
+        flex-direction: column;
+        width: 100vw;
+        height: calc(auto - 50px);
+        padding: 0px;
+    }
+    #dashboard_section .boxConteudo .boxLeft {
+        flex-wrap: nowrap;
+        justify-content: start;
+        overflow: hidden;
+        overflow-x: scroll;
+        min-height: 30%;
+    }
+
+    #dashboard_section .boxConteudo .boxLeft .card {
+        width: 100%;
+        min-width: 240px;
+        margin: 1rem 0rem 1rem 0rem;
+    }
+
+    #dashboard_section .boxConteudo .boxRight .areaGrafico{
+        width: 100%;
+        min-height: 40%;
+        min-height: auto;
+        border-radius: 8px;
+    }
+
+    #dashboard_section .boxConteudo .boxRight .areaGrafico .chart-container{
+        width: 100%;
+        height: 35vh;
+        margin: 0 auto;
+       
+    }
+
+    #dashboard_section .boxConteudo .boxRight .areaConsultoresCards{
+        width: 100%;
+        flex-direction: column;
+        justify-content: start;
+        align-items: center;
+        min-height: auto;
+    }
+    #dashboard_section .boxConteudo .boxRight .areaConsultoresCards .cardsConsultores{
+        width: 100%;
+        height: 200px;
+    }
+    #dashboard_section .boxConteudo .boxRight .areaConsultoresCards #titleConsultores{
+        top: -4px;
+        font-size: var(--font-size-small);
+    }
+
+
+        /* inicio tela de cliente */
+    
+
+
+    #clientes_section .box_rodape .card_cliente{
+        height: 95px;  
+    }
+
+    #clientes_section .box_rodape .card_cliente .box_foto{
+        margin-top: 10px;
+    }
+
+    #clientes_section .box_rodape .card_cliente .infos_cliente{
+        margin-top: 10px;
+    }
+
+
+
+    #clientes_section .box_rodape .card_cliente .box_buttons{
+        top: 10px;
+        right: 20px;
+    }
+
+
+
 }
 
-#dashboard_section .box_meio .box_grafico{
-    height: 280px;
-    width: 400px;
-}
+@media screen and (max-width: 480px){
+    .menu{
+        position: absolute;
+        width: 10px;
+        max-width: 100%;
+    }
+    #abrir_menu {
+        left: 20px;
+    }
 
-#dashboard_section .box_meio .box_grafico .chart-container {
-  padding: 0px;
-  height: 280px;
-}
+    #interagir_menu{
+        right: 10px;
+        top: 10px;
+        z-index: 999;
+    }
+    
+    .menu .conteudo .boxFoto{
+        height: 200px;
+    }
 
-/* cidade área*/
-#dashboard_section .box_meio .box_cidades{
-     height: 280px;
+    .menu .conteudo .boxFoto #foto_user{
+        width: 80px;
+        height: 80px;
+    }
+
+    .menu .conteudo .boxFoto h3{
+        font-size: var(--font-size-regular);
+    }
+
+    .menu .conteudo .boxFoto button{
+        right: 15px;
+        font-size: var(--font-size-small);
+        background-size: 20px;
+        padding-right: 30px;
+    }
+
+    .box_hora h2{
+        font-size: var(--font-size-larguer);
+    }
+
+    .box_hora h3{
+        padding: 0px 1rem;
+        text-align: center;
+    }
+
+    .box_sessoes{
+        height: 200px;
+        gap: 20px;
+    }
+
+    .box_sessoes h2{
+        margin-left: 20px;
+    }
+
+    .menu .conteudo{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        width: 100%;
+        height: 100%;
+        overflow: hidden;
+        background-image: url("../../assets/logos/logo\ zump\ 1.png");
+        background-position: center bottom 40px;
+        background-repeat: no-repeat;
+        background-size: 130px;
+    }
+
+
+
+
+
+
+    #dashboard_section #titleDash{
+        font-size: 2rem;
+        line-height: 50px;
+    }
+
+    #dashboard_section .boxConteudo{
+        flex-direction: column;
+        width: 100vw;
+        height: calc(auto - 50px);
+        padding: 0px;
+    }
+    #dashboard_section .boxConteudo .boxLeft {
+        flex-wrap: nowrap;
+        justify-content: start;
+        overflow: hidden;
+        overflow-x: scroll;
+        min-height: 30%;
+    }
+
+    #dashboard_section .boxConteudo .boxLeft .card {
+        width: 100%;
+        min-width: 240px;
+        margin: 1rem 0rem 1rem 0rem;
+    }
+
+    #dashboard_section .boxConteudo .boxRight .areaGrafico{
+        width: 100%;
+        min-height: 40%;
+        min-height: auto;
+        border-radius: 8px;
+    }
+
+    #dashboard_section .boxConteudo .boxRight .areaGrafico .chart-container{
+        width: 100%;
+        height: 28vh;
+        margin: 0 auto;
+       
+    }
+
+    #dashboard_section .boxConteudo .boxRight .areaConsultoresCards{
+        width: 100%;
+        flex-direction: column;
+        justify-content: start;
+        align-items: center;
+        min-height: auto;
+    }
+    #dashboard_section .boxConteudo .boxRight .areaConsultoresCards .cardsConsultores{
+        width: 100%;
+        height: 200px;
+    }
+    #dashboard_section .boxConteudo .boxRight .areaConsultoresCards #titleConsultores{
+        top: -4px;
+        font-size: var(--font-size-small);
+    }
+
+
+    /* inicio tela de cliente */
+
+    #clientes_section .box_rodape .card_cliente{
+        height: 110px;  
+    }
+
+    #clientes_section .box_rodape .card_cliente .box_foto{
+        margin-top: 25px;
+    }
+
+    #clientes_section .box_rodape .card_cliente .infos_cliente{
+        margin-top: 25px;
+    }
+
+
+
+    #clientes_section .box_rodape .card_cliente .box_buttons{
+        top: 10px;
+        right: 20px;
+    }
+
+
+
+
+    #clientes_section .box_topo .inputPesquisar{  
+    height: 45px;
     width: 300px;
 }
-#dashboard_section .box_meio .box_cidades .box_cidades_aninhamento .cidades_row{
-    gap: 1rem;
-}
-
-#dashboard_section .box_meio .box_cidades .box_cidades_aninhamento .cidades_row img{
-    width: 30px;
-}
-#dashboard_section .box_meio .box_cidades .box_cidades_aninhamento .cidades_row p{
+#clientes_section .box_topo .inputPesquisar input{ 
+    padding-right: 50px;
     font-size: var(--font-size-small);
 }
-#dashboard_section .box_meio .box_cidades .box_cidades_aninhamento .cidades_row .qtdViagens{
-    font-size: var(--font-size-small);
+#clientes_section .box_topo .inputPesquisar button{ 
+    width: 45px;
+    height: 45px;
+    background-size: 25px;
 }
 
 
-/* rodape área */
-#dashboard_section .box_rodape{
-    width:95%;
-}
-#dashboard_section .box_rodape .box_consultores{
-    width: 360px;
-    height: 250px;
+#clientes_section .box_topo #adicionarCliente{
+    width: 150px;
+    height: 45px;
+    font-size: var(--font-size-small);
 }
 
-#dashboard_section .box_rodape .box_consultores .box_consultores_aninhamento{
-    height: 200px;
-}
-#dashboard_section .box_rodape .box_consultores .box_consultores_aninhamento .consultores_row{
-    gap: 1rem;
-}
-#dashboard_section .box_rodape .box_consultores .box_consultores_aninhamento .consultores_row p{
-    font-size: var(--font-size-small);
-    color: var(--white);
-    font-weight: var(--font-weight-medium);
-}
-#dashboard_section .box_rodape .box_consultores .box_consultores_aninhamento .consultores_row .qtdFaturamento{
-    font-size: var(--font-size-small);
-    color: #AEAEAE;
-    font-weight: var(--font-weight-regular);
-}
-#dashboard_section .box_rodape .box_pacotes{
-    width: 360px;
-    height: 250px;
-}
-#dashboard_section .box_rodape .box_pacotes .box_pacotes_aninhamento{
-    height: 200px;
-}
-#dashboard_section .box_rodape .box_pacotes .box_pacotes_aninhamento .pacotes_row{
-    gap: 1rem;
-}
-#dashboard_section .box_rodape .box_pacotes .box_pacotes_aninhamento .pacotes_row p{
-    font-size: var(--font-size-small);
-}
-#dashboard_section .box_rodape .box_pacotes .box_pacotes_aninhamento .pacotes_row .qtdVendas{
-    font-size: var(--font-size-small);
-}
+#clientes_section .box_topo #selectPacote{
+    width: 150px;
+    height: 45px;
 }
 
-@media screen and (max-width: 1024px) and (min-width: 768px){
-    :root{
-        --font-size-extra-larguer: 2rem;
-        --font-size-medium: 1.2rem;
-        --widht-buttons-home: 180px;
-        --height-buttons-home: 45px;
+
+
+}
+
+@media screen and (max-height: 1368px) and (min-height: 1367px){
+    body{
+        max-height: 1368px;
+    }
+
+    #dashboard_section .boxConteudo {
+        padding: 1rem;
+    }
+    
+    #dashboard_section .boxConteudo .boxLeft{
+        width: 95%;
+        height: auto;
+    }
+
+    #dashboard_section .boxConteudo .boxLeft .card{
+        width: 200px;
+        height: 120px;
+    }
+
+    #dashboard_section .boxConteudo .boxRight{
+        width: 95%;
+        justify-content: start;
+        padding: 1rem;
+    }
+    #dashboard_section .boxConteudo .boxRight .areaGrafico{
+        width: 100%;
+        min-height: 45%;
+    }
+
+    #dashboard_section .boxConteudo .boxRight .areaConsultoresCards{
+        width: 100%;
+        min-height: 27%;
     }
 
 }
-@media screen and (max-width: 768px) and (min-width: 480px){
-    :root{
-        --font-size-extra-larguer: 1.5rem;
-        --font-size-medium: 1rem;
-        --widht-buttons-home: 180px;
-        --height-buttons-home: 45px;
+
+@media screen and (max-height: 1366px) and (min-height: 1365px){
+    body{
+        max-height: 1366px;
+    }
+    #dashboard_section .boxConteudo{
+        justify-content: center;
     }
 
 
-}
-@media screen and (max-width: 480px) and (min-width: 320px){
-    :root{
-        --font-size-extra-larguer: 1.5rem;
-        --font-size-medium: 1rem;
-        --widht-buttons-home: 180px;
-        --height-buttons-home: 45px;
+     #dashboard_section .boxConteudo .boxLeft{
+        width: 100%;
+        height: auto;
+    }
+
+    #dashboard_section .boxConteudo .boxLeft .card{
+        width: 220px;
+        height: 140px;
+    }
+
+    #dashboard_section .boxConteudo .boxRight{
+        width: 100%;
+        justify-content: start;
+    }
+    #dashboard_section .boxConteudo .boxRight .areaGrafico{
+        min-height: 45%;
+    }
+
+    #dashboard_section .boxConteudo .boxRight .areaConsultoresCards{
+        min-height: 28%;
     }
 }
-@media screen and (max-width: 320px){
-    :root{
-        --font-size-extra-larguer: 1.5rem;
-        --font-size-medium: 1rem;
-        --widht-buttons-home: 180px;
-        --height-buttons-home: 45px;
-        --font-size-small: .9rem;
+
+@media screen and (max-height: 1280px) and (min-height: 1279px) {
+    body{
+        max-height: 1280px;
+    }
+
+    #dashboard_section .boxConteudo .boxRight{
+        justify-content: start;
+    }
+    #dashboard_section .boxConteudo .boxRight .areaGrafico{
+        width: 100%;
+        min-height: 45%;
+    }
+
+    #dashboard_section .boxConteudo .boxRight .areaConsultoresCards{
+        width: 100%;
+        min-height: 30%;
+    }
+}
+
+@media screen and (max-height: 1180px) and (min-height: 1179px){
+    body{
+        max-height: 1180px;
+    }
+        #dashboard_section .boxConteudo .boxRight{
+        justify-content: start;
+    }
+    #dashboard_section .boxConteudo .boxRight .areaGrafico{
+        width: 92%;
+        min-height: 45%;
+    }
+
+    #dashboard_section .boxConteudo .boxRight .areaConsultoresCards{
+        min-height: 30%;
+    }
+
+}
+
+@media screen and (max-height: 1024px) and (min-height: 1023px){
+    body{
+        max-height: 1024px;
+    }
+    #dashboard_section .boxConteudo .boxRight{
+        justify-content: start;
+    }
+    #dashboard_section .boxConteudo .boxRight .areaGrafico{
+        width: 100%;
+        min-height: 60%;
+    }
+
+    #dashboard_section .boxConteudo .boxRight .areaConsultoresCards{
+        width: 100%;
+        min-height: 33%;
+    }
+
+}
+
+@media screen and (max-height: 600px) {
+    .menu .conteudo{    
+        background-position: center bottom 30px;    
     }
 
 }
