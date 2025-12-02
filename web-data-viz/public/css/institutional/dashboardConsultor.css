@@ -560,6 +560,7 @@
     justify-content: center;
     align-items: center;
     gap: 4rem;
+        transition: all 1s linear;
 }
 
 
@@ -736,6 +737,24 @@
 }
 
 
+
+#consultores_section .boxLeftBottom .boxPesquisa .abrirHistorico{
+    display: none;
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    border: none;
+    background-color: #1B98E0;
+    background-image: url("../../assets/icon/Time\ Machine.svg");
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-size: 30px;
+    transition: background-color 0.3s ease;
+}
+
+#consultores_section .boxLeftBottom .boxPesquisa .abrirHistorico:hover{
+    background-color: #0E2936;
+}
 
 
 
@@ -945,6 +964,7 @@
 
 
 #consultores_section .boxRightBottom{
+    transition: all .6s ease;
     display: flex;
     justify-content: flex-start;
     width:35%;
@@ -957,7 +977,26 @@
     width: 100%;
     height: 100%;
     border-radius: 10px;
+    position: relative;
 }
+
+#consultores_section .boxRightBottom .boxHistorico .fecharHistorico{
+    display: none;
+    position: absolute;
+    top: -20px;
+    right: -20px;
+    height: 40px;
+    width: 40px;
+    border-radius: 50%;
+    background-color: #ffffff;
+    outline: none;
+    border: none;
+    background-image: url("../../assets/icon/MacOS\ Close.svg");
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-size: 38px;
+}
+
 
 #consultores_section .boxRightBottom .boxHistorico .boxSelecao{
     display: flex;

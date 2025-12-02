@@ -260,6 +260,7 @@
             >
               adicionar consultor
             </button>
+            <button onclick="abrirHistorico()" class="abrirHistorico"></button>
           </div>
           <div class="boxCardsConsultores">
             <div class="cardConsultor">
@@ -402,8 +403,9 @@
             </div>
           </div>
         </div>
-        <div class="boxRightBottom">
+        <div class="boxRightBottom" id="historico">
           <div class="boxHistorico">
+            <button onclick="fecharHistorico()" class="fecharHistorico"></button>
             <div class="boxSelecao">
               <h2>Histórico (atividades)</h2>
               <select name="" id="">
@@ -449,6 +451,32 @@
   var ListaValores = [];
   var ListaClientes = [];
 
+
+  function fecharHistorico(){
+    let modalHist = document.getElementById("historico")
+    modalHist.style.display = "none";
+  }
+
+  function abrirHistorico(){
+    let modalHist = document.getElementById("historico")
+    modalHist.style.display = "flex";
+  }
+
+  function verificarResolucaoJanela() {
+    const largura = window.innerWidth;
+    const altura = window.innerHeight;
+    let modalHist = document.getElementById("historico")
+
+    if(largura > 1330){
+      modalHist.style.display = "flex"
+    }else{
+      modalHist.style.display = "none"
+    }
+  }
+
+  window.addEventListener('resize', () => {
+    console.log(verificarResolucaoJanela());
+  });
 
   // function carregarFuncoes(){
 
