@@ -23,5 +23,9 @@ router.get("/pesquisarClientes/:nomeCliente", function (req, res) {
     dashboardController.pesquisarClientes(req, res);
 })
 
+router.post("/atualizarCliente", function (req, res) {
+    dashboardController.atualizarCliente(req, res);
+})
+
 
 module.exports = router;

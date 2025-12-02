@@ -60,10 +60,19 @@ function buscarValores(){
     return database.executar(instrucaoSql);
   }
 
+  function atualizarCliente(id, email, telefone, endereco){
+
+    var instrucaoSql = `UPDATE cliente SET email = '${email}', telefone = '${telefone}', cidade = '${endereco}' WHERE idCliente = ${id};`;
+  
+    console.log("Executando a instrução SQL: \n" + instrucaoSql);
+    return database.executar(instrucaoSql);
+  }
+
 module.exports = {
     buscarValores,
     cadastrarCliente,
     buscarClientes,
     apagarCliente,
-    pesquisarClientes
+    pesquisarClientes,
+    atualizarCliente
 };

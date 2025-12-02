@@ -472,7 +472,7 @@
           alert("Cliente excluído com sucesso!");
           setTimeout(() => {
             location.reload();
-          }, 2000);
+          }, 1000);
 
   }
 
@@ -494,17 +494,18 @@
               <button onclick="fecharEdicaoCliente()">voltar</button>
             </div>
             <div class="fotoCliente">
-              <h2>${nome}</h2>
+              <h2>${nomeCliente}</h2>
             </div>
             <div class="box_inputs">
               <div class="input">
                 <label for="">Email</label>
-                <input type="text" value="${email}" placeholder="email@gmail.com" />
+                <input type="text" id="input_email" value="${emailCliente}" placeholder="email@gmail.com" />
               </div>
               <div class="input">
                 <label for="">Telefone</label>
                 <input
                   type="text"
+                  id="input_telefone"
                   value="${tel}"
                   placeholder="(11) 00000-0000"
                   id="telClienteEdit"
@@ -512,7 +513,7 @@
               </div>
               <div class="input">
                 <label for="">Endereço</label>
-                <input type="text" value="${end}" placeholder="Rua x número x" />
+                <input id="input_endereco" type="text" value="${end}" placeholder="Rua x número x" />
               </div>
               <div class="input" id="dataBloq">
                 <label for="">Data Nasc.</label>
@@ -643,7 +644,7 @@
             </div>
             <div class="box_btns">
               <div class="buttons">
-                <button>alterar dados</button>
+                <button onclick="atualizarDadosCliente(${id})">alterar dados</button>
                 <button onclick="btnAbrirModalPacotes()">
                   acessar pacotes
                 </button>
@@ -688,6 +689,12 @@
 
     clientesList.innerHTML = ``;
 
+    if(ListaResultadoPesquisaCliente.length == 0){
+
+      clientesList.innerHTML = `<h2>Nenhum cliente encontrado</h2>`;
+
+    }
+
     for(var i = 0; i < ListaResultadoPesquisaCliente.length; i++)
           clientesList.innerHTML += `<div class="card_cliente" id="${ListaResultadoPesquisaCliente[i].idCliente}">
           <div class="box_foto">
@@ -699,11 +706,46 @@
           </div>
           <div class="box_buttons">
             <button id="btn_pacote" onclick="btnAbrirModalPacotes()"></button>
-            <button id="btn_deletar" onclick="deletarCliente(${ListaResultadoPesquisaCliente[i].idCliente}, '${ListaClientes[i].nome}', '${ListaClientes[i].email}')"></button>
-            <button id="btn_editar" onclick="EdicaoCliente(${ListaResultadoPesquisaCliente[i].idCliente}, '${ListaClientes[i].nome}', '${ListaClientes[i].email}', '${ListaClientes[i].telefone}', '${ListaClientes[i].cidade}', '${ListaClientes[i].Dtnascimento}')"></button>
+            <button id="btn_deletar" onclick="deletarCliente(${ListaResultadoPesquisaCliente[i].idCliente}, '${ListaResultadoPesquisaCliente[i].nome}', '${ListaResultadoPesquisaCliente[i].email}')"></button>
+            <button id="btn_editar" onclick="EdicaoCliente(${ListaResultadoPesquisaCliente[i].idCliente}, '${ListaResultadoPesquisaCliente[i].nome}', '${ListaResultadoPesquisaCliente[i].email}', '${ListaResultadoPesquisaCliente[i].telefone}', '${ListaResultadoPesquisaCliente[i].cidade}', '${ListaResultadoPesquisaCliente[i].Dtnascimento}')"></button>
           </div>
         </div>`;
 
   }
+
+  function atualizarDadosCliente(id){
+
+    var telefone = input_telefone.value;
+    var email = input_email.value;
+    var endereco = input_endereco.value;
+
+    for(var i = 0; i < ListaClientes.length; i++){
+
+      if(id == ListaClientes[i].idCliente){
+
+        fetch('/dashboard/atualizarCliente', {
+            method: "POST",
+            headers: {
+              "Content-Type": "application/json"
+            },
+            body: JSON.stringify({
+              idCliente: id,
+              telefoneCliente: telefone,
+              emailCliente: email,
+              cidadeCliente: endereco
+            })
+          })
+          alert("Dados do cliente alterados com sucesso com sucesso!");
+          setTimeout(() => {
+            location.reload();
+          }, 2000);
+          break;
+      }
+
+      alert("Houve um erro inesperado!");  
+
+  }
+
+}
 
 </script>

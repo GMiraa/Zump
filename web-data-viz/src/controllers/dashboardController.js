@@ -110,10 +110,35 @@ function apagarCliente(req, res) {
         );
 }
 
+function atualizarCliente(req, res) {
+
+    var id = req.body.idCliente;
+    var email = req.body.emailCliente;
+    var telefone = req.body.telefoneCliente;
+    var endereco = req.body.cidadeCliente;
+    
+        dashboardModel.atualizarCliente(id, email, telefone, endereco)
+            .then(
+                function (resultado) {
+                    res.json(resultado);
+                }
+            ).catch(
+                function (erro) {
+                    console.log(erro);
+                    console.log(
+                        "\nHouve um erro ao realizar o cadastro! Erro: ",
+                        erro.sqlMessage
+                    );
+                    res.status(500).json(erro.sqlMessage);
+                } 
+            );
+    }
+
 module.exports = {
     buscarValores,
     cadastrarCliente,
     buscarClientes,
     apagarCliente,
-    pesquisarClientes
+    pesquisarClientes,
+    atualizarCliente
 }
