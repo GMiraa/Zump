@@ -42,9 +42,28 @@ function buscarValores(){
     return database.executar(instrucaoSql);
   }
 
+  function pesquisarClientes(nome){
+
+    if(nome == "" || nome == null){
+
+      var instrucaoSql = `SELECT * FROM cliente;`;
+
+    }
+    else{
+
+      var instrucaoSql = `SELECT * FROM cliente WHERE nome LIKE '%${nome}%';`;
+      
+    }
+
+  
+    console.log("Executando a instrução SQL: \n" + instrucaoSql);
+    return database.executar(instrucaoSql);
+  }
+
 module.exports = {
     buscarValores,
     cadastrarCliente,
     buscarClientes,
-    apagarCliente
+    apagarCliente,
+    pesquisarClientes
 };

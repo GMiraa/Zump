@@ -94,12 +94,13 @@
   var ListaClientes = [];
 
 
-  // function carregarFuncoes(){
+//    function carregarFuncoes(){
 
-  //   Userlogado();
-  //   validarSessao()
+//      Userlogado();
+//      validarSessao()
 
-  // }
+//  }
+
   function Userlogado(){
 
         if((nome != null || nome != undefined) && (id != null || id != undefined)){
@@ -109,80 +110,6 @@
         }
 
   }
-
-  function cadastrarCliente(){
-
-    var nome = nomeCliente.value;
-    var email = emailCliente.value;
-    var cpf = cpfCliente.value;
-    var dtNasc = dataNascCliente.value;
-    var telefone = telCliente.value;
-    var endereco = enderecoCliente.value;
-
-    if(nome == "" || email == "" || cpf == "" || dtNasc == "" || telefone == "" || endereco == ""){
-      alert("Preencha todos os campos");
-    }
-    else {
-
-      fetch('/dashboard/cadastrarCliente', {
-            method: "POST",
-            headers: {
-              "Content-Type": "application/json"
-            },
-            body: JSON.stringify({
-              nomeCliente: nome,
-              emailCliente: email,
-              cpfCliente: cpf,
-              DataNascimento: dtNasc,
-              telefoneUsuario: telefone,
-              endUsuario: endereco,
-              fkCliente: fkempresa
-            })
-          })
-          alert("Cadastro realizado com sucesso")
-          setTimeout(() => {
-            fecharCardDeCadastroCliente();
-          }, 1000);
-      
-    }
-
-  }
-
-  async function exibirClientes(){
-
-    const resposta = await fetch(`/dashboard/buscarClientes/${fkempresa}`);   
-    const dados = await resposta.json();
-    ListaClientes = dados;
-
-        clientesList.innerHTML = ``;
-         
-        if(ListaClientes == ``){
-  
-            clientesList.innerHTML = `Não há clientes cadastrados.`;
-  
-        }
-        else {
-          for(var i = 0; i < ListaClientes.length; i++)
-          clientesList.innerHTML += `<div class="card_cliente" id="${ListaClientes[i].idCliente}">
-          <div class="box_foto">
-            <img src="assets/icon/Profile.svg" alt="user_img" />
-          </div>
-          <div class="infos_cliente">
-            <h2>${ListaClientes[i].nome}</h2>
-            <p>${ListaClientes[i].email}</p>
-          </div>
-          <div class="box_buttons">
-            <button id="btn_pacote" onclick="btnAbrirModalPacotes()"></button>
-            <button id="btn_deletar" onclick="deletarCliente(${ListaClientes[i].idCliente})"></button>
-            <button id="btn_editar" onclick="abrirEdicaoCliente(${ListaClientes[i].idCliente})"></button>
-          </div>
-        </div>`;
-
-        }
-
-  }
-
-  exibirClientes();
 
   //mascara para inputs
   let fecharTimeoutBloq = null;
@@ -221,90 +148,5 @@
       fecharTimeoutBloq = null;
     }, 3000);
   }
-
-
-
-  let cardDeleteCliente = document.getElementById("cardDelete");
-  let fecharTimeout = null;
-
-  function deletarCliente(id) {
-
-    var idDoCliente = id;
-
-    for(var i = 0; i < ListaClientes.length; i++){
-
-      if(ListaClientes[i].idCliente == idDoCliente){
-
-        cardDelete.innerHTML = `<div class="barraTemporizadora"></div>
-      <h1>Deseja deletar o cliente?</h1>
-      <div class="infosCliente">
-        <h2 id="DelNomeCliente">${ListaClientes[i].nome}</h2>
-        <h2 id="DelEmailCliente">${ListaClientes[i].email}</h2>
-        <h2 id="DelPacotesAdquiridos">Pacotes adquiridos: 127</h2>
-      </div>
-      <div class="opBtn">
-        <button id="btnNao" onclick="fecharCardDeletarCliente()">não</button>
-        <button id="btnSim" onclick="apagarCliente(${ListaClientes[i].id})">sim</button>
-      </div>`;
-
-      break;
-      
-      }
-      else{
-
-        cardDelete.innerHTML = `<div class="barraTemporizadora"></div><h1>Um erro inesperado ocorreu...</h1>`;
-
-      }
-
-    }
-
-    cardDeleteCliente.style.display = "flex";
-
-    const barra = cardDeleteCliente.querySelector(".barraTemporizadora");
-    barra.style.animation = "none";
-    void barra.offsetWidth;
-    barra.style.animation = "temporizadora 5s linear forwards";
-    DelNomeCliente.innerHTML = `${ListaClientes[idDoCliente].nome}`;
-    DelEmailCliente.innerHTML = `${ListaClientes[idDoCliente].email}`;
-
-    if (fecharTimeout) clearTimeout(fecharTimeout);
-    fecharTimeout = setTimeout(() => {
-      cardDeleteCliente.style.display = "none";
-      fecharTimeout = null;
-    }, 5000);
-  }
-
-  function fecharCardDeletarCliente() {
-    cardDeleteCliente.style.display = "none";
-    if (fecharTimeout) {
-      clearTimeout(fecharTimeout);
-      fecharTimeout = null;
-    }
-  }
-
-  async function apagarCliente(id) {
-    
-    var clienteId = id;
-
-    fetch('/dashboard/apagarCliente/${clienteId}', {
-            method: "POST",
-            headers: {
-              "Content-Type": "application/json"
-            },
-            body: JSON.stringify({
-              Id: clienteId
-            })
-          })
-          alert("Cliente excluído com sucesso!");
-          setTimeout(() => {
-            location.reload();
-          }, 2000);
-
-  }
-
-
-
-
-
 
 </script>

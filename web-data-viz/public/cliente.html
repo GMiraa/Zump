@@ -203,35 +203,320 @@
           </div>
         </div>
       </div>
-      <div class="editarCliente" id="telaEdicaoCliente">
-        <div class="conteudoEdit">
+      <div class="editarCliente" id="telaEdicaoCliente"></div>
+      <div class="cardCadastroCliente" id="cadastrarCliente">
+        <button
+          class="fecharCadastroCliente"
+          onclick="fecharCardDeCadastroCliente()"
+        ></button>
+        <div class="box_cadastro_de_cliente">
+          <h1>Cadastro de cliente</h1>
+          <div class="inputs">
+            <label for="nomeCliente">Nome</label>
+            <input
+              type="text"
+              name=""
+              id="nomeCliente"
+              placeholder="Nome do cliente..."
+            />
+          </div>
+          <div class="inputs">
+            <label for="emailCliente">Email</label>
+            <input
+              type="text"
+              name=""
+              id="emailCliente"
+              placeholder="E-mail do cliente..."
+            />
+          </div>
+
+          <div class="inputs_cpf_dataNasc">
+            <div class="inputsCpfTel">
+              <label for="cpfCliente">Cpf</label>
+              <input
+                type="text"
+                name=""
+                id="cpfCliente"
+                placeholder="000.000.000-00"
+                maxlength="14"
+              />
+            </div>
+            <div class="inputsCpfTel">
+              <label for="dataNascCliente">Data Nasc.</label>
+              <input type="date" name="" id="dataNascCliente" />
+            </div>
+          </div>
+          <div class="inputs">
+            <label for="telCliente">Telefone</label>
+            <input
+              type="text"
+              name=""
+              id="telCliente"
+              placeholder="(11) 00000-0000"
+            />
+          </div>
+          <div class="inputs">
+            <label for="enderecoCliente">Cidade</label>
+            <input
+              type="text"
+              name=""
+              id="enderecoCliente"
+              placeholder="Cidade do cliente..."
+            />
+          </div>
+          <button onclick="cadastrarCliente()">cadastrar cliente</button>
+        </div>
+      </div>
+      <div class="box_topo">
+        <div class="inputPesquisar">
+          <input type="text" placeholder="pesquisar cliente..." id="nomeClientePesquisa" />
+          <button onclick="pesquisarCliente()"></button>
+        </div>
+        <div class="linha-baixo">
+        <button id="adicionarCliente" onclick="abrirCardDeCadastroCliente()">
+          adicionar cliente
+        </button>
+        <div class="selecao">
+          <p>Filtrar pacote</p>
+          <select name="" id="selectPacote">
+            <option value="">Sem pacote</option>
+            <option value="">Com pacote</option>
+          </select>
+        </div>
+        </div>
+      </div>
+      <div class="box_rodape" id="clientesList"></div>
+    </section>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.68/pdfmake.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.68/vfs_fonts.js"></script>
+    <script src="https://unpkg.com/imask"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chartjs-plugin-datalabels@2"></script>
+    <script src="js/mascarasInput/maskaras.js"></script>
+    <script src="js/modal/modalConsultor.js"></script>
+    <script src="js/modal/modalCliente.js"></script>
+    <script src="js/modal/modalPacotes.js"></script>
+    <script src="js/dashboardgeral.js"></script>
+    <script src="js/graficoGeral.js"></script>
+    <script src="js/graficoConsultor.js"></script>
+
+  </body>
+</html>
+
+<script>
+
+  var nome = sessionStorage.NOME_USUARIO;
+  var id = sessionStorage.ID_USUARIO;
+  var fkempresa = sessionStorage.FK_EMPRESA
+
+  var ListaValores = [];
+  var ListaClientes = [];
+  var ListaResultadoPesquisaCliente = [];
+
+  // function carregarFuncoes(){
+
+  //   Userlogado();
+  //   validarSessao()
+
+  // }
+  function Userlogado(){
+
+        if((nome != null || nome != undefined) && (id != null || id != undefined)){
+
+            name_user.innerHTML = `${nome}`
+
+        }
+
+  }
+
+  function cadastrarCliente(){
+
+    var nome = nomeCliente.value;
+    var email = emailCliente.value;
+    var cpf = cpfCliente.value;
+    var dtNasc = dataNascCliente.value;
+    var telefone = telCliente.value;
+    var endereco = enderecoCliente.value;
+
+    if(nome == "" || email == "" || cpf == "" || dtNasc == "" || telefone == "" || endereco == ""){
+      alert("Preencha todos os campos");
+    }
+    else {
+
+      fetch('/dashboard/cadastrarCliente', {
+            method: "POST",
+            headers: {
+              "Content-Type": "application/json"
+            },
+            body: JSON.stringify({
+              nomeCliente: nome,
+              emailCliente: email,
+              cpfCliente: cpf,
+              DataNascimento: dtNasc,
+              telefoneUsuario: telefone,
+              endUsuario: endereco,
+              fkCliente: fkempresa
+            })
+          })
+          alert("Cadastro realizado com sucesso")
+          setTimeout(() => {
+            fecharCardDeCadastroCliente();
+          }, 1000);
+      
+    }
+
+  }
+
+  async function exibirClientes(){
+
+    const resposta = await fetch(`/dashboard/buscarClientes/${fkempresa}`);   
+    const dados = await resposta.json();
+    ListaClientes = dados;
+
+        clientesList.innerHTML = ``;
+         
+        if(ListaClientes == ``){
+  
+            clientesList.innerHTML = `Não há clientes cadastrados.`;
+  
+        }
+        else {
+          for(var i = 0; i < ListaClientes.length; i++)
+          clientesList.innerHTML += `<div class="card_cliente" id="${ListaClientes[i].idCliente}">
+          <div class="box_foto">
+            <img src="assets/icon/Profile.svg" alt="user_img" />
+          </div>
+          <div class="infos_cliente">
+            <h2>${ListaClientes[i].nome}</h2>
+            <p>${ListaClientes[i].email}</p>
+          </div>
+          <div class="box_buttons">
+            <button id="btn_pacote" onclick="btnAbrirModalPacotes()"></button>
+            <button id="btn_deletar" onclick="deletarCliente(${ListaClientes[i].idCliente}, '${ListaClientes[i].nome}', '${ListaClientes[i].email}')"></button>
+            <button id="btn_editar" onclick="EdicaoCliente(${ListaClientes[i].idCliente}, '${ListaClientes[i].nome}', '${ListaClientes[i].email}', '${ListaClientes[i].telefone}', '${ListaClientes[i].cidade}', '${ListaClientes[i].Dtnascimento}')"></button>
+          </div>
+        </div>`;
+
+      }
+  }
+
+  exibirClientes();
+
+  //mascara para inputs
+  let fecharTimeoutBloq = null;
+
+  let cardDeleteCliente = document.getElementById("cardDelete");
+  let fecharTimeout = null;
+
+  function deletarCliente(id, nome, email) {
+
+    var idDoCliente = id;
+    var NomeCliente = nome;
+    var EmailCliente = email;
+
+    if(idDoCliente == "" || idDoCliente == null || NomeCliente == "" || NomeCliente == null || EmailCliente == "" || EmailCliente == null){
+      cardDelete.innerHTML = `<div class="barraTemporizadora"></div><h1>Um erro inesperado ocorreu...</h1>`;
+    }
+    else {
+
+        cardDelete.innerHTML = `<div class="barraTemporizadora"></div>
+      <h1>Deseja deletar o cliente?</h1>
+      <div class="infosCliente">
+        <h2 id="DelNomeCliente">${NomeCliente}</h2>
+        <h2 id="DelEmailCliente">${EmailCliente}</h2>
+        <h2 id="DelPacotesAdquiridos">Pacotes adquiridos: 127</h2>
+      </div>
+      <div class="opBtn">
+        <button id="btnNao" onclick="fecharCardDeletarCliente()">não</button>
+        <button id="btnSim" onclick="apagarCliente(${idDoCliente})">sim</button>
+      </div>`;  
+
+    cardDeleteCliente.style.display = "flex";
+
+    const barra = cardDeleteCliente.querySelector(".barraTemporizadora");
+    barra.style.animation = "none";
+    void barra.offsetWidth;
+    barra.style.animation = "temporizadora 5s linear forwards";
+
+    if (fecharTimeout) clearTimeout(fecharTimeout);
+    fecharTimeout = setTimeout(() => {
+      cardDeleteCliente.style.display = "none";
+      fecharTimeout = null;
+    }, 5000);
+
+    
+  }
+  }
+
+  function fecharCardDeletarCliente() {
+    cardDeleteCliente.style.display = "none";
+    if (fecharTimeout) {
+      clearTimeout(fecharTimeout);
+      fecharTimeout = null;
+    }
+  }
+
+  async function apagarCliente(id) {
+    
+    var clienteId = id;
+
+    fetch('/dashboard/apagarCliente/${clieteId}', {
+            method: "POST",
+            headers: {
+              "Content-Type": "application/json"
+            },
+            body: JSON.stringify({
+              Id: clienteId
+            })
+          })
+          alert("Cliente excluído com sucesso!");
+          setTimeout(() => {
+            location.reload();
+          }, 2000);
+
+  }
+
+  async function EdicaoCliente(id, nome, email, telefone, endereco, dtnasc){
+
+    var idCliente = id;
+    var nomeCliente = nome;
+    var emailCliente = email;
+    var tel = telefone;
+    var end = endereco;
+    var nascimento = dtnasc;
+
+    var telaEdicao = document.getElementById("telaEdicaoCliente");
+    telaEdicao.style.display = "flex";
+
+    telaEdicaoCliente.innerHTML = `<div class="conteudoEdit">
           <div class="formEditCliente">
             <div class="divVoltar">
               <button onclick="fecharEdicaoCliente()">voltar</button>
             </div>
             <div class="fotoCliente">
-              <h2>NOME CLIENTE</h2>
+              <h2>${nome}</h2>
             </div>
             <div class="box_inputs">
               <div class="input">
                 <label for="">Email</label>
-                <input type="text" placeholder="email@gmail.com" />
+                <input type="text" value="${email}" placeholder="email@gmail.com" />
               </div>
               <div class="input">
                 <label for="">Telefone</label>
                 <input
                   type="text"
+                  value="${tel}"
                   placeholder="(11) 00000-0000"
                   id="telClienteEdit"
                 />
               </div>
               <div class="input">
                 <label for="">Endereço</label>
-                <input type="text" placeholder="Rua x número x" />
+                <input type="text" value="${end}" placeholder="Rua x número x" />
               </div>
               <div class="input" id="dataBloq">
                 <label for="">Data Nasc.</label>
-                <input type="text" placeholder="00/00/0000" disabled />
+                <input type="text" value="${nascimento}" placeholder="00/00/0000" disabled />
               </div>
             </div>
           </div>
@@ -365,299 +650,21 @@
               </div>
             </div>
           </div>
-        </div>
-      </div>
-      <div class="cardCadastroCliente" id="cadastrarCliente">
-        <button
-          class="fecharCadastroCliente"
-          onclick="fecharCardDeCadastroCliente()"
-        ></button>
-        <div class="box_cadastro_de_cliente">
-          <h1>Cadastro de cliente</h1>
-          <div class="inputs">
-            <label for="nomeCliente">Nome</label>
-            <input
-              type="text"
-              name=""
-              id="nomeCliente"
-              placeholder="Nome do cliente..."
-            />
-          </div>
-          <div class="inputs">
-            <label for="emailCliente">Email</label>
-            <input
-              type="text"
-              name=""
-              id="emailCliente"
-              placeholder="E-mail do cliente..."
-            />
-          </div>
-
-          <div class="inputs_cpf_dataNasc">
-            <div class="inputsCpfTel">
-              <label for="cpfCliente">Cpf</label>
-              <input
-                type="text"
-                name=""
-                id="cpfCliente"
-                placeholder="000.000.000-00"
-                maxlength="14"
-              />
-            </div>
-            <div class="inputsCpfTel">
-              <label for="dataNascCliente">Data Nasc.</label>
-              <input type="date" name="" id="dataNascCliente" />
-            </div>
-          </div>
-          <div class="inputs">
-            <label for="telCliente">Telefone</label>
-            <input
-              type="text"
-              name=""
-              id="telCliente"
-              placeholder="(11) 00000-0000"
-            />
-          </div>
-          <div class="inputs">
-            <label for="enderecoCliente">Cidade</label>
-            <input
-              type="text"
-              name=""
-              id="enderecoCliente"
-              placeholder="Cidade do cliente..."
-            />
-          </div>
-          <button onclick="cadastrarCliente()">cadastrar cliente</button>
-        </div>
-      </div>
-      <div class="box_topo">
-        <div class="inputPesquisar">
-          <input type="text" placeholder="pesquisar cliente..." />
-          <button></button>
-        </div>
-        <div class="linha-baixo">
-        <button id="adicionarCliente" onclick="abrirCardDeCadastroCliente()">
-          adicionar cliente
-        </button>
-        <div class="selecao">
-          <p>Filtrar pacote</p>
-          <select name="" id="selectPacote">
-            <option value="">Sem pacote</option>
-            <option value="">Com pacote</option>
-          </select>
-        </div>
-        </div>
-      </div>
-      <div class="box_rodape" id="clientesList">
-        <div class="card_cliente">
-          <div class="box_foto">
-            <img src="assets/icon/Profile.svg" alt="user_img" />
-          </div>
-          <div class="infos_cliente">
-            <h2>Nome Cliente</h2>
-            <p>emaildocliente@gmail.com</p>
-          </div>
-          <div class="box_buttons">
-            <button id="btn_pacote" onclick="btnAbrirModalPacotes()"></button>
-            <button id="btn_deletar" onclick="deletarCliente()"></button>
-            <button id="btn_editar" onclick="abrirEdicaoCliente()"></button>
-          </div>
-        </div>
-         <div class="card_cliente">
-          <div class="box_foto">
-            <img src="assets/icon/Profile.svg" alt="user_img" />
-          </div>
-          <div class="infos_cliente">
-            <h2>Nome Cliente</h2>
-            <p>emaildocliente@gmail.com</p>
-          </div>
-          <div class="box_buttons">
-            <button id="btn_pacote" onclick="btnAbrirModalPacotes()"></button>
-            <button id="btn_deletar" onclick="deletarCliente()"></button>
-            <button id="btn_editar" onclick="abrirEdicaoCliente()"></button>
-          </div>
-        </div>
-         <div class="card_cliente">
-          <div class="box_foto">
-            <img src="assets/icon/Profile.svg" alt="user_img" />
-          </div>
-          <div class="infos_cliente">
-            <h2>Nome Cliente</h2>
-            <p>emaildocliente@gmail.com</p>
-          </div>
-          <div class="box_buttons">
-            <button id="btn_pacote" onclick="btnAbrirModalPacotes()"></button>
-            <button id="btn_deletar" onclick="deletarCliente()"></button>
-            <button id="btn_editar" onclick="abrirEdicaoCliente()"></button>
-          </div>
-        </div>
-         <div class="card_cliente">
-          <div class="box_foto">
-            <img src="assets/icon/Profile.svg" alt="user_img" />
-          </div>
-          <div class="infos_cliente">
-            <h2>Nome Cliente</h2>
-            <p>emaildocliente@gmail.com</p>
-          </div>
-          <div class="box_buttons">
-            <button id="btn_pacote" onclick="btnAbrirModalPacotes()"></button>
-            <button id="btn_deletar" onclick="deletarCliente()"></button>
-            <button id="btn_editar" onclick="abrirEdicaoCliente()"></button>
-          </div>
-        </div>
-         <div class="card_cliente">
-          <div class="box_foto">
-            <img src="assets/icon/Profile.svg" alt="user_img" />
-          </div>
-          <div class="infos_cliente">
-            <h2>Nome Cliente</h2>
-            <p>emaildocliente@gmail.com</p>
-          </div>
-          <div class="box_buttons">
-            <button id="btn_pacote" onclick="btnAbrirModalPacotes()"></button>
-            <button id="btn_deletar" onclick="deletarCliente()"></button>
-            <button id="btn_editar" onclick="abrirEdicaoCliente()"></button>
-          </div>
-        </div>
-         <div class="card_cliente">
-          <div class="box_foto">
-            <img src="assets/icon/Profile.svg" alt="user_img" />
-          </div>
-          <div class="infos_cliente">
-            <h2>Nome Cliente</h2>
-            <p>emaildocliente@gmail.com</p>
-          </div>
-          <div class="box_buttons">
-            <button id="btn_pacote" onclick="btnAbrirModalPacotes()"></button>
-            <button id="btn_deletar" onclick="deletarCliente()"></button>
-            <button id="btn_editar" onclick="abrirEdicaoCliente()"></button>
-          </div>
-        </div>
-         <div class="card_cliente">
-          <div class="box_foto">
-            <img src="assets/icon/Profile.svg" alt="user_img" />
-          </div>
-          <div class="infos_cliente">
-            <h2>Nome Cliente</h2>
-            <p>emaildocliente@gmail.com</p>
-          </div>
-          <div class="box_buttons">
-            <button id="btn_pacote" onclick="btnAbrirModalPacotes()"></button>
-            <button id="btn_deletar" onclick="deletarCliente()"></button>
-            <button id="btn_editar" onclick="abrirEdicaoCliente()"></button>
-          </div>
-        </div>
-         <div class="card_cliente">
-          <div class="box_foto">
-            <img src="assets/icon/Profile.svg" alt="user_img" />
-          </div>
-          <div class="infos_cliente">
-            <h2>Nome Cliente</h2>
-            <p>emaildocliente@gmail.com</p>
-          </div>
-          <div class="box_buttons">
-            <button id="btn_pacote" onclick="btnAbrirModalPacotes()"></button>
-            <button id="btn_deletar" onclick="deletarCliente()"></button>
-            <button id="btn_editar" onclick="abrirEdicaoCliente()"></button>
-          </div>
-        </div>
-      </div>
-    </section>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.68/pdfmake.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.68/vfs_fonts.js"></script>
-    <script src="https://unpkg.com/imask"></script>
-    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/chartjs-plugin-datalabels@2"></script>
-    <script src="js/mascarasInput/maskaras.js"></script>
-    <script src="js/modal/modalConsultor.js"></script>
-    <script src="js/modal/modalCliente.js"></script>
-    <script src="js/modal/modalPacotes.js"></script>
-    <script src="js/dashboardgeral.js"></script>
-    <script src="js/graficoGeral.js"></script>
-    <script src="js/graficoConsultor.js"></script>
-
-  </body>
-</html>
-
-<script>
-
-  var nome = sessionStorage.NOME_USUARIO;
-  var id = sessionStorage.ID_USUARIO;
-  var fkempresa = sessionStorage.FK_EMPRESA
-
-  var ListaValores = [];
-  var ListaClientes = [];
-
-
-  // function carregarFuncoes(){
-
-  //   Userlogado();
-  //   validarSessao()
-
-  // }
-  function Userlogado(){
-
-        if((nome != null || nome != undefined) && (id != null || id != undefined)){
-
-            name_user.innerHTML = `${nome}`
-
-        }
+        </div>`;
 
   }
 
-  function cadastrarCliente(){
+  async function pesquisarCliente(){
 
-    var nome = nomeCliente.value;
-    var email = emailCliente.value;
-    var cpf = cpfCliente.value;
-    var dtNasc = dataNascCliente.value;
-    var telefone = telCliente.value;
-    var endereco = enderecoCliente.value;
+    var nomeCliente = nomeClientePesquisa.value;
 
-    if(nome == "" || email == "" || cpf == "" || dtNasc == "" || telefone == "" || endereco == ""){
-      alert("Preencha todos os campos");
-    }
-    else {
 
-      fetch('/dashboard/cadastrarCliente', {
-            method: "POST",
-            headers: {
-              "Content-Type": "application/json"
-            },
-            body: JSON.stringify({
-              nomeCliente: nome,
-              emailCliente: email,
-              cpfCliente: cpf,
-              DataNascimento: dtNasc,
-              telefoneUsuario: telefone,
-              endUsuario: endereco,
-              fkCliente: fkempresa
-            })
-          })
-          alert("Cadastro realizado com sucesso")
-          setTimeout(() => {
-            fecharCardDeCadastroCliente();
-          }, 1000);
-      
-    }
 
-  }
+    if(nomeCliente == "" || nomeCliente == null){
 
-  async function exibirClientes(){
+      clientesList.innerHTML = ``;
 
-    const resposta = await fetch(`/dashboard/buscarClientes/${fkempresa}`);   
-    const dados = await resposta.json();
-    ListaClientes = dados;
-
-        clientesList.innerHTML = ``;
-         
-        if(ListaClientes == ``){
-  
-            clientesList.innerHTML = `Não há clientes cadastrados.`;
-  
-        }
-        else {
-          for(var i = 0; i < ListaClientes.length; i++)
+      for(var i = 0; i < ListaClientes.length; i++)
           clientesList.innerHTML += `<div class="card_cliente" id="${ListaClientes[i].idCliente}">
           <div class="box_foto">
             <img src="assets/icon/Profile.svg" alt="user_img" />
@@ -668,138 +675,35 @@
           </div>
           <div class="box_buttons">
             <button id="btn_pacote" onclick="btnAbrirModalPacotes()"></button>
-            <button id="btn_deletar" onclick="deletarCliente(${ListaClientes[i].idCliente})"></button>
-            <button id="btn_editar" onclick="abrirEdicaoCliente(${ListaClientes[i].idCliente})"></button>
+            <button id="btn_deletar" onclick="deletarCliente(${ListaClientes[i].idCliente}, '${ListaClientes[i].nome}', '${ListaClientes[i].email}')"></button>
+            <button id="btn_editar" onclick="EdicaoCliente(${ListaClientes[i].idCliente}, '${ListaClientes[i].nome}', '${ListaClientes[i].email}', '${ListaClientes[i].telefone}', '${ListaClientes[i].cidade}', '${ListaClientes[i].Dtnascimento}')"></button>
           </div>
         </div>`;
 
-        }
-
-  }
-
-  exibirClientes();
-
-  //mascara para inputs
-  let fecharTimeoutBloq = null;
-
-  function bloquearConsultor(botao) {
-    let cardBloqueado = document.getElementById("cardBloq");
-    let titulo = cardBloqueado.querySelector("h1");
-
-    // Pega o nome do consultor
-    let nome = botao
-      .closest(".cardConsultor")
-      .querySelector(".infos_consultor h2").textContent;
-
-    // Alterna bloqueado/desbloqueado
-    botao.classList.toggle("fechado");
-
-    // Define a frase conforme o estado
-    if (botao.classList.contains("fechado")) {
-      titulo.textContent = `Consultor ${nome} Bloqueado`;
-    } else {
-      titulo.textContent = `Consultor ${nome} Desbloqueado`;
     }
 
-    // Exibe o card
-    cardBloqueado.style.display = "flex";
-    const barra = cardBloqueado.querySelector(".temporizadorBloq");
-    barra.style.animation = "none";
-    void barra.offsetWidth;
-    barra.style.animation = "temporizadora 3s linear forwards";
+    const resposta = await fetch(`/dashboard/pesquisarClientes/${nomeCliente}`);   
+    const dados = await resposta.json();
+    ListaResultadoPesquisaCliente = dados;
 
-    // Timeout para fechar
-    if (fecharTimeoutBloq) clearTimeout(fecharTimeoutBloq);
+    clientesList.innerHTML = ``;
 
-    fecharTimeoutBloq = setTimeout(() => {
-      cardBloqueado.style.display = "none";
-      fecharTimeoutBloq = null;
-    }, 3000);
-  }
-
-
-
-  let cardDeleteCliente = document.getElementById("cardDelete");
-  let fecharTimeout = null;
-
-  function deletarCliente(id) {
-
-    var idDoCliente = id;
-
-    for(var i = 0; i < ListaClientes.length; i++){
-
-      if(ListaClientes[i].idCliente == idDoCliente){
-
-        cardDelete.innerHTML = `<div class="barraTemporizadora"></div>
-      <h1>Deseja deletar o cliente?</h1>
-      <div class="infosCliente">
-        <h2 id="DelNomeCliente">${ListaClientes[i].nome}</h2>
-        <h2 id="DelEmailCliente">${ListaClientes[i].email}</h2>
-        <h2 id="DelPacotesAdquiridos">Pacotes adquiridos: 127</h2>
-      </div>
-      <div class="opBtn">
-        <button id="btnNao" onclick="fecharCardDeletarCliente()">não</button>
-        <button id="btnSim" onclick="apagarCliente(${ListaClientes[i].id})">sim</button>
-      </div>`;
-
-      break;
-      
-      }
-      else{
-
-        cardDelete.innerHTML = `<div class="barraTemporizadora"></div><h1>Um erro inesperado ocorreu...</h1>`;
-
-      }
-
-    }
-
-    cardDeleteCliente.style.display = "flex";
-
-    const barra = cardDeleteCliente.querySelector(".barraTemporizadora");
-    barra.style.animation = "none";
-    void barra.offsetWidth;
-    barra.style.animation = "temporizadora 5s linear forwards";
-    DelNomeCliente.innerHTML = `${ListaClientes[idDoCliente].nome}`;
-    DelEmailCliente.innerHTML = `${ListaClientes[idDoCliente].email}`;
-
-    if (fecharTimeout) clearTimeout(fecharTimeout);
-    fecharTimeout = setTimeout(() => {
-      cardDeleteCliente.style.display = "none";
-      fecharTimeout = null;
-    }, 5000);
-  }
-
-  function fecharCardDeletarCliente() {
-    cardDeleteCliente.style.display = "none";
-    if (fecharTimeout) {
-      clearTimeout(fecharTimeout);
-      fecharTimeout = null;
-    }
-  }
-
-  async function apagarCliente(id) {
-    
-    var clienteId = id;
-
-    fetch('/dashboard/apagarCliente/${clienteId}', {
-            method: "POST",
-            headers: {
-              "Content-Type": "application/json"
-            },
-            body: JSON.stringify({
-              Id: clienteId
-            })
-          })
-          alert("Cliente excluído com sucesso!");
-          setTimeout(() => {
-            location.reload();
-          }, 2000);
+    for(var i = 0; i < ListaResultadoPesquisaCliente.length; i++)
+          clientesList.innerHTML += `<div class="card_cliente" id="${ListaResultadoPesquisaCliente[i].idCliente}">
+          <div class="box_foto">
+            <img src="assets/icon/Profile.svg" alt="user_img" />
+          </div>
+          <div class="infos_cliente">
+            <h2>${ListaResultadoPesquisaCliente[i].nome}</h2>
+            <p>${ListaResultadoPesquisaCliente[i].email}</p>
+          </div>
+          <div class="box_buttons">
+            <button id="btn_pacote" onclick="btnAbrirModalPacotes()"></button>
+            <button id="btn_deletar" onclick="deletarCliente(${ListaResultadoPesquisaCliente[i].idCliente}, '${ListaClientes[i].nome}', '${ListaClientes[i].email}')"></button>
+            <button id="btn_editar" onclick="EdicaoCliente(${ListaResultadoPesquisaCliente[i].idCliente}, '${ListaClientes[i].nome}', '${ListaClientes[i].email}', '${ListaClientes[i].telefone}', '${ListaClientes[i].cidade}', '${ListaClientes[i].Dtnascimento}')"></button>
+          </div>
+        </div>`;
 
   }
-
-
-
-
-
 
 </script>

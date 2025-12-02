@@ -19,4 +19,9 @@ router.post("/apagarCliente/:clienteId", function (req, res) {
     dashboardController.apagarCliente(req, res);
 })
 
+router.get("/pesquisarClientes/:nomeCliente", function (req, res) {
+    dashboardController.pesquisarClientes(req, res);
+})
+
+
 module.exports = router;
