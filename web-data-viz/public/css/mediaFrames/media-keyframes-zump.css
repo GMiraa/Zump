@@ -34,14 +34,317 @@
     #dashboard_section .boxConteudo .boxRight .areaConsultoresCards{
         min-height: 40%;
     }
-        #dashboard_section .boxConteudo .boxLeft{
-    height: 80%;
-}
+    #dashboard_section .boxConteudo .boxLeft{
+        height: 80%;
+    }
 
 
-#dashboard_section .boxConteudo .boxRight{
-    height: 80%;
-}
+    #dashboard_section .boxConteudo .boxRight{
+        height: 80%;
+    }
+
+
+    /* sessão de consultor */
+
+    #consultores_section .boxTop{
+        width: 100%;
+        height: 30%;  
+    }
+
+    #consultores_section .boxTop .card{
+        width: 230px;
+        height: 150px;
+    }
+
+    #consultores_section .boxTop .card p{
+        top: 10px;
+    }
+    #consultores_section .boxTop .card h1{
+        color: var(--white);
+        font-size: 3.5rem;
+        font-weight: var(--font-weight-medium);
+    }
+
+
+    /* Box bottom sessao inicial consultor */
+    :root{
+        --fontMax-1440px: 1.1rem;
+    }
+
+    #consultores_section .boxLeftBottom{
+        padding-left: 1rem;
+        border: 1px solid red;
+        width: 60%;
+    }
+
+    #consultores_section .boxLeftBottom h1{
+        font-size: var(--font-size-larguer);
+        font-weight: var(--font-weight-regular);
+    }
+
+    #consultores_section .boxLeftBottom .boxPesquisa{
+        border: 1px solid blue;  
+        gap: 1rem;
+    }
+
+    #consultores_section .boxLeftBottom .boxPesquisa .boxInput{
+        width: 340px; 
+        height: 50px;
+    }
+    #consultores_section .boxLeftBottom .boxPesquisa .boxInput input{
+        width: 280px;  
+        height: 50px;
+        font-size: var(--font-size-small);
+    }
+
+
+    #consultores_section .boxLeftBottom .boxPesquisa .boxInput input:focus{
+        border: 2px solid #1B98E0;
+    }
+
+    #consultores_section .boxLeftBottom .boxPesquisa .boxInput button{
+        background-size: 30px;
+        height: 50px;
+        width: 50px;    
+    }
+
+    #consultores_section .boxLeftBottom .boxPesquisa select{
+        width: 200px;
+        height: 50px;
+        background-size: 25px;
+        font-size: var(--font-size-small);
+    }
+
+    #consultores_section .boxLeftBottom .boxPesquisa .adcionarConsultor{
+        width: 280px;
+        height: 50px;
+        text-align: center;
+        padding-left:0px;
+        background-image: none;
+        font-size: var(--font-size-small);
+    }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    #consultores_section .boxLeftBottom .boxCardsConsultores{
+        gap: 1.2rem;
+        overflow-y: scroll;
+        padding-bottom: 20px;
+    }
+
+
+    #consultores_section .boxLeftBottom .boxCardsConsultores .cardConsultor{
+        display: flex;
+        flex-direction: row;
+        align-items: center;   
+        width: 97%;
+        min-height: 85px;
+        border-radius: 8px;
+        background: linear-gradient(45deg, #0E2936, #1B98E0, #0E2936);
+    }
+    #consultores_section .boxLeftBottom .boxCardsConsultores .cardConsultor:hover{
+    background: #0E2936;
+    }
+
+
+
+    #consultores_section .boxLeftBottom .boxCardsConsultores .cardConsultor .box_foto_consultor{
+        width: 50px;
+        height: 50px;
+        border: 1px solid red;
+       
+    }
+
+    #consultores_section .boxLeftBottom .boxCardsConsultores .cardConsultor .infos_consultor{
+        margin-left: 0px;
+    }
+
+    #consultores_section .boxLeftBottom .boxCardsConsultores .cardConsultor .infos_consultor h2{
+        color: var(--white);
+        font-size: var(--fontMax-1440px);
+    }
+    #consultores_section .boxLeftBottom .boxCardsConsultores .cardConsultor .infos_consultor p{
+        color: var(--white);
+        font-size: var(--font-size-small);
+    }
+
+    /* status do consultor scroll*/
+    #consultores_section .boxLeftBottom .boxCardsConsultores .cardConsultor .box_status{
+        border: 1px solid red;
+    }
+
+    #consultores_section .boxLeftBottom .boxCardsConsultores .cardConsultor .box_status p{
+        color: var(--white);
+        font-size: var(--font-size-small);
+        font-weight: var(--font-weight-regular);
+    }
+
+
+    #consultores_section .boxLeftBottom .boxCardsConsultores .cardConsultor .box_status .status_ativo{
+        width: 10px;
+        height: 10px;
+    }
+    #consultores_section .boxLeftBottom .boxCardsConsultores .cardConsultor .status_inativo{
+        width: 10px;
+        height: 10px;
+    }
+
+    @keyframes ativo {
+        0% {width: 10px; height: 10px; background-color: #00ff08; box-shadow: 0 0 5px #00ff08, 0 0 10px #00ff08, 0 0 20px #00ff08;}
+        50% { width: 10px; height: 10px; background-color: #81C784; box-shadow: 0 0 10px #81C784, 0 0 20px #81C784, 0 0 30px #81C784; transform: scale(1.1);}
+        100% { width: 10px; height: 10px; background-color: #00ff08; box-shadow: 0 0 5px #00ff08, 0 0 10px #00ff08, 0 0 20px #00ff08;}   
+    }
+
+
+
+
+    #consultores_section .boxLeftBottom .boxCardsConsultores .cardConsultor .boxIcons{
+        padding-right: 1rem;
+        border: 1px solid red;
+    }
+
+
+    #consultores_section .boxLeftBottom .boxCardsConsultores .cardConsultor .boxIcons button{
+        min-width: 30px;
+        min-height: 35px;
+    }
+    
+    #consultores_section .boxLeftBottom .boxCardsConsultores .cardConsultor .boxIcons .delete,
+    #consultores_section .boxLeftBottom .boxCardsConsultores .cardConsultor .boxIcons .block,
+    #consultores_section .boxLeftBottom .boxCardsConsultores .cardConsultor .boxIcons .edit,
+    #consultores_section .boxLeftBottom .boxCardsConsultores .cardConsultor .boxIcons .report{
+        background-size: 35px;
+    }
+
+
+    #consultores_section .boxLeftBottom .boxCardsConsultores .cardConsultor .boxIcons .fechado{
+        background-size: 20px;
+    }
+
+
+      #consultores_section .boxRightBottom{
+        display: flex;
+        justify-content: flex-start;
+        width:40%;
+        height: 100%;
+        padding: 0px 2rem 1.5rem 0px;
+        border: 1px solid green;
+    }
+    
+    #consultores_section .boxRightBottom .boxHistorico{
+        background: linear-gradient(45deg, #1D3642, #335F75, #3E748E, #437E9B, #4989A8);
+        width: 100%;
+        height: 100%;
+        border-radius: 10px;
+    }
+
+    #consultores_section .boxRightBottom .boxHistorico .boxSelecao{
+        border: 1px solid red;
+        justify-content: space-between;
+        padding: 0px 1rem;
+        width: 100%;
+        height: 60px;
+    }
+
+    #consultores_section .boxRightBottom .boxHistorico .boxSelecao h2{
+        width: auto;
+        color: var(--white);
+        font-size: 1.1rem;
+        font-weight: var(--font-weight-medium); 
+    }
+
+    #consultores_section .boxRightBottom .boxHistorico .boxSelecao select{
+        width: 44%;
+        height: 40px;
+        border-radius: 5px;
+        border: none;
+        outline: none;
+        background-color: #e9e9e9;
+        color: #585858;
+        background-image: url('data:image/svg+xml;utf8,<svg fill="none" stroke="%23606060" stroke-width="2" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M6 9l6 6 6-6"/></svg>');
+        background-position: right 10px center;
+        background-repeat: no-repeat;
+        background-size: 30px;
+        appearance: none;
+        padding-left: 10px;
+        cursor: pointer;
+    }
+
+    .boxCards{
+        display: flex;
+        flex-direction: column;
+        gap: 1rem;
+        padding: 1rem;
+        height: calc(100% - 70px);
+        overflow-y: scroll;
+        margin-right: 10px;
+        border: 1px solid yellow;
+    }
+
+
+    #consultores_section .boxRightBottom .boxHistorico .boxCards .card{
+        justify-content: space-between;
+        height: 70px;
+        min-height: 70px;
+        border: 1px solid #00ff08;
+    }
+
+    #consultores_section .boxRightBottom .boxHistorico .boxCards .card .imgUser{
+        min-width: 40px;
+        min-height: 40px;
+        border-radius: 50%;
+        margin-left: 0rem;
+        margin-right: 0rem;
+        background-color: #dfdfdf;
+    }
+
+    #consultores_section .boxRightBottom .boxHistorico .boxCards .card .infos{
+        width: 80%;
+        border: 1px solid red;
+    }
+    #consultores_section .boxRightBottom .boxHistorico .boxCards .card h2{
+        font-size: var(--font-size-small);
+        font-weight: var(--font-weight-medium);
+    }
+    #consultores_section .boxRightBottom .boxHistorico .boxCards .card p{
+        font-size: var(--font-size-small);
+        font-weight: var(--font-weight-regular);
+    }
+
+
 }
 
 @media screen and (max-width: 1440px){    
@@ -134,9 +437,332 @@
     }
 
 
+    /* sessão de consultor */
+
+    #consultores_section .boxTop{
+        width: 100%;
+        border: 1px solid red;
+        height: 30%;  
+        gap: 3%;
+    }
+    #consultores_section .itensBottom{
+        border: 1px solid red;
+        justify-content: center;
+    }
+
+    #consultores_section .boxTop .card{
+        width: 230px;
+        height: 140px;
+    }
+
+    #consultores_section .boxTop .card p{
+        top: 10px;
+    }
+
+    #consultores_section .boxTop .card:nth-child(3) p{
+        left: 10px;
+        right: 10px;
+        text-align: center;
+    }
+
+    #consultores_section .boxTop .card h1{
+        margin-top: 1.5rem;
+        color: var(--white);
+        font-size: 3.5rem;
+        font-weight: var(--font-weight-medium);
+    }
+
+
+    /* Box bottom sessao inicial consultor */
+    :root{
+        --fontMax-1440px: 1.1rem;
+    }
+
+    #consultores_section .boxLeftBottom{
+        padding-left: 1rem;
+        border: 1px solid blue;
+        width: 60%;
+    }
+
+    #consultores_section .boxLeftBottom h1{
+        font-size: var(--font-size-larguer);
+        font-weight: var(--font-weight-regular);
+    }
+
+    #consultores_section .boxLeftBottom .boxPesquisa{
+        border: 1px solid blue;  
+        gap: 1rem;
+    }
+
+    #consultores_section .boxLeftBottom .boxPesquisa .boxInput{
+        width: 340px; 
+        height: 50px;
+    }
+    #consultores_section .boxLeftBottom .boxPesquisa .boxInput input{
+        width: 280px;  
+        height: 50px;
+        font-size: var(--font-size-small);
+    }
+
+
+    #consultores_section .boxLeftBottom .boxPesquisa .boxInput input:focus{
+        border: 2px solid #1B98E0;
+    }
+
+    #consultores_section .boxLeftBottom .boxPesquisa .boxInput button{
+        background-size: 30px;
+        height: 50px;
+        width: 50px;    
+    }
+
+    #consultores_section .boxLeftBottom .boxPesquisa select{
+        width: 200px;
+        height: 50px;
+        background-size: 25px;
+        font-size: var(--font-size-small);
+    }
+
+    #consultores_section .boxLeftBottom .boxPesquisa .adcionarConsultor{
+        width: 280px;
+        height: 50px;
+        text-align: center;
+        padding-left:0px;
+        background-image: none;
+        font-size: var(--font-size-small);
+    }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    #consultores_section .boxLeftBottom .boxCardsConsultores{
+        gap: 1.2rem;
+        overflow-y: scroll;
+        padding-bottom: 20px;
+    }
+
+
+    #consultores_section .boxLeftBottom .boxCardsConsultores .cardConsultor{
+        display: flex;
+        flex-direction: row;
+        align-items: center;   
+        width: 97%;
+        min-height: 85px;
+        border-radius: 8px;
+        background: linear-gradient(45deg, #0E2936, #1B98E0, #0E2936);
+    }
+    #consultores_section .boxLeftBottom .boxCardsConsultores .cardConsultor:hover{
+    background: #0E2936;
+    }
+
+
+
+    #consultores_section .boxLeftBottom .boxCardsConsultores .cardConsultor .box_foto_consultor{
+        width: 50px;
+        height: 50px;
+        border: 1px solid red;
+       
+    }
+
+    #consultores_section .boxLeftBottom .boxCardsConsultores .cardConsultor .infos_consultor{
+        margin-left: 0px;
+    }
+
+    #consultores_section .boxLeftBottom .boxCardsConsultores .cardConsultor .infos_consultor h2{
+        color: var(--white);
+        font-size: var(--fontMax-1440px);
+    }
+    #consultores_section .boxLeftBottom .boxCardsConsultores .cardConsultor .infos_consultor p{
+        color: var(--white);
+        font-size: var(--font-size-small);
+    }
+
+    /* status do consultor scroll*/
+    #consultores_section .boxLeftBottom .boxCardsConsultores .cardConsultor .box_status{
+        border: 1px solid red;
+    }
+
+    #consultores_section .boxLeftBottom .boxCardsConsultores .cardConsultor .box_status p{
+        color: var(--white);
+        font-size: var(--font-size-small);
+        font-weight: var(--font-weight-regular);
+    }
+
+
+    #consultores_section .boxLeftBottom .boxCardsConsultores .cardConsultor .box_status .status_ativo{
+        width: 10px;
+        height: 10px;
+    }
+    #consultores_section .boxLeftBottom .boxCardsConsultores .cardConsultor .status_inativo{
+        width: 10px;
+        height: 10px;
+    }
+
+    @keyframes ativo {
+        0% {width: 10px; height: 10px; background-color: #00ff08; box-shadow: 0 0 5px #00ff08, 0 0 10px #00ff08, 0 0 20px #00ff08;}
+        50% { width: 10px; height: 10px; background-color: #81C784; box-shadow: 0 0 10px #81C784, 0 0 20px #81C784, 0 0 30px #81C784; transform: scale(1.1);}
+        100% { width: 10px; height: 10px; background-color: #00ff08; box-shadow: 0 0 5px #00ff08, 0 0 10px #00ff08, 0 0 20px #00ff08;}   
+    }
+
+
+
+
+    #consultores_section .boxLeftBottom .boxCardsConsultores .cardConsultor .boxIcons{
+        padding-right: 1rem;
+        border: 1px solid red;
+    }
+
+
+    #consultores_section .boxLeftBottom .boxCardsConsultores .cardConsultor .boxIcons button{
+        min-width: 30px;
+        min-height: 35px;
+    }
+    
+    #consultores_section .boxLeftBottom .boxCardsConsultores .cardConsultor .boxIcons .delete,
+    #consultores_section .boxLeftBottom .boxCardsConsultores .cardConsultor .boxIcons .block,
+    #consultores_section .boxLeftBottom .boxCardsConsultores .cardConsultor .boxIcons .edit,
+    #consultores_section .boxLeftBottom .boxCardsConsultores .cardConsultor .boxIcons .report{
+        background-size: 35px;
+    }
+
+
+
+    #consultores_section .boxLeftBottom .boxCardsConsultores .cardConsultor .boxIcons .fechado{
+        background-size: 20px;
+    }
+
+
+      #consultores_section .boxRightBottom{
+        display: flex;
+        justify-content: flex-start;
+        width: 35%;
+        height: 100%;
+        padding: 0px 0px 1rem;
+        border: 1px solid green;
+    }
+    
+    #consultores_section .boxRightBottom .boxHistorico{
+        border: 1px solid red;
+        background: linear-gradient(45deg, #1D3642, #335F75, #3E748E, #437E9B, #4989A8);
+        width: 100%;
+        height: 100%;
+        border-radius: 10px;
+    }
+
+    #consultores_section .boxRightBottom .boxHistorico .boxSelecao{
+        border: 1px solid red;
+        justify-content: space-between;
+        padding: 0px 1rem;
+        width: 100%;
+        height: 60px;
+    }
+
+    #consultores_section .boxRightBottom .boxHistorico .boxSelecao h2{
+        width: auto;
+        color: var(--white);
+        font-size: 1.1rem;
+        font-weight: var(--font-weight-medium); 
+    }
+
+    #consultores_section .boxRightBottom .boxHistorico .boxSelecao select{
+        width: 44%;
+        height: 40px;
+        border-radius: 5px;
+        border: none;
+        outline: none;
+        background-color: #e9e9e9;
+        color: #585858;
+        background-image: url('data:image/svg+xml;utf8,<svg fill="none" stroke="%23606060" stroke-width="2" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M6 9l6 6 6-6"/></svg>');
+        background-position: right 10px center;
+        background-repeat: no-repeat;
+        background-size: 30px;
+        appearance: none;
+        padding-left: 10px;
+        cursor: pointer;
+    }
+
+    .boxCards{
+        display: flex;
+        flex-direction: column;
+        gap: 1rem;
+        padding: 1rem;
+        height: calc(100% - 70px);
+        overflow-y: scroll;
+        margin-right: 10px;
+        border: 1px solid yellow;
+    }
+
+
+    #consultores_section .boxRightBottom .boxHistorico .boxCards .card{
+        justify-content: space-between;
+        height: 70px;
+        min-height: 70px;
+        border: 1px solid #00ff08;
+    }
+
+    #consultores_section .boxRightBottom .boxHistorico .boxCards .card .imgUser{
+        min-width: 40px;
+        min-height: 40px;
+        border-radius: 50%;
+        margin-left: 0rem;
+        margin-right: 0rem;
+        background-color: #dfdfdf;
+    }
+
+    #consultores_section .boxRightBottom .boxHistorico .boxCards .card .infos{
+        width: 80%;
+        border: 1px solid red;
+    }
+    #consultores_section .boxRightBottom .boxHistorico .boxCards .card h2{
+        font-size: var(--font-size-small);
+        font-weight: var(--font-weight-medium);
+    }
+    #consultores_section .boxRightBottom .boxHistorico .boxCards .card p{
+        font-size: var(--font-size-small);
+        font-weight: var(--font-weight-regular);
+    }
+
+
+
+
+
+        
+    
+
 }
 
-@media screen and (max-width: 1320px){
+@media screen and (max-width: 1330px){
     .menu {
         width: 200px;
         max-width: 200px;
@@ -195,8 +821,92 @@
         background-image: none;
     }
 
-}
 
+    /* Tela consultor */
+    #consultores_section .boxLeftBottom .boxPesquisa .boxInput{
+        width: 340px; 
+        height: 50px;
+    }
+    #consultores_section .boxLeftBottom .boxPesquisa .boxInput input{
+        width: 100%; 
+    }
+
+    #consultores_section .boxLeftBottom .boxPesquisa .abrirHistorico{
+        display: flex;
+        width: 50px;
+        height: 50px;
+        background-size: 30px;
+    }
+
+    #consultores_section .boxLeftBottom{
+        width: 90%;
+    }
+        
+    #consultores_section .boxRightBottom{
+        display: none;
+        position: absolute;
+        justify-content: flex-start;
+        width:50%;
+        height: 65%;
+        margin-top: 10px;
+        padding: 0px;
+    }
+
+    #consultores_section .boxRightBottom .boxHistorico{
+        position: relative;
+    }
+
+    #consultores_section .boxRightBottom .boxHistorico .fecharHistorico{
+        display: flex;
+        top: -20px;
+        right: -20px;
+        height: 40px;
+        width: 40px;
+        background-size: 38px;
+    }
+
+}
+@media screen and (max-width: 1280px){
+    /* Tela consultor */
+
+    #consultores_section .boxTop{
+        width: 100%;
+        border: 1px solid red;
+        height: 30%;  
+        gap: 2%;
+    }
+    #consultores_section .itensBottom{
+        border: 1px solid red;
+        justify-content: center;
+    }
+
+    #consultores_section .boxTop .card{
+        width: 195px;
+        height: 125px;
+    }
+
+    #consultores_section .boxTop .card p{
+        top: 10px;
+        font-size: .9rem;
+    }
+
+    #consultores_section .boxTop .card:nth-child(3) p{
+        left: 10px;
+        right: 10px;
+        text-align: center;
+    }
+
+    #consultores_section .boxTop .card h1{
+        margin-top: 1.3rem;
+        color: var(--white);
+        font-size: 2.5rem;
+        font-weight: var(--font-weight-medium);
+    }
+
+    #consultores_section .boxLeftBottom{
+        width: 90%;
+    }
+}
 @media screen and (max-width: 1130px){
 
     #dashboard_section #titleDash{
@@ -495,6 +1205,20 @@
     }
 
 
+
+    /*tela consultor*/
+
+     #consultores_section .boxLeftBottom{
+        width: 90%;
+    }
+
+     #consultores_section .boxLeftBottom .boxPesquisa .boxInput{
+        width: 270px; 
+    }
+    #consultores_section .boxLeftBottom .boxPesquisa .adcionarConsultor{
+        width: 180px;
+    }
+
 } 
 
 @media screen and (max-width: 900px){
@@ -552,6 +1276,13 @@
 
     #clientes_section .box_rodape{
         width: 90%;
+    }
+
+    #consultores_section .boxLeftBottom .boxPesquisa .boxInput{
+        width: 270px; 
+    }
+    #consultores_section .boxLeftBottom .boxPesquisa .adcionarConsultor{
+        width: 180px;
     }
 
 }

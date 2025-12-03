@@ -17,25 +17,25 @@
   </head>
   <body onload="carregarFuncoes()" id="bodyBackground">
     <button id="abrir_menu" onclick="abrirMenu()"></button>
-        <header class="menu" id="menuNav">
-      <button id="interagir_menu" onclick="fecharMenu()"></button>
-      <div class="conteudo" id="conteudo_menu">
-        <div class="boxFoto">
-          <div id="foto_user"></div>
-          <h3 id="name_user">Marta Yamatha</h3>
-          <button onclick="limparSessao()">deslogar</button>
+      <header class="menu" id="menuNav">
+        <button id="interagir_menu" onclick="fecharMenu()"></button>
+        <div class="conteudo" id="conteudo_menu">
+          <div class="boxFoto">
+            <div id="foto_user"></div>
+            <h3 id="name_user">Marta Yamatha</h3>
+            <button onclick="limparSessao()">deslogar</button>
+          </div>
+          <div class="box_hora">
+            <h2 id="hora">15:37</h2>
+            <h3 id="data">Terça-feira, 14 nov 2025</h3>
+          </div>
+          <div class="box_sessoes">
+            <a href="dashboard.html" id="home_session">Dashboard <span></span></a>
+            <a href="cliente.html" id="clientes_session">Clientes</a>
+            <a href="consultor.html" id="consultores_session">Consultores</a>
+          </div>
         </div>
-        <div class="box_hora">
-          <h2 id="hora">15:37</h2>
-          <h3 id="data">Terça-feira, 14 nov 2025</h3>
-        </div>
-        <div class="box_sessoes">
-          <a href="dashboard.html" id="home_session">Dashboard <span></span></a>
-          <a href="cliente.html" id="clientes_session">Clientes</a>
-          <a href="consultor.html" id="consultores_session">Consultores</a>
-        </div>
-      </div>
-    </header>
+      </header>
     <div id="cardDelete"></div>
     <section id="clientes_section">
       <div class="modalPacotes" id="modalPacotes">
@@ -44,161 +44,18 @@
         </button>
         <h1>Pacotes</h1>
         <div class="coteudosPacote">
-          <div class="boxVendaPacote">
-            <div class="topoBox">
-              <h1>Selecione um estado</h1>
-              <select name="" id="">
-                <option value="">SP</option>
-              </select>
-            </div>
-            <div class="box_registro_venda">
-              <div class="topoBox">
-                <h1>Locais disponiveis</h1>
-                <select name="" id="">
-                  <option value="">SP</option>
-                </select>
-              </div>
-              <div class="selecaoDePacotes">
-                <label>Pacotes</label>
-                <select name="" id="">
-                  <option value="">SP</option>
-                </select>
-              </div>
-
-              <div class="boxDias">
-                <div class="inputs">
-                  <label for="">Qtd. de Dias</label>
-                  <input type="number" placeholder="0000" />
-                </div>
-                <div class="inputs">
-                  <label for="">Qtd. de Noites</label>
-                  <input type="number" placeholder="0000" />
-                </div>
-              </div>
-
-              <div class="boxDescricao">
-                <label for="">Descrição</label>
-                <textarea name="" id="">Descrição...</textarea>
-              </div>
-
-              <div class="boxPreco">
-                <div class="inputs">
-                  <label for="">Preço do pacote</label>
-                  <input type="number" placeholder="VALOR:" disabled />
-                </div>
-              </div>
-
-              <div class="boxPagamento">
-                <div class="inputs">
-                  <label for="">Tipo de pagamento</label>
-                  <select name="" id="">
-                    <option value=""></option>
-                  </select>
-                </div>
-                <div class="inputs">
-                  <label for="">Parcelas</label>
-                  <select name="" id="">
-                    <option value=""></option>
-                  </select>
-                </div>
-                <button>confirmar</button>
-              </div>
-            </div>
+          <div class="boxLeft">
+            <div class="box_top"></div>
+            <div class="box_bottom"></div>
           </div>
-          <div class="boxDadosClientes">
-            <div class="topoBox">
-              <h1>Dados do cliente</h1>
-            </div>
-            <div class="informacoesDePacotes">
-              <div class="boxDados">
-                <div class="topoDados">
-                  <div class="inputs">
-                    <label for="">Nome do cliente</label>
-                    <input type="text" placeholder="Nome do cliente" />
-                  </div>
-                  <div class="inputs">
-                    <label for="">Endereço do cliente</label>
-                    <input type="text" placeholder="Rua XXXX" />
+          <div class="boxRight">
+            <h1>Pacotes sugeridos</h1>
+            <div class="box_opcoes">
+                <div class="box_cards">
+                  <div class="card">
+                    
                   </div>
                 </div>
-                <div class="meioDados">
-                  <div class="inputs">
-                    <label for="">E-mail do cliente</label>
-                    <input type="text" placeholder="Nome do cliente" />
-                  </div>
-                  <div class="inputs">
-                    <label for="">cep</label>
-                    <input type="text" placeholder="Rua XXXX" />
-                  </div>
-                  <div class="inputs">
-                    <label for="">num</label>
-                    <input type="text" placeholder="Rua XXXX" />
-                  </div>
-                </div>
-                <div class="footerDados">
-                  <div class="inputs">
-                    <label for="">CPF do cliente</label>
-                    <input type="text" placeholder="Nome do cliente" />
-                  </div>
-                  <div class="inputs">
-                    <label for="">data Nasc.</label>
-                    <input type="text" placeholder="Rua XXXX" />
-                  </div>
-                </div>
-              </div>
-              <div class="pacotesAdquiridos">
-                <h2>Pacotes adquiridos</h2>
-                <div class="boxDePacotes">
-                  <div class="topoBox">
-                    <h1>Selecionar local</h1>
-                    <select name="" id="">
-                      <option value="">Praias</option>
-                    </select>
-                  </div>
-                  <div class="boxVendidos">
-                    <div class="cardPacote">
-                      <div class="infosCardPacote">
-                        <h2>Praia grande, Hotel...</h2>
-                        <h2>Cartão 6x</h2>
-                        <h2>R$ 245,00</h2>
-                        <p>04/11/2025</p>
-                      </div>
-                    </div>
-                    <div class="cardPacote">
-                      <div class="infosCardPacote">
-                        <h2>Praia grande, Hotel...</h2>
-                        <h2>Cartão 6x</h2>
-                        <h2>R$ 245,00</h2>
-                        <p>04/11/2025</p>
-                      </div>
-                    </div>
-                    <div class="cardPacote">
-                      <div class="infosCardPacote">
-                        <h2>Praia grande, Hotel...</h2>
-                        <h2>Cartão 6x</h2>
-                        <h2>R$ 245,00</h2>
-                        <p>04/11/2025</p>
-                      </div>
-                    </div>
-                    <div class="cardPacote">
-                      <div class="infosCardPacote">
-                        <h2>Praia grande, Hotel...</h2>
-                        <h2>Cartão 6x</h2>
-                        <h2>R$ 245,00</h2>
-                        <p>04/11/2025</p>
-                      </div>
-                    </div>
-                    <div class="cardPacote">
-                      <div class="infosCardPacote">
-                        <h2>Praia grande, Hotel...</h2>
-                        <h2>Cartão 6x</h2>
-                        <h2>R$ 245,00</h2>
-                        <p>04/11/2025</p>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
             </div>
           </div>
         </div>
@@ -285,7 +142,23 @@
         </div>
         </div>
       </div>
-      <div class="box_rodape" id="clientesList"></div>
+      <div class="box_rodape" id="clientesList">
+        <!-- Remover antes de fazer o commit-->
+        <div class="card_cliente" id="">
+          <div class="box_foto">
+            <img src="assets/icon/Profile.svg" alt="user_img" />
+          </div>
+          <div class="infos_cliente">
+            <h2>${ListaClientes[i].nome}</h2>
+            <p>${ListaClientes[i].email}</p>
+          </div>
+          <div class="box_buttons">
+            <button id="btn_pacote" onclick="btnAbrirModalPacotes()"></button>
+            <button id="btn_deletar" onclick=""></button>
+            <button id="btn_editar" onclick=""></button>
+          </div>
+        </div>
+      </div>
     </section>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.68/pdfmake.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.68/vfs_fonts.js"></script>
@@ -319,6 +192,7 @@
   //   validarSessao()
 
   // }
+  
   function Userlogado(){
 
         if((nome != null || nome != undefined) && (id != null || id != undefined)){

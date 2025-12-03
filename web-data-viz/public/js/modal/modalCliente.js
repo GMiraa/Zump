@@ -1,15 +1,11 @@
   function fecharEdicaoCliente() {
-    let bodyColor = document.getElementById("bodyBackground");
     let fecharEdicao = document.getElementById("telaEdicaoCliente");
     fecharEdicao.style.display = "none";
-    bodyColor.style.background = "linear-gradient(45deg, #999999, #FFFFFF)";
   }
 
-  function abrirEdicaoCliente() {
-    let bodyColor = document.getElementById("bodyBackground");
+  function abrirEdicaoCliente() {;
     let abrirEdicao = document.getElementById("telaEdicaoCliente");
     abrirEdicao.style.display = "flex";
-    bodyColor.style.background = "#fff";
   }
 
     let cadastrarCli = document.getElementById("cadastrarCliente");
