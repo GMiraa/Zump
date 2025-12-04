@@ -48,20 +48,88 @@
         
         <div class="coteudosPacote">
           <div class="boxLeft">
-            <div class="box_top"></div>
-            <div class="box_bottom"></div>
+            <div class="box_top">
+              <div class="boxInputs">
+                <h2>Selecione um estado</h2>
+                <select name="" id="">
+                    <option value="">SP</option>
+                </select>
+              </div>
+              <div class="boxInputs">
+                <h2>Locais disponíveis</h2>
+                <select name="" id="">
+                    <option value="">Praias</option>
+                </select>
+              </div>
+              <div class="boxInputs">
+                <div class="box">
+                  <label for="">Quantidade de dias</label>
+                  <input type="text">
+                </div>
+                <div class="box">
+                  <label for="">Quantidade de noites</label>
+                  <input type="text">
+                </div>
+                <div class="box">
+                  <label for="">Tipo de pagamento</label>
+                  <select name="" id="">
+                    <option value="">Selecionar</option>
+                  </select>
+                </div>
+              </div>
+              <div class="boxInputs">
+                <div class="boxBtn">
+                  <div>
+                    <label for="">Preço do pacote</label>
+                    <input type="text">
+                  </div>
+                  <div>
+                    <button class="confirmarPacote">
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="box_bottom">
+              <h2>Descrição do pacote:</h2>
+              <textarea name="" id="" placeholder="Mesangem..."></textarea>
+            </div>
           </div>
           <div class="boxRight">
             <div class="boxCardKpi">
               <h2>Pacote próximo ao preço</h2>
               <div class="boxKPIs">
-                  <div class="card"></div>
-                  <div class="card"></div>
+                  <div class="card">
+                    <h2>SP</h2>
+                    <p>Praia grande</p>
+                  </div>
+                  <div class="card">
+                      <h2>R$ 3.175,00</h2>
+                      <p>Preço do pacote</p>
+                  </div>
               </div>
             </div>
             <h2>Pacotes sugeridos</h2>
             <div class="box_opcoes">
               <div class="box_cards">
+                <div class="card">
+                  <div class="conteudoCardPacote">
+                    <div class="estado_pacote">
+                      <h2>Estado do pacote: SP</h2>
+                      <div class="iconPacote pacoteAcao"></div>
+                    </div>
+                    <div class="info_pacote">
+                      <p>Local do pacote: Praia Grande</p>
+                      <p>Preço: R$ 3.157,00</p>
+                    </div>
+                  </div>
+                  <div class="btnConsultor">
+                    <button
+                      onclick="adicionarPacote(this)"
+                      class="btnAdicionarPacote"
+                    ></button>
+                  </div>
+                </div>
                 <div class="card">
                   <div class="conteudoCardPacote">
                     <div class="estado_pacote">
@@ -189,23 +257,7 @@
           </div>
         </div>
       </div>
-      <div class="box_rodape" id="clientesList">
-        <!-- Remover antes de fazer o commit-->
-        <div class="card_cliente" id="">
-          <div class="box_foto">
-            <img src="assets/icon/Profile.svg" alt="user_img" />
-          </div>
-          <div class="infos_cliente">
-            <h2>${ListaClientes[i].nome}</h2>
-            <p>${ListaClientes[i].email}</p>
-          </div>
-          <div class="box_buttons">
-            <button id="btn_pacote" onclick="btnAbrirModalPacotes()"></button>
-            <button id="btn_deletar" onclick=""></button>
-            <button id="btn_editar" onclick=""></button>
-          </div>
-        </div>
-      </div>
+      <div class="box_rodape" id="clientesList"></div>
     </section>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.68/pdfmake.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.68/vfs_fonts.js"></script>
@@ -224,26 +276,54 @@
 
 <script>
   function adicionarPacote(botao) {
-    // 'botao' is the button that was clicked
-    const card = botao.closest(".card"); // Find the parent card
-    const addP = botao; // The button itself
-    const pacote = card.querySelector(".pacoteAcao"); // The icon in the same card
+    const card = botao.closest(".card");
+    const box = card.parentElement;
+    const addP = botao;
+    const pacote = card.querySelector(".pacoteAcao");
 
     const isSelected = addP.classList.contains("selected");
 
-    if (isSelected) {
-      // Deselect
-      addP.style.backgroundImage = "url('./assets/icon/Add.svg')";
-      pacote.style.backgroundImage = "url('./assets/icon/noPacote.svg')";
-      addP.classList.remove("selected");
-    } else {
-      // Select
-      addP.style.backgroundImage = "url('./assets/icon/Checkmark.svg')";
-      pacote.style.backgroundImage = "url('./assets/icon/yesPacote.svg')";
-      addP.classList.add("selected");
+    // ----------------------
+    //   ANIMAÇÃO (FLIP)
+    // ----------------------
+    const startPositions = [...box.children].map(el => {
+        return { el, top: el.getBoundingClientRect().top };
+    });
+
+    // Se for selecionar → move para o topo
+    if (!isSelected) {
+        box.prepend(card);
     }
 
-    // Common styles (you can move these to CSS instead!)
+    // Pega as novas posições após mover
+    const endPositions = startPositions.map(item => {
+        return { el: item.el, top: item.el.getBoundingClientRect().top };
+    });
+
+    // Aplica animação em cada card
+    endPositions.forEach((end, i) => {
+        const el = end.el;
+        const deltaY = startPositions[i].top - end.top;
+
+        el.style.transform = `translateY(${deltaY}px)`;
+        el.style.transition = "transform 0s";
+
+        requestAnimationFrame(() => {
+            el.style.transform = "";
+            el.style.transition = "transform 0.35s ease";
+        });
+    });
+
+    if (isSelected) {
+        addP.style.backgroundImage = "url('./assets/icon/Add.svg')";
+        pacote.style.backgroundImage = "url('./assets/icon/noPacote.svg')";
+        addP.classList.remove("selected");
+    } else {
+        addP.style.backgroundImage = "url('./assets/icon/Checkmark.svg')";
+        pacote.style.backgroundImage = "url('./assets/icon/yesPacote.svg')";
+        addP.classList.add("selected");
+    }
+
     addP.style.backgroundSize = "40px";
     addP.style.backgroundPosition = "center";
     addP.style.backgroundRepeat = "no-repeat";
@@ -251,7 +331,8 @@
     pacote.style.backgroundSize = "35px";
     pacote.style.backgroundPosition = "center";
     pacote.style.backgroundRepeat = "no-repeat";
-  }
+}
+
 
   var nome = sessionStorage.NOME_USUARIO;
   var id = sessionStorage.ID_USUARIO;
