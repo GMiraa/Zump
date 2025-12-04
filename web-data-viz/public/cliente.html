@@ -17,45 +17,88 @@
   </head>
   <body onload="carregarFuncoes()" id="bodyBackground">
     <button id="abrir_menu" onclick="abrirMenu()"></button>
-      <header class="menu" id="menuNav">
-        <button id="interagir_menu" onclick="fecharMenu()"></button>
-        <div class="conteudo" id="conteudo_menu">
-          <div class="boxFoto">
-            <div id="foto_user"></div>
-            <h3 id="name_user">Marta Yamatha</h3>
-            <button onclick="limparSessao()">deslogar</button>
-          </div>
-          <div class="box_hora">
-            <h2 id="hora">15:37</h2>
-            <h3 id="data">Terça-feira, 14 nov 2025</h3>
-          </div>
-          <div class="box_sessoes">
-            <a href="dashboard.html" id="home_session">Dashboard <span></span></a>
-            <a href="cliente.html" id="clientes_session">Clientes</a>
-            <a href="consultor.html" id="consultores_session">Consultores</a>
-          </div>
+    <header class="menu" id="menuNav">
+      <button id="interagir_menu" onclick="fecharMenu()"></button>
+      <div class="conteudo" id="conteudo_menu">
+        <div class="boxFoto">
+          <div id="foto_user"></div>
+          <h3 id="name_user">Marta Yamatha</h3>
+          <button onclick="limparSessao()">deslogar</button>
         </div>
-      </header>
+        <div class="box_hora">
+          <h2 id="hora">15:37</h2>
+          <h3 id="data">Terça-feira, 14 nov 2025</h3>
+        </div>
+        <div class="box_sessoes">
+          <a href="dashboard.html" id="home_session">Dashboard <span></span></a>
+          <a href="cliente.html" id="clientes_session">Clientes</a>
+          <a href="consultor.html" id="consultores_session">Consultores</a>
+        </div>
+      </div>
+    </header>
     <div id="cardDelete"></div>
     <section id="clientes_section">
       <div class="modalPacotes" id="modalPacotes">
-        <button id="voltarPacotes" onclick="btnFecharModalPacotes()">
-          Voltar
+        <div class="topoTitulo">
+          <h1>Pacotes</h1>
+          <button onclick="btnFecharModalPacotes()">
+          fechar
         </button>
-        <h1>Pacotes</h1>
+        </div>
+        
         <div class="coteudosPacote">
           <div class="boxLeft">
             <div class="box_top"></div>
             <div class="box_bottom"></div>
           </div>
           <div class="boxRight">
-            <h1>Pacotes sugeridos</h1>
+            <div class="boxCardKpi">
+              <h2>Pacote próximo ao preço</h2>
+              <div class="boxKPIs">
+                  <div class="card"></div>
+                  <div class="card"></div>
+              </div>
+            </div>
+            <h2>Pacotes sugeridos</h2>
             <div class="box_opcoes">
-                <div class="box_cards">
-                  <div class="card">
-                    
+              <div class="box_cards">
+                <div class="card">
+                  <div class="conteudoCardPacote">
+                    <div class="estado_pacote">
+                      <h2>Estado do pacote: SP</h2>
+                      <div class="iconPacote pacoteAcao"></div>
+                    </div>
+                    <div class="info_pacote">
+                      <p>Local do pacote: Praia Grande</p>
+                      <p>Preço: R$ 3.157,00</p>
+                    </div>
+                  </div>
+                  <div class="btnConsultor">
+                    <button
+                      onclick="adicionarPacote(this)"
+                      class="btnAdicionarPacote"
+                    ></button>
                   </div>
                 </div>
+                <div class="card">
+                  <div class="conteudoCardPacote">
+                    <div class="estado_pacote">
+                      <h2>Estado do pacote: SP</h2>
+                      <div class="iconPacote pacoteAcao"></div>
+                    </div>
+                    <div class="info_pacote">
+                      <p>Local do pacote: Praia Grande</p>
+                      <p>Preço: R$ 3.157,00</p>
+                    </div>
+                  </div>
+                  <div class="btnConsultor">
+                    <button
+                      onclick="adicionarPacote(this)"
+                      class="btnAdicionarPacote"
+                    ></button>
+                  </div>
+                </div>
+              </div>
             </div>
           </div>
         </div>
@@ -126,20 +169,24 @@
       </div>
       <div class="box_topo">
         <div class="inputPesquisar">
-          <input type="text" placeholder="pesquisar cliente..." id="nomeClientePesquisa" />
+          <input
+            type="text"
+            placeholder="pesquisar cliente..."
+            id="nomeClientePesquisa"
+          />
           <button onclick="pesquisarCliente()"></button>
         </div>
         <div class="linha-baixo">
-        <button id="adicionarCliente" onclick="abrirCardDeCadastroCliente()">
-          adicionar cliente
-        </button>
-        <div class="selecao">
-          <p>Filtrar pacote</p>
-          <select name="" id="selectPacote">
-            <option value="">Sem pacote</option>
-            <option value="">Com pacote</option>
-          </select>
-        </div>
+          <button id="adicionarCliente" onclick="abrirCardDeCadastroCliente()">
+            adicionar cliente
+          </button>
+          <div class="selecao">
+            <p>Filtrar pacote</p>
+            <select name="" id="selectPacote">
+              <option value="">Sem pacote</option>
+              <option value="">Com pacote</option>
+            </select>
+          </div>
         </div>
       </div>
       <div class="box_rodape" id="clientesList">
@@ -172,15 +219,43 @@
     <script src="js/dashboardgeral.js"></script>
     <script src="js/graficoGeral.js"></script>
     <script src="js/graficoConsultor.js"></script>
-
   </body>
 </html>
 
 <script>
+  function adicionarPacote(botao) {
+    // 'botao' is the button that was clicked
+    const card = botao.closest(".card"); // Find the parent card
+    const addP = botao; // The button itself
+    const pacote = card.querySelector(".pacoteAcao"); // The icon in the same card
+
+    const isSelected = addP.classList.contains("selected");
+
+    if (isSelected) {
+      // Deselect
+      addP.style.backgroundImage = "url('./assets/icon/Add.svg')";
+      pacote.style.backgroundImage = "url('./assets/icon/noPacote.svg')";
+      addP.classList.remove("selected");
+    } else {
+      // Select
+      addP.style.backgroundImage = "url('./assets/icon/Checkmark.svg')";
+      pacote.style.backgroundImage = "url('./assets/icon/yesPacote.svg')";
+      addP.classList.add("selected");
+    }
+
+    // Common styles (you can move these to CSS instead!)
+    addP.style.backgroundSize = "40px";
+    addP.style.backgroundPosition = "center";
+    addP.style.backgroundRepeat = "no-repeat";
+
+    pacote.style.backgroundSize = "35px";
+    pacote.style.backgroundPosition = "center";
+    pacote.style.backgroundRepeat = "no-repeat";
+  }
 
   var nome = sessionStorage.NOME_USUARIO;
   var id = sessionStorage.ID_USUARIO;
-  var fkempresa = sessionStorage.FK_EMPRESA
+  var fkempresa = sessionStorage.FK_EMPRESA;
 
   var ListaValores = [];
   var ListaClientes = [];
@@ -192,19 +267,17 @@
   //   validarSessao()
 
   // }
-  
-  function Userlogado(){
 
-        if((nome != null || nome != undefined) && (id != null || id != undefined)){
-
-            name_user.innerHTML = `${nome}`
-
-        }
-
+  function Userlogado() {
+    if (
+      (nome != null || nome != undefined) &&
+      (id != null || id != undefined)
+    ) {
+      name_user.innerHTML = `${nome}`;
+    }
   }
 
-  function cadastrarCliente(){
-
+  function cadastrarCliente() {
     var nome = nomeCliente.value;
     var email = emailCliente.value;
     var cpf = cpfCliente.value;
@@ -212,51 +285,50 @@
     var telefone = telCliente.value;
     var endereco = enderecoCliente.value;
 
-    if(nome == "" || email == "" || cpf == "" || dtNasc == "" || telefone == "" || endereco == ""){
+    if (
+      nome == "" ||
+      email == "" ||
+      cpf == "" ||
+      dtNasc == "" ||
+      telefone == "" ||
+      endereco == ""
+    ) {
       alert("Preencha todos os campos");
+    } else {
+      fetch("/dashboard/cadastrarCliente", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          nomeCliente: nome,
+          emailCliente: email,
+          cpfCliente: cpf,
+          DataNascimento: dtNasc,
+          telefoneUsuario: telefone,
+          endUsuario: endereco,
+          fkCliente: fkempresa,
+        }),
+      });
+      alert("Cadastro realizado com sucesso");
+      setTimeout(() => {
+        fecharCardDeCadastroCliente();
+      }, 1000);
     }
-    else {
-
-      fetch('/dashboard/cadastrarCliente', {
-            method: "POST",
-            headers: {
-              "Content-Type": "application/json"
-            },
-            body: JSON.stringify({
-              nomeCliente: nome,
-              emailCliente: email,
-              cpfCliente: cpf,
-              DataNascimento: dtNasc,
-              telefoneUsuario: telefone,
-              endUsuario: endereco,
-              fkCliente: fkempresa
-            })
-          })
-          alert("Cadastro realizado com sucesso")
-          setTimeout(() => {
-            fecharCardDeCadastroCliente();
-          }, 1000);
-      
-    }
-
   }
 
-  async function exibirClientes(){
-
-    const resposta = await fetch(`/dashboard/buscarClientes/${fkempresa}`);   
+  async function exibirClientes() {
+    const resposta = await fetch(`/dashboard/buscarClientes/${fkempresa}`);
     const dados = await resposta.json();
     ListaClientes = dados;
 
-        clientesList.innerHTML = ``;
-         
-        if(ListaClientes == ``){
-  
-            clientesList.innerHTML = `Não há clientes cadastrados.`;
-  
-        }
-        else {
-          for(var i = 0; i < ListaClientes.length; i++)
-          clientesList.innerHTML += `<div class="card_cliente" id="${ListaClientes[i].idCliente}">
+    clientesList.innerHTML = ``;
+
+    if (ListaClientes == ``) {
+      clientesList.innerHTML = `Não há clientes cadastrados.`;
+    } else {
+      for (var i = 0; i < ListaClientes.length; i++)
+        clientesList.innerHTML += `<div class="card_cliente" id="${ListaClientes[i].idCliente}">
           <div class="box_foto">
             <img src="assets/icon/Profile.svg" alt="user_img" />
           </div>
@@ -270,8 +342,7 @@
             <button id="btn_editar" onclick="EdicaoCliente(${ListaClientes[i].idCliente}, '${ListaClientes[i].nome}', '${ListaClientes[i].email}', '${ListaClientes[i].telefone}', '${ListaClientes[i].cidade}', '${ListaClientes[i].Dtnascimento}')"></button>
           </div>
         </div>`;
-
-      }
+    }
   }
 
   exibirClientes();
@@ -283,17 +354,21 @@
   let fecharTimeout = null;
 
   function deletarCliente(id, nome, email) {
-
     var idDoCliente = id;
     var NomeCliente = nome;
     var EmailCliente = email;
 
-    if(idDoCliente == "" || idDoCliente == null || NomeCliente == "" || NomeCliente == null || EmailCliente == "" || EmailCliente == null){
+    if (
+      idDoCliente == "" ||
+      idDoCliente == null ||
+      NomeCliente == "" ||
+      NomeCliente == null ||
+      EmailCliente == "" ||
+      EmailCliente == null
+    ) {
       cardDelete.innerHTML = `<div class="barraTemporizadora"></div><h1>Um erro inesperado ocorreu...</h1>`;
-    }
-    else {
-
-        cardDelete.innerHTML = `<div class="barraTemporizadora"></div>
+    } else {
+      cardDelete.innerHTML = `<div class="barraTemporizadora"></div>
       <h1>Deseja deletar o cliente?</h1>
       <div class="infosCliente">
         <h2 id="DelNomeCliente">${NomeCliente}</h2>
@@ -303,23 +378,21 @@
       <div class="opBtn">
         <button id="btnNao" onclick="fecharCardDeletarCliente()">não</button>
         <button id="btnSim" onclick="apagarCliente(${idDoCliente})">sim</button>
-      </div>`;  
+      </div>`;
 
-    cardDeleteCliente.style.display = "flex";
+      cardDeleteCliente.style.display = "flex";
 
-    const barra = cardDeleteCliente.querySelector(".barraTemporizadora");
-    barra.style.animation = "none";
-    void barra.offsetWidth;
-    barra.style.animation = "temporizadora 5s linear forwards";
+      const barra = cardDeleteCliente.querySelector(".barraTemporizadora");
+      barra.style.animation = "none";
+      void barra.offsetWidth;
+      barra.style.animation = "temporizadora 5s linear forwards";
 
-    if (fecharTimeout) clearTimeout(fecharTimeout);
-    fecharTimeout = setTimeout(() => {
-      cardDeleteCliente.style.display = "none";
-      fecharTimeout = null;
-    }, 5000);
-
-    
-  }
+      if (fecharTimeout) clearTimeout(fecharTimeout);
+      fecharTimeout = setTimeout(() => {
+        cardDeleteCliente.style.display = "none";
+        fecharTimeout = null;
+      }, 5000);
+    }
   }
 
   function fecharCardDeletarCliente() {
@@ -331,27 +404,24 @@
   }
 
   async function apagarCliente(id) {
-    
     var clienteId = id;
 
-    fetch('/dashboard/apagarCliente/${clieteId}', {
-            method: "POST",
-            headers: {
-              "Content-Type": "application/json"
-            },
-            body: JSON.stringify({
-              Id: clienteId
-            })
-          })
-          alert("Cliente excluído com sucesso!");
-          setTimeout(() => {
-            location.reload();
-          }, 2000);
-
+    fetch("/dashboard/apagarCliente/${clieteId}", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        Id: clienteId,
+      }),
+    });
+    alert("Cliente excluído com sucesso!");
+    setTimeout(() => {
+      location.reload();
+    }, 2000);
   }
 
-  async function EdicaoCliente(id, nome, email, telefone, endereco, dtnasc){
-
+  async function EdicaoCliente(id, nome, email, telefone, endereco, dtnasc) {
     var idCliente = id;
     var nomeCliente = nome;
     var emailCliente = email;
@@ -525,21 +595,16 @@
             </div>
           </div>
         </div>`;
-
   }
 
-  async function pesquisarCliente(){
-
+  async function pesquisarCliente() {
     var nomeCliente = nomeClientePesquisa.value;
 
-
-
-    if(nomeCliente == "" || nomeCliente == null){
-
+    if (nomeCliente == "" || nomeCliente == null) {
       clientesList.innerHTML = ``;
 
-      for(var i = 0; i < ListaClientes.length; i++)
-          clientesList.innerHTML += `<div class="card_cliente" id="${ListaClientes[i].idCliente}">
+      for (var i = 0; i < ListaClientes.length; i++)
+        clientesList.innerHTML += `<div class="card_cliente" id="${ListaClientes[i].idCliente}">
           <div class="box_foto">
             <img src="assets/icon/Profile.svg" alt="user_img" />
           </div>
@@ -553,17 +618,16 @@
             <button id="btn_editar" onclick="EdicaoCliente(${ListaClientes[i].idCliente}, '${ListaClientes[i].nome}', '${ListaClientes[i].email}', '${ListaClientes[i].telefone}', '${ListaClientes[i].cidade}', '${ListaClientes[i].Dtnascimento}')"></button>
           </div>
         </div>`;
-
     }
 
-    const resposta = await fetch(`/dashboard/pesquisarClientes/${nomeCliente}`);   
+    const resposta = await fetch(`/dashboard/pesquisarClientes/${nomeCliente}`);
     const dados = await resposta.json();
     ListaResultadoPesquisaCliente = dados;
 
     clientesList.innerHTML = ``;
 
-    for(var i = 0; i < ListaResultadoPesquisaCliente.length; i++)
-          clientesList.innerHTML += `<div class="card_cliente" id="${ListaResultadoPesquisaCliente[i].idCliente}">
+    for (var i = 0; i < ListaResultadoPesquisaCliente.length; i++)
+      clientesList.innerHTML += `<div class="card_cliente" id="${ListaResultadoPesquisaCliente[i].idCliente}">
           <div class="box_foto">
             <img src="assets/icon/Profile.svg" alt="user_img" />
           </div>
@@ -577,7 +641,5 @@
             <button id="btn_editar" onclick="EdicaoCliente(${ListaResultadoPesquisaCliente[i].idCliente}, '${ListaClientes[i].nome}', '${ListaClientes[i].email}', '${ListaClientes[i].telefone}', '${ListaClientes[i].cidade}', '${ListaClientes[i].Dtnascimento}')"></button>
           </div>
         </div>`;
-
   }
-
 </script>
