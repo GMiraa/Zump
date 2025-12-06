@@ -44,6 +44,63 @@
     }
 
 
+    /* sessão de cliente */
+
+    #clientes_section .modalPacotes .coteudosPacote .boxLeft .box_top .boxInputs h2{
+        font-size: var(--font-size-regular);
+        border: 1px solid red;
+    }
+
+    #clientes_section .modalPacotes .coteudosPacote .boxLeft .box_top .boxInputs label{
+        font-size: var(--font-size-small);
+    }
+
+    #clientes_section .modalPacotes .coteudosPacote .boxLeft .box_top .boxInputs select{
+        width: 35%;
+        height: 50px;
+        border-radius: 50px;
+        background-position: right 10px center;
+        background-size: 30px;
+        padding-left: 15px;
+        font-size: 1rem;
+    }
+
+    #clientes_section .modalPacotes .coteudosPacote .boxLeft .box_top .boxInputs:nth-child(2) select{
+        width: 55%;
+    }
+
+    #clientes_section .modalPacotes .coteudosPacote .boxLeft .box_bottom h2{
+        font-size: var(--font-size-regular);
+        margin: .5rem 0rem .5rem;
+        font-weight: var(--font-weight-regular);
+        border: 1px solid red;
+    }
+
+    #clientes_section .modalPacotes .coteudosPacote .boxRight h2{
+        font-size: var(--font-size-regular);
+    }
+
+   #clientes_section .modalPacotes .coteudosPacote .boxRight .boxCardKpi .boxKPIs .card h2{
+        font-size: 3rem
+    }
+    #clientes_section .modalPacotes .coteudosPacote .boxRight .boxCardKpi .boxKPIs .card:nth-child(2) h2{
+        font-size: 2rem;
+    }
+    #clientes_section .modalPacotes .coteudosPacote .boxRight .boxCardKpi .boxKPIs .card p{
+        font-size: var(--font-size-regular)
+    }
+    #clientes_section .modalPacotes .coteudosPacote .boxRight .boxCardKpi .boxKPIs .card{
+        background-position: top 15px right 15px;
+        background-size: 25px;
+    }
+        #clientes_section .modalPacotes .coteudosPacote .boxRight .boxCardKpi .boxKPIs .card:nth-child(2){
+        background-position: top 10px right 10px;
+        background-size: 30px;
+    }
+
+
+
+
     /* sessão de consultor */
 
     #consultores_section .boxTop{
@@ -639,6 +696,60 @@
 
 
 
+
+        /* sessão de cliente */
+
+    #clientes_section .modalPacotes .coteudosPacote .boxLeft .box_top .boxInputs h2{
+        font-size: var(--font-size-regular);
+        border: 1px solid red;
+    }
+
+    #clientes_section .modalPacotes .coteudosPacote .boxLeft .box_top .boxInputs label{
+        font-size: var(--font-size-small);
+    }
+
+    #clientes_section .modalPacotes .coteudosPacote .boxLeft .box_top .boxInputs select{
+        width: 35%;
+        height: 50px;
+        border-radius: 50px;
+        background-position: right 10px center;
+        background-size: 30px;
+        padding-left: 15px;
+        font-size: 1rem;
+    }
+
+    #clientes_section .modalPacotes .coteudosPacote .boxLeft .box_top .boxInputs:nth-child(2) select{
+        width: 55%;
+    }
+
+    #clientes_section .modalPacotes .coteudosPacote .boxLeft .box_bottom h2{
+        font-size: var(--font-size-regular);
+        margin: .5rem 0rem .5rem;
+        font-weight: var(--font-weight-regular);
+        border: 1px solid red;
+    }
+
+    #clientes_section .modalPacotes .coteudosPacote .boxRight h2{
+        font-size: var(--font-size-regular);
+    }
+
+   #clientes_section .modalPacotes .coteudosPacote .boxRight .boxCardKpi .boxKPIs .card h2{
+        font-size: 3rem
+    }
+    #clientes_section .modalPacotes .coteudosPacote .boxRight .boxCardKpi .boxKPIs .card:nth-child(2) h2{
+        font-size: 2rem;
+    }
+    #clientes_section .modalPacotes .coteudosPacote .boxRight .boxCardKpi .boxKPIs .card p{
+        font-size: var(--font-size-regular)
+    }
+    #clientes_section .modalPacotes .coteudosPacote .boxRight .boxCardKpi .boxKPIs .card{
+        background-position: top 15px right 15px;
+        background-size: 25px;
+    }
+        #clientes_section .modalPacotes .coteudosPacote .boxRight .boxCardKpi .boxKPIs .card:nth-child(2){
+        background-position: top 10px right 10px;
+        background-size: 30px;
+    }
 
 
         
