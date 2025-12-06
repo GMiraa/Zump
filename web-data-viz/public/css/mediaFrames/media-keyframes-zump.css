@@ -72,7 +72,7 @@
 
     #consultores_section .boxLeftBottom{
         padding-left: 1rem;
-        border: 1px solid red;
+       
         width: 60%;
     }
 
@@ -82,7 +82,6 @@
     }
 
     #consultores_section .boxLeftBottom .boxPesquisa{
-        border: 1px solid blue;  
         gap: 1rem;
     }
 
@@ -97,9 +96,7 @@
     }
 
 
-    #consultores_section .boxLeftBottom .boxPesquisa .boxInput input:focus{
-        border: 2px solid #1B98E0;
-    }
+    
 
     #consultores_section .boxLeftBottom .boxPesquisa .boxInput button{
         background-size: 30px;
@@ -181,9 +178,6 @@
     }
 
     /* status do consultor scroll*/
-    #consultores_section .boxLeftBottom .boxCardsConsultores .cardConsultor .box_status{
-        border: 1px solid red;
-    }
 
     #consultores_section .boxLeftBottom .boxCardsConsultores .cardConsultor .box_status .status_ativo{
         width: 10px;
@@ -205,7 +199,7 @@
 
     #consultores_section .boxLeftBottom .boxCardsConsultores .cardConsultor .boxIcons{
         padding-right: 1rem;
-        border: 1px solid red;
+      
     }
 
 
@@ -233,12 +227,12 @@
         width:40%;
         height: 100%;
         padding: 0px 2rem 1.5rem 0px;
-        border: 1px solid green;
+    
     }
     
     
     #consultores_section .boxRightBottom .boxHistorico .boxSelecao{
-        border: 1px solid red;
+        
         justify-content: space-between;
         padding: 0px 1rem;
         width: 100%;
@@ -267,7 +261,7 @@
         height: calc(100% - 70px);
         overflow-y: scroll;
         margin-right: 10px;
-        border: 1px solid yellow;
+        
     }
 
 
@@ -275,7 +269,7 @@
         justify-content: space-between;
         height: 70px;
         min-height: 70px;
-        border: 1px solid #00ff08;
+        
     }
 
     #consultores_section .boxRightBottom .boxHistorico .boxCards .card .imgUser{
@@ -289,7 +283,7 @@
 
     #consultores_section .boxRightBottom .boxHistorico .boxCards .card .infos{
         width: 80%;
-        border: 1px solid red;
+
     }
     #consultores_section .boxRightBottom .boxHistorico .boxCards .card h2{
         font-size: var(--font-size-small);
@@ -561,7 +555,6 @@
 
     #consultores_section .boxLeftBottom .boxCardsConsultores .cardConsultor .boxIcons{
         padding-right: 1rem;
-        border: 1px solid red;
     }
 
 
@@ -590,7 +583,6 @@
         width: 35%;
         height: 100%;
         padding: 0px 0px 1rem;
-        border: 1px solid green;
     }
     
     
@@ -623,7 +615,6 @@
         height: calc(100% - 70px);
         overflow-y: scroll;
         margin-right: 10px;
-        border: 1px solid yellow;
     }
 
 
@@ -764,12 +755,10 @@
 
     #consultores_section .boxTop{
         width: 100%;
-        border: 1px solid red;
         height: 30%;  
         gap: 2%;
     }
     #consultores_section .itensBottom{
-        border: 1px solid red;
         justify-content: center;
     }
 
@@ -1177,6 +1166,151 @@
         width: 180px;
     }
 
+
+    /* Tela de consultor */
+    
+    #consultores_section .boxTop{
+        width: 70%;
+        height: 35%;
+        margin-top: 1rem;
+        flex-wrap: wrap;
+        align-items: center;
+        gap: 1rem;
+    }
+
+
+    /*  Estilização dos cards para a tela cadastro de consultor */
+    #consultores_section .boxTop .card{
+        width: calc(40% -1rem);
+        height: 120px;
+    }
+
+    #consultores_section .boxLeftBottom h1{
+        font-size: var(--font-size-regular);
+    }
+
+    
+    #consultores_section .boxLeftBottom .boxPesquisa{
+        height: auto;
+        justify-content: center;
+        flex-direction: row;
+        flex-wrap: wrap;
+    }
+
+    #consultores_section .boxLeftBottom .boxPesquisa .boxInput{
+        height: 50px;
+        width: auto; 
+    }
+    #consultores_section .boxLeftBottom .boxPesquisa .boxInput input{
+        font-size: var(--font-size-small);
+        height: 50px;
+        width: 240px;
+        border-radius:50px;
+    }
+
+
+#consultores_section .boxLeftBottom .boxPesquisa .boxInput button{
+    background-size: 20px;
+    height: 50px;
+    width: 50px;    
+    border-radius: 50px; 
+}
+
+#consultores_section .boxLeftBottom .boxPesquisa select{
+    width: 180px;
+    height: 50px;
+    border-radius:50px;
+    background-size: 20px;
+    font-size: var(--font-size-small);
+}
+#consultores_section .boxLeftBottom .boxPesquisa .adcionarConsultor{
+    width: 150px;
+    height: 50px;
+    border-radius:50px;
+    text-align: center;  
+    padding-left: 0px;
+    background-image:none;
+    font-size: var(--font-size-small);
+
+}
+
+    /* Cards consultor */
+
+    #consultores_section .boxLeftBottom .boxCardsConsultores .cardConsultor{
+        display: flex;
+        flex-direction: column-reverse;
+        justify-content: center;
+        width: 97%;
+        min-height: auto;
+        gap: 1rem;
+        padding-left: 0rem;
+        padding: 1rem;
+    }
+
+    #consultores_section .boxLeftBottom .boxCardsConsultores .cardConsultor .infos_consultor{
+        margin-left: none;
+        align-items: center;
+        height: 100%;
+        width: 100%;
+        gap: .5rem;
+    }
+    #consultores_section .boxLeftBottom .boxCardsConsultores .cardConsultor .infos_consultor h2{
+        font-size: var(--font-size-regular);
+    }
+    #consultores_section .boxLeftBottom .boxCardsConsultores .cardConsultor .infos_consultor p{
+        font-size: var(--font-size-small);
+    }
+
+    #consultores_section .boxLeftBottom .boxCardsConsultores .cardConsultor .box_status{
+        height: auto;
+        width: 100%;
+        flex-direction: row;
+        justify-content: center;
+        padding-left: 0rem;
+        gap: 1.5rem;
+    }
+
+    #consultores_section .boxLeftBottom .boxCardsConsultores .cardConsultor .box_status p{
+        font-size: var(--font-size-small);
+    }
+
+    #consultores_section .boxLeftBottom .boxCardsConsultores .cardConsultor .boxIcons{
+        width: 100%;
+        height: auto;
+        justify-content: center; 
+        gap: 1rem;
+        padding-right: 0rem;
+    }
+
+
+
+    #consultores_section .boxLeftBottom .boxCardsConsultores .cardConsultor .boxIcons button{
+        width: 50px;
+        height: 50px;
+        cursor: pointer;
+    }
+
+
+    #consultores_section .boxLeftBottom .boxCardsConsultores .cardConsultor .boxIcons .report,
+    #consultores_section .boxLeftBottom .boxCardsConsultores .cardConsultor .boxIcons .edit,
+    #consultores_section .boxLeftBottom .boxCardsConsultores .cardConsultor .boxIcons .block,
+    #consultores_section .boxLeftBottom .boxCardsConsultores .cardConsultor .boxIcons .delete{
+        background-size: 30px;
+    }
+    #consultores_section .boxLeftBottom .boxCardsConsultores .cardConsultor .boxIcons .fechado{
+        background-size: 20px;
+    }
+
+
+
+#consultores_section .boxLeftBottom .boxPesquisa .abrirHistorico{
+    display: flex;
+    width: 50px;
+    height: 50px;
+    border-radius: 50px;
+    background-size: 20px;
+}
+
 }
 
 @media screen and (max-width: 800px){
@@ -1274,6 +1408,106 @@
     width: 30px;
     height: 30px;
 }
+
+
+    /* Cards consultor */
+
+    #consultores_section .boxLeftBottom .boxCardsConsultores .cardConsultor{
+        display: flex;
+        flex-direction: column-reverse;
+        justify-content: center;
+        width: 97%;
+        min-height: auto;
+        gap: 1rem;
+        padding-left: 0rem;
+        padding: 1rem;
+    }
+
+    #consultores_section .boxLeftBottom .boxCardsConsultores .cardConsultor .infos_consultor{
+        margin-left: none;
+        align-items: center;
+        height: 100%;
+        width: 100%;
+        gap: .5rem;
+    }
+    #consultores_section .boxLeftBottom .boxCardsConsultores .cardConsultor .infos_consultor h2{
+        font-size: var(--font-size-regular);
+    }
+    #consultores_section .boxLeftBottom .boxCardsConsultores .cardConsultor .infos_consultor p{
+        font-size: var(--font-size-small);
+    }
+
+    #consultores_section .boxLeftBottom .boxCardsConsultores .cardConsultor .box_status{
+        height: auto;
+        width: 100%;
+        flex-direction: row;
+        justify-content: center;
+        padding-left: 0rem;
+        gap: 1.5rem;
+    }
+
+    #consultores_section .boxLeftBottom .boxCardsConsultores .cardConsultor .box_status p{
+        font-size: var(--font-size-small);
+    }
+
+    #consultores_section .boxLeftBottom .boxCardsConsultores .cardConsultor .boxIcons{
+        width: 100%;
+        height: auto;
+        justify-content: center; 
+        gap: 1rem;
+        padding-right: 0rem;
+    }
+
+
+
+    #consultores_section .boxLeftBottom .boxCardsConsultores .cardConsultor .boxIcons button{
+        width: 50px;
+        height: 50px;
+        cursor: pointer;
+    }
+
+
+    #consultores_section .boxLeftBottom .boxCardsConsultores .cardConsultor .boxIcons .report,
+    #consultores_section .boxLeftBottom .boxCardsConsultores .cardConsultor .boxIcons .edit,
+    #consultores_section .boxLeftBottom .boxCardsConsultores .cardConsultor .boxIcons .block,
+    #consultores_section .boxLeftBottom .boxCardsConsultores .cardConsultor .boxIcons .delete{
+        background-size: 30px;
+    }
+    #consultores_section .boxLeftBottom .boxCardsConsultores .cardConsultor .boxIcons .fechado{
+        background-size: 20px;
+    }
+
+    #consultores_section .boxRightBottom{
+        width:90%;
+        height: 100%;
+    }
+
+    #consultores_section .boxRightBottom .boxHistorico .fecharHistorico{
+        top: -15px;
+        right: -15px;
+        height: 30px;
+        width:30px;
+        border-radius: 50%;
+        background-color: #ffffff;
+        background-size: 30px;
+    }
+
+    #consultores_section .boxRightBottom .boxHistorico .boxSelecao h2{
+        color: var(--black);
+        font-size: var(--font-size-small);
+    }
+
+    #consultores_section .boxRightBottom .boxHistorico .boxSelecao select{
+        width: 150px;
+        height: 40px;
+        border-radius: 40px;
+        font-size: .8rem;
+        background-position: right 10px center;
+        background-repeat: no-repeat;
+        background-size: 25px;
+        padding-left: 15px
+    }
+
 
 }
 
@@ -1464,6 +1698,97 @@
     }
 
 
+    /* Tela consultor */
+
+    #consultores_section {
+        width: 100vw;
+    }
+    #consultores_section .boxTop{
+        width:100%;
+        display: flex;
+        flex-wrap: nowrap;
+        justify-content: start;
+        padding: 0rem 1rem;
+        align-items: center;
+        overflow-x: scroll;
+        height: 20%;
+    }
+
+    #consultores_section .boxTop .card{
+        min-width:220px;
+        height: 120px;
+    }
+
+    /* Cards consultor */
+
+    #consultores_section .boxLeftBottom .boxCardsConsultores .cardConsultor{
+        display: flex;
+        flex-direction: column-reverse;
+        justify-content: center;
+        width: 97%;
+        min-height: auto;
+        gap: 1rem;
+        padding-left: 0rem;
+        padding: 1rem;
+    }
+
+    #consultores_section .boxLeftBottom .boxCardsConsultores .cardConsultor .infos_consultor{
+        margin-left: none;
+        align-items: center;
+        height: 100%;
+        width: 100%;
+        gap: .5rem;
+    }
+    #consultores_section .boxLeftBottom .boxCardsConsultores .cardConsultor .infos_consultor h2{
+        font-size: var(--font-size-regular);
+    }
+    #consultores_section .boxLeftBottom .boxCardsConsultores .cardConsultor .infos_consultor p{
+        font-size: var(--font-size-small);
+    }
+
+    #consultores_section .boxLeftBottom .boxCardsConsultores .cardConsultor .box_status{
+        height: auto;
+        width: 100%;
+        flex-direction: row;
+        justify-content: center;
+        padding-left: 0rem;
+        gap: 1.5rem;
+    }
+
+    #consultores_section .boxLeftBottom .boxCardsConsultores .cardConsultor .box_status p{
+        font-size: var(--font-size-small);
+    }
+
+    #consultores_section .boxLeftBottom .boxCardsConsultores .cardConsultor .boxIcons{
+        width: 100%;
+        height: auto;
+        justify-content: center; 
+        gap: 1rem;
+        padding-right: 0rem;
+    }
+
+
+
+    #consultores_section .boxLeftBottom .boxCardsConsultores .cardConsultor .boxIcons button{
+        width: 50px;
+        height: 50px;
+        cursor: pointer;
+    }
+
+
+    #consultores_section .boxLeftBottom .boxCardsConsultores .cardConsultor .boxIcons .report,
+    #consultores_section .boxLeftBottom .boxCardsConsultores .cardConsultor .boxIcons .edit,
+    #consultores_section .boxLeftBottom .boxCardsConsultores .cardConsultor .boxIcons .block,
+    #consultores_section .boxLeftBottom .boxCardsConsultores .cardConsultor .boxIcons .delete{
+        background-size: 30px;
+    }
+    #consultores_section .boxLeftBottom .boxCardsConsultores .cardConsultor .boxIcons .fechado{
+        background-size: 20px;
+    }
+
+
+
+    
 
 }
 
@@ -1645,6 +1970,95 @@
     height: 45px;
 }
 
+    /* Cards consultor */
+
+    #consultores_section .boxLeftBottom .boxCardsConsultores .cardConsultor{
+        display: flex;
+        flex-direction: column-reverse;
+        justify-content: center;
+        width: 97%;
+        min-height: auto;
+        gap: 1rem;
+        padding-left: 0rem;
+        padding: 1rem;
+    }
+
+    #consultores_section .boxLeftBottom .boxCardsConsultores .cardConsultor .infos_consultor{
+        margin-left: none;
+        align-items: center;
+        height: 100%;
+        width: 100%;
+        gap: .5rem;
+    }
+    #consultores_section .boxLeftBottom .boxCardsConsultores .cardConsultor .infos_consultor h2{
+        font-size: var(--font-size-small);
+    }
+    #consultores_section .boxLeftBottom .boxCardsConsultores .cardConsultor .infos_consultor p{
+        font-size: .7rem;
+    }
+
+    #consultores_section .boxLeftBottom .boxCardsConsultores .cardConsultor .box_status{
+        height: auto;
+        width: 100%;
+        flex-direction: row;
+        justify-content: center;
+        padding-left: 0rem;
+        gap: 1.5rem;
+    }
+
+    #consultores_section .boxLeftBottom .boxCardsConsultores .cardConsultor .box_status p{
+        font-size: var(--font-size-small);
+    }
+
+    #consultores_section .boxLeftBottom .boxCardsConsultores .cardConsultor .boxIcons{
+        width: 100%;
+        height: auto;
+        justify-content: center; 
+        gap: 1rem;
+        padding-right: 0rem;
+    }
+
+
+
+    #consultores_section .boxLeftBottom .boxCardsConsultores .cardConsultor .boxIcons button{
+        width: 50px;
+        height: 50px;
+        cursor: pointer;
+    }
+
+
+    #consultores_section .boxLeftBottom .boxCardsConsultores .cardConsultor .boxIcons .report,
+    #consultores_section .boxLeftBottom .boxCardsConsultores .cardConsultor .boxIcons .edit,
+    #consultores_section .boxLeftBottom .boxCardsConsultores .cardConsultor .boxIcons .block,
+    #consultores_section .boxLeftBottom .boxCardsConsultores .cardConsultor .boxIcons .delete{
+        background-size: 25px;
+    }
+    #consultores_section .boxLeftBottom .boxCardsConsultores .cardConsultor .boxIcons .fechado{
+        background-size: 15px;
+    }
+
+    #consultores_section .boxRightBottom .boxHistorico .boxSelecao h2{
+        color: var(--black);
+        font-size: .8rem;
+    }
+
+    #consultores_section .boxRightBottom .boxHistorico .boxSelecao select{
+        width: 170px;
+        height: 40px;
+        border-radius: 40px;
+        font-size: .7rem;
+        background-position: right 10px center;
+        background-repeat: no-repeat;
+        background-size: 25px;
+        padding-left: 15px
+    }
+
+    #consultores_section .boxRightBottom .boxHistorico .boxCards .card h2{
+        font-size: .8rem;
+    }
+    #consultores_section .boxRightBottom .boxHistorico .boxCards .card p{
+        font-size: .8rem;
+    }
 
 
 }

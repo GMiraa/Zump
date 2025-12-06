@@ -38,9 +38,7 @@
     </header>
     <div id="cardDelete"></div>
     <section id="consultores_section">
-      <div class="modalEditConsultor" id="modalEditConsultor">
-        
-      </div>
+      <div class="modalEditConsultor" id="modalEditConsultor"></div>
       <div class="modalCadastro" id="modalCadastroConsultor">
         <button
           onclick="fecharModalCadastroConsultor()"
@@ -95,7 +93,9 @@
               </div>
             </div>
             <div class="boxInputs">
-              <label for="senhaTemporariaConsultor">Senha temporaria<b>*</b></label>
+              <label for="senhaTemporariaConsultor"
+                >Senha temporaria<b>*</b></label
+              >
               <div class="inputBtn">
                 <input
                   type="text"
@@ -110,7 +110,9 @@
               cadastrar consultor
             </button>
             <div id="mensagemError"></div>
-            <div><p><b>* Campos obrigatórios</b></p></div>
+            <div>
+              <p><b>* Campos obrigatórios</b></p>
+            </div>
           </div>
         </div>
       </div>
@@ -143,7 +145,11 @@
           <h1>Consultores</h1>
           <div class="boxPesquisa">
             <div class="boxInput">
-              <input type="text" id="nomeConsultorPesquisa" placeholder="Pesquisar consultor..." />
+              <input
+                type="text"
+                id="nomeConsultorPesquisa"
+                placeholder="Pesquisar consultor..."
+              />
               <button onclick="pesquisarConsultor()"></button>
             </div>
             <select name="" id="">
@@ -155,17 +161,88 @@
               class="adcionarConsultor"
               onclick="abrirModalCadastroConsultor()"
             >
-              adicionar consultor
+              adicionar
             </button>
             <button onclick="abrirHistorico()" class="abrirHistorico"></button>
           </div>
           <div class="boxCardsConsultores" id="Consultores">
-        
+            <div class="cardConsultor">
+              <div class="box_foto_consultor"></div>
+              <div class="infos_consultor">
+                <h2>Matheus Gomes de Oliveira</h2>
+                <p>matheus.doliveira@gmail.com</p>
+              </div>
+              <div class="box_status">
+                <div class="status_ativo"></div>
+                <p>Ativo</p>
+              </div>
+              <div class="boxIcons">
+                <button class="report"></button>
+                <button
+                  class="edit"
+                  onclick="abrirModalEditarConsultor()"
+                ></button>
+                <button
+                  class="block"
+                  onclick="bloquearConsultor(this)"
+                ></button>
+                <button class="delete" onclick="apagarConsultor()"></button>
+              </div>
+            </div>
+            <div class="cardConsultor">
+              <div class="box_foto_consultor"></div>
+              <div class="infos_consultor">
+                <h2>Matheus Gomes de Oliveira</h2>
+                <p>matheus.doliveira@gmail.com</p>
+              </div>
+              <div class="box_status">
+                <div class="status_ativo"></div>
+                <p>Ativo</p>
+              </div>
+              <div class="boxIcons">
+                <button class="report"></button>
+                <button
+                  class="edit"
+                  onclick="abrirModalEditarConsultor()"
+                ></button>
+                <button
+                  class="block"
+                  onclick="bloquearConsultor(this)"
+                ></button>
+                <button class="delete" onclick="apagarConsultor()"></button>
+              </div>
+            </div>
+            <div class="cardConsultor">
+              <div class="box_foto_consultor"></div>
+              <div class="infos_consultor">
+                <h2>Matheus Gomes de Oliveira</h2>
+                <p>matheus.doliveira@gmail.com</p>
+              </div>
+              <div class="box_status">
+                <div class="status_ativo"></div>
+                <p>Ativo</p>
+              </div>
+              <div class="boxIcons">
+                <button class="report"></button>
+                <button
+                  class="edit"
+                  onclick="abrirModalEditarConsultor()"
+                ></button>
+                <button
+                  class="block"
+                  onclick="bloquearConsultor(this)"
+                ></button>
+                <button class="delete" onclick="apagarConsultor()"></button>
+              </div>
+            </div>
           </div>
         </div>
         <div class="boxRightBottom" id="historico">
           <div class="boxHistorico">
-            <button onclick="fecharHistorico()" class="fecharHistorico"></button>
+            <button
+              onclick="fecharHistorico()"
+              class="fecharHistorico"
+            ></button>
             <div class="boxSelecao">
               <h2>Histórico (atividades)</h2>
               <select name="" id="">
@@ -198,61 +275,58 @@
     <script src="js/modal/modalPacotes.js"></script>
     <script src="js/dashboardgeral.js"></script>
     <script src="js/graficoConsultor.js"></script>
-
   </body>
 </html>
 
 <script>
-
   var nome = sessionStorage.NOME_USUARIO;
   var id = sessionStorage.ID_USUARIO;
-  var fkempresa = sessionStorage.FK_EMPRESA
+  var fkempresa = sessionStorage.FK_EMPRESA;
 
   var ListaValores = [];
   var ListaClientes = [];
   var ListaConsultores = [];
   var ListaResultadoPesquisaConsultor = [];
 
-  function fecharHistorico(){
-    let modalHist = document.getElementById("historico")
+  function fecharHistorico() {
+    let modalHist = document.getElementById("historico");
     modalHist.style.display = "none";
   }
 
-  function abrirHistorico(){
-    let modalHist = document.getElementById("historico")
+  function abrirHistorico() {
+    let modalHist = document.getElementById("historico");
     modalHist.style.display = "flex";
   }
 
   function verificarResolucaoJanela() {
     const largura = window.innerWidth;
     const altura = window.innerHeight;
-    let modalHist = document.getElementById("historico")
+    let modalHist = document.getElementById("historico");
 
-    if(largura > 1330){
-      modalHist.style.display = "flex"
-    }else{
-      modalHist.style.display = "none"
+    if (largura > 1330) {
+      modalHist.style.display = "flex";
+    } else {
+      modalHist.style.display = "none";
     }
   }
 
-  window.addEventListener('resize', () => {
+  window.addEventListener("resize", () => {
     console.log(verificarResolucaoJanela());
   });
 
-  function carregarFuncoes(){
+  // function carregarFuncoes(){
 
-    Userlogado();
-    validarSessao()
+  //   Userlogado();
+  //   validarSessao()
 
-  }
-  function Userlogado(){
-
-        if((nome != null || nome != undefined) && (id != null || id != undefined)){
-
-            name_user.innerHTML = `${nome}`
-
-        }
-
+  // }
+  function Userlogado() {
+    if (
+      (nome != null || nome != undefined) &&
+      (id != null || id != undefined)
+    ) {
+      name_user.innerHTML = `${nome}`;
+    }
   }
 
   //mascara para inputs
@@ -293,16 +367,14 @@
     }, 3000);
   }
 
-  async function carregarConsultores(){
-
-    const resposta = await fetch(`/dashboard/buscarConsultores/${fkempresa}`);   
+  async function carregarConsultores() {
+    const resposta = await fetch(`/dashboard/buscarConsultores/${fkempresa}`);
     const dados = await resposta.json();
     ListaConsultores = dados;
 
     Consultores.innerHTML = ``;
 
-    for(var i = 0; i < ListaConsultores.length; i++){
-
+    for (var i = 0; i < ListaConsultores.length; i++) {
       Consultores.innerHTML += `<div class="cardConsultor">
               <div class="box_foto_consultor"></div>
               <div class="infos_consultor">
@@ -326,9 +398,7 @@
                 <button class="delete" onclick="apagarConsultor(${ListaConsultores[i].idUsuario})"></button>
               </div>
             </div>`;
-
     }
-
   }
 
   carregarConsultores();
@@ -339,16 +409,16 @@
 
     // 1. Procura o consultor correto na lista
     for (var i = 0; i < ListaConsultores.length; i++) {
-        if (ListaConsultores[i].idUsuario == id) {
-            consultorEncontrado = ListaConsultores[i];
-            break; // O break deve ficar DENTRO do if
-        }
+      if (ListaConsultores[i].idUsuario == id) {
+        consultorEncontrado = ListaConsultores[i];
+        break; // O break deve ficar DENTRO do if
+      }
     }
 
     // 2. Verifica se achou
     if (consultorEncontrado == null) {
-        alert("Consultor não encontrado ou erro inesperado!");
-        return; // Para a execução da função
+      alert("Consultor não encontrado ou erro inesperado!");
+      return; // Para a execução da função
     }
 
     // 3. Torna o modal visível (Importante!)
@@ -462,74 +532,65 @@
             </div>
           </div>
         </div>`;
-    
+
     // ATENÇÃO: Se você usa Chart.js, precisa chamar a função que cria o gráfico AQUI
-    // Exemplo: criarGraficoConsultor(); 
-}
+    // Exemplo: criarGraficoConsultor();
+  }
 
-    function apagarConsultor(id){
+  function apagarConsultor(id) {
+    var consultorId = id;
 
-      var consultorId = id;
+    fetch("/dashboard/apagarConsultor/${consultorId}", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        Id: consultorId,
+      }),
+    });
+    alert("Consultor excluído com sucesso!");
+    setTimeout(() => {
+      location.reload();
+    }, 1000);
+  }
 
-      fetch('/dashboard/apagarConsultor/${consultorId}', {
-            method: "POST",
-            headers: {
-              "Content-Type": "application/json"
-            },
-            body: JSON.stringify({
-              Id: consultorId
-            })
-          })
-          alert("Consultor excluído com sucesso!");
-          setTimeout(() => {
-            location.reload();
-          }, 1000);  
+  function cadastrarConsultor() {
+    var nome = nomeConsultor.value;
+    var email = emailConsultor.value;
+    var cpf = cpfConsultor.value;
+    var senha = senhaTemporariaConsultor.value;
+    var cargo = "Funcionario";
 
+    if (nome == "" || email == "" || cpf == "" || senha == "") {
+      mensagemError.innerHTML = `<p>Campos <b>obrigatórios</b> não preenchidos!</p>`;
+      setTimeout(() => {
+        mensagemError.innerHTML = ``;
+      }, 3500);
+    } else {
+      fetch("/dashboard/cadastrarConsultor", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          ConsultorNome: nome,
+          ConsultorEmail: email,
+          ConsultorCPF: cpf,
+          ConsultorSenha: senha,
+          ConsultorCargo: cargo,
+          ConsultorEmpresa: fkempresa,
+          ConsultorSuperior: id,
+        }),
+      });
+      alert("Consultor adicionado com sucesso!");
+      setTimeout(() => {
+        location.reload();
+      }, 1000);
     }
+  }
 
-    function cadastrarConsultor(){
-
-      var nome = nomeConsultor.value;
-      var email = emailConsultor.value;
-      var cpf = cpfConsultor.value;
-      var senha = senhaTemporariaConsultor.value;
-      var cargo = "Funcionario";
-
-      if(nome == "" || email == "" || cpf == "" || senha == ""){
-
-        mensagemError.innerHTML = `<p>Campos <b>obrigatórios</b> não preenchidos!</p>`;
-        setTimeout(() => {
-            mensagemError.innerHTML = ``;
-          }, 3500);  
-
-      }
-      else {
-
-          fetch('/dashboard/cadastrarConsultor', {
-            method: "POST",
-            headers: {
-              "Content-Type": "application/json"
-            },
-            body: JSON.stringify({
-              ConsultorNome: nome,
-              ConsultorEmail: email,
-              ConsultorCPF: cpf,
-              ConsultorSenha: senha,
-              ConsultorCargo: cargo,
-              ConsultorEmpresa: fkempresa,
-              ConsultorSuperior: id
-            })
-          })
-          alert("Consultor adicionado com sucesso!");
-          setTimeout(() => {
-            location.reload();
-          }, 1000); 
-
-      }
-
-    }
-
-    async function pesquisarConsultor() {
+  async function pesquisarConsultor() {
     var nomeConsultor = nomeConsultorPesquisa.value;
 
     if (nomeConsultor == "" || nomeConsultor == null) {
@@ -559,23 +620,21 @@
                 <button class="delete" onclick="apagarConsultor(${ListaConsultores[i].idUsuario})"></button>
               </div>
             </div>`;
-    }
-    else {
+    } else {
+      const resposta = await fetch(
+        `/dashboard/pesquisarConsultor/${nomeConsultor}`
+      );
+      const dados = await resposta.json();
+      ListaResultadoPesquisaConsultor = dados;
 
-    const resposta = await fetch(`/dashboard/pesquisarConsultor/${nomeConsultor}`);
-    const dados = await resposta.json();
-    ListaResultadoPesquisaConsultor = dados;
+      Consultores.innerHTML = ``;
 
-    Consultores.innerHTML = ``;
+      if (ListaResultadoPesquisaConsultor.length == 0) {
+        Consultores.innerHTML = `<h2>Nenhum consultor encontrado</h2>`;
+      }
 
-    if(ListaResultadoPesquisaConsultor.length == 0){
-
-      Consultores.innerHTML = `<h2>Nenhum consultor encontrado</h2>`;
-
-    }
-
-    for(var i = 0; i < ListaResultadoPesquisaConsultor.length; i++)
-          Consultores.innerHTML += `<div class="cardConsultor">
+      for (var i = 0; i < ListaResultadoPesquisaConsultor.length; i++)
+        Consultores.innerHTML += `<div class="cardConsultor">
               <div class="box_foto_consultor"></div>
               <div class="infos_consultor">
                 <h2>${ListaResultadoPesquisaConsultor[i].nome}</h2>
@@ -598,7 +657,6 @@
                 <button class="delete" onclick="apagarConsultor(${ListaResultadoPesquisaConsultor[i].idUsuario})"></button>
               </div>
             </div>`;
+    }
   }
-}
-
 </script>
