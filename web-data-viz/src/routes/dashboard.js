@@ -39,4 +39,8 @@ router.post("/cadastrarConsultor", function (req, res) {
     dashboardController.cadastrarConsultor(req, res);
 })
 
+router.get("/pesquisarConsultor/:nomeConsultor", function (req, res) {
+    dashboardController.pesquisarConsultor(req, res);
+})
+
 module.exports = router;

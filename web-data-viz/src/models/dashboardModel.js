@@ -94,6 +94,14 @@ function buscarValores(){
     return database.executar(instrucaoSql);
   }
 
+  function pesquisarConsultor(nome){
+
+      var instrucaoSql = `SELECT * FROM usuario WHERE nome LIKE '%${nome}%';`;
+  
+    console.log("Executando a instrução SQL: \n" + instrucaoSql);
+    return database.executar(instrucaoSql);
+  }
+
 module.exports = {
     buscarValores,
     cadastrarCliente,
@@ -103,5 +111,6 @@ module.exports = {
     atualizarCliente,
     buscarConsultores,
     apagarConsultor,
-    cadastrarConsultor
+    cadastrarConsultor,
+    pesquisarConsultor
 };

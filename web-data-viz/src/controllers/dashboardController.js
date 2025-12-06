@@ -89,7 +89,7 @@ function apagarCliente(req, res) {
             );
     }
 
-    function pesquisarClientes(req, res) {
+function pesquisarClientes(req, res) {
 
     var nome = req.params.nomeCliente;
 
@@ -203,6 +203,27 @@ function apagarConsultor(req, res) {
             );
     }
 
+    function pesquisarConsultor(req, res) {
+
+    var nome = req.params.nomeConsultor;
+
+    dashboardModel.pesquisarConsultor(nome)
+        .then(
+            function (resultado) {
+                res.json(resultado);
+            }
+        ).catch(
+            function (erro) {
+                console.log(erro);
+                console.log(
+                    "\nHouve um erro ao realizar a busca! Erro: ",
+                    erro.sqlMessage
+                );
+                res.status(500).json(erro.sqlMessage);
+            }
+        );
+}
+
 module.exports = {
     buscarValores,
     cadastrarCliente,
@@ -212,5 +233,6 @@ module.exports = {
     atualizarCliente,
     buscarConsultores,
     apagarConsultor,
-    cadastrarConsultor
+    cadastrarConsultor,
+    pesquisarConsultor
 }

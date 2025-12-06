@@ -717,6 +717,7 @@
           </div>
         </div>`;
     }
+    else {
 
     const resposta = await fetch(`/dashboard/pesquisarClientes/${nomeCliente}`);
     const dados = await resposta.json();
@@ -746,6 +747,7 @@
           </div>
         </div>`;
   }
+}
 
   function atualizarDadosCliente(id){
 

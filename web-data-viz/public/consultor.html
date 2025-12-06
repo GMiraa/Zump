@@ -143,8 +143,8 @@
           <h1>Consultores</h1>
           <div class="boxPesquisa">
             <div class="boxInput">
-              <input type="text" placeholder="Pesquisar consultor..." />
-              <button onclick=""></button>
+              <input type="text" id="nomeConsultorPesquisa" placeholder="Pesquisar consultor..." />
+              <button onclick="pesquisarConsultor()"></button>
             </div>
             <select name="" id="">
               <option value="ativos">Ativos</option>
@@ -211,7 +211,7 @@
   var ListaValores = [];
   var ListaClientes = [];
   var ListaConsultores = [];
-
+  var ListaResultadoPesquisaConsultor = [];
 
   function fecharHistorico(){
     let modalHist = document.getElementById("historico")
@@ -528,5 +528,77 @@
       }
 
     }
+
+    async function pesquisarConsultor() {
+    var nomeConsultor = nomeConsultorPesquisa.value;
+
+    if (nomeConsultor == "" || nomeConsultor == null) {
+      Consultores.innerHTML = ``;
+
+      for (var i = 0; i < ListaConsultores.length; i++)
+        Consultores.innerHTML += `<div class="cardConsultor">
+              <div class="box_foto_consultor"></div>
+              <div class="infos_consultor">
+                <h2>${ListaConsultores[i].nome}</h2>
+                <p>${ListaConsultores[i].email}</p>
+              </div>
+              <div class="box_status">
+                <div class="status_ativo"></div>
+                <p>Ativo</p>
+              </div>
+              <div class="boxIcons">
+                <button class="report"></button>
+                <button
+                  class="edit"
+                  onclick="abrirModalEditarConsultor(${ListaConsultores[i].idUsuario})"
+                ></button>
+                <button
+                  class="block"
+                  onclick="bloquearConsultor(this)"
+                ></button>
+                <button class="delete" onclick="apagarConsultor(${ListaConsultores[i].idUsuario})"></button>
+              </div>
+            </div>`;
+    }
+    else {
+
+    const resposta = await fetch(`/dashboard/pesquisarConsultor/${nomeConsultor}`);
+    const dados = await resposta.json();
+    ListaResultadoPesquisaConsultor = dados;
+
+    Consultores.innerHTML = ``;
+
+    if(ListaResultadoPesquisaConsultor.length == 0){
+
+      Consultores.innerHTML = `<h2>Nenhum consultor encontrado</h2>`;
+
+    }
+
+    for(var i = 0; i < ListaResultadoPesquisaConsultor.length; i++)
+          Consultores.innerHTML += `<div class="cardConsultor">
+              <div class="box_foto_consultor"></div>
+              <div class="infos_consultor">
+                <h2>${ListaResultadoPesquisaConsultor[i].nome}</h2>
+                <p>${ListaResultadoPesquisaConsultor[i].email}</p>
+              </div>
+              <div class="box_status">
+                <div class="status_ativo"></div>
+                <p>Ativo</p>
+              </div>
+              <div class="boxIcons">
+                <button class="report"></button>
+                <button
+                  class="edit"
+                  onclick="abrirModalEditarConsultor(${ListaResultadoPesquisaConsultor[i].idUsuario})"
+                ></button>
+                <button
+                  class="block"
+                  onclick="bloquearConsultor(this)"
+                ></button>
+                <button class="delete" onclick="apagarConsultor(${ListaResultadoPesquisaConsultor[i].idUsuario})"></button>
+              </div>
+            </div>`;
+  }
+}
 
 </script>
