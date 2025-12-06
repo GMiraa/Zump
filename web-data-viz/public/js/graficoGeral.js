@@ -55,7 +55,7 @@ function criarGrafico() {
         title: {
           display: true,
           text: "📈 Renda mensal",
-          color: "#fff",
+          color: "#000",
           font: {
             size: isMobile ? 14 : 20,
             weight: "bold",
@@ -64,7 +64,7 @@ function criarGrafico() {
         },
         legend: {
           labels: {
-            color: "#fff",
+            color: "#000",
             font: {
               size: isMobile ? 10 : 14,
             },
@@ -106,7 +106,7 @@ function criarGrafico() {
           position: "left",
           beginAtZero: true,
           ticks: {
-            color: "#fff",
+            color: "#000",
             font: {
               size: isMobile ? 10 : 15,
             },
@@ -119,7 +119,7 @@ function criarGrafico() {
           position: "right",
           beginAtZero: true,
           ticks: {
-            color: "#fff",
+            color: "#000",
             font: {
               size: isMobile ? 10 : 15,
             },
@@ -129,7 +129,7 @@ function criarGrafico() {
         },
         x: {
           ticks: {
-            color: "#fff",
+            color: "#000",
             font: {
               size: isMobile ? 14 : 20,
             },

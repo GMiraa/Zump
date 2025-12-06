@@ -15,11 +15,13 @@ body{
     max-width: 1920px;
     height: 100vh;
     max-height: 1080px;
-    background: #fff;
+    background: url("../../assets/imgs/fundoDash.svg");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
     position: relative;
     overflow: hidden;
     display: flex;
-   
     transition: all 0.6s linear;
 }
 
@@ -114,11 +116,9 @@ body #cardDelete .opBtn #btnSim{
     width: 100%;
     max-width: 290px;
     position: relative;
-    background: linear-gradient(90deg, #0F537A, #1B98E0);   
+    background: linear-gradient(190deg, #131517, #252525);   
     z-index: 999;
 }
-
-
 
 .menu .conteudo{
      display: flex;
@@ -231,16 +231,17 @@ body #cardDelete .opBtn #btnSim{
 
 #interagir_menu{
     position: absolute;
-    right: -30px;
-    width: 60px;
-    height: 60px;
-    border-radius: 60px;
+    top: 10px;
+    right: 10px;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
     border: 2px solid var(--white);
-    background-color: #1B98E0;
-    background-image: url("../../assets/icon/Plane.svg");
+    background-color: #131517;
+    background-image: url("../../assets/icon/closeWhite.svg");
     background-position: center;
     background-repeat: no-repeat;
-    background-size: 40px;
+    background-size: 20px;
     cursor: pointer;
 }
 
@@ -289,8 +290,9 @@ section {
 #dashboard_section #titleDash{
     font-size: 2.5rem;
     width: 100%;
+    background: transparent;
     display: flex;
-    justify-content: flex-end;
+    justify-content: start;
     line-height: 80px;    
     color: #B9B9B9;
     padding: 0px 2rem;
@@ -320,8 +322,10 @@ section {
 #dashboard_section .boxConteudo .boxLeft .card{
     width: 330px;
     height: 180px;
-    background: linear-gradient(45deg, #212E34, #1D3642, #183D4F, #13455D, #0A5579, #006494);
-    border-radius: 8px;
+    background: #ffffff38;
+    backdrop-filter: blur(10px);
+    box-shadow: 0 0px 10px rgba(0,0,0,0.2);
+    border-radius: 15px;
 }
 
 #dashboard_section .boxConteudo .boxRight{
@@ -341,9 +345,9 @@ section {
     width: 90%;
     min-height: 55%;
     border-radius: 15px;
-    background: linear-gradient(45deg, #131517,#464646) ;
+    background: #f5f5f5;
     padding: 10px;
-    box-shadow: 0 4px 25px rgba(0,0,0,0.3);
+    box-shadow: 0 0px 10px rgba(0,0,0,0.2);
     margin-top: 20px;
 }
 #dashboard_section .boxConteudo .boxRight .areaGrafico .chart-container{
@@ -375,8 +379,10 @@ section {
 #dashboard_section .boxConteudo .boxRight .areaConsultoresCards .cardsConsultores{
     width: 50%;
     height: 100%;
-    border-radius: 8px;
-    background: linear-gradient(45deg, #131517,#464646);
+    border-radius: 15px;
+    background: #ffffff38;
+    backdrop-filter: blur(10px);
+    box-shadow: 0 0px 10px rgba(0,0,0,0.2);
 }
 
 

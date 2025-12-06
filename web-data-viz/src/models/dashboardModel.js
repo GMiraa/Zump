@@ -68,11 +68,31 @@ function buscarValores(){
     return database.executar(instrucaoSql);
   }
 
+  function buscarConsultores(fkEmpresa){
+
+    var instrucaoSql = `SELECT * FROM usuario WHERE FkEmpresa = ${fkEmpresa};`;
+  
+    console.log("Executando a instrução SQL: \n" + instrucaoSql);
+    return database.executar(instrucaoSql);
+  }
+
+  function apagarConsultor(consultorId){
+
+    console.log("Id do cliente: " + consultorId);
+    
+    var instrucaoSql = `DELETE FROM usuario WHERE idUsuario = ${consultorId};`;
+  
+    console.log("Executando a instrução SQL: \n" + instrucaoSql);
+    return database.executar(instrucaoSql);
+  }
+
 module.exports = {
     buscarValores,
     cadastrarCliente,
     buscarClientes,
     apagarCliente,
     pesquisarClientes,
-    atualizarCliente
+    atualizarCliente,
+    buscarConsultores,
+    apagarConsultor
 };

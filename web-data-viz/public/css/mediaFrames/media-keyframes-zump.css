@@ -60,7 +60,6 @@
         top: 10px;
     }
     #consultores_section .boxTop .card h1{
-        color: var(--white);
         font-size: 3.5rem;
         font-weight: var(--font-weight-medium);
     }
@@ -167,25 +166,7 @@
 
 
     #consultores_section .boxLeftBottom .boxCardsConsultores .cardConsultor{
-        display: flex;
-        flex-direction: row;
-        align-items: center;   
-        width: 97%;
-        min-height: 85px;
-        border-radius: 8px;
-        background: linear-gradient(45deg, #0E2936, #1B98E0, #0E2936);
-    }
-    #consultores_section .boxLeftBottom .boxCardsConsultores .cardConsultor:hover{
-    background: #0E2936;
-    }
-
-
-
-    #consultores_section .boxLeftBottom .boxCardsConsultores .cardConsultor .box_foto_consultor{
-        width: 50px;
-        height: 50px;
-        border: 1px solid red;
-       
+    padding-left: 1rem;
     }
 
     #consultores_section .boxLeftBottom .boxCardsConsultores .cardConsultor .infos_consultor{
@@ -193,11 +174,9 @@
     }
 
     #consultores_section .boxLeftBottom .boxCardsConsultores .cardConsultor .infos_consultor h2{
-        color: var(--white);
         font-size: var(--fontMax-1440px);
     }
     #consultores_section .boxLeftBottom .boxCardsConsultores .cardConsultor .infos_consultor p{
-        color: var(--white);
         font-size: var(--font-size-small);
     }
 
@@ -205,13 +184,6 @@
     #consultores_section .boxLeftBottom .boxCardsConsultores .cardConsultor .box_status{
         border: 1px solid red;
     }
-
-    #consultores_section .boxLeftBottom .boxCardsConsultores .cardConsultor .box_status p{
-        color: var(--white);
-        font-size: var(--font-size-small);
-        font-weight: var(--font-weight-regular);
-    }
-
 
     #consultores_section .boxLeftBottom .boxCardsConsultores .cardConsultor .box_status .status_ativo{
         width: 10px;
@@ -264,13 +236,7 @@
         border: 1px solid green;
     }
     
-    #consultores_section .boxRightBottom .boxHistorico{
-        background: linear-gradient(45deg, #1D3642, #335F75, #3E748E, #437E9B, #4989A8);
-        width: 100%;
-        height: 100%;
-        border-radius: 10px;
-    }
-
+    
     #consultores_section .boxRightBottom .boxHistorico .boxSelecao{
         border: 1px solid red;
         justify-content: space-between;
@@ -281,7 +247,7 @@
 
     #consultores_section .boxRightBottom .boxHistorico .boxSelecao h2{
         width: auto;
-        color: var(--white);
+        color: var(--black);
         font-size: 1.1rem;
         font-weight: var(--font-weight-medium); 
     }
@@ -289,18 +255,8 @@
     #consultores_section .boxRightBottom .boxHistorico .boxSelecao select{
         width: 44%;
         height: 40px;
-        border-radius: 5px;
-        border: none;
-        outline: none;
-        background-color: #e9e9e9;
-        color: #585858;
-        background-image: url('data:image/svg+xml;utf8,<svg fill="none" stroke="%23606060" stroke-width="2" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M6 9l6 6 6-6"/></svg>');
-        background-position: right 10px center;
-        background-repeat: no-repeat;
-        background-size: 30px;
-        appearance: none;
-        padding-left: 10px;
-        cursor: pointer;
+        border-radius: 40px;
+        background-size: 25px;
     }
 
     .boxCards{
@@ -441,12 +397,10 @@
 
     #consultores_section .boxTop{
         width: 100%;
-        border: 1px solid red;
         height: 30%;  
         gap: 3%;
     }
     #consultores_section .itensBottom{
-        border: 1px solid red;
         justify-content: center;
     }
 
@@ -467,7 +421,6 @@
 
     #consultores_section .boxTop .card h1{
         margin-top: 1.5rem;
-        color: var(--white);
         font-size: 3.5rem;
         font-weight: var(--font-weight-medium);
     }
@@ -480,7 +433,6 @@
 
     #consultores_section .boxLeftBottom{
         padding-left: 1rem;
-        border: 1px solid blue;
         width: 60%;
     }
 
@@ -490,7 +442,6 @@
     }
 
     #consultores_section .boxLeftBottom .boxPesquisa{
-        border: 1px solid blue;  
         gap: 1rem;
     }
 
@@ -505,10 +456,6 @@
     }
 
 
-    #consultores_section .boxLeftBottom .boxPesquisa .boxInput input:focus{
-        border: 2px solid #1B98E0;
-    }
-
     #consultores_section .boxLeftBottom .boxPesquisa .boxInput button{
         background-size: 30px;
         height: 50px;
@@ -519,6 +466,7 @@
         width: 200px;
         height: 50px;
         background-size: 25px;
+        border-radius: 50px;
         font-size: var(--font-size-small);
     }
 
@@ -573,48 +521,21 @@
     }
 
 
-    #consultores_section .boxLeftBottom .boxCardsConsultores .cardConsultor{
-        display: flex;
-        flex-direction: row;
-        align-items: center;   
-        width: 97%;
-        min-height: 85px;
-        border-radius: 8px;
-        background: linear-gradient(45deg, #0E2936, #1B98E0, #0E2936);
-    }
-    #consultores_section .boxLeftBottom .boxCardsConsultores .cardConsultor:hover{
-    background: #0E2936;
-    }
-
-
 
     #consultores_section .boxLeftBottom .boxCardsConsultores .cardConsultor .box_foto_consultor{
         width: 50px;
         height: 50px;
-        border: 1px solid red;
-       
-    }
-
-    #consultores_section .boxLeftBottom .boxCardsConsultores .cardConsultor .infos_consultor{
-        margin-left: 0px;
     }
 
     #consultores_section .boxLeftBottom .boxCardsConsultores .cardConsultor .infos_consultor h2{
-        color: var(--white);
         font-size: var(--fontMax-1440px);
     }
     #consultores_section .boxLeftBottom .boxCardsConsultores .cardConsultor .infos_consultor p{
-        color: var(--white);
         font-size: var(--font-size-small);
     }
 
     /* status do consultor scroll*/
-    #consultores_section .boxLeftBottom .boxCardsConsultores .cardConsultor .box_status{
-        border: 1px solid red;
-    }
-
     #consultores_section .boxLeftBottom .boxCardsConsultores .cardConsultor .box_status p{
-        color: var(--white);
         font-size: var(--font-size-small);
         font-weight: var(--font-weight-regular);
     }
@@ -672,17 +593,9 @@
         border: 1px solid green;
     }
     
-    #consultores_section .boxRightBottom .boxHistorico{
-        border: 1px solid red;
-        background: linear-gradient(45deg, #1D3642, #335F75, #3E748E, #437E9B, #4989A8);
-        width: 100%;
-        height: 100%;
-        border-radius: 10px;
-    }
+    
 
     #consultores_section .boxRightBottom .boxHistorico .boxSelecao{
-        border: 1px solid red;
-        justify-content: space-between;
         padding: 0px 1rem;
         width: 100%;
         height: 60px;
@@ -690,26 +603,16 @@
 
     #consultores_section .boxRightBottom .boxHistorico .boxSelecao h2{
         width: auto;
-        color: var(--white);
-        font-size: 1.1rem;
+        color: var(--black);
+        font-size: 1rem;
         font-weight: var(--font-weight-medium); 
     }
 
     #consultores_section .boxRightBottom .boxHistorico .boxSelecao select{
         width: 44%;
         height: 40px;
-        border-radius: 5px;
         border: none;
         outline: none;
-        background-color: #e9e9e9;
-        color: #585858;
-        background-image: url('data:image/svg+xml;utf8,<svg fill="none" stroke="%23606060" stroke-width="2" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M6 9l6 6 6-6"/></svg>');
-        background-position: right 10px center;
-        background-repeat: no-repeat;
-        background-size: 30px;
-        appearance: none;
-        padding-left: 10px;
-        cursor: pointer;
     }
 
     .boxCards{
@@ -728,21 +631,11 @@
         justify-content: space-between;
         height: 70px;
         min-height: 70px;
-        border: 1px solid #00ff08;
     }
 
-    #consultores_section .boxRightBottom .boxHistorico .boxCards .card .imgUser{
-        min-width: 40px;
-        min-height: 40px;
-        border-radius: 50%;
-        margin-left: 0rem;
-        margin-right: 0rem;
-        background-color: #dfdfdf;
-    }
 
     #consultores_section .boxRightBottom .boxHistorico .boxCards .card .infos{
         width: 80%;
-        border: 1px solid red;
     }
     #consultores_section .boxRightBottom .boxHistorico .boxCards .card h2{
         font-size: var(--font-size-small);
@@ -898,7 +791,6 @@
 
     #consultores_section .boxTop .card h1{
         margin-top: 1.3rem;
-        color: var(--white);
         font-size: 2.5rem;
         font-weight: var(--font-weight-medium);
     }
@@ -909,9 +801,6 @@
 }
 @media screen and (max-width: 1130px){
 
-    #dashboard_section #titleDash{
-        box-shadow: 0px 12px 40px rgba(170, 170, 170, 0.541);
-    }
 
     .menu{
         position: absolute;
@@ -923,7 +812,7 @@
         width: 40px;
         height: 40px;
         left: 30px;
-        top: 8px;
+        top: 1.95%;
         opacity: 1;
     }
 
@@ -933,11 +822,11 @@
      }
     #interagir_menu{
         display: none;
-        right: -22.5px;
-        width: 45px;
-        height: 45px;
-        border-radius: 45px;
-        background-size: 25px;
+        right: 10px;
+        width: 40px;
+        height: 40px;
+        border-radius: 50%;
+        background-size: 20px;
     }
     
     .menu .conteudo .boxFoto{
@@ -1023,11 +912,12 @@
 
     #dashboard_section #titleDash{
         font-size: 2rem;
-        line-height: 50px;
+        line-height: 70px;
+        padding-left: 6rem;
     }
 
     #dashboard_section .boxConteudo{
-        height: calc(100% - 50px);
+        height: calc(100% - 70px);
         padding: 0px 2rem 0px 2rem;
         flex-direction: column;
     }
@@ -1064,7 +954,7 @@
         width: 40px;
         height: 40px;
         left: 30px;
-        top: 8px;
+        top: 1.95%;
         opacity: 1;
     }
 
@@ -1074,11 +964,11 @@
      }
     #interagir_menu{
         display: none;
-        right: -22.5px;
-        width: 45px;
-        height: 45px;
-        border-radius: 45px;
-        background-size: 25px;
+        right: 10px;
+        width: 35px;
+        height: 35px;
+        border-radius: 50%;
+        background-size: 15px;
     }
     
     .menu .conteudo .boxFoto{
@@ -1164,11 +1054,12 @@
 
     #dashboard_section #titleDash{
         font-size: 2rem;
-        line-height: 50px;
+        line-height: 70px;
+        padding-left: 6rem;
     }
 
     #dashboard_section .boxConteudo{
-        height: calc(100% - 50px);
+        height: calc(100% - 70px);
         padding: 0px 2rem 0px 2rem;
         flex-direction: column;
     }
@@ -1225,11 +1116,12 @@
 
     #dashboard_section #titleDash{
         font-size: 2rem;
-        line-height: 50px;
+        line-height: 70px;
+        padding-left: 6rem;
     }
 
     #dashboard_section .boxConteudo{
-        height: calc(100% - 50px);
+        height: calc(100% - 70px);
         padding: 0px 2rem 0px 2rem;
         flex-direction: column;
         overflow-y: scroll;
@@ -1291,11 +1183,11 @@
 
     #dashboard_section #titleDash{
         font-size: 2rem;
-        line-height: 50px;
+        line-height: 70px;
     }
 
     #dashboard_section .boxConteudo{
-        height: calc(100% - 50px);
+        height: calc(100% - 70px);
         padding: 0px 2rem 0px 2rem;
         flex-direction: column;
         overflow-y: scroll;
@@ -1494,13 +1386,13 @@
 
     #dashboard_section #titleDash{
         font-size: 2rem;
-        line-height: 50px;
+        line-height: 70px;
     }
 
     #dashboard_section .boxConteudo{
         flex-direction: column;
         width: 100vw;
-        height: calc(auto - 50px);
+        height: calc(auto - 70px);
         padding: 0px;
     }
     #dashboard_section .boxConteudo .boxLeft {
@@ -1649,13 +1541,13 @@
 
     #dashboard_section #titleDash{
         font-size: 2rem;
-        line-height: 50px;
+        line-height: 70px;
     }
 
     #dashboard_section .boxConteudo{
         flex-direction: column;
         width: 100vw;
-        height: calc(auto - 50px);
+        height: calc(auto - 70px);
         padding: 0px;
     }
     #dashboard_section .boxConteudo .boxLeft {

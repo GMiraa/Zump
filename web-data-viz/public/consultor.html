@@ -39,112 +39,7 @@
     <div id="cardDelete"></div>
     <section id="consultores_section">
       <div class="modalEditConsultor" id="modalEditConsultor">
-        <button class="fecharModalEdit" onclick="fecharModalEditarConsultor()">
-          voltar
-        </button>
-        <div class="boxLeft">
-          <div class="boxInfos">
-            <div class="boxLeftInfo">
-              <div class="boxInput">
-                <label for="">Email</label>
-                <input
-                  type="text"
-                  placeholder="email@gmail.com"
-                  disabled
-                  id="emailConsultorEdit"
-                />
-              </div>
-              <div class="boxInput">
-                <label for="">CEP</label>
-                <input
-                  type="text"
-                  placeholder="00000-000"
-                  id="cepConsultorEdit"
-                />
-              </div>
-              <div class="boxInput">
-                <label for="">Telefone</label>
-                <input
-                  type="text"
-                  placeholder="(11) 00000-0000"
-                  id="telConsultorEdit"
-                />
-              </div>
-            </div>
-            <div class="boxRightInfo">
-              <div class="boxInput">
-                <label for="">Endereço</label>
-                <input
-                  type="text"
-                  placeholder="Endereço do consultor"
-                  id="enderecoConsultorEdit"
-                />
-              </div>
-              <div class="boxInput">
-                <label for="">CPF</label>
-                <input
-                  type="text"
-                  placeholder="000.000.000-00"
-                  disabled
-                  id="cpfConsultorEdit"
-                />
-              </div>
-              <div class="boxInput">
-                <label for="">Data Nasc.</label>
-                <input
-                  type="text"
-                  placeholder="00/00/0000"
-                  disabled
-                  id="dataNascConsultorEdit"
-                />
-              </div>
-            </div>
-          </div>
-          <div class="boxGrafico">
-            <div class="chart-container">
-              <canvas id="rendaMensalChartConsultor"></canvas>
-            </div>
-          </div>
-          <button class="btnAlteracaoConsultor">alterar dados</button>
-        </div>
-        <div class="boxRight">
-          <h1>Nome</h1>
-          <div class="fotoConsultor"></div>
-          <div class="boxCards">
-            <div class="card">
-              <div class="boxTopo">
-                <div class="arrow">
-                  <img src="assets/icon/Arrow up-right.svg" alt="" />
-                </div>
-                <div class="porcent"><h2>16%</h2></div>
-                <h2>-</h2>
-                <div class="aumento"><h2>+ R$ 7,890.00</h2></div>
-              </div>
-              <div class="boxMeio">
-                <h1>R$ 57,890.00</h1>
-              </div>
-              <div class="boxRodape">
-                <h2>Faturamento últimos 30d</h2>
-              </div>
-            </div>
-            <div class="card">
-              <div class="boxMeioPadrao">
-                <h1>400</h1>
-              </div>
-              <div class="boxRodapePadrao">
-                <h2>Pacotes fechados</h2>
-              </div>
-            </div>
-            <div class="card">
-              <div class="boxMeioPadrao">
-                <h1>Salvador</h1>
-              </div>
-              <div class="boxRodapePadrao">
-                <h2>Pacotes mais vendidos</h2>
-              </div>
-            </div>
-          </div>
-        </div>
+        
       </div>
       <div class="modalCadastro" id="modalCadastroConsultor">
         <button
@@ -262,145 +157,8 @@
             </button>
             <button onclick="abrirHistorico()" class="abrirHistorico"></button>
           </div>
-          <div class="boxCardsConsultores">
-            <div class="cardConsultor">
-              <div class="box_foto_consultor"></div>
-              <div class="infos_consultor">
-                <h2>Matheus Gomes de Oliveira</h2>
-                <p>email@gmail.com</p>
-              </div>
-              <div class="box_status">
-                <div class="status_ativo"></div>
-                <p>Ativo</p>
-              </div>
-              <div class="boxIcons">
-                <button class="report"></button>
-                <button
-                  class="edit"
-                  onclick="abrirModalEditarConsultor()"
-                ></button>
-                <button
-                  class="block"
-                  onclick="bloquearConsultor(this)"
-                ></button>
-                <button class="delete" onclick="deletarCliente()"></button>
-              </div>
-            </div>
-            <div class="cardConsultor">
-              <div class="box_foto_consultor"></div>
-              <div class="infos_consultor">
-                <h2>Samuel Gonçalves Barros</h2>
-                <p>email@gmail.com</p>
-              </div>
-              <div class="box_status">
-                <div class="status_inativo"></div>
-                <p>Inativo</p>
-              </div>
-              <div class="boxIcons">
-                <button class="report"></button>
-                <button
-                  class="edit"
-                  onclick="abrirModalEditarConsultor()"
-                ></button>
-                <button
-                  class="block"
-                  onclick="bloquearConsultor(this)"
-                ></button>
-                <button class="delete" onclick="deletarCliente()"></button>
-              </div>
-            </div>
-            <div class="cardConsultor">
-              <div class="box_foto_consultor"></div>
-              <div class="infos_consultor">
-                <h2>Lucas Calil de Laurindo</h2>
-                <p>email@gmail.com</p>
-              </div>
-              <div class="box_status">
-                <div class="status_ativo"></div>
-                <p>Ativo</p>
-              </div>
-              <div class="boxIcons">
-                <button class="report"></button>
-                <button
-                  class="edit"
-                  onclick="abrirModalEditarConsultor()"
-                ></button>
-                <button
-                  class="block"
-                  onclick="bloquearConsultor(this)"
-                ></button>
-                <button class="delete" onclick="deletarCliente()"></button>
-              </div>
-            </div>
-            <div class="cardConsultor">
-              <div class="box_foto_consultor"></div>
-              <div class="infos_consultor">
-                <h2>Guilherme Faria de Mira</h2>
-                <p>email@gmail.com</p>
-              </div>
-              <div class="box_status">
-                <div class="status_ativo"></div>
-                <p>Ativo</p>
-              </div>
-              <div class="boxIcons">
-                <button class="report"></button>
-                <button
-                  class="edit"
-                  onclick="abrirModalEditarConsultor()"
-                ></button>
-                <button
-                  class="block"
-                  onclick="bloquearConsultor(this)"
-                ></button>
-                <button class="delete" onclick="deletarCliente()"></button>
-              </div>
-            </div>
-            <div class="cardConsultor">
-              <div class="box_foto_consultor"></div>
-              <div class="infos_consultor">
-                <h2>Ana Karoline Gomes Bento</h2>
-                <p>email@gmail.com</p>
-              </div>
-              <div class="box_status">
-                <div class="status_inativo"></div>
-                <p>Inativo</p>
-              </div>
-              <div class="boxIcons">
-                <button class="report"></button>
-                <button
-                  class="edit"
-                  onclick="abrirModalEditarConsultor()"
-                ></button>
-                <button
-                  class="block"
-                  onclick="bloquearConsultor(this)"
-                ></button>
-                <button class="delete" onclick="deletarCliente()"></button>
-              </div>
-            </div>
-            <div class="cardConsultor">
-              <div class="box_foto_consultor"></div>
-              <div class="infos_consultor">
-                <h2>Vitor Souza Librelon Restini</h2>
-                <p>email@gmail.com</p>
-              </div>
-              <div class="box_status">
-                <div class="status_inativo"></div>
-                <p>Inativo</p>
-              </div>
-              <div class="boxIcons">
-                <button class="report"></button>
-                <button
-                  class="edit"
-                  onclick="abrirModalEditarConsultor()"
-                ></button>
-                <button
-                  class="block"
-                  onclick="bloquearConsultor(this)"
-                ></button>
-                <button class="delete" onclick="deletarCliente()"></button>
-              </div>
-            </div>
+          <div class="boxCardsConsultores" id="Consultores">
+        
           </div>
         </div>
         <div class="boxRightBottom" id="historico">
@@ -450,6 +208,7 @@
 
   var ListaValores = [];
   var ListaClientes = [];
+  var ListaConsultores = [];
 
 
   function fecharHistorico(){
@@ -531,5 +290,205 @@
       fecharTimeoutBloq = null;
     }, 3000);
   }
+
+  async function carregarConsultores(){
+
+    const resposta = await fetch(`/dashboard/buscarConsultores/${fkempresa}`);   
+    const dados = await resposta.json();
+    ListaConsultores = dados;
+
+    Consultores.innerHTML = ``;
+
+    for(var i = 0; i < ListaConsultores.length; i++){
+
+      Consultores.innerHTML += `<div class="cardConsultor">
+              <div class="box_foto_consultor"></div>
+              <div class="infos_consultor">
+                <h2>${ListaConsultores[i].nome}</h2>
+                <p>${ListaConsultores[i].email}</p>
+              </div>
+              <div class="box_status">
+                <div class="status_ativo"></div>
+                <p>Ativo</p>
+              </div>
+              <div class="boxIcons">
+                <button class="report"></button>
+                <button
+                  class="edit"
+                  onclick="abrirModalEditarConsultor(${ListaConsultores[i].idUsuario})"
+                ></button>
+                <button
+                  class="block"
+                  onclick="bloquearConsultor(this)"
+                ></button>
+                <button class="delete" onclick="apagarConsultor(${ListaConsultores[i].idUsuario})"></button>
+              </div>
+            </div>`;
+
+    }
+
+  }
+
+  carregarConsultores();
+
+  function abrirModalEditarConsultor(id) {
+    var consultorEncontrado = null;
+    var modal = document.getElementById("modalEditConsultor"); // Boa prática selecionar o elemento
+
+    // 1. Procura o consultor correto na lista
+    for (var i = 0; i < ListaConsultores.length; i++) {
+        if (ListaConsultores[i].idUsuario == id) {
+            consultorEncontrado = ListaConsultores[i];
+            break; // O break deve ficar DENTRO do if
+        }
+    }
+
+    // 2. Verifica se achou
+    if (consultorEncontrado == null) {
+        alert("Consultor não encontrado ou erro inesperado!");
+        return; // Para a execução da função
+    }
+
+    // 3. Torna o modal visível (Importante!)
+    modal.style.display = "flex";
+
+    // 4. Preenche o HTML com os dados do 'consultorEncontrado'
+    modal.innerHTML = `
+        <button class="fecharModalEdit" onclick="fecharModalEditarConsultor()">
+          voltar
+        </button>
+        <div class="boxLeft">
+          <div class="boxInfos">
+            <div class="boxLeftInfo">
+              <div class="boxInput">
+                <label for="">Email</label>
+                <input
+                  type="text"
+                  value="${consultorEncontrado.email}" 
+                  disabled
+                  id="emailConsultorEdit"
+                />
+              </div>
+              <div class="boxInput">
+                <label for="">CEP</label>
+                <input
+                  type="text"
+                  placeholder="00000-000"
+                  id="cepConsultorEdit"
+                />
+              </div>
+              <div class="boxInput">
+                <label for="">Telefone</label>
+                <input
+                  type="text"
+                  placeholder="(11) 00000-0000"
+                  id="telConsultorEdit"
+                />
+              </div>
+            </div>
+            <div class="boxRightInfo">
+              <div class="boxInput">
+                <label for="">Endereço</label>
+                <input
+                  type="text"
+                  placeholder="Endereço do consultor"
+                  id="enderecoConsultorEdit"
+                />
+              </div>
+              <div class="boxInput">
+                <label for="">CPF</label>
+                <input
+                  type="text"
+                  value="${ListaConsultores[i].cpf}"
+                  placeholder="000.000.000-00"
+                  disabled
+                  id="cpfConsultorEdit"
+                />
+              </div>
+              <div class="boxInput">
+                <label for="">Data Nasc.</label>
+                <input
+                  type="text"
+                  placeholder="00/00/0000"
+                  disabled
+                  id="dataNascConsultorEdit"
+                />
+              </div>
+            </div>
+          </div>
+          <div class="boxGrafico">
+            <div class="chart-container">
+              <canvas id="rendaMensalChartConsultor"></canvas>
+            </div>
+          </div>
+          <button class="btnAlteracaoConsultor">alterar dados</button>
+        </div>
+        <div class="boxRight">
+          <h1>${consultorEncontrado.nome}</h1> <div class="fotoConsultor"></div>
+          <div class="boxCards">
+             <div class="card">
+              <div class="boxTopo">
+                <div class="arrow">
+                  <img src="assets/icon/Arrow up-right.svg" alt="" />
+                </div>
+                <div class="porcent"><h2>16%</h2></div>
+                <h2>-</h2>
+                <div class="aumento"><h2>+ R$ 7,890.00</h2></div>
+              </div>
+              <div class="boxMeio">
+                <h1>R$ 57,890.00</h1>
+              </div>
+              <div class="boxRodape">
+                <h2>Faturamento últimos 30d</h2>
+              </div>
+            </div>
+            <div class="card">
+              <div class="boxMeioPadrao">
+                <h1>400</h1>
+              </div>
+              <div class="boxRodapePadrao">
+                <h2>Pacotes fechados</h2>
+              </div>
+            </div>
+            <div class="card">
+              <div class="boxMeioPadrao">
+                <h1>Salvador</h1>
+              </div>
+              <div class="boxRodapePadrao">
+                <h2>Pacotes mais vendidos</h2>
+              </div>
+            </div>
+          </div>
+        </div>`;
+    
+    // ATENÇÃO: Se você usa Chart.js, precisa chamar a função que cria o gráfico AQUI
+    // Exemplo: criarGraficoConsultor(); 
+}
+
+    function apagarConsultor(id){
+
+      var consultorId = id;
+
+      fetch('/dashboard/apagarConsultor/${consultorId}', {
+            method: "POST",
+            headers: {
+              "Content-Type": "application/json"
+            },
+            body: JSON.stringify({
+              Id: consultorId
+            })
+          })
+          alert("Consultor excluído com sucesso!");
+          setTimeout(() => {
+            location.reload();
+          }, 1000);  
+
+    }
+
+    function cadastrarConsultor(){
+
+      
+
+    }
 
 </script>

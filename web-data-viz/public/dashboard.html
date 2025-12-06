@@ -88,10 +88,17 @@
 
   var nome = sessionStorage.NOME_USUARIO;
   var id = sessionStorage.ID_USUARIO;
-  var fkempresa = sessionStorage.FK_EMPRESA
+  var fkempresa = sessionStorage.FK_EMPRESA;
+  var superior = sessionStorage.SUPERIOR;
 
   var ListaValores = [];
   var ListaClientes = [];
+
+  if(superior != null || superior != "" || superior != undefined){
+
+    consultores_session.innerHTML = ``;
+
+  }
 
 
 //    function carregarFuncoes(){

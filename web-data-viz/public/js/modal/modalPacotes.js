@@ -1,9 +1,18 @@
-  function btnFecharModalPacotes() {
-    let fecharModal = document.getElementById("modalPacotes");
-    fecharModal.style.display = "none";
-  }
+function btnAbrirModalPacotes() {
+    let modal = document.getElementById("modalPacotes");
+    modal.style.display = "flex";
+    
+    setTimeout(() => {
+        modal.classList.add("abrir");
+    }, 10);
+}
 
-  function btnAbrirModalPacotes() {
-    let fecharModal = document.getElementById("modalPacotes");
-    fecharModal.style.display = "flex";
-  }
+function btnFecharModalPacotes() {
+    let modal = document.getElementById("modalPacotes");
+    modal.classList.remove("abrir");
+
+    setTimeout(() => {
+        modal.style.display = "none";
+    }, 600);
+}
+

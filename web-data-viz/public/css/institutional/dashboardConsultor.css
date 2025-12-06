@@ -521,14 +521,17 @@
     width: auto;
     padding: 0px 2rem;
     z-index: 5;
-    background: #fff;
+    background: #3333335d;
     border-radius: 8px;
+    backdrop-filter: blur(10px);
+    box-shadow: 0 0px 10px rgba(0,0,0,0.2);
     justify-content: center;
     align-items: center;
     overflow: hidden;
 }   
 
 #consultores_section .cardBloq h1{
+    color:var(--white);
     font-weight: var(--font-weight-medium);
     font-size: var(--font-size-regular);
 }
@@ -536,9 +539,9 @@
     position: absolute;
     top: 0;
     left: 0;
-    background:#0A3D56;
+    background:#0044ff;
     width: 100%;
-    height: 2px;
+    height: 3px;
     animation: temporizadora 3s linear forwards;
 }
 
@@ -571,8 +574,10 @@
     align-items: center;
     width: 300px;
     height: 170px;
-    border-radius: 8px;
-    background: linear-gradient(40deg, #131517, #0E2936, #0A3D56, #055075, #006494);
+    background: #ffffff38;
+    backdrop-filter: blur(10px);
+    box-shadow: 0 0px 10px rgba(0,0,0,0.2);
+    border-radius: 15px;
     position: relative;
 }
 
@@ -581,11 +586,11 @@
     top: 15px;
     position: absolute;
     left: 20px;
-    color: var(--white);
+    color: var(--black);
     font-size: var(--font-size-small);
 }
 #consultores_section .boxTop .card h1{
-    color: var(--white);
+    color: var(--black);
     font-size: 4rem;
     font-weight: var(--font-weight-medium);
 }
@@ -646,14 +651,14 @@
 }
 
 #consultores_section .boxLeftBottom .boxPesquisa .boxInput{
-    border: 1px solid #CFCFCF;
-    background-color: #e9e9e9;
+    background-color: transparent;
     height: 60px;
     display: flex;
     flex-direction: row;
     align-items: center;
-    border-radius: 8px;
+    border-radius: 60px;
     width: 440px;    
+    gap: 5px;
 }
 #consultores_section .boxLeftBottom .boxPesquisa .boxInput input{
     border: none;
@@ -663,10 +668,10 @@
     padding-left: 15px;
     font-size: var(--font-size-regular);
     height: 60px;
-    width: 380px;
-    border-top-left-radius: 8px;
-    border-bottom-left-radius: 8px;    
-    color: #585858;
+    width: 375px;
+    border-radius: 60px;
+    color: #bcbcbc;
+     border: 1px solid #CFCFCF;
 }
 
 
@@ -677,7 +682,7 @@
 #consultores_section .boxLeftBottom .boxPesquisa .boxInput button{
     border: none;
     outline: none;
-    background-color: #1B98E0;
+    background-color: #0a69a0;
     background-image: url("../../assets/icon/Search.svg");
     background-size: 35px;
     background-position: center;
@@ -687,9 +692,8 @@
     height: 60px;
     width: 60px;    
     cursor: pointer;
-    border-top-right-radius: 8px;
-    border-bottom-right-radius: 8px;    
-     transition: background-color 0.3s ease;    
+    border-radius: 60px; 
+    transition: background-color 0.3s ease;    
 }
 #consultores_section .boxLeftBottom .boxPesquisa .boxInput button:hover{
     background-color: #0E2936;
@@ -699,9 +703,9 @@
 #consultores_section .boxLeftBottom .boxPesquisa select{
     width: 180px;
     height: 60px;
-    border-radius: 8px;
+    border-radius: 60px;
     border: 1px solid #CFCFCF;
-    background-color: #e9e9e9;
+    background-color: #fff;
     color: #585858;
     background-image: url('data:image/svg+xml;utf8,<svg fill="none" stroke="%23606060" stroke-width="2" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M6 9l6 6 6-6"/></svg>');
     background-position: right 10px center;
@@ -710,13 +714,13 @@
     appearance: none;
     outline: none;
     font-size: var(--font-size-regular);
-    padding-left: 10px;
+    padding-left: 15px;
     cursor: pointer;
 }
 #consultores_section .boxLeftBottom .boxPesquisa .adcionarConsultor{
     width: 280px;
     height: 60px;
-    border-radius: 8px;
+    border-radius: 60px;
     border: none;
     text-align: left;  
     padding-left: 20px;
@@ -724,7 +728,7 @@
     background-position: center right 15px;
     background-repeat: no-repeat;
     background-size: 30px;
-    background-color: #1B98E0;
+    background-color: #0a69a0;
     color: var(--white);
     font-size: var(--font-size-regular);
     font-weight: var(--font-weight-medium);
@@ -794,6 +798,7 @@
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
+    padding: .5rem;
     gap: 1.3rem;
     width: 100%;
     height: 100%;
@@ -822,24 +827,31 @@
     align-items: center;   
     width: 97%;
     min-height: 90px;
-    border-radius: 8px;
-    background: linear-gradient(45deg, #0E2936, #1B98E0, #0E2936);
-    
-    
+    border-radius: 10px;
+    background: url("../../assets/icon/aviaoCard.svg"), #ffffff2c;
+    background-repeat: no-repeat, no-repeat;
+    background-position: left bottom 115%, center center;
+    background-size: 33%, cover;
+    box-shadow: 0 0px 10px rgba(0,0,0,0.2);
+    transition: all 2s;
 }
 #consultores_section .boxLeftBottom .boxCardsConsultores .cardConsultor:hover{
-   background: #0E2936;
+      background: url("../../assets/icon/aviaoCard.svg"), #c9c9c969;
+    background-repeat: no-repeat, no-repeat;
+    background-position: bottom -40% right, center center;
+    background-size: 33%, cover;
 }
 
 
 
 #consultores_section .boxLeftBottom .boxCardsConsultores .cardConsultor .box_foto_consultor{
+    display: none;
     width: 65px;
     height: 65px;
     border-radius: 50%;
     margin-left: .8rem;
     margin-right: 1rem;
-    background-color: #dfdfdf;
+    background-color: #000;
     background-image: url("../../assets/icon/Profile.svg");
     background-position: center;
     background-repeat: no-repeat;
@@ -856,12 +868,12 @@
     gap: .5rem;   
 }
 #consultores_section .boxLeftBottom .boxCardsConsultores .cardConsultor .infos_consultor h2{
-    color: var(--white);
+    color: var(--black);
     font-size: var(--font-size-regular);
     font-weight: var(--font-weight-medium);
 }
 #consultores_section .boxLeftBottom .boxCardsConsultores .cardConsultor .infos_consultor p{
-    color: var(--white);
+    color: var(--black);
     font-size: var(--font-size-regular);
     text-decoration: underline 1px;
     text-underline-offset: 4px;
@@ -878,7 +890,7 @@
 }
 
 #consultores_section .boxLeftBottom .boxCardsConsultores .cardConsultor .box_status p{
-    color: var(--white);
+    color: var(--black);
     font-size: var(--font-size-small);
     font-weight: var(--font-weight-regular);
 }
@@ -914,7 +926,7 @@
 
 #consultores_section .boxLeftBottom .boxCardsConsultores .cardConsultor .boxIcons button{
     width: 50px;
-    height: 50px;
+    height: 100%;
     cursor: pointer;
     background-color: transparent;
     border: none;
@@ -928,7 +940,7 @@
     background-size: 45px;
 }
 #consultores_section .boxLeftBottom .boxCardsConsultores .cardConsultor .boxIcons .edit{
-    background-image: url("../../assets/icon/editWhite.svg");
+    background-image: url("../../assets/icon/edit.svg");
     background-position: center;
     background-repeat: no-repeat;
     background-size: 45px;
@@ -948,10 +960,30 @@
     background-size: 30px;
 }
 #consultores_section .boxLeftBottom .boxCardsConsultores .cardConsultor .boxIcons .delete{
-    background-image: url("../../assets/icon/deleteWhite.svg");
+    background-image: url("../../assets/icon/delete.svg");
     background-position: center;
     background-repeat: no-repeat;
     background-size: 45px;
+    
+}
+
+
+#consultores_section .boxLeftBottom .boxCardsConsultores .cardConsultor .boxIcons .report,
+#consultores_section .boxLeftBottom .boxCardsConsultores .cardConsultor .boxIcons .edit,
+#consultores_section .boxLeftBottom .boxCardsConsultores .cardConsultor .boxIcons .block,
+#consultores_section .boxLeftBottom .boxCardsConsultores .cardConsultor .boxIcons .fechado,
+#consultores_section .boxLeftBottom .boxCardsConsultores .cardConsultor .boxIcons .delete{
+    transition: .3s ease;
+}
+
+
+
+#consultores_section .boxLeftBottom .boxCardsConsultores .cardConsultor .boxIcons .report:hover,
+#consultores_section .boxLeftBottom .boxCardsConsultores .cardConsultor .boxIcons .edit:hover,
+#consultores_section .boxLeftBottom .boxCardsConsultores .cardConsultor .boxIcons .block:hover,
+#consultores_section .boxLeftBottom .boxCardsConsultores .cardConsultor .boxIcons .fechado:hover,
+#consultores_section .boxLeftBottom .boxCardsConsultores .cardConsultor .boxIcons .delete:hover{
+    transform: translateY(-10px);
 }
 
 
@@ -973,10 +1005,12 @@
 }
 
 #consultores_section .boxRightBottom .boxHistorico{
-    background: linear-gradient(45deg, #1D3642, #335F75, #3E748E, #437E9B, #4989A8);
+    background: linear-gradient(45deg, #F0F0F0, #B4B3B3);
+      backdrop-filter: blur(10px);
+    box-shadow: 0 0px 10px rgba(0,0,0,0.2);
     width: 100%;
     height: 100%;
-    border-radius: 10px;
+    border-radius: 15px;
     position: relative;
 }
 
@@ -1008,7 +1042,7 @@
 }
 
 #consultores_section .boxRightBottom .boxHistorico .boxSelecao h2{
-    color: var(--white);
+    color: var(--black);
     font-size: var(--font-size-regular);
     font-weight: var(--font-weight-medium); 
 }
@@ -1016,17 +1050,18 @@
 #consultores_section .boxRightBottom .boxHistorico .boxSelecao select{
     width: 180px;
     height: 40px;
-    border-radius: 5px;
+    border-radius: 40px;
     border: none;
     outline: none;
-    background-color: #e9e9e9;
-    color: #585858;
+    background-color: #fff;
+    color: #606060;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.2);
     background-image: url('data:image/svg+xml;utf8,<svg fill="none" stroke="%23606060" stroke-width="2" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M6 9l6 6 6-6"/></svg>');
     background-position: right 10px center;
     background-repeat: no-repeat;
-    background-size: 30px;
+    background-size: 25px;
     appearance: none;
-    padding-left: 10px;
+    padding-left: 15px;
     cursor: pointer;
 }
 
@@ -1060,19 +1095,24 @@
     flex-direction: row;
     height: 70px;
     min-height: 70px;
+    padding-left: 1.4rem;
+    background-color: #ffffff93;
+    backdrop-filter: blur(10px);
+    box-shadow: 0 0px 10px rgba(0,0,0,0.1);
+    border-radius: 10px;
+    transition: all .3s ease;
+}
+#consultores_section .boxRightBottom .boxHistorico .boxCards .card:hover{
+   background-color: #1a1a1aa8;
+   backdrop-filter: blur(10px);
+}
+
+#consultores_section .boxRightBottom .boxHistorico .boxCards .card:hover .infos{
+   color: var(--white);
 }
 
 #consultores_section .boxRightBottom .boxHistorico .boxCards .card .imgUser{
-    width: 60px;
-    height: 60px;
-    border-radius: 50%;
-    margin-left: 1rem;
-    margin-right: 1rem;
-    background-color: #dfdfdf;
-    background-image: url("../../assets/icon/Profile.svg");
-    background-position: center;
-    background-repeat: no-repeat;
-    background-size: cover;
+    display: none;
 }
 
 #consultores_section .boxRightBottom .boxHistorico .boxCards .card .infos{
@@ -1082,7 +1122,7 @@
     height: 100%;
     width: 80%;
     gap: .3rem;
-    color: var(--white);
+    color: var(--black);
 }
 #consultores_section .boxRightBottom .boxHistorico .boxCards .card h2{
     font-size: var(--font-size-small);

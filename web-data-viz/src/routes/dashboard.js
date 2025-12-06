@@ -27,5 +27,14 @@ router.post("/atualizarCliente", function (req, res) {
     dashboardController.atualizarCliente(req, res);
 })
 
+router.get("/buscarConsultores/:fkempresa", function (req, res) {
+    dashboardController.buscarConsultores(req, res);
+})
+
+router.post("/apagarConsultor/:consultorId", function (req, res) {
+    dashboardController.apagarConsultor(req, res);
+})
+
+
 
 module.exports = router;

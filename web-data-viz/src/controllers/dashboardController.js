@@ -134,11 +134,55 @@ function atualizarCliente(req, res) {
             );
     }
 
+    function buscarConsultores(req, res) {
+
+    var fkEmpresa = req.params.fkempresa;
+
+    dashboardModel.buscarConsultores(fkEmpresa)
+        .then(
+            function (resultado) {
+                res.json(resultado);
+            }
+        ).catch(
+            function (erro) {
+                console.log(erro);
+                console.log(
+                    "\nHouve um erro ao realizar a busca! Erro: ",
+                    erro.sqlMessage
+                );
+                res.status(500).json(erro.sqlMessage);
+            }
+        );
+}
+
+function apagarConsultor(req, res) {
+    // Crie uma variável que vá recuperar os valores do arquivo cadastro.html
+    var id = req.body.Id;
+    
+        dashboardModel.apagarConsultor(id)
+            .then(
+                function (resultado) {
+                    res.json(resultado);
+                }
+            ).catch(
+                function (erro) {
+                    console.log(erro);
+                    console.log(
+                        "\nHouve um erro ao excluir o consultor Erro: ",
+                        erro.sqlMessage
+                    );
+                    res.status(500).json(erro.sqlMessage);
+                } 
+            );
+    }
+
 module.exports = {
     buscarValores,
     cadastrarCliente,
     buscarClientes,
     apagarCliente,
     pesquisarClientes,
-    atualizarCliente
+    atualizarCliente,
+    buscarConsultores,
+    apagarConsultor
 }
