@@ -89,25 +89,33 @@
   var nome = sessionStorage.NOME_USUARIO;
   var id = sessionStorage.ID_USUARIO;
   var fkempresa = sessionStorage.FK_EMPRESA;
-  var superior = sessionStorage.SUPERIOR;
 
   var ListaValores = [];
   var ListaClientes = [];
+  var infosConsultorAtual = [];
 
-  if(superior != null || superior != "" || superior != undefined){
+  
+  function carregarFuncoes(){
+    
+    Userlogado();
+    validarSessao();
+    infosUserLogado();
+    
+  }
+  async function infosUserLogado(){
 
-    consultores_session.innerHTML = ``;
+    const resposta = await fetch(`/usuarios/buscarPerfil/${id}`);   
+    const dados = await resposta.json();
+    infosConsultorAtual = dados;
 
+    if(infosConsultorAtual[0].superior != null){
+  
+      consultores_session.innerHTML = ``;
+  
+    }
   }
 
-
-//    function carregarFuncoes(){
-
-//      Userlogado();
-//      validarSessao()
-
-//  }
-
+  
   function Userlogado(){
 
         if((nome != null || nome != undefined) && (id != null || id != undefined)){
@@ -117,6 +125,7 @@
         }
 
   }
+
 
   //mascara para inputs
   let fecharTimeoutBloq = null;

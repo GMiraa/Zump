@@ -6,8 +6,8 @@ function validarSessao() {
     var boxButtons = document.getElementById("boxButtons");
 
     if (email != null && nome != null) {
-        nomeDisplay.innerHTML = nome;
-        boxButtons.innerHTML = `<a onclick="limparSessao()">sair</a>`;
+        
+        
     } else {
         
         window.location = "../login.html";

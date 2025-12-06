@@ -86,6 +86,14 @@ function buscarValores(){
     return database.executar(instrucaoSql);
   }
 
+  function cadastrarConsultor(nome, email, cpf, senha, cargo, empresa, superior){
+
+    var instrucaoSql = `INSERT INTO usuario (nome, cpf, cargo, email, senha, FkEmpresa, superior) VALUES ('${nome}', '${cpf}', '${cargo}', '${email}', SHA2('${senha}', 256), '${empresa}', ${superior})`;
+  
+    console.log("Executando a instrução SQL: \n" + instrucaoSql);
+    return database.executar(instrucaoSql);
+  }
+
 module.exports = {
     buscarValores,
     cadastrarCliente,
@@ -94,5 +102,6 @@ module.exports = {
     pesquisarClientes,
     atualizarCliente,
     buscarConsultores,
-    apagarConsultor
+    apagarConsultor,
+    cadastrarConsultor
 };

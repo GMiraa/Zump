@@ -35,6 +35,8 @@ router.post("/apagarConsultor/:consultorId", function (req, res) {
     dashboardController.apagarConsultor(req, res);
 })
 
-
+router.post("/cadastrarConsultor", function (req, res) {
+    dashboardController.cadastrarConsultor(req, res);
+})
 
 module.exports = router;

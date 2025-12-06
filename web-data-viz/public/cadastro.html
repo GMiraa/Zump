@@ -60,10 +60,6 @@
                 </div>
                 <button onclick="cadastrar()" id="btnCadastrar">realizar cadastro</button>
                 </div>
-                <div class="boxFoto">
-                  <div class="box_perfil_foto"></div>
-                  <button id="btnSelecionarFoto">selecionar foto</button>
-                </div>
             </div>
           </div>
         </section>
@@ -88,7 +84,6 @@
 </html>
 
 <script>
-
   
   function cadastrar(){
     
@@ -97,8 +92,7 @@
       var confSenha = input_confirmar.value;
       var senha = input_senha.value;
       var cpf = input_cpf.value;
-      var tipo = "Funcionário"
-      var imagem = "";
+      var tipo = "gerente"
       var fk = input_fkempresa.value;
     
         if(nome == "" || email == "" || senha == "" || confSenha == "" || cpf == "" || fk == ""){

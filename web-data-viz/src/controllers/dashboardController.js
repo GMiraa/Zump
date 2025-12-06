@@ -176,6 +176,33 @@ function apagarConsultor(req, res) {
             );
     }
 
+    function cadastrarConsultor(req, res) {
+    // Crie uma variável que vá recuperar os valores do arquivo cadastro.html
+    var nome = req.body.ConsultorNome;
+    var email = req.body.ConsultorEmail;
+    var cpf = req.body.ConsultorCPF;
+    var senha = req.body.ConsultorSenha;
+    var cargo = req.body.ConsultorCargo;
+    var empresa = req.body.ConsultorEmpresa;
+    var superior = req.body.ConsultorSuperior
+    
+        dashboardModel.cadastrarConsultor(nome, email, cpf, senha, cargo, empresa, superior)
+            .then(
+                function (resultado) {
+                    res.json(resultado);
+                }
+            ).catch(
+                function (erro) {
+                    console.log(erro);
+                    console.log(
+                        "\nHouve um erro ao realizar o cadastro! Erro: ",
+                        erro.sqlMessage
+                    );
+                    res.status(500).json(erro.sqlMessage);
+                } 
+            );
+    }
+
 module.exports = {
     buscarValores,
     cadastrarCliente,
@@ -184,5 +211,6 @@ module.exports = {
     pesquisarClientes,
     atualizarCliente,
     buscarConsultores,
-    apagarConsultor
+    apagarConsultor,
+    cadastrarConsultor
 }

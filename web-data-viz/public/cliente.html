@@ -341,13 +341,15 @@
   var ListaValores = [];
   var ListaClientes = [];
   var ListaResultadoPesquisaCliente = [];
+  var infosConsultorAtual = [];
 
-  // function carregarFuncoes(){
+  function carregarFuncoes(){
 
-  //   Userlogado();
-  //   validarSessao()
+    Userlogado();
+    validarSessao();
+    infosUserLogado();
 
-  // }
+  }
 
   function Userlogado() {
     if (
@@ -355,6 +357,19 @@
       (id != null || id != undefined)
     ) {
       name_user.innerHTML = `${nome}`;
+    }
+  }
+
+  async function infosUserLogado(){
+
+    const resposta = await fetch(`/usuarios/buscarPerfil/${id}`);   
+    const dados = await resposta.json();
+    infosConsultorAtual = dados;
+
+    if(infosConsultorAtual[0].superior != null){
+  
+      consultores_session.innerHTML = ``;
+  
     }
   }
 

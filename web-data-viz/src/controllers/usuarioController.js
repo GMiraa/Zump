@@ -76,7 +76,29 @@ function autenticar(req, res) {
 
 }
 
+function buscarPerfil(req, res) {
+
+    var idusuario = req.params.id;
+
+    usuarioModel.buscarPerfil(idusuario)
+        .then(
+            function (resultado) {
+                res.json(resultado);
+            }
+        ).catch(
+            function (erro) {
+                console.log(erro);
+                console.log(
+                    "\nHouve um erro ao realizar a busca! Erro: ",
+                    erro.sqlMessage
+                );
+                res.status(500).json(erro.sqlMessage);
+            }
+        );
+}
+
 module.exports = {
     cadastrar,
-    autenticar
+    autenticar,
+    buscarPerfil
 }

@@ -52,15 +52,15 @@
         <div class="boxMeio">
           <div class="boxLeft">
             <div class="boxInputs">
-              <label for="nomeConsultor">Nome</label>
+              <label for="nomeConsultor">Nome<b>*</b></label>
               <input type="text" name="" id="nomeConsultor" />
             </div>
             <div class="boxInputs">
-              <label for="emailConsultor">Email</label>
+              <label for="emailConsultor">Email<b>*</b></label>
               <input type="text" name="" id="emailConsultor" />
             </div>
             <div class="boxInputs">
-              <label for="cpfConsultor">CPF</label>
+              <label for="cpfConsultor">CPF<b>*</b></label>
               <input type="text" name="" id="cpfConsultor" />
             </div>
             <div class="divDuploInfo">
@@ -95,7 +95,7 @@
               </div>
             </div>
             <div class="boxInputs">
-              <label for="senhaTemporariaConsultor">Senha temporaria</label>
+              <label for="senhaTemporariaConsultor">Senha temporaria<b>*</b></label>
               <div class="inputBtn">
                 <input
                   type="text"
@@ -109,6 +109,8 @@
             <button id="btnCadastrarConsultor" onclick="cadastrarConsultor()">
               cadastrar consultor
             </button>
+            <div id="mensagemError"></div>
+            <div><p><b>* Campos obrigatórios</b></p></div>
           </div>
         </div>
       </div>
@@ -237,12 +239,12 @@
     console.log(verificarResolucaoJanela());
   });
 
-  // function carregarFuncoes(){
+  function carregarFuncoes(){
 
-  //   Userlogado();
-  //   validarSessao()
+    Userlogado();
+    validarSessao()
 
-  // }
+  }
   function Userlogado(){
 
         if((nome != null || nome != undefined) && (id != null || id != undefined)){
@@ -487,7 +489,43 @@
 
     function cadastrarConsultor(){
 
-      
+      var nome = nomeConsultor.value;
+      var email = emailConsultor.value;
+      var cpf = cpfConsultor.value;
+      var senha = senhaTemporariaConsultor.value;
+      var cargo = "Funcionario";
+
+      if(nome == "" || email == "" || cpf == "" || senha == ""){
+
+        mensagemError.innerHTML = `<p>Campos <b>obrigatórios</b> não preenchidos!</p>`;
+        setTimeout(() => {
+            mensagemError.innerHTML = ``;
+          }, 3500);  
+
+      }
+      else {
+
+          fetch('/dashboard/cadastrarConsultor', {
+            method: "POST",
+            headers: {
+              "Content-Type": "application/json"
+            },
+            body: JSON.stringify({
+              ConsultorNome: nome,
+              ConsultorEmail: email,
+              ConsultorCPF: cpf,
+              ConsultorSenha: senha,
+              ConsultorCargo: cargo,
+              ConsultorEmpresa: fkempresa,
+              ConsultorSuperior: id
+            })
+          })
+          alert("Consultor adicionado com sucesso!");
+          setTimeout(() => {
+            location.reload();
+          }, 1000); 
+
+      }
 
     }
 
