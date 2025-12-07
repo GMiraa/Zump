@@ -22,7 +22,7 @@
 }
 
 #clientes_section .modalPacotes {
-    display: none;
+    display: flex;
     justify-content: center;
     flex-direction: column;
     z-index: 15;
@@ -35,7 +35,7 @@
     box-shadow: 0px 0px 20px #00000036;
     position: absolute;
     gap: 1.5rem;
-    opacity: 0;
+    opacity: 1;
     transform: translateY(30px) scale(0.95);
     transition: opacity .4s ease, transform .4s ease;
 }
@@ -137,6 +137,9 @@
     width: 55%;
 }
 
+#clientes_section .modalPacotes .coteudosPacote .boxLeft .box_top .boxInputs label{
+    font-size: var(--font-size-regular);
+}
 #clientes_section .modalPacotes .coteudosPacote .boxLeft .box_top .boxInputs .box{
     display: flex;
     flex-direction: column;
@@ -154,6 +157,7 @@
     flex-direction: row;
     width: 100%;
     gap: 1rem;
+    border: 1px solid blue;
 }
 #clientes_section .modalPacotes .coteudosPacote .boxLeft .box_top .boxInputs .boxBtn div:nth-child(2){
     display: flex;
