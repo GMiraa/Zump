@@ -102,6 +102,22 @@ function buscarValores(){
     return database.executar(instrucaoSql);
   }
 
+  function bloquearConsultor(id){
+
+      var instrucaoSql = `UPDATE usuario SET bloqueado = true WHERE idUsuario = ${id}`;
+  
+    console.log("Executando a instrução SQL: \n" + instrucaoSql);
+    return database.executar(instrucaoSql);
+  }
+
+  function desbloquearConsultor(id){
+
+      var instrucaoSql = `UPDATE usuario SET bloqueado = false WHERE idUsuario = ${id}`;
+  
+    console.log("Executando a instrução SQL: \n" + instrucaoSql);
+    return database.executar(instrucaoSql);
+  }
+
 module.exports = {
     buscarValores,
     cadastrarCliente,
@@ -112,5 +128,7 @@ module.exports = {
     buscarConsultores,
     apagarConsultor,
     cadastrarConsultor,
-    pesquisarConsultor
+    pesquisarConsultor,
+    bloquearConsultor,
+    desbloquearConsultor
 };

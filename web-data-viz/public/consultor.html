@@ -258,40 +258,76 @@
   //mascara para inputs
   let fecharTimeoutBloq = null;
 
-  function bloquearConsultor(botao) {
-    let cardBloqueado = document.getElementById("cardBloq");
-    let titulo = cardBloqueado.querySelector("h1");
+  async function bloquearConsultor(id, botao) {
+  // Encontra o consultor na lista
+  let consultor = ListaConsultores.find(c => c.idUsuario == id);
 
-    // Pega o nome do consultor
-    let nome = botao
-      .closest(".cardConsultor")
-      .querySelector(".infos_consultor h2").textContent;
-
-    // Alterna bloqueado/desbloqueado
-    botao.classList.toggle("fechado");
-
-    // Define a frase conforme o estado
-    if (botao.classList.contains("fechado")) {
-      titulo.textContent = `Consultor ${nome} Bloqueado`;
-    } else {
-      titulo.textContent = `Consultor ${nome} Desbloqueado`;
-    }
-
-    // Exibe o card
-    cardBloqueado.style.display = "flex";
-    const barra = cardBloqueado.querySelector(".temporizadorBloq");
-    barra.style.animation = "none";
-    void barra.offsetWidth;
-    barra.style.animation = "temporizadora 3s linear forwards";
-
-    // Timeout para fechar
-    if (fecharTimeoutBloq) clearTimeout(fecharTimeoutBloq);
-
-    fecharTimeoutBloq = setTimeout(() => {
-      cardBloqueado.style.display = "none";
-      fecharTimeoutBloq = null;
-    }, 3000);
+  if (!consultor) {
+    consultor = ListaResultadoPesquisaConsultor.find(c => c.idUsuario == id);
   }
+
+  if (consultor) {
+    // CORREÇÃO AQUI: Verifica se é true OU se é 1 (padrão SQL)
+    let estaBloqueado = (consultor.bloqueado == true || consultor.bloqueado == 1);
+
+    try {
+      let url = "";
+      
+      // Define a rota baseada no estado ATUAL (se já está bloqueado, vamos desbloquear)
+      if (estaBloqueado) {
+        url = `/dashboard/desbloquearConsultor/${id}`;
+      } else {
+        url = `/dashboard/bloquearConsultor/${id}`;
+      }
+
+      const resposta = await fetch(url, { method: 'POST' }); 
+
+      if (resposta.ok) {
+        // --- SUCESSO ---
+
+        // 1. Inverte o estado atual no objeto local
+        consultor.bloqueado = !estaBloqueado; 
+
+        // 2. Manipulação Visual
+        let cardBloqueado = document.getElementById("cardBloq");
+        let titulo = cardBloqueado.querySelector("h1");
+        let nome = botao.closest(".cardConsultor").querySelector(".infos_consultor h2").textContent;
+
+        // Alterna a classe visual
+        botao.classList.toggle("fechado");
+
+        // Define a mensagem baseada no NOVO estado (após o toggle)
+        // Se agora tem a classe 'fechado', é porque acabou de bloquear
+        if (botao.classList.contains("fechado")) {
+          titulo.textContent = `Consultor ${nome} Bloqueado`;
+        } else {
+          titulo.textContent = `Consultor ${nome} Desbloqueado`;
+        }
+
+        // Exibe o card
+        cardBloqueado.style.display = "flex";
+        const barra = cardBloqueado.querySelector(".temporizadorBloq");
+        
+        barra.style.animation = "none";
+        void barra.offsetWidth; 
+        barra.style.animation = "temporizadora 3s linear forwards";
+
+        if (fecharTimeoutBloq) clearTimeout(fecharTimeoutBloq);
+        fecharTimeoutBloq = setTimeout(() => {
+          cardBloqueado.style.display = "none";
+          fecharTimeoutBloq = null;
+        }, 3000);
+
+      } else {
+        alert("Erro ao alterar status no servidor.");
+      }
+
+    } catch (erro) {
+      console.error("Erro na requisição:", erro);
+      alert("Erro de conexão.");
+    }
+  }
+}
 
   async function carregarConsultores(){
 
@@ -302,6 +338,9 @@
     Consultores.innerHTML = ``;
 
     for(var i = 0; i < ListaConsultores.length; i++){
+
+      let isBlocked = (ListaConsultores[i].bloqueado == true || ListaConsultores[i].bloqueado == 1);
+      let classeBotao = isBlocked ? "block fechado" : "block";
 
       Consultores.innerHTML += `<div class="cardConsultor">
               <div class="box_foto_consultor"></div>
@@ -320,8 +359,8 @@
                   onclick="abrirModalEditarConsultor(${ListaConsultores[i].idUsuario})"
                 ></button>
                 <button
-                  class="block"
-                  onclick="bloquearConsultor(this)"
+                    class="${classeBotao}"
+                    onclick="bloquearConsultor(${ListaConsultores[i].idUsuario}, this)"
                 ></button>
                 <button class="delete" onclick="apagarConsultor(${ListaConsultores[i].idUsuario})"></button>
               </div>
@@ -535,7 +574,11 @@
     if (nomeConsultor == "" || nomeConsultor == null) {
       Consultores.innerHTML = ``;
 
-      for (var i = 0; i < ListaConsultores.length; i++)
+      for (var i = 0; i < ListaConsultores.length; i++){
+
+        let isBlocked = (ListaConsultores[i].bloqueado == true || ListaConsultores[i].bloqueado == 1);
+        let classeBotao = isBlocked ? "block fechado" : "block";
+
         Consultores.innerHTML += `<div class="cardConsultor">
               <div class="box_foto_consultor"></div>
               <div class="infos_consultor">
@@ -553,12 +596,13 @@
                   onclick="abrirModalEditarConsultor(${ListaConsultores[i].idUsuario})"
                 ></button>
                 <button
-                  class="block"
-                  onclick="bloquearConsultor(this)"
+                  class="${classeBotao}"
+                  onclick="bloquearConsultor(${ListaConsultores[i].idUsuario}, this)"
                 ></button>
                 <button class="delete" onclick="apagarConsultor(${ListaConsultores[i].idUsuario})"></button>
               </div>
             </div>`;
+        }
     }
     else {
 
@@ -574,7 +618,11 @@
 
     }
 
-    for(var i = 0; i < ListaResultadoPesquisaConsultor.length; i++)
+    for(var i = 0; i < ListaResultadoPesquisaConsultor.length; i++){
+
+      let isBlocked = (ListaConsultores[i].bloqueado == true || ListaConsultores[i].bloqueado == 1);
+      let classeBotao = isBlocked ? "block fechado" : "block";
+
           Consultores.innerHTML += `<div class="cardConsultor">
               <div class="box_foto_consultor"></div>
               <div class="infos_consultor">
@@ -592,13 +640,14 @@
                   onclick="abrirModalEditarConsultor(${ListaResultadoPesquisaConsultor[i].idUsuario})"
                 ></button>
                 <button
-                  class="block"
-                  onclick="bloquearConsultor(this)"
+                  class="${classeBotao}"
+                  onclick="bloquearConsultor(${ListaResultadoPesquisaConsultor[i].idUsuario}, this)"
                 ></button>
                 <button class="delete" onclick="apagarConsultor(${ListaResultadoPesquisaConsultor[i].idUsuario})"></button>
               </div>
             </div>`;
   }
+}
 }
 
 </script>

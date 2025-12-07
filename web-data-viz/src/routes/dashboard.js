@@ -43,4 +43,12 @@ router.get("/pesquisarConsultor/:nomeConsultor", function (req, res) {
     dashboardController.pesquisarConsultor(req, res);
 })
 
+router.post("/bloquearConsultor/:id", function (req, res) {
+    dashboardController.bloquearConsultor(req, res);
+})
+
+router.post("/desbloquearConsultor/:id", function (req, res) {
+    dashboardController.desbloquearConsultor(req, res);
+})
+
 module.exports = router;

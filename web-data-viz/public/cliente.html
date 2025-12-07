@@ -371,7 +371,14 @@
       consultores_session.innerHTML = ``;
   
     }
+
+    if(infosConsultorAtual[0].bloqueado == true){
+  
+      clientes_section.innerHTML = `<h1>Usuario <b>bloqueado</b> pelo administrador!</h1>`;
+  
+    }
   }
+
 
   function cadastrarCliente() {
     var nome = nomeCliente.value;
@@ -409,6 +416,7 @@
       alert("Cadastro realizado com sucesso");
       setTimeout(() => {
         fecharCardDeCadastroCliente();
+        location.reload();
       }, 1000);
     }
   }
