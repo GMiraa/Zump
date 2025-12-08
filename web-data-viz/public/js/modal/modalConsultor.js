@@ -54,7 +54,7 @@
     }
   }
 
-  function cadastrarConsultor() {
+  function baixarPdf() {
     let nome = document.getElementById("nomeConsultor").value;
     let email = document.getElementById("emailConsultor").value;
     let cpf = document.getElementById("cpfConsultor").value;
