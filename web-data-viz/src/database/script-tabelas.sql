@@ -48,6 +48,7 @@ CREATE TABLE IF NOT EXISTS usuario (
     email VARCHAR(45) NOT NULL,
     senha VARCHAR(256) NOT NULL,
     bloquado BOOLEAN,
+    ativo BOOLEAN,
     FkEmpresa INT NOT NULL,
     superior INT,
     PRIMARY KEY (`idUsuario`),

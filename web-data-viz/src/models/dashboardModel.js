@@ -128,6 +128,8 @@ function buscarTotalFaturado(idUsuario) {
           AND MONTH(v.dataVenda) = MONTH(CURRENT_DATE())
           AND YEAR(v.dataVenda) = YEAR(CURRENT_DATE());
     `;
+    
+    console.log("Executando a instrução SQL: \n" + instrucaoSql);
     return database.executar(instrucaoSql);
 }
 
@@ -139,6 +141,8 @@ function buscarTotalVendas(idUsuario) {
         FROM vendas v
         WHERE v.idUsuario = ${idUsuario};
     `;
+
+    console.log("Executando a instrução SQL: \n" + instrucaoSql);
     return database.executar(instrucaoSql);
 }
 
@@ -154,7 +158,8 @@ function buscarPacoteMaisVendido(idUsuario) {
         ORDER BY QuantidadeTotal DESC
         LIMIT 1;
     `;
-    
+
+    console.log("Executando a instrução SQL: \n" + instrucaoSql);
     return database.executar(instrucaoSql)
         .then(function(resultado) {
             // Se o array estiver vazio (length 0), retorna o objeto padrão
@@ -184,7 +189,8 @@ function buscarInfosConsultores(fkEmpresa) {
         FROM usuario
         WHERE FkEmpresa = ${fkEmpresa};
     `;
-    
+
+    console.log("Executando a instrução SQL: \n" + instrucaoSql);
     return database.executar(instrucaoSql);
 }
 
@@ -210,6 +216,8 @@ function buscarKPICliente(Id){
                  LIMIT 1), 
             'Nenhum') AS pacote_mais_fechado;
     `;
+
+    console.log("Executando a instrução SQL: \n" + instrucaoSql);
     return database.executar(instrucaoSql);
 }
 
@@ -225,6 +233,61 @@ function buscarVendasPorMes(Id) {
         GROUP BY YEAR(v.dataVenda), MONTH(v.dataVenda)
         ORDER BY YEAR(v.dataVenda), MONTH(v.dataVenda);
     `;
+
+    console.log("Executando a instrução SQL: \n" + instrucaoSql);
+    return database.executar(instrucaoSql);
+}
+
+function getConsultores(FkEmpresa) {
+    var instrucaoSql = `
+        SELECT 
+            u.nome AS NomeConsultor,
+            SUM(v.quantidade) AS TotalPacotesVendidos
+        FROM vendas v
+        JOIN usuario u ON v.idUsuario = u.idUsuario
+        WHERE u.FkEmpresa = ${FkEmpresa}
+        GROUP BY u.idUsuario, u.nome
+        ORDER BY TotalPacotesVendidos DESC
+        LIMIT 2;
+    `;
+
+    console.log("Executando a instrução SQL: \n" + instrucaoSql);
+    return database.executar(instrucaoSql);
+}
+
+function buscarDadosGrafico(FkEmpresa) {
+    
+    var instrucaoSql = `
+        WITH FaturamentoMensal AS (
+            SELECT 
+                -- 1. Usamos MAX() para satisfazer o only_full_group_by
+                DATE_FORMAT(MAX(v.dataVenda), '%Y-%m') AS ano_mes,
+                
+                -- 2. Aplicamos MAX() dentro do MONTH() também
+                ELT(MONTH(MAX(v.dataVenda)), 'Jan', 'Fev', 'Mar', 'Abr', 'Mai', 'Jun', 'Jul', 'Ago', 'Set', 'Out', 'Nov', 'Dez') AS mes_label,
+                
+                SUM(v.quantidade * p.preco) AS faturamento_total
+            FROM vendas v
+            JOIN pacote p ON v.idPacote = p.idPacote
+            JOIN usuario u ON v.idUsuario = u.idUsuario 
+            WHERE v.dataVenda >= DATE_SUB(CURDATE(), INTERVAL 5 MONTH)
+              AND u.FkEmpresa = ${FkEmpresa} 
+            GROUP BY YEAR(v.dataVenda), MONTH(v.dataVenda) -- Agrupamento numérico simples e seguro
+        )
+        SELECT 
+            mes_label,
+            faturamento_total,
+            ROUND(
+                (
+                    (faturamento_total - LAG(faturamento_total) OVER (ORDER BY ano_mes)) / 
+                    LAG(faturamento_total) OVER (ORDER BY ano_mes)
+                ) * 100, 
+            2) AS crescimento_percentual
+        FROM FaturamentoMensal
+        ORDER BY ano_mes;
+    `;
+
+    console.log("Executando a instrução SQL: \n" + instrucaoSql);
     return database.executar(instrucaoSql);
 }
 
@@ -246,5 +309,7 @@ module.exports = {
     buscarPacoteMaisVendido,
     buscarInfosConsultores,
     buscarKPICliente,
-    buscarVendasPorMes
+    buscarVendasPorMes,
+    getConsultores,
+    buscarDadosGrafico
 };

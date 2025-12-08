@@ -354,6 +354,48 @@ function buscarVendasPorMes(req, res) {
         );
 }
 
+function getConsultores(req, res) {
+
+    var FkEmpresa = req.params.fkempresa;
+
+    dashboardModel.getConsultores(FkEmpresa)
+        .then(
+            function (resultado) {
+                res.json(resultado);
+            }
+        ).catch(
+            function (erro) {
+                console.log(erro);
+                console.log(
+                    "\nHouve um erro ao realizar a busca! Erro: ",
+                    erro.sqlMessage
+                );
+                res.status(500).json(erro.sqlMessage);
+            }
+        );
+}
+
+function buscarDadosGrafico(req, res) {
+
+    var FkEmpresa = req.params.fkempresa;
+
+    dashboardModel.buscarDadosGrafico(FkEmpresa)
+        .then(
+            function (resultado) {
+                res.json(resultado);
+            }
+        ).catch(
+            function (erro) {
+                console.log(erro);
+                console.log(
+                    "\nHouve um erro ao realizar a busca! Erro: ",
+                    erro.sqlMessage
+                );
+                res.status(500).json(erro.sqlMessage);
+            }
+        );
+}
+
 module.exports = {
     buscarValores,
     cadastrarCliente,
@@ -370,5 +412,7 @@ module.exports = {
     buscarKPIs,
     buscarInfosConsultores,
     buscarKPICliente,
-    buscarVendasPorMes
+    buscarVendasPorMes,
+    getConsultores,
+    buscarDadosGrafico
 }

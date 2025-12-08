@@ -62,8 +62,8 @@
           </div>
           <div class="areaConsultoresCards">
             <h2 id="titleConsultores">📊 Consultores com mais vendas</h2>
-            <div class="cardsConsultores"></div>
-            <div class="cardsConsultores"></div>
+            <div class="cardsConsultores"><div>1º Colocado</div><label id="consultorTop1"></label></div>
+            <div class="cardsConsultores"><div>2º Colocado</div><label id="consultorTop2"></label></div>
           </div>
         </div>
       </div>
@@ -93,13 +93,18 @@
   var ListaValores = [];
   var ListaClientes = [];
   var infosConsultorAtual = [];
+  var Top2Consultores = [];
+  var DadosGrafico = [];
 
-  
+  var chartRendaMensal = null;
+
   function carregarFuncoes(){
 
     Userlogado();
     validarSessao();
     infosUserLogado();
+    getTop2Consultores();
+    BuscarGrafico();
 
     setInterval(() => {
     
@@ -129,7 +134,6 @@
     }
   }
 
-  
   function Userlogado(){
 
         if((nome != null || nome != undefined) && (id != null || id != undefined)){
@@ -139,6 +143,133 @@
         }
 
   }
+
+  async function getTop2Consultores() {
+    
+    const resposta2 = await fetch(`/dashboard/getConsultores/${fkempresa}`);   
+    const dados2 = await resposta2.json();
+    Top2Consultores = dados2;
+
+    consultorTop1.innerHTML = `${Top2Consultores[0].NomeConsultor}`;
+    consultorTop2.innerHTML = `${Top2Consultores[1].NomeConsultor}`;
+
+  }
+
+  async function BuscarGrafico() {
+    
+    const resposta3 = await fetch(`/dashboard/buscarDadosGrafico/${fkempresa}`);   
+    const dados3 = await resposta3.json();
+    DadosGrafico = dados3;
+
+    renderizarGrafico(DadosGrafico);
+
+  }
+
+  function renderizarGrafico(dados) {
+    const canvasId = 'rendaMensalChart';
+    const canvas = document.getElementById(canvasId);
+
+    // --- CORREÇÃO DEFINITIVA ---
+    // Em vez de checar a variável, perguntamos ao Chart.js se já existe gráfico nesse ID
+    const chartExistente = Chart.getChart(canvasId); 
+    
+    if (chartExistente) {
+        chartExistente.destroy();
+    }
+    // ---------------------------
+
+    const ctx = canvas.getContext('2d');
+
+    // Separa os dados em arrays para o Chart.js
+    const labels = dados.map(item => item.mes_label); 
+    const faturamento = dados.map(item => item.faturamento_total); 
+    const crescimento = dados.map(item => item.crescimento_percentual); 
+
+    // Não precisamos mais salvar na variável global, pois usamos o getChart acima
+    new Chart(ctx, {
+        type: 'bar',
+        data: {
+            labels: labels,
+            datasets: [
+                {
+                    label: 'Renda total (R$)',
+                    data: faturamento,
+                    backgroundColor: '#1E88E5', // Azul Escuro
+                    borderRadius: 5,
+                    order: 2, // Fica atrás
+                    yAxisID: 'y' // Atrelado ao eixo esquerdo (Dinheiro)
+                },
+                {
+                    label: 'Crescimento (%)',
+                    data: crescimento,
+                    backgroundColor: '#90CAF9', // Azul Claro
+                    borderRadius: 5,
+                    order: 1, // Fica na frente
+                    yAxisID: 'y1' // Atrelado ao eixo direito (Porcentagem)
+                }
+            ]
+        },
+        options: {
+            responsive: true,
+            maintainAspectRatio: false,
+            plugins: {
+                title: {
+                    display: true,
+                    text: '📈 Renda mensal',
+                    font: { size: 16, weight: 'bold' },
+                    padding: { bottom: 20 }
+                },
+                tooltip: {
+                    mode: 'index',
+                    intersect: false,
+                    callbacks: {
+                        label: function(context) {
+                            let label = context.dataset.label || '';
+                            let value = context.parsed.y;
+                            
+                            // Verifica se é null ou undefined antes de formatar
+                            if (value === null || value === undefined) return label;
+
+                            if (label.includes('Renda')) {
+                                return label + ': ' + new Intl.NumberFormat('pt-BR', { style: 'currency', currency: 'BRL' }).format(value);
+                            } else {
+                                return label + ': ' + value + '%';
+                            }
+                        }
+                    }
+                }
+            },
+            scales: {
+                x: {
+                    grid: { display: false }
+                },
+                y: {
+                    type: 'linear',
+                    display: true,
+                    position: 'left',
+                    title: { display: true, text: 'Renda (R$)' },
+                    ticks: {
+                        callback: function(value) {
+                            return 'R$ ' + (value / 1000) + 'k'; 
+                        }
+                    }
+                },
+                y1: {
+                    type: 'linear',
+                    display: true,
+                    position: 'right',
+                    title: { display: true, text: 'Crescimento (%)' },
+                    grid: { drawOnChartArea: false }, 
+                    ticks: {
+                        callback: function(value) {
+                            return value + '%';
+                        }
+                    }
+                }
+            }
+        }
+    });
+}
 
   //mascara para inputs
   let fecharTimeoutBloq = null;

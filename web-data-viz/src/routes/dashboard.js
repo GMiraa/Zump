@@ -67,4 +67,12 @@ router.get("/buscarVendasPorMes/:id", function (req, res) {
     dashboardController.buscarVendasPorMes(req, res);
 })
 
+router.get("/getConsultores/:fkempresa", function (req, res) {
+    dashboardController.getConsultores(req, res);
+})
+
+router.get("/buscarDadosGrafico/:fkempresa", function (req, res) {
+    dashboardController.buscarDadosGrafico(req, res);
+})
+
 module.exports = router;
