@@ -342,14 +342,15 @@
   var ListaClientes = [];
   var ListaResultadoPesquisaCliente = [];
   var infosConsultorAtual = [];
+  var infosCliente = [];
 
-  // function carregarFuncoes(){
+  function carregarFuncoes(){
 
-  //   Userlogado();
-  //   validarSessao();
-  //   infosUserLogado();
+    Userlogado();
+    validarSessao();
+    infosUserLogado();
 
-  // }
+  }
 
   function Userlogado() {
     if (
@@ -534,6 +535,10 @@
     var end = endereco;
     var nascimento = dtnasc;
 
+    const resposta = await fetch(`/dashboard/buscarKPICliente/${idCliente}`);
+    const dados = await resposta.json();
+    infosCliente = dados;
+
     var telaEdicao = document.getElementById("telaEdicaoCliente");
     telaEdicao.style.display = "flex";
 
@@ -573,11 +578,11 @@
           <div class="boxKpiCliente">
             <div class="cards_pacotes">
               <div class="card">
-                <h1>13</h1>
+                <h1>${infosCliente[0].total_pacotes_fechados}</h1>
                 <p>pacotes fechados</p>
               </div>
               <div class="card">
-                <h1>Salvador</h1>
+                <h1>${infosCliente[0].pacote_mais_fechado}</h1>
                 <p>pacotes mais fechados</p>
               </div>
             </div>
@@ -678,16 +683,6 @@
                     </div>
                   </div>
                   <button></button>
-                </div>
-              </div>
-              <div class="avaliacoes_cards">
-                <div class="card">
-                  <h1>4.5</h1>
-                  <p>avaliação dos pacotes</p>
-                </div>
-                <div class="card">
-                  <h1>2.4 anos</h1>
-                  <p>cliente há</p>
                 </div>
               </div>
             </div>

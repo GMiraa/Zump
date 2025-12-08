@@ -134,7 +134,7 @@ function atualizarCliente(req, res) {
             );
     }
 
-    function buscarConsultores(req, res) {
+function buscarConsultores(req, res) {
 
     var fkEmpresa = req.params.fkempresa;
 
@@ -266,6 +266,94 @@ function desbloquearConsultor(req, res) {
         );
 }
 
+function buscarKPIs(req, res) {
+
+    var idUsuario = req.params.id;
+
+    Promise.all([
+        dashboardModel.buscarTotalFaturado(idUsuario),
+        dashboardModel.buscarTotalVendas(idUsuario),
+        dashboardModel.buscarPacoteMaisVendido(idUsuario)
+    ]).then(resultados => {
+        
+        var fat = resultados[0];
+        var vendas = resultados[1];
+        var pacote = resultados[2];
+
+        res.json({
+            faturamento: fat,
+            metricasVendas: vendas,
+            PacoteMaisVendido: pacote
+        });
+    }).catch(erro => {
+        console.log(erro);
+        res.status(500).json(erro.sqlMessage);
+    });
+}
+
+function buscarInfosConsultores(req, res) {
+
+    var fkEmpresa = req.params.fkempresa;
+
+    dashboardModel.buscarInfosConsultores(fkEmpresa)
+        .then(
+            function (resultado) {
+                res.json(resultado);
+            }
+        ).catch(
+            function (erro) {
+                console.log(erro);
+                console.log(
+                    "\nHouve um erro ao realizar a busca! Erro: ",
+                    erro.sqlMessage
+                );
+                res.status(500).json(erro.sqlMessage);
+            }
+        );
+}
+
+function buscarKPICliente(req, res) {
+
+    var Id = req.params.idCliente;
+
+    dashboardModel.buscarKPICliente(Id)
+        .then(
+            function (resultado) {
+                res.json(resultado);
+            }
+        ).catch(
+            function (erro) {
+                console.log(erro);
+                console.log(
+                    "\nHouve um erro ao realizar a busca! Erro: ",
+                    erro.sqlMessage
+                );
+                res.status(500).json(erro.sqlMessage);
+            }
+        );
+}
+
+function buscarVendasPorMes(req, res) {
+
+    var Id = req.params.id;
+
+    dashboardModel.buscarVendasPorMes(Id)
+        .then(
+            function (resultado) {
+                res.json(resultado);
+            }
+        ).catch(
+            function (erro) {
+                console.log(erro);
+                console.log(
+                    "\nHouve um erro ao realizar a busca! Erro: ",
+                    erro.sqlMessage
+                );
+                res.status(500).json(erro.sqlMessage);
+            }
+        );
+}
+
 module.exports = {
     buscarValores,
     cadastrarCliente,
@@ -278,5 +366,9 @@ module.exports = {
     cadastrarConsultor,
     pesquisarConsultor,
     bloquearConsultor,
-    desbloquearConsultor
+    desbloquearConsultor,
+    buscarKPIs,
+    buscarInfosConsultores,
+    buscarKPICliente,
+    buscarVendasPorMes
 }

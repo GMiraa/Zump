@@ -51,4 +51,20 @@ router.post("/desbloquearConsultor/:id", function (req, res) {
     dashboardController.desbloquearConsultor(req, res);
 })
 
+router.get("/buscarKPIs/:id", function (req, res) {
+    dashboardController.buscarKPIs(req, res);
+})
+
+router.get("/buscarInfosConsultores/:fkempresa", function (req, res) {
+    dashboardController.buscarInfosConsultores(req, res);
+})
+
+router.get("/buscarKPICliente/:idCliente", function (req, res) {
+    dashboardController.buscarKPICliente(req, res);
+})
+
+router.get("/buscarVendasPorMes/:id", function (req, res) {
+    dashboardController.buscarVendasPorMes(req, res);
+})
+
 module.exports = router;

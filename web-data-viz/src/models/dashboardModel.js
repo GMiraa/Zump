@@ -118,6 +118,116 @@ function buscarValores(){
     return database.executar(instrucaoSql);
   }
 
+function buscarTotalFaturado(idUsuario) {
+    var instrucaoSql = `
+        SELECT 
+            COALESCE(SUM(v.quantidade * p.preco), 0) AS TotalFaturado
+        FROM vendas v
+        JOIN pacote p ON v.idPacote = p.idPacote
+        WHERE v.idUsuario = ${idUsuario}
+          AND MONTH(v.dataVenda) = MONTH(CURRENT_DATE())
+          AND YEAR(v.dataVenda) = YEAR(CURRENT_DATE());
+    `;
+    return database.executar(instrucaoSql);
+}
+
+function buscarTotalVendas(idUsuario) {
+    var instrucaoSql = `
+        SELECT 
+            COALESCE(SUM(v.quantidade), 0) AS TotalPacotesVendidos,
+            COUNT(v.idVenda) AS TotalTransacoes
+        FROM vendas v
+        WHERE v.idUsuario = ${idUsuario};
+    `;
+    return database.executar(instrucaoSql);
+}
+
+function buscarPacoteMaisVendido(idUsuario) {
+    var instrucaoSql = `
+        SELECT 
+            p.nome AS PacoteMaisVendido,
+            SUM(v.quantidade) AS QuantidadeTotal
+        FROM vendas v
+        JOIN pacote p ON v.idPacote = p.idPacote
+        WHERE v.idUsuario = ${idUsuario}
+        GROUP BY p.idPacote, p.nome
+        ORDER BY QuantidadeTotal DESC
+        LIMIT 1;
+    `;
+    
+    return database.executar(instrucaoSql)
+        .then(function(resultado) {
+            // Se o array estiver vazio (length 0), retorna o objeto padrão
+            if (resultado.length === 0) {
+                return [{ 
+                    PacoteMaisVendido: "Nenhum", 
+                    QuantidadeTotal: 0 
+                }];
+            }
+            // Se encontrou algo, retorna o resultado normal do banco
+            return resultado;
+        });
+}
+
+function buscarInfosConsultores(fkEmpresa) {
+
+    var instrucaoSql = `
+        SELECT 
+            COALESCE(SUM(CASE WHEN bloqueado = 1 THEN 1 ELSE 0 END), 0) AS qtd_bloqueados,
+            
+            COALESCE(SUM(CASE 
+                WHEN MONTH(DtCriacao) = MONTH(CURRENT_DATE()) 
+                AND YEAR(DtCriacao) = YEAR(CURRENT_DATE()) 
+                THEN 1 ELSE 0 
+            END), 0) AS novos_consultores_mes
+
+        FROM usuario
+        WHERE FkEmpresa = ${fkEmpresa};
+    `;
+    
+    return database.executar(instrucaoSql);
+}
+
+function buscarKPICliente(Id){
+
+  // Arrumar o select para trazer os dados certos
+
+    var instrucaoSql = `
+        SELECT 
+            COALESCE(
+                (SELECT SUM(quantidade) 
+                 FROM vendas 
+                 WHERE idCliente = ${Id}), 
+            0) AS total_pacotes_fechados,
+
+            COALESCE(
+                (SELECT p.nome
+                 FROM vendas v
+                 JOIN pacote p ON v.idPacote = p.idPacote
+                 WHERE v.idCliente = ${Id}
+                 GROUP BY p.idPacote, p.nome
+                 ORDER BY SUM(v.quantidade) DESC
+                 LIMIT 1), 
+            'Nenhum') AS pacote_mais_fechado;
+    `;
+    return database.executar(instrucaoSql);
+}
+
+function buscarVendasPorMes(Id) {
+    var instrucaoSql = `
+        SELECT 
+            DATE_FORMAT(MAX(v.dataVenda), '%b/%Y') as mes,
+            SUM(v.quantidade * p.preco) as valor_total
+        FROM vendas v
+        JOIN pacote p ON v.idPacote = p.idPacote
+        WHERE v.idUsuario = ${Id}
+          AND v.dataVenda >= DATE_SUB(CURDATE(), INTERVAL 6 MONTH)
+        GROUP BY YEAR(v.dataVenda), MONTH(v.dataVenda)
+        ORDER BY YEAR(v.dataVenda), MONTH(v.dataVenda);
+    `;
+    return database.executar(instrucaoSql);
+}
+
 module.exports = {
     buscarValores,
     cadastrarCliente,
@@ -130,5 +240,11 @@ module.exports = {
     cadastrarConsultor,
     pesquisarConsultor,
     bloquearConsultor,
-    desbloquearConsultor
+    desbloquearConsultor,
+    buscarTotalFaturado,
+    buscarTotalVendas,
+    buscarPacoteMaisVendido,
+    buscarInfosConsultores,
+    buscarKPICliente,
+    buscarVendasPorMes
 };

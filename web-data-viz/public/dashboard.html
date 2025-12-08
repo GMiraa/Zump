@@ -95,13 +95,13 @@
   var infosConsultorAtual = [];
 
   
-  // function carregarFuncoes(){
+  function carregarFuncoes(){
     
-  //   Userlogado();
-  //   validarSessao();
-  //   infosUserLogado();
+    Userlogado();
+    validarSessao();
+    infosUserLogado();
     
-  // }
+  }
   async function infosUserLogado(){
 
     const resposta = await fetch(`/usuarios/buscarPerfil/${id}`);   
@@ -125,7 +125,6 @@
         }
 
   }
-
 
   //mascara para inputs
   let fecharTimeoutBloq = null;

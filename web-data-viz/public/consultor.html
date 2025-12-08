@@ -133,11 +133,11 @@
         </div>
         <div class="card">
           <p>Novos consultores últimos 30 dias</p>
-          <h1>21</h1>
+          <h1 id="NovosConsultores">21</h1>
         </div>
         <div class="card">
           <p>Consultores bloqueados</p>
-          <h1>7</h1>
+          <h1 id="ConsultoresBloqueados">7</h1>
         </div>
       </div>
       <div class="itensBottom">
@@ -218,7 +218,10 @@
   var ListaValores = [];
   var ListaClientes = [];
   var ListaConsultores = [];
+  var ListaInfosConsultores = [];
   var ListaResultadoPesquisaConsultor = [];
+  var ListaKPIs = [];
+  var chartInstance = null;
 
   function fecharHistorico() {
     let modalHist = document.getElementById("historico");
@@ -246,12 +249,21 @@
     console.log(verificarResolucaoJanela());
   });
 
-  // function carregarFuncoes(){
+  function carregarFuncoes(){
 
-  //   Userlogado();
-  //   validarSessao()
+    Userlogado();
+    validarSessao();
+    carregarInfosConsultores(fkempresa);
 
-  // }
+    setInterval(() => {
+    
+      Userlogado();
+      validarSessao();
+      carregarInfosConsultores(fkempresa);
+
+    }, 6000);
+
+  }
   function Userlogado() {
     if (
       (nome != null || nome != undefined) &&
@@ -259,6 +271,17 @@
     ) {
       name_user.innerHTML = `${nome}`;
     }
+  }
+
+  async function carregarInfosConsultores(fkempresa) {
+    
+    const resposta = await fetch(`/dashboard/buscarInfosConsultores/${fkempresa}`);   
+    const dados = await resposta.json();
+    ListaInfosConsultores = dados;
+
+    NovosConsultores.innerHTML = `${ListaInfosConsultores[0].novos_consultores_mes}`;
+    ConsultoresBloqueados.innerHTML = `${ListaInfosConsultores[0].qtd_bloqueados}`;
+
   }
 
   //mascara para inputs
@@ -273,13 +296,11 @@
   }
 
   if (consultor) {
-    // CORREÇÃO AQUI: Verifica se é true OU se é 1 (padrão SQL)
     let estaBloqueado = (consultor.bloqueado == true || consultor.bloqueado == 1);
 
     try {
       let url = "";
       
-      // Define a rota baseada no estado ATUAL (se já está bloqueado, vamos desbloquear)
       if (estaBloqueado) {
         url = `/dashboard/desbloquearConsultor/${id}`;
       } else {
@@ -289,7 +310,6 @@
       const resposta = await fetch(url, { method: 'POST' }); 
 
       if (resposta.ok) {
-        // --- SUCESSO ---
 
         // 1. Inverte o estado atual no objeto local
         consultor.bloqueado = !estaBloqueado; 
@@ -302,15 +322,12 @@
         // Alterna a classe visual
         botao.classList.toggle("fechado");
 
-        // Define a mensagem baseada no NOVO estado (após o toggle)
-        // Se agora tem a classe 'fechado', é porque acabou de bloquear
         if (botao.classList.contains("fechado")) {
           titulo.textContent = `Consultor ${nome} Bloqueado`;
         } else {
           titulo.textContent = `Consultor ${nome} Desbloqueado`;
         }
 
-        // Exibe o card
         cardBloqueado.style.display = "flex";
         const barra = cardBloqueado.querySelector(".temporizadorBloq");
         
@@ -376,9 +393,17 @@
 
   carregarConsultores();
 
-  function abrirModalEditarConsultor(id) {
+  async function abrirModalEditarConsultor(id) {
+
+    const resposta = await fetch(`/dashboard/buscarKPIs/${id}`);   
+    const dados = await resposta.json();
+    ListaKPIs = dados;
+
     var consultorEncontrado = null;
     var modal = document.getElementById("modalEditConsultor"); // Boa prática selecionar o elemento
+
+    const respostaGrafico = await fetch(`/dashboard/buscarVendasPorMes/${id}`);
+    const dadosGrafico = await respostaGrafico.json();
 
     // 1. Procura o consultor correto na lista
     for (var i = 0; i < ListaConsultores.length; i++) {
@@ -391,10 +416,9 @@
     // 2. Verifica se achou
     if (consultorEncontrado == null) {
       alert("Consultor não encontrado ou erro inesperado!");
-      return; // Para a execução da função
+      return;
     }
 
-    // 3. Torna o modal visível (Importante!)
     modal.style.display = "flex";
 
     // 4. Preenche o HTML com os dados do 'consultorEncontrado'
@@ -476,12 +500,9 @@
                 <div class="arrow">
                   <img src="assets/icon/Arrow up-right.svg" alt="" />
                 </div>
-                <div class="porcent"><h2>16%</h2></div>
-                <h2>-</h2>
-                <div class="aumento"><h2>+ R$ 7,890.00</h2></div>
               </div>
               <div class="boxMeio">
-                <h1>R$ 57,890.00</h1>
+                <h1>R$ ${ListaKPIs.faturamento[0].TotalFaturado}</h1>
               </div>
               <div class="boxRodape">
                 <h2>Faturamento últimos 30d</h2>
@@ -489,7 +510,7 @@
             </div>
             <div class="card">
               <div class="boxMeioPadrao">
-                <h1>400</h1>
+                <h1>${ListaKPIs.metricasVendas[0].TotalPacotesVendidos}</h1>
               </div>
               <div class="boxRodapePadrao">
                 <h2>Pacotes fechados</h2>
@@ -497,7 +518,7 @@
             </div>
             <div class="card">
               <div class="boxMeioPadrao">
-                <h1>Salvador</h1>
+                <h1>${ListaKPIs.PacoteMaisVendido[0].PacoteMaisVendido}</h1>
               </div>
               <div class="boxRodapePadrao">
                 <h2>Pacotes mais vendidos</h2>
@@ -506,8 +527,7 @@
           </div>
         </div>`;
 
-    // ATENÇÃO: Se você usa Chart.js, precisa chamar a função que cria o gráfico AQUI
-    // Exemplo: criarGraficoConsultor();
+        plotarGrafico(dadosGrafico);
   }
 
   function apagarConsultor(id) {
@@ -601,6 +621,10 @@
     }
     else {
 
+      const resposta = await fetch(`/dashboard/pesquisarConsultor/${nomeConsultor}`);
+      const dados = await resposta.json();
+      ListaResultadoPesquisaConsultor = dados;
+
       Consultores.innerHTML = ``;
 
       if (ListaResultadoPesquisaConsultor.length == 0) {
@@ -643,6 +667,71 @@
             </div>`;
     }
   }
+}
+
+function plotarGrafico(dadosGrafico) {
+    const ctx = document.getElementById('rendaMensalChartConsultor');
+
+    // Se já existir um gráfico, destrói ele antes de criar o novo
+    if (chartInstance) {
+        chartInstance.destroy();
+    }
+
+    // Separa os dados em arrays para o Chart.js
+    // Se o banco não retornar nada, usa arrays vazios
+    const labels = dadosGrafico.map(item => item.mes);
+    const valores = dadosGrafico.map(item => item.valor_total);
+
+    chartInstance = new Chart(ctx, {
+        type: 'bar',
+        data: {
+            labels: labels, // Ex: ['Jan/2025', 'Fev/2025']
+            datasets: [{
+                label: 'Vendas (R$)',
+                data: valores, // Ex: [1500.00, 3200.50]
+                backgroundColor: '#5356FB', // Cor das barras (Roxo Zump)
+                borderRadius: 5,
+                borderSkipped: false
+            }]
+        },
+        options: {
+            responsive: true,
+            maintainAspectRatio: false,
+            plugins: {
+                legend: {
+                    display: false // Esconde a legenda se quiser
+                },
+                tooltip: {
+                    callbacks: {
+                        label: function(context) {
+                            // Formata o valor para Reais no tooltip
+                            let label = context.dataset.label || '';
+                            if (label) {
+                                label += ': ';
+                            }
+                            if (context.parsed.y !== null) {
+                                label += new Intl.NumberFormat('pt-BR', { style: 'currency', currency: 'BRL' }).format(context.parsed.y);
+                            }
+                            return label;
+                        }
+                    }
+                }
+            },
+            scales: {
+                y: {
+                    beginAtZero: true,
+                    grid: {
+                        color: '#E0E0E0' // Cor das linhas de grade
+                    }
+                },
+                x: {
+                    grid: {
+                        display: false // Remove grade vertical
+                    }
+                }
+            }
+        }
+    });
 }
 
 </script>
