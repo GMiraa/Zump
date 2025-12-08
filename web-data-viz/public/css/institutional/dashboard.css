@@ -156,11 +156,11 @@ body #cardDelete .opBtn #btnSim{
 }
 
 .menu .conteudo .boxFoto h3{
-    font-size: var(--font-size-medium);
+    font-size: var(--font-size-regular);
     font-weight: var(--font-weight-medium);
     margin-top: 10px;
     color: var(--white);
-    width: 100px;
+    width: 90%;
     text-align: center;
 }
 
