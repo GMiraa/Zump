@@ -368,6 +368,7 @@
 
     .menu .conteudo .boxFoto h3{
         font-size: var(--font-size-regular);
+        width: 90%;
     }
 
     .menu .conteudo .boxFoto button{
@@ -814,6 +815,211 @@
         background-size: 25px, cover;
     }
 
+
+    /* Edição de clientes
+     Modal Edição de cliente */
+    #clientes_section .editarCliente .conteudoEdit{
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        width: 90%;
+        height: 90%;
+    }
+    #clientes_section .editarCliente .formEditCliente{
+        display: flex;
+        justify-content: start;
+        align-items: center;
+        width: 100%;
+        
+        height: 50%;
+    }
+    #clientes_section .editarCliente .boxKpiCliente{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        width: 100%;
+        height: 50%;
+        
+
+    }
+
+
+    #clientes_section .editarCliente .formEditCliente .divVoltar{
+        display: flex;
+        justify-content: flex-start;
+        align-items: center;
+        background-color: var(--white);
+        width: 100px;
+        height: 40px;
+       
+        position: absolute;
+        top: 1rem;
+        right: 1rem;
+    }
+
+    #clientes_section .editarCliente .formEditCliente .divVoltar button{
+        font-size: var(--font-size-small);
+        padding-right: 2.5rem;
+        height: 40px;
+        background-color: transparent;
+        border: none;
+        color: #878787;
+        background-image: url("../../assets/icon/CloseGray.svg");
+        background-size: 30px;
+        background-repeat: no-repeat;
+        background-position: center right;
+        cursor: pointer;
+    }
+
+    #clientes_section .editarCliente .formEditCliente .fotoCliente{
+        background-color: var(--white);
+        background-image: url("../../assets/icon/User.svg");
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: 50%;
+        
+        width: 30%;
+        height: 100%;
+    }
+    #clientes_section .editarCliente .formEditCliente .fotoCliente h2{
+        margin-top: 10px;
+        font-size: var(--font-size-regular);
+    }
+
+    #clientes_section .editarCliente .formEditCliente .box_inputs{
+        display: flex;
+        justify-content: space-between;
+        flex-direction: column;
+        padding-top: 35px;
+        width: 50%;
+        height:100%;
+        
+    }
+    #clientes_section .editarCliente .formEditCliente .box_inputs .input{
+        position: relative;
+        border: 1px solid #CFCFCF;
+        background-color: #fff;
+        height: 45px;
+        width: 100%;
+        border-radius: 8px;
+    }
+    #clientes_section .editarCliente .formEditCliente .box_inputs .input:nth-child(2),
+    #clientes_section .editarCliente .formEditCliente .box_inputs .input:nth-child(3),
+    #clientes_section .editarCliente .formEditCliente .box_inputs .input:nth-child(4){
+        background-position: center right 20px;
+        background-repeat: no-repeat;
+        background-size: 30px;
+    }
+    #clientes_section .editarCliente .formEditCliente .box_inputs .input:nth-child(2){
+        background-image: url("../../assets/icon/telIco.svg");
+    }
+    #clientes_section .editarCliente .formEditCliente .box_inputs .input:nth-child(3){
+        background-image: url("../../assets/icon/localeIco.svg");
+    }
+    #clientes_section .editarCliente .formEditCliente .box_inputs .input:nth-child(4){
+        background-image: url("../../assets/icon/bloq.svg");
+    }
+    #clientes_section .editarCliente .formEditCliente .box_inputs .input label{
+        position: absolute;
+        top: -25px;
+    }
+
+    #clientes_section .editarCliente .formEditCliente .box_inputs .input input{
+        width: 100%;
+        height: 45px;
+    }
+
+
+
+
+    #clientes_section .editarCliente .boxKpiCliente .cards_pacotes{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 2rem;
+        width: 100%;
+        height: 60%;
+        
+    }
+
+    #clientes_section .editarCliente .boxKpiCliente .cards_pacotes .card{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        width: 300px;
+        height: 160px;
+        background: #ffffff38;
+        backdrop-filter: blur(10px);
+        box-shadow: 0 0px 10px rgba(0,0,0,0.2);
+        border-radius: 20px;
+        position: relative;
+    }
+
+    #clientes_section .editarCliente .boxKpiCliente .cards_pacotes .card h1{
+        font-size: 4rem;
+        font-weight: var(--font-weight-medium);
+        color: var(--black);
+    }
+    #clientes_section .editarCliente .boxKpiCliente .cards_pacotes .card:nth-child(2) h1{
+        font-size: 3rem;
+        font-weight: var(--font-weight-medium);
+        color: var(--black);
+    }
+
+    #clientes_section .editarCliente .boxKpiCliente .cards_pacotes .card p{
+        font-size: var(--font-size-regular);
+        position: absolute;
+        color: #AEAEAE;
+        bottom: 10px;
+    }
+
+    #clientes_section .editarCliente .boxKpiCliente .box_btns{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 70%;
+        height: 30%;
+        
+    }
+
+
+    #clientes_section .editarCliente .boxKpiCliente .box_btns .buttons{
+        width: 100%;
+        margin-left: 0;
+        height: 100%;
+        display: flex;
+        justify-content: space-around;
+        
+    }
+
+
+    #clientes_section .editarCliente .boxKpiCliente .box_btns .buttons button{
+        width: 300px;
+        height: 55px;
+        border-radius: 55px;
+        outline: none;
+        border: none;
+        color: var(--white);
+        font-size: var(--font-size-regular);
+        cursor: pointer;
+    }
+
+    #clientes_section .editarCliente .boxKpiCliente .box_btns .buttons button:nth-child(1){
+        background:linear-gradient(45deg, #0F537A, #1575AD, #1B98E0);
+    }
+    #clientes_section .editarCliente .boxKpiCliente .box_btns .buttons button:nth-child(2){
+        text-align: left;
+        padding-left: 60px;
+        background:
+        url("../../assets/icon/pacoteVazio.svg"), linear-gradient(45deg, #131517, #2C2D2E, #464646);
+        background-position: top 10px right 30px, center;
+        background-repeat: no-repeat;
+        background-size: 30px, cover;
+    }
+
+
 }
 
 @media screen and (max-width: 1330px){
@@ -832,6 +1038,7 @@
 
     .menu .conteudo .boxFoto h3{
         font-size: var(--font-size-regular);
+        width: 90%;
     }
 
     .menu .conteudo .boxFoto button{
@@ -922,6 +1129,10 @@
 }
 @media screen and (max-width: 1280px){
     /* Tela consultor */
+    .menu .conteudo .boxFoto h3{
+        font-size: 1rem;
+        width: 90%;
+    }
 
     #consultores_section .boxTop{
         width: 100%;
@@ -1004,6 +1215,214 @@
         border-radius: 50%;
         background-size: 40px;
     }
+
+    
+    /* Edição de clientes
+     Modal Edição de cliente */
+    #clientes_section .editarCliente .conteudoEdit{
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        width: 90%;
+        height: 90%;
+    }
+    #clientes_section .editarCliente .formEditCliente{
+        display: flex;
+        justify-content: start;
+        align-items: center;
+        width: 100%;
+        
+        height: 50%;
+    }
+    #clientes_section .editarCliente .boxKpiCliente{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        width: 100%;
+        height: 50%;
+        
+
+    }
+
+
+    #clientes_section .editarCliente .formEditCliente .divVoltar{
+        display: flex;
+        justify-content: flex-start;
+        align-items: center;
+        background-color: var(--white);
+        width: 100px;
+        height: 40px;
+        
+        position: absolute;
+        top: 1rem;
+        right: 1rem;
+    }
+
+    #clientes_section .editarCliente .formEditCliente .divVoltar button{
+        font-size: var(--font-size-small);
+        padding-right: 2.5rem;
+        height: 40px;
+        background-color: transparent;
+        border: none;
+        color: #878787;
+        background-image: url("../../assets/icon/CloseGray.svg");
+        background-size: 30px;
+        background-repeat: no-repeat;
+        background-position: center right;
+        cursor: pointer;
+    }
+
+    #clientes_section .editarCliente .formEditCliente .fotoCliente{
+        background-color: var(--white);
+        background-image: url("../../assets/icon/User.svg");
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: 50%;
+        
+        width: 40%;
+        height: 100%;
+    }
+    #clientes_section .editarCliente .formEditCliente .fotoCliente h2{
+        margin-top: 10px;
+        font-size: var(--font-size-regular);
+    }
+
+    #clientes_section .editarCliente .formEditCliente .box_inputs{
+        display: flex;
+        justify-content: space-between;
+        flex-direction: column;
+        padding-top: 35px;
+        width: 50%;
+        height:100%;
+    
+    }
+    #clientes_section .editarCliente .formEditCliente .box_inputs .input{
+        position: relative;
+        border: 1px solid #CFCFCF;
+        background-color: #fff;
+        height: 45px;
+        width: 100%;
+        border-radius: 8px;
+    }
+    #clientes_section .editarCliente .formEditCliente .box_inputs .input:nth-child(2),
+    #clientes_section .editarCliente .formEditCliente .box_inputs .input:nth-child(3),
+    #clientes_section .editarCliente .formEditCliente .box_inputs .input:nth-child(4){
+        background-position: center right 20px;
+        background-repeat: no-repeat;
+        background-size: 30px;
+    }
+    #clientes_section .editarCliente .formEditCliente .box_inputs .input:nth-child(2){
+        background-image: url("../../assets/icon/telIco.svg");
+    }
+    #clientes_section .editarCliente .formEditCliente .box_inputs .input:nth-child(3){
+        background-image: url("../../assets/icon/localeIco.svg");
+    }
+    #clientes_section .editarCliente .formEditCliente .box_inputs .input:nth-child(4){
+        background-image: url("../../assets/icon/bloq.svg");
+    }
+    #clientes_section .editarCliente .formEditCliente .box_inputs .input label{
+        position: absolute;
+        top: -25px;
+    }
+
+    #clientes_section .editarCliente .formEditCliente .box_inputs .input input{
+        width: 100%;
+        height: 45px;
+    }
+
+
+
+
+    #clientes_section .editarCliente .boxKpiCliente .cards_pacotes{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 2rem;
+        width: 100%;
+        height: 60%;
+        
+    }
+
+    #clientes_section .editarCliente .boxKpiCliente .cards_pacotes .card{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        width: 300px;
+        height: 160px;
+        background: #ffffff38;
+        backdrop-filter: blur(10px);
+        box-shadow: 0 0px 10px rgba(0,0,0,0.2);
+        border-radius: 20px;
+        position: relative;
+    }
+
+    #clientes_section .editarCliente .boxKpiCliente .cards_pacotes .card h1{
+        font-size: 4rem;
+        font-weight: var(--font-weight-medium);
+        color: var(--black);
+    }
+    #clientes_section .editarCliente .boxKpiCliente .cards_pacotes .card:nth-child(2) h1{
+        font-size: 3rem;
+        font-weight: var(--font-weight-medium);
+        color: var(--black);
+    }
+
+    #clientes_section .editarCliente .boxKpiCliente .cards_pacotes .card p{
+        font-size: var(--font-size-regular);
+        position: absolute;
+        color: #AEAEAE;
+        bottom: 10px;
+    }
+
+
+
+
+    #clientes_section .editarCliente .boxKpiCliente .box_btns{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 90%;
+        height: 30%;
+        
+    }
+
+
+    #clientes_section .editarCliente .boxKpiCliente .box_btns .buttons{
+        width: 100%;
+        margin-left: 0;
+        height: 100%;
+        display: flex;
+        justify-content: space-around;
+        
+    }
+
+
+    #clientes_section .editarCliente .boxKpiCliente .box_btns .buttons button{
+        width: 300px;
+        height: 55px;
+        border-radius: 45px;
+        outline: none;
+        border: none;
+        color: var(--white);
+        font-size: var(--font-size-regular);
+        cursor: pointer;
+    }
+
+    #clientes_section .editarCliente .boxKpiCliente .box_btns .buttons button:nth-child(1){
+        background:linear-gradient(45deg, #0F537A, #1575AD, #1B98E0);
+    }
+    #clientes_section .editarCliente .boxKpiCliente .box_btns .buttons button:nth-child(2){
+        text-align: left;
+        padding-left: 60px;
+        background:
+        url("../../assets/icon/pacoteVazio.svg"), linear-gradient(45deg, #131517, #2C2D2E, #464646);
+        background-position: top 10px right 30px, center;
+        background-repeat: no-repeat;
+        background-size: 30px, cover;
+    }
+
 }
 @media screen and (max-width: 1130px){
 
@@ -1044,9 +1463,7 @@
         height: 80px;
     }
 
-    .menu .conteudo .boxFoto h3{
-        font-size: var(--font-size-regular);
-    }
+   
 
     .menu .conteudo .boxFoto button{
         right: 15px;
@@ -1196,7 +1613,8 @@
     }
 
     .menu .conteudo .boxFoto h3{
-        font-size: var(--font-size-regular);
+        font-size: var(--font-size-small);
+        width: 90%;
     }
 
     .menu .conteudo .boxFoto button{
@@ -1331,6 +1749,7 @@
 
     #clientes_section .modalPacotes {
         width: 100%;
+        margin-right: -1.8%;
     }
 
      #clientes_section .modalPacotes .coteudosPacote{
@@ -1456,8 +1875,263 @@
         background-size: 25px, cover;
     }
 
-    
+    /* Edição de clientes
+     Modal Edição de cliente */
+    #clientes_section .editarCliente .conteudoEdit{
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        width: 90%;
+        height: 90%;
+    }
+    #clientes_section .editarCliente .formEditCliente{
+        display: flex;
+        justify-content: start;
+        align-items: center;
+        width: 100%;
+        
+        height: 50%;
+    }
+    #clientes_section .editarCliente .boxKpiCliente{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        width: 100%;
+        height: 50%;
+       
 
+    }
+
+
+    #clientes_section .editarCliente .formEditCliente .divVoltar{
+        display: flex;
+        justify-content: flex-start;
+        align-items: center;
+        background-color: var(--white);
+        width: 100px;
+        height: 40px;
+        
+        position: absolute;
+        top: 1rem;
+        right: 1rem;
+    }
+
+    #clientes_section .editarCliente .formEditCliente .divVoltar button{
+        font-size: var(--font-size-small);
+        padding-right: 2.5rem;
+        height: 40px;
+        background-color: transparent;
+        border: none;
+        color: #878787;
+        background-image: url("../../assets/icon/CloseGray.svg");
+        background-size: 30px;
+        background-repeat: no-repeat;
+        background-position: center right;
+        cursor: pointer;
+    }
+
+    #clientes_section .editarCliente .formEditCliente .fotoCliente{
+        background-color: var(--white);
+        background-image: url("../../assets/icon/User.svg");
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: 50%;
+        
+        width: 40%;
+        height: 100%;
+    }
+    #clientes_section .editarCliente .formEditCliente .fotoCliente h2{
+        margin-top: 10px;
+        font-size: var(--font-size-regular);
+    }
+
+    #clientes_section .editarCliente .formEditCliente .box_inputs{
+        display: flex;
+        justify-content: space-between;
+        flex-direction: column;
+        padding-top: 35px;
+        width: 50%;
+        height:100%;
+        
+    }
+    #clientes_section .editarCliente .formEditCliente .box_inputs .input{
+        position: relative;
+        border: 1px solid #CFCFCF;
+        background-color: #fff;
+        height: 45px;
+        width: 100%;
+        border-radius: 8px;
+    }
+    #clientes_section .editarCliente .formEditCliente .box_inputs .input:nth-child(2),
+    #clientes_section .editarCliente .formEditCliente .box_inputs .input:nth-child(3),
+    #clientes_section .editarCliente .formEditCliente .box_inputs .input:nth-child(4){
+        background-position: center right 20px;
+        background-repeat: no-repeat;
+        background-size: 30px;
+    }
+    #clientes_section .editarCliente .formEditCliente .box_inputs .input:nth-child(2){
+        background-image: url("../../assets/icon/telIco.svg");
+    }
+    #clientes_section .editarCliente .formEditCliente .box_inputs .input:nth-child(3){
+        background-image: url("../../assets/icon/localeIco.svg");
+    }
+    #clientes_section .editarCliente .formEditCliente .box_inputs .input:nth-child(4){
+        background-image: url("../../assets/icon/bloq.svg");
+    }
+    #clientes_section .editarCliente .formEditCliente .box_inputs .input label{
+        position: absolute;
+        top: -25px;
+    }
+
+    #clientes_section .editarCliente .formEditCliente .box_inputs .input input{
+        width: 100%;
+        height: 45px;
+    }
+
+
+
+
+    #clientes_section .editarCliente .boxKpiCliente .cards_pacotes{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 2rem;
+        width: 100%;
+        height: 60%;
+        
+    }
+
+    #clientes_section .editarCliente .boxKpiCliente .cards_pacotes .card{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        width: 280px;
+        height: 140px;
+        background: #ffffff38;
+        backdrop-filter: blur(10px);
+        box-shadow: 0 0px 10px rgba(0,0,0,0.2);
+        border-radius: 20px;
+        position: relative;
+    }
+
+    #clientes_section .editarCliente .boxKpiCliente .cards_pacotes .card h1{
+        font-size: 3rem;
+        font-weight: var(--font-weight-medium);
+        color: var(--black);
+    }
+    #clientes_section .editarCliente .boxKpiCliente .cards_pacotes .card:nth-child(2) h1{
+        font-size: 2.5rem;
+        font-weight: var(--font-weight-medium);
+        color: var(--black);
+    }
+
+    #clientes_section .editarCliente .boxKpiCliente .cards_pacotes .card p{
+        font-size: var(--font-size-regular);
+        position: absolute;
+        color: #AEAEAE;
+        bottom: 10px;
+    }
+
+
+
+
+    #clientes_section .editarCliente .boxKpiCliente .box_btns{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 100%;
+        height: 30%;
+        
+    }
+
+
+    #clientes_section .editarCliente .boxKpiCliente .box_btns .buttons{
+        width: 100%;
+        margin-left: 0;
+        height: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: space-around;
+        
+    }
+
+
+    #clientes_section .editarCliente .boxKpiCliente .box_btns .buttons button{
+        width: 270px;
+        height: 45px;
+        border-radius: 45px;
+        outline: none;
+        border: none;
+        color: var(--white);
+        font-size: 1rem;
+        cursor: pointer;
+    }
+
+    #clientes_section .editarCliente .boxKpiCliente .box_btns .buttons button:nth-child(1){
+        background:linear-gradient(45deg, #0F537A, #1575AD, #1B98E0);
+    }
+    #clientes_section .editarCliente .boxKpiCliente .box_btns .buttons button:nth-child(2){
+        text-align: left;
+        padding-left: 70px;
+        background:
+        url("../../assets/icon/pacoteVazio.svg"), linear-gradient(45deg, #131517, #2C2D2E, #464646);
+        background-position: top 8px right 40px, center;
+        background-repeat: no-repeat;
+        background-size: 25px, cover;
+    }
+
+
+      /* Cadastro de cliente Modal */
+    #clientes_section .cardCadastroCliente{
+        width: 80%;
+        height: 85%;
+        padding: 2rem 0rem;
+        border-radius: 15px;
+        background: var(--white);
+        bottom: 10%;
+        box-shadow: 0px 0px 20px #00000036;
+        z-index: 11;
+    }
+
+    #clientes_section .cardCadastroCliente .box_cadastro_de_cliente{
+        padding-top: 20px;
+        padding-bottom: 20px;
+        height: 100%;
+        width: 90%;
+    }
+
+
+    /* Modal cadastro do Consultor */
+
+    #consultores_section .modalCadastro{
+        display: none;
+        flex-direction: column;
+        justify-content: flex-start;
+        position: absolute;
+        width: 80%;
+        height:auto;
+        padding-bottom: 10px;
+        border-radius: 10px;
+        background: var(--white);
+        z-index: 10;
+    }
+
+    #consultores_section .modalCadastro #btnFechar{
+        position: absolute;
+        width: 40px;
+        height: 40px;
+        border-radius: 40px;
+        top: -10px;
+        right: -10px;
+        background-size: 38px;
+        cursor: pointer;
+    }
+
+    #consultores_section .modalCadastro #btnFechar:hover{
+        background-size: 55px;
+    }
 } 
 
 @media screen and (max-width: 900px){
@@ -1676,6 +2350,7 @@
 
     #clientes_section .modalPacotes {
         width: 100%;
+        margin-right: -2.5%;
     }
 
     #clientes_section .modalPacotes .coteudosPacote{
@@ -1850,6 +2525,271 @@
         border-radius: 50%;
         background-size: 40px;
     }
+
+
+
+     /* Edição de clientes
+     Modal Edição de cliente */
+    #clientes_section .editarCliente .conteudoEdit{
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        width: 90%;
+        height: 90%;
+    }
+    #clientes_section .editarCliente .formEditCliente{
+        display: flex;
+        justify-content: start;
+        align-items: center;
+        width: 100%;
+        
+        height: 50%;
+    }
+    #clientes_section .editarCliente .boxKpiCliente{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        width: 100%;
+        height: 50%;
+        
+
+    }
+
+
+    #clientes_section .editarCliente .formEditCliente .divVoltar{
+        display: flex;
+        justify-content: flex-start;
+        align-items: center;
+        background-color: var(--white);
+        width: 100px;
+        height: 40px;
+       
+        position: absolute;
+        top: 1rem;
+        right: 1rem;
+    }
+
+    #clientes_section .editarCliente .formEditCliente .divVoltar button{
+        font-size: var(--font-size-small);
+        padding-right: 2.5rem;
+        height: 40px;
+        background-color: transparent;
+        border: none;
+        color: #878787;
+        background-image: url("../../assets/icon/CloseGray.svg");
+        background-size: 30px;
+        background-repeat: no-repeat;
+        background-position: center right;
+        cursor: pointer;
+    }
+
+    #clientes_section .editarCliente .formEditCliente .fotoCliente{
+        background-color: var(--white);
+        background-image: url("../../assets/icon/User.svg");
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: 50%;
+        
+        width: 40%;
+        height: 100%;
+    }
+    #clientes_section .editarCliente .formEditCliente .fotoCliente h2{
+        margin-top: 10px;
+        font-size: var(--font-size-regular);
+    }
+
+    #clientes_section .editarCliente .formEditCliente .box_inputs{
+        display: flex;
+        justify-content: space-between;
+        flex-direction: column;
+        padding-top: 35px;
+        width: 60%;
+        height:100%;
+        
+    }
+    #clientes_section .editarCliente .formEditCliente .box_inputs .input{
+        position: relative;
+        border: 1px solid #CFCFCF;
+        background-color: #fff;
+        height: 45px;
+        width: 100%;
+        border-radius: 8px;
+    }
+    #clientes_section .editarCliente .formEditCliente .box_inputs .input:nth-child(2),
+    #clientes_section .editarCliente .formEditCliente .box_inputs .input:nth-child(3),
+    #clientes_section .editarCliente .formEditCliente .box_inputs .input:nth-child(4){
+        background-position: center right 20px;
+        background-repeat: no-repeat;
+        background-size: 30px;
+    }
+    #clientes_section .editarCliente .formEditCliente .box_inputs .input:nth-child(2){
+        background-image: url("../../assets/icon/telIco.svg");
+    }
+    #clientes_section .editarCliente .formEditCliente .box_inputs .input:nth-child(3){
+        background-image: url("../../assets/icon/localeIco.svg");
+    }
+    #clientes_section .editarCliente .formEditCliente .box_inputs .input:nth-child(4){
+        background-image: url("../../assets/icon/bloq.svg");
+    }
+    #clientes_section .editarCliente .formEditCliente .box_inputs .input label{
+        position: absolute;
+        top: -25px;
+    }
+
+    #clientes_section .editarCliente .formEditCliente .box_inputs .input input{
+        width: 100%;
+        height: 45px;
+    }
+
+
+
+
+    #clientes_section .editarCliente .boxKpiCliente .cards_pacotes{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 2rem;
+        width: 100%;
+        height: 60%;
+        
+    }
+
+    #clientes_section .editarCliente .boxKpiCliente .cards_pacotes .card{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        width: 280px;
+        height: 140px;
+        background: #ffffff38;
+        backdrop-filter: blur(10px);
+        box-shadow: 0 0px 10px rgba(0,0,0,0.2);
+        border-radius: 20px;
+        position: relative;
+    }
+
+    #clientes_section .editarCliente .boxKpiCliente .cards_pacotes .card h1{
+        font-size: 3rem;
+        font-weight: var(--font-weight-medium);
+        color: var(--black);
+    }
+    #clientes_section .editarCliente .boxKpiCliente .cards_pacotes .card:nth-child(2) h1{
+        font-size: 2.5rem;
+        font-weight: var(--font-weight-medium);
+        color: var(--black);
+    }
+
+    #clientes_section .editarCliente .boxKpiCliente .cards_pacotes .card p{
+        font-size: var(--font-size-regular);
+        position: absolute;
+        color: #AEAEAE;
+        bottom: 10px;
+    }
+
+
+
+
+    #clientes_section .editarCliente .boxKpiCliente .box_btns{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 100%;
+        height: 30%;
+        
+    }
+
+
+    #clientes_section .editarCliente .boxKpiCliente .box_btns .buttons{
+        width: 100%;
+        margin-left: 0;
+        height: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: space-around;
+        
+    }
+
+
+    #clientes_section .editarCliente .boxKpiCliente .box_btns .buttons button{
+        width: 250px;
+        height: 45px;
+        border-radius: 45px;
+        outline: none;
+        border: none;
+        color: var(--white);
+        font-size: 1rem;
+        cursor: pointer;
+    }
+
+    #clientes_section .editarCliente .boxKpiCliente .box_btns .buttons button:nth-child(1){
+        background:linear-gradient(45deg, #0F537A, #1575AD, #1B98E0);
+    }
+    #clientes_section .editarCliente .boxKpiCliente .box_btns .buttons button:nth-child(2){
+        text-align: left;
+        padding-left: 50px;
+        background: url("../../assets/icon/pacoteVazio.svg"), linear-gradient(45deg, #131517, #2C2D2E, #464646);
+        background-position: top 8px right 40px, center;
+        background-repeat: no-repeat;
+        background-size: 25px, cover;
+    }
+
+
+    /* Cadastro de consultor */
+#consultores_section .modalCadastro{
+        display: none;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        position: absolute;
+        width: 80%;
+        height:85%;
+        padding-bottom: 10px;
+        border-radius: 10px;
+        background: var(--white);
+        z-index: 10;
+    }
+
+    #consultores_section .modalCadastro #btnFechar{
+        position: absolute;
+        width: 40px;
+        height: 40px;
+        border-radius: 40px;
+        top: -10px;
+        right: -10px;
+        background-size: 38px;
+        cursor: pointer;
+    }
+
+    #consultores_section .modalCadastro #btnFechar:hover{
+        background-size: 55px;
+    }
+
+    #consultores_section .modalCadastro .boxMeio{
+        display: flex;
+        flex-direction: column;
+        padding: 0px 0rem;
+        height: calc(100% - 60px);
+        width: 90%;
+        gap: 1.5rem;
+        overflow-y: scroll;
+    }
+    #consultores_section .modalCadastro .boxMeio .boxLeft,
+    #consultores_section .modalCadastro .boxMeio .boxRight{
+        width: 100%;
+        height: auto;
+    }
+    .divDuploInfo{
+        display: flex;
+        flex-direction: column;
+        gap: 15px;
+    }
+    .divDuploInfo .boxInputs:nth-child(1){
+        width: 100%;
+    }
+
+
+
 }
 
 @media screen and (max-width: 800px){
@@ -2231,8 +3171,504 @@
         background-size: 40px;
     }
 
+        /* Edição de clientes
+     Modal Edição de cliente */
+    #clientes_section .editarCliente .conteudoEdit{
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        width: 90%;
+        height: 90%;
+    }
+    #clientes_section .editarCliente .formEditCliente{
+        display: flex;
+        justify-content: start;
+        align-items: center;
+        width: 100%;
+        
+        height: 50%;
+    }
+    #clientes_section .editarCliente .boxKpiCliente{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        width: 100%;
+        height: 50%;
+        
+
+    }
+
+
+    #clientes_section .editarCliente .formEditCliente .divVoltar{
+        display: flex;
+        justify-content: flex-start;
+        align-items: center;
+        background-color: var(--white);
+        width: 100px;
+        height: 40px;
+        position: absolute;
+        top: 1rem;
+        right: 1rem;
+    }
+
+    #clientes_section .editarCliente .formEditCliente .divVoltar button{
+        font-size: var(--font-size-small);
+        padding-right: 2.5rem;
+        height: 40px;
+        background-color: transparent;
+        border: none;
+        color: #878787;
+        background-image: url("../../assets/icon/CloseGray.svg");
+        background-size: 30px;
+        background-repeat: no-repeat;
+        background-position: center right;
+        cursor: pointer;
+    }
+
+    #clientes_section .editarCliente .formEditCliente .fotoCliente{
+        background-color: var(--white);
+        background-image: url("../../assets/icon/User.svg");
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: 50%;
+        
+        width: 40%;
+        height: 100%;
+    }
+    #clientes_section .editarCliente .formEditCliente .fotoCliente h2{
+        margin-top: 10px;
+        font-size: var(--font-size-regular);
+    }
+
+    #clientes_section .editarCliente .formEditCliente .box_inputs{
+        display: flex;
+        justify-content: space-between;
+        flex-direction: column;
+        padding-top: 35px;
+        width: 60%;
+        height:100%;
+        
+    }
+    #clientes_section .editarCliente .formEditCliente .box_inputs .input{
+        position: relative;
+        border: 1px solid #CFCFCF;
+        background-color: #fff;
+        height: 45px;
+        width: 100%;
+        border-radius: 8px;
+    }
+    #clientes_section .editarCliente .formEditCliente .box_inputs .input:nth-child(2),
+    #clientes_section .editarCliente .formEditCliente .box_inputs .input:nth-child(3),
+    #clientes_section .editarCliente .formEditCliente .box_inputs .input:nth-child(4){
+        background-position: center right 20px;
+        background-repeat: no-repeat;
+        background-size: 30px;
+    }
+    #clientes_section .editarCliente .formEditCliente .box_inputs .input:nth-child(2){
+        background-image: url("../../assets/icon/telIco.svg");
+    }
+    #clientes_section .editarCliente .formEditCliente .box_inputs .input:nth-child(3){
+        background-image: url("../../assets/icon/localeIco.svg");
+    }
+    #clientes_section .editarCliente .formEditCliente .box_inputs .input:nth-child(4){
+        background-image: url("../../assets/icon/bloq.svg");
+    }
+    #clientes_section .editarCliente .formEditCliente .box_inputs .input label{
+        position: absolute;
+        top: -25px;
+    }
+
+    #clientes_section .editarCliente .formEditCliente .box_inputs .input input{
+        width: 100%;
+        height: 45px;
+    }
+
+
+
+
+    #clientes_section .editarCliente .boxKpiCliente .cards_pacotes{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 2rem;
+        width: 100%;
+        height: 60%;
+        
+    }
+
+    #clientes_section .editarCliente .boxKpiCliente .cards_pacotes .card{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        width: 240px;
+        height: 130px;
+        background: #ffffff38;
+        backdrop-filter: blur(10px);
+        box-shadow: 0 0px 10px rgba(0,0,0,0.2);
+        border-radius: 20px;
+        position: relative;
+    }
+
+    #clientes_section .editarCliente .boxKpiCliente .cards_pacotes .card h1{
+        font-size: 2.5rem;
+        font-weight: var(--font-weight-medium);
+        color: var(--black);
+    }
+    #clientes_section .editarCliente .boxKpiCliente .cards_pacotes .card:nth-child(2) h1{
+        font-size: 2rem;
+        font-weight: var(--font-weight-medium);
+        color: var(--black);
+    }
+
+    #clientes_section .editarCliente .boxKpiCliente .cards_pacotes .card p{
+        font-size: 1rem;
+        position: absolute;
+        color: #AEAEAE;
+        bottom: 10px;
+    }
+
+
+
+
+    #clientes_section .editarCliente .boxKpiCliente .box_btns{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 100%;
+        height: 30%;
+        
+    }
+
+
+    #clientes_section .editarCliente .boxKpiCliente .box_btns .buttons{
+        display: flex;
+        align-items: center;
+        justify-content: space-around;
+        flex-direction: column;
+        width: 100%;
+        margin-left: 0;
+        gap: .4rem;
+        height: 100%;
+        
+    }
+
+
+    #clientes_section .editarCliente .boxKpiCliente .box_btns .buttons button{
+        width: 250px;
+        height: 45px;
+        border-radius: 45px;
+        outline: none;
+        border: none;
+        color: var(--white);
+        font-size: 1rem;
+        cursor: pointer;
+    }
+
+    #clientes_section .editarCliente .boxKpiCliente .box_btns .buttons button:nth-child(1){
+        background:linear-gradient(45deg, #0F537A, #1575AD, #1B98E0);
+    }
+    #clientes_section .editarCliente .boxKpiCliente .box_btns .buttons button:nth-child(2){
+        text-align: left;
+        padding-left: 50px;
+        background: url("../../assets/icon/pacoteVazio.svg"), linear-gradient(45deg, #131517, #2C2D2E, #464646);
+        background-position: top 8px right 40px, center;
+        background-repeat: no-repeat;
+        background-size: 25px, cover;
+    }
+
+
+     /* Cadastro de cliente Modal */
+    #clientes_section .cardCadastroCliente .fecharCadastroCliente{
+    position: absolute;
+        width: 40px;
+        height: 40px;
+        border-radius: 40px;
+        top: -10px;
+        right: -10px;
+        background-size: 38px;
+    }
+
+    #clientes_section .cardCadastroCliente .fecharCadastroCliente:hover{
+        background-size: 38px;
+    }
+
 
 }
+
+@media screen and (max-width: 700px) {
+    /* Edição de clientes
+    Modal Edição de cliente */
+    #clientes_section .editarCliente .conteudoEdit{
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        width: 100%;
+        height: 90%;
+        
+        overflow:visible;
+        overflow-y: scroll;
+    }
+    #clientes_section .editarCliente .conteudoEdit::-webkit-scrollbar {
+        width: 3px;
+    }
+
+    #clientes_section .editarCliente .conteudoEdit::-webkit-scrollbar-track {
+        background: #D9D9D9;
+        border-radius: 10px;
+    }
+
+    #clientes_section .editarCliente .conteudoEdit::-webkit-scrollbar-thumb {
+        background: linear-gradient(180deg, #585858, #000000);
+        border-radius: 10px;
+    }
+
+
+    #clientes_section .editarCliente .formEditCliente{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction:column;
+        width: 100%;
+        margin-top: 45%;
+        
+        min-height: 80%;
+    }
+    #clientes_section .editarCliente .boxKpiCliente{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        width: 100%;
+        min-height: 60%;
+        
+
+    }
+
+
+    #clientes_section .editarCliente .formEditCliente .divVoltar{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        background-color: transparent;
+        width: 100px;
+        height: 40px;
+        position: absolute;
+        top: 0rem;
+        right: 0rem;
+    }
+
+    #clientes_section .editarCliente .formEditCliente .divVoltar button{
+        font-size: var(--font-size-small);
+        padding-right: 2.5rem;
+        height: 40px;
+        background-color: transparent;
+        border: none;
+        color: #878787;
+        background-image: url("../../assets/icon/CloseGray.svg");
+        background-size: 30px;
+        background-repeat: no-repeat;
+        background-position: center right;
+        cursor: pointer;
+    }
+
+    #clientes_section .editarCliente .formEditCliente .fotoCliente{
+        background-color: var(--white);
+        background-image: url("../../assets/icon/User.svg");
+        background-position: center bottom 2%;
+        background-repeat: no-repeat;
+        background-size: 50%;
+        
+        width: 40%;
+        height: 25%;
+    }
+    #clientes_section .editarCliente .formEditCliente .fotoCliente h2{
+        display: none;
+    }
+
+    #clientes_section .editarCliente .formEditCliente .box_inputs{
+        display: flex;
+        justify-content: space-between;
+        flex-direction: column;
+        padding-top: 35px;
+        width: 96%;
+        height:60%;
+        
+    }
+    #clientes_section .editarCliente .formEditCliente .box_inputs .input{
+        position: relative;
+        border: 1px solid #CFCFCF;
+        background-color: #fff;
+        height: 45px;
+        width: 100%;
+        border-radius: 8px;
+    }
+    #clientes_section .editarCliente .formEditCliente .box_inputs .input:nth-child(2),
+    #clientes_section .editarCliente .formEditCliente .box_inputs .input:nth-child(3),
+    #clientes_section .editarCliente .formEditCliente .box_inputs .input:nth-child(4){
+        background-position: center right 20px;
+        background-repeat: no-repeat;
+        background-size: 30px;
+    }
+    #clientes_section .editarCliente .formEditCliente .box_inputs .input:nth-child(2){
+        background-image: url("../../assets/icon/telIco.svg");
+    }
+    #clientes_section .editarCliente .formEditCliente .box_inputs .input:nth-child(3){
+        background-image: url("../../assets/icon/localeIco.svg");
+    }
+    #clientes_section .editarCliente .formEditCliente .box_inputs .input:nth-child(4){
+        background-image: url("../../assets/icon/bloq.svg");
+    }
+    #clientes_section .editarCliente .formEditCliente .box_inputs .input label{
+        position: absolute;
+        top: -25px;
+    }
+
+    #clientes_section .editarCliente .formEditCliente .box_inputs .input input{
+        width: 100%;
+        height: 45px;
+    }
+
+
+
+
+    #clientes_section .editarCliente .boxKpiCliente .cards_pacotes{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 1rem;
+        width: 100%;
+        height: 60%;
+        
+    }
+
+    #clientes_section .editarCliente .boxKpiCliente .cards_pacotes .card{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        width: 200px;
+        height: 120px;
+        background: #ffffff38;
+        backdrop-filter: blur(10px);
+        box-shadow: 0 0px 10px rgba(0,0,0,0.2);
+        border-radius: 20px;
+        position: relative;
+    }
+
+    #clientes_section .editarCliente .boxKpiCliente .cards_pacotes .card h1{
+        font-size: 2.5rem;
+        font-weight: var(--font-weight-medium);
+        color: var(--black);
+    }
+    #clientes_section .editarCliente .boxKpiCliente .cards_pacotes .card:nth-child(2) h1{
+        font-size: 2rem;
+        font-weight: var(--font-weight-medium);
+        color: var(--black);
+    }
+
+    #clientes_section .editarCliente .boxKpiCliente .cards_pacotes .card p{
+        font-size: 1rem;
+        position: absolute;
+        color: #AEAEAE;
+        bottom: 10px;
+    }
+
+
+
+
+    #clientes_section .editarCliente .boxKpiCliente .box_btns{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 100%;
+        height: 30%;
+        
+    }
+
+
+    #clientes_section .editarCliente .boxKpiCliente .box_btns .buttons{
+        display: flex;
+        align-items: center;
+        justify-content: space-around;
+        flex-direction: column;
+        width: 100%;
+        margin-left: 0;
+        gap: .4rem;
+        height: 100%;
+        
+    }
+
+
+    #clientes_section .editarCliente .boxKpiCliente .box_btns .buttons button{
+        width: 250px;
+        height: 45px;
+        border-radius: 45px;
+        outline: none;
+        border: none;
+        color: var(--white);
+        font-size: 1rem;
+        cursor: pointer;
+    }
+
+    #clientes_section .editarCliente .boxKpiCliente .box_btns .buttons button:nth-child(1){
+        background:linear-gradient(45deg, #0F537A, #1575AD, #1B98E0);
+    }
+    #clientes_section .editarCliente .boxKpiCliente .box_btns .buttons button:nth-child(2){
+        text-align: left;
+        padding-left: 50px;
+        background: url("../../assets/icon/pacoteVazio.svg"), linear-gradient(45deg, #131517, #2C2D2E, #464646);
+        background-position: top 8px right 40px, center;
+        background-repeat: no-repeat;
+        background-size: 25px, cover;
+    }
+
+    /* Cadastro de cliente Modal */
+
+    #clientes_section .cardCadastroCliente .box_cadastro_de_cliente h1{
+        font-size: var(--font-size-regular);
+    }
+    #clientes_section .cardCadastroCliente{
+        width: 90%;
+        border-radius: 15px;
+        background: var(--white);
+        bottom: 3%;
+        box-shadow: 0px 0px 20px #00000036;
+        z-index: 11;
+    }
+
+
+    #clientes_section .cardCadastroCliente .box_cadastro_de_cliente{
+        padding-top: 20px;
+        padding-bottom: 20px;
+        height: 100%;
+        width: 90%;
+        overflow-y: scroll;
+    }
+    
+    #clientes_section .cardCadastroCliente .box_cadastro_de_cliente .inputs_cpf_dataNasc{
+        display: flex;
+        flex-direction: column;
+        margin-top:35px;
+        height: auto;
+        width: 100%;
+        position: none;
+        border-radius: 10px;
+    }
+    #clientes_section .cardCadastroCliente .box_cadastro_de_cliente .inputs_cpf_dataNasc .inputsCpfTel:nth-child(2){
+        margin-top: 1rem;
+    }
+    #clientes_section .cardCadastroCliente .box_cadastro_de_cliente .inputs_cpf_dataNasc .inputsCpfTel label{
+        position: absolute;
+        top: -25px;
+    }
+
+
+
+
+}
+
 
 @media screen and (max-width: 600px){
 
@@ -2264,8 +3700,6 @@
         height: 35px;
         width: 90px;
     }
-
-
 
 
 
@@ -2510,7 +3944,232 @@
     }
 
 
+     /* Edição de clientes
+    Modal Edição de cliente */
+    #clientes_section .editarCliente .conteudoEdit{
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        width: 100%;
+        height: 90%;
+        
+        overflow:visible;
+        overflow-y: scroll;
+    }
+    #clientes_section .editarCliente .conteudoEdit::-webkit-scrollbar {
+        width: 3px;
+    }
 
+    #clientes_section .editarCliente .conteudoEdit::-webkit-scrollbar-track {
+        background: #D9D9D9;
+        border-radius: 10px;
+    }
+
+    #clientes_section .editarCliente .conteudoEdit::-webkit-scrollbar-thumb {
+        background: linear-gradient(180deg, #585858, #000000);
+        border-radius: 10px;
+    }
+
+
+    #clientes_section .editarCliente .formEditCliente{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction:column;
+        width: 100%;
+        margin-top: 60%;
+        
+        min-height: 80%;
+    }
+    #clientes_section .editarCliente .boxKpiCliente{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        width: 100%;
+        min-height: 60%;
+        
+
+    }
+
+
+    #clientes_section .editarCliente .formEditCliente .divVoltar{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        background-color: transparent;
+        width: 100px;
+        height: 40px;
+        position: absolute;
+        top: 0rem;
+        right: 0rem;
+    }
+
+    #clientes_section .editarCliente .formEditCliente .divVoltar button{
+        font-size: var(--font-size-small);
+        padding-right: 2.5rem;
+        height: 40px;
+        background-color: transparent;
+        border: none;
+        color: #878787;
+        background-image: url("../../assets/icon/CloseGray.svg");
+        background-size: 30px;
+        background-repeat: no-repeat;
+        background-position: center right;
+        cursor: pointer;
+    }
+
+    #clientes_section .editarCliente .formEditCliente .fotoCliente{
+        background-color: var(--white);
+        background-image: url("../../assets/icon/User.svg");
+        background-position: center bottom 2%;
+        background-repeat: no-repeat;
+        background-size: 60%;
+       
+        width: 40%;
+        height: 25%;
+    }
+    #clientes_section .editarCliente .formEditCliente .fotoCliente h2{
+        display: none;
+    }
+
+    #clientes_section .editarCliente .formEditCliente .box_inputs{
+        display: flex;
+        justify-content: space-between;
+        flex-direction: column;
+        padding-top: 35px;
+        width: 96%;
+        height:60%;
+        
+    }
+    #clientes_section .editarCliente .formEditCliente .box_inputs .input{
+        position: relative;
+        border: 1px solid #CFCFCF;
+        background-color: #fff;
+        height: 45px;
+        width: 100%;
+        border-radius: 8px;
+    }
+    #clientes_section .editarCliente .formEditCliente .box_inputs .input:nth-child(2),
+    #clientes_section .editarCliente .formEditCliente .box_inputs .input:nth-child(3),
+    #clientes_section .editarCliente .formEditCliente .box_inputs .input:nth-child(4){
+        background-position: center right 20px;
+        background-repeat: no-repeat;
+        background-size: 30px;
+    }
+    #clientes_section .editarCliente .formEditCliente .box_inputs .input:nth-child(2){
+        background-image: url("../../assets/icon/telIco.svg");
+    }
+    #clientes_section .editarCliente .formEditCliente .box_inputs .input:nth-child(3){
+        background-image: url("../../assets/icon/localeIco.svg");
+    }
+    #clientes_section .editarCliente .formEditCliente .box_inputs .input:nth-child(4){
+        background-image: url("../../assets/icon/bloq.svg");
+    }
+    #clientes_section .editarCliente .formEditCliente .box_inputs .input label{
+        position: absolute;
+        top: -25px;
+    }
+
+    #clientes_section .editarCliente .formEditCliente .box_inputs .input input{
+        width: 100%;
+        height: 45px;
+    }
+
+
+
+
+    #clientes_section .editarCliente .boxKpiCliente .cards_pacotes{
+        display: flex;
+        justify-content: center;
+        flex-wrap: wrap;
+        align-items: center;
+        gap: 1rem;
+        width: 100%;
+        height: 80%;
+       
+    }
+
+    #clientes_section .editarCliente .boxKpiCliente .cards_pacotes .card{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        width: 200px;
+        height: 120px;
+        background: #ffffff38;
+        backdrop-filter: blur(10px);
+        box-shadow: 0 0px 10px rgba(0,0,0,0.2);
+        border-radius: 20px;
+        position: relative;
+    }
+
+    #clientes_section .editarCliente .boxKpiCliente .cards_pacotes .card h1{
+        font-size: 2.5rem;
+        font-weight: var(--font-weight-medium);
+        color: var(--black);
+    }
+    #clientes_section .editarCliente .boxKpiCliente .cards_pacotes .card:nth-child(2) h1{
+        font-size: 2rem;
+        font-weight: var(--font-weight-medium);
+        color: var(--black);
+    }
+
+    #clientes_section .editarCliente .boxKpiCliente .cards_pacotes .card p{
+        font-size: 1rem;
+        position: absolute;
+        color: #AEAEAE;
+        bottom: 10px;
+    }
+
+
+
+
+    #clientes_section .editarCliente .boxKpiCliente .box_btns{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 100%;
+        height: 40%;
+       
+    }
+
+
+    #clientes_section .editarCliente .boxKpiCliente .box_btns .buttons{
+        display: flex;
+        align-items: center;
+        justify-content: space-around;
+        flex-direction: column;
+        width: 100%;
+        margin-left: 0;
+        gap: .4rem;
+        height: 100%;
+       
+    }
+
+
+    #clientes_section .editarCliente .boxKpiCliente .box_btns .buttons button{
+        width: 250px;
+        height: 45px;
+        border-radius: 45px;
+        outline: none;
+        border: none;
+        color: var(--white);
+        font-size: 1rem;
+        cursor: pointer;
+    }
+
+    #clientes_section .editarCliente .boxKpiCliente .box_btns .buttons button:nth-child(1){
+        background:linear-gradient(45deg, #0F537A, #1575AD, #1B98E0);
+    }
+    #clientes_section .editarCliente .boxKpiCliente .box_btns .buttons button:nth-child(2){
+        text-align: left;
+        padding-left: 50px;
+        background: url("../../assets/icon/pacoteVazio.svg"), linear-gradient(45deg, #131517, #2C2D2E, #464646);
+        background-position: top 8px right 40px, center;
+        background-repeat: no-repeat;
+        background-size: 25px, cover;
+    }
     
 
 }
@@ -2969,18 +4628,253 @@
     }
 
 
-}
+     /* Edição de clientes
+    Modal Edição de cliente */
+    #clientes_section .editarCliente .conteudoEdit{
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        width: 100%;
+        height: 90%;
+       
+        overflow:visible;
+        overflow-y: scroll;
+    }
+    #clientes_section .editarCliente .conteudoEdit::-webkit-scrollbar {
+        width: 3px;
+    }
 
-@media screen and (max-width: 375px){
-     #clientes_section .modalPacotes .coteudosPacote{
+    #clientes_section .editarCliente .conteudoEdit::-webkit-scrollbar-track {
+        background: #D9D9D9;
+        border-radius: 10px;
+    }
+
+    #clientes_section .editarCliente .conteudoEdit::-webkit-scrollbar-thumb {
+        background: linear-gradient(180deg, #585858, #000000);
+        border-radius: 10px;
+    }
+
+
+    #clientes_section .editarCliente .formEditCliente{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction:column;
+        width: 100%;
+        margin-top: 70%;
+        
+        min-height: 80%;
+    }
+    #clientes_section .editarCliente .boxKpiCliente{
         display: flex;
         flex-direction: column;
         align-items: center;
-        overflow-y: scroll;
-        gap: 9rem;
+        width: 100%;
+        min-height: 60%;
+        
+
+    }
+
+
+    #clientes_section .editarCliente .formEditCliente .divVoltar{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        background-color: transparent;
+        width: 100px;
+        height: 40px;
+        position: absolute;
+        top: 0rem;
+        right: 0rem;
+    }
+
+    #clientes_section .editarCliente .formEditCliente .divVoltar button{
+        font-size: var(--font-size-small);
+        padding-right: 2.5rem;
+        height: 40px;
+        background-color: transparent;
+        border: none;
+        color: #878787;
+        background-image: url("../../assets/icon/CloseGray.svg");
+        background-size: 30px;
+        background-repeat: no-repeat;
+        background-position: center right;
+        cursor: pointer;
+    }
+
+    #clientes_section .editarCliente .formEditCliente .fotoCliente{
+        background-color: var(--white);
+        background-image: url("../../assets/icon/User.svg");
+        background-position: center bottom 2%;
+        background-repeat: no-repeat;
+        background-size: 60%;
+        
+        width: 60%;
+        height: 25%;
+    }
+    #clientes_section .editarCliente .formEditCliente .fotoCliente h2{
+        display: none;
+    }
+    #clientes_section .editarCliente .formEditCliente .box_inputs{
+        display: flex;
+        justify-content: space-between;
+        flex-direction: column;
+        padding-top: 35px;
+        width: 96%;
+        height:60%;
+    
+    }
+    #clientes_section .editarCliente .formEditCliente .box_inputs .input{
+        position: relative;
+        border: 1px solid #CFCFCF;
+        background-color: #fff;
+        height: 45px;
+        width: 100%;
+        border-radius: 8px;
+    }
+    #clientes_section .editarCliente .formEditCliente .box_inputs .input:nth-child(2),
+    #clientes_section .editarCliente .formEditCliente .box_inputs .input:nth-child(3),
+    #clientes_section .editarCliente .formEditCliente .box_inputs .input:nth-child(4){
+        background-position: center right 20px;
+        background-repeat: no-repeat;
+        background-size: 30px;
+    }
+    #clientes_section .editarCliente .formEditCliente .box_inputs .input:nth-child(2){
+        background-image: url("../../assets/icon/telIco.svg");
+    }
+    #clientes_section .editarCliente .formEditCliente .box_inputs .input:nth-child(3){
+        background-image: url("../../assets/icon/localeIco.svg");
+    }
+    #clientes_section .editarCliente .formEditCliente .box_inputs .input:nth-child(4){
+        background-image: url("../../assets/icon/bloq.svg");
+    }
+    #clientes_section .editarCliente .formEditCliente .box_inputs .input label{
+        position: absolute;
+        font-size: .8rem;
+        top: -20px;
+    }
+
+    #clientes_section .editarCliente .formEditCliente .box_inputs .input input{
+        width: 100%;
+        height: 45px;
+        font-size: .9rem;
+    }
+
+
+
+
+    #clientes_section .editarCliente .boxKpiCliente .cards_pacotes{
+        display: flex;
+        justify-content: center;
+        flex-wrap: wrap;
+        align-items: center;
+        gap: 1rem;
+        width: 100%;
+        height: 80%;
+        
+    }
+
+    #clientes_section .editarCliente .boxKpiCliente .cards_pacotes .card{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        width: 95%;
+        height: 120px;
+        background: #ffffff38;
+        backdrop-filter: blur(10px);
+        box-shadow: 0 0px 10px rgba(0,0,0,0.2);
+        border-radius: 20px;
+        position: relative;
+    }
+
+    #clientes_section .editarCliente .boxKpiCliente .cards_pacotes .card h1{
+        font-size: 2.5rem;
+        font-weight: var(--font-weight-medium);
+        color: var(--black);
+    }
+    #clientes_section .editarCliente .boxKpiCliente .cards_pacotes .card:nth-child(2) h1{
+        font-size: 2rem;
+        font-weight: var(--font-weight-medium);
+        color: var(--black);
+    }
+
+    #clientes_section .editarCliente .boxKpiCliente .cards_pacotes .card p{
+        font-size: 1rem;
+        position: absolute;
+        color: #AEAEAE;
+        bottom: 10px;
+    }
+
+
+
+
+    #clientes_section .editarCliente .boxKpiCliente .box_btns{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 100%;
+        height: 40%;
+        
+        margin-top: 15px;
+    }
+
+
+    #clientes_section .editarCliente .boxKpiCliente .box_btns .buttons{
+        display: flex;
+        align-items: center;
+        justify-content: space-around;
+        flex-direction: column;
+        width: 100%;
+        margin-left: 0;
+        gap: .4rem;
+        height: 100%;
+        
+    }
+
+
+    #clientes_section .editarCliente .boxKpiCliente .box_btns .buttons button{
+        width: 95%;
+        height: 45px;
+        border-radius: 45px;
+        outline: none;
+        border: none;
+        color: var(--white);
+        font-size: 1rem;
+        cursor: pointer;
+    }
+
+    #clientes_section .editarCliente .boxKpiCliente .box_btns .buttons button:nth-child(1){
+        background:linear-gradient(45deg, #0F537A, #1575AD, #1B98E0);
+    }
+    #clientes_section .editarCliente .boxKpiCliente .box_btns .buttons button:nth-child(2){
+        text-align: center;
+        padding-left: 0px;
+        background: none, linear-gradient(45deg, #131517, #2C2D2E, #464646);
+        background-position: top 8px right 40px, center;
+        background-repeat: no-repeat;
+        background-size: 25px, cover;
+    }
+
+
+
+
+
+
+    /* Cadastro de Consultor */
+
+    #consultores_section .modalCadastro .boxMeio .boxRight #btnCadastrarConsultor{
+        width: 100%;
+        height: 45px;
+        margin-top: 5px;
+        border-radius: 45px;
+        font-size: 1rem;
+    }
+    .boxInputs label{
+        font-size: 1rem;
     }
 }
-
 @media screen and (max-width: 420px){
     /* sessão de cliente Pacotes */
     #clientes_section .modalPacotes {
@@ -3200,6 +5094,247 @@
 
 }
 
+@media screen and (max-width: 375px){
+     #clientes_section .modalPacotes .coteudosPacote{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        overflow-y: scroll;
+        gap: 9rem;
+    }
+
+         /* Edição de clientes
+    Modal Edição de cliente */
+    #clientes_section .editarCliente .conteudoEdit{
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        width: 100%;
+        height: 90%;
+        
+        overflow:visible;
+        overflow-y: scroll;
+    }
+    #clientes_section .editarCliente .conteudoEdit::-webkit-scrollbar {
+        width: 3px;
+    }
+
+    #clientes_section .editarCliente .conteudoEdit::-webkit-scrollbar-track {
+        background: #D9D9D9;
+        border-radius: 10px;
+    }
+
+    #clientes_section .editarCliente .conteudoEdit::-webkit-scrollbar-thumb {
+        background: linear-gradient(180deg, #585858, #000000);
+        border-radius: 10px;
+    }
+
+
+    #clientes_section .editarCliente .formEditCliente{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction:column;
+        width: 100%;
+        margin-top: 100%;
+        min-height: 87%;
+    }
+    #clientes_section .editarCliente .boxKpiCliente{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        width: 100%;
+        min-height: 60%;
+
+    }
+
+
+    #clientes_section .editarCliente .formEditCliente .divVoltar{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        background-color: transparent;
+        width: 100px;
+        height: 40px;
+        position: absolute;
+        top: 0rem;
+        right: 0rem;
+    }
+
+    #clientes_section .editarCliente .formEditCliente .divVoltar button{
+        font-size: var(--font-size-small);
+        padding-right: 2.5rem;
+        height: 40px;
+        background-color: transparent;
+        border: none;
+        color: #878787;
+        background-image: url("../../assets/icon/CloseGray.svg");
+        background-size: 30px;
+        background-repeat: no-repeat;
+        background-position: center right;
+        cursor: pointer;
+    }
+
+    #clientes_section .editarCliente .formEditCliente .fotoCliente{
+        background-color: var(--white);
+        background-image: url("../../assets/icon/User.svg");
+        background-position: center bottom 2%;
+        background-repeat: no-repeat;
+        background-size: 60%;
+        
+        width: 80%;
+        height: 25%;
+    }
+    #clientes_section .editarCliente .formEditCliente .fotoCliente h2{
+        display: none;
+    }
+
+    #clientes_section .editarCliente .formEditCliente .box_inputs{
+        display: flex;
+        justify-content: space-between;
+        flex-direction: column;
+        padding-top: 35px;
+        width: 96%;
+        height:60%;
+        
+    }
+    #clientes_section .editarCliente .formEditCliente .box_inputs .input{
+        position: relative;
+        border: 1px solid #CFCFCF;
+        background-color: #fff;
+        height: 45px;
+        width: 100%;
+        border-radius: 8px;
+        margin-top: 25px;
+    }
+    #clientes_section .editarCliente .formEditCliente .box_inputs .input:nth-child(2),
+    #clientes_section .editarCliente .formEditCliente .box_inputs .input:nth-child(3),
+    #clientes_section .editarCliente .formEditCliente .box_inputs .input:nth-child(4){
+        background-position: center right 20px;
+        background-repeat: no-repeat;
+        background-size: 30px;
+    }
+    #clientes_section .editarCliente .formEditCliente .box_inputs .input:nth-child(2){
+        background-image: url("../../assets/icon/telIco.svg");
+    }
+    #clientes_section .editarCliente .formEditCliente .box_inputs .input:nth-child(3){
+        background-image: url("../../assets/icon/localeIco.svg");
+    }
+    #clientes_section .editarCliente .formEditCliente .box_inputs .input:nth-child(4){
+        background-image: url("../../assets/icon/bloq.svg");
+    }
+    #clientes_section .editarCliente .formEditCliente .box_inputs .input label{
+        position: absolute;
+        font-size: .8rem;
+        top: -20px;
+    }
+
+    #clientes_section .editarCliente .formEditCliente .box_inputs .input input{
+        width: 100%;
+        height: 45px;
+        font-size: .9rem;
+    }
+
+
+
+
+    #clientes_section .editarCliente .boxKpiCliente .cards_pacotes{
+        display: flex;
+        justify-content: center;
+        flex-wrap: wrap;
+        align-items: center;
+        gap: 1rem;
+        width: 100%;
+        height: 80%;
+        padding: 1rem 0rem;
+        
+    }
+
+    #clientes_section .editarCliente .boxKpiCliente .cards_pacotes .card{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        width: 95%;
+        height: 110px;
+        background: #ffffff38;
+        backdrop-filter: blur(10px);
+        box-shadow: 0 0px 10px rgba(0,0,0,0.2);
+        border-radius: 20px;
+        position: relative;
+    }
+
+    #clientes_section .editarCliente .boxKpiCliente .cards_pacotes .card h1{
+        font-size: 2rem;
+        font-weight: var(--font-weight-medium);
+        color: var(--black);
+    }
+    #clientes_section .editarCliente .boxKpiCliente .cards_pacotes .card:nth-child(2) h1{
+        font-size: 1.5rem;
+        font-weight: var(--font-weight-medium);
+        color: var(--black);
+    }
+
+    #clientes_section .editarCliente .boxKpiCliente .cards_pacotes .card p{
+        font-size: .8rem;
+        position: absolute;
+        color: #AEAEAE;
+        bottom: 10px;
+    }
+
+
+
+
+    #clientes_section .editarCliente .boxKpiCliente .box_btns{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 100%;
+        height: 40%;
+       
+        margin-top: 15px;
+    }
+
+
+    #clientes_section .editarCliente .boxKpiCliente .box_btns .buttons{
+        display: flex;
+        align-items: center;
+        justify-content: space-around;
+        flex-direction: column;
+        width: 100%;
+        margin-left: 0;
+        gap: .4rem;
+        height: 100%;
+    
+    }
+
+
+    #clientes_section .editarCliente .boxKpiCliente .box_btns .buttons button{
+        width: 95%;
+        height: 45px;
+        border-radius: 45px;
+        outline: none;
+        border: none;
+        color: var(--white);
+        font-size: .8rem;
+        cursor: pointer;
+    }
+
+    #clientes_section .editarCliente .boxKpiCliente .box_btns .buttons button:nth-child(1){
+        background:linear-gradient(45deg, #0F537A, #1575AD, #1B98E0);
+    }
+    #clientes_section .editarCliente .boxKpiCliente .box_btns .buttons button:nth-child(2){
+        text-align: center;
+        padding-left: 0px;
+        background: none, linear-gradient(45deg, #131517, #2C2D2E, #464646);
+        background-position: top 8px right 40px, center;
+        background-repeat: no-repeat;
+        background-size: 25px, cover;
+    }
+}
+
+
 @media screen and (max-height: 1368px) and (min-height: 1367px){
     body{
         max-height: 1368px;
@@ -3321,7 +5456,6 @@
         width: 100%;
         min-height: 33%;
     }
-
 }
 
 @media screen and (max-height: 600px) {

@@ -171,7 +171,9 @@
           </div>
         </div>
       </div>
-      <div class="editarCliente" id="telaEdicaoCliente"></div>
+      <div class="editarCliente" id="telaEdicaoCliente">
+        
+      </div>
       <div class="cardCadastroCliente" id="cadastrarCliente">
         <button
           class="fecharCadastroCliente"
@@ -221,6 +223,7 @@
               name=""
               id="telCliente"
               placeholder="(11) 00000-0000"
+              maxlength="15"
             />
           </div>
           <div class="inputs">
@@ -275,6 +278,14 @@
 </html>
 
 <script>
+
+  const cpfMaskCliente = IMask(document.getElementById("cpfCliente"), {
+    mask: "000.000.000-00",
+  });
+  const telMaskCliente = IMask(document.getElementById("telCliente"), {
+    mask: "(00) 00000-0000",
+  });
+
   function adicionarPacote(botao) {
     const card = botao.closest(".card");
     const box = card.parentElement;
@@ -403,6 +414,9 @@
     var telefone = telCliente.value;
     var endereco = enderecoCliente.value;
 
+
+  
+    
     if (
       nome == "" ||
       email == "" ||
@@ -598,106 +612,6 @@
               <div class="card">
                 <h1>${infosCliente[0].pacote_mais_fechado}</h1>
                 <p>pacotes mais fechados</p>
-              </div>
-            </div>
-            <div class="cards_comentearios">
-              <div class="comentarios">
-                <h2>Comentário do consultor em relação ao cliente</h2>
-                <div class="box_comentarios">
-                  <div class="box_cards_coment">
-                    <div class="card">
-                      <button
-                        onclick="abrirComentario(this)"
-                        class="btnAbrirComentario"
-                      ></button>
-                      <div class="fotoConsultor"></div>
-                      <div class="box_infosConsultor">
-                        <h2>Nome Sobrenome</h2>
-                        <p>
-                          Borem ipsum dolor sit amet, consectetur adipiscing
-                          elit. Borem ipsum dolor sit amet, consectetur
-                          adipiscing elit. Borem ipsum dolor sit amet,
-                          consectetur adipiscing elit. Borem ipsum dolor sit
-                          amet, consectetur adipiscing elit. Borem ipsum dolor
-                          sit amet, consectetur adipiscing elit. Borem ipsum
-                          dolor sit amet, consectetur adipiscing elit. Borem
-                          ipsum dolor sit amet, consectetur adipiscing elit.
-                          Borem ipsum dolor sit amet, consectetur adipiscing
-                          elit. Borem ipsum dolor sit amet, consectetur
-                          adipiscing elit. Borem ipsum dolor sit amet,
-                          consectetur adipiscing elit. Borem ipsum dolor sit
-                          amet, consectetur adipiscing elit. Borem ipsum dolor
-                          sit amet, consectetur adipiscing elit. Borem ipsum
-                          dolor sit amet, consectetur adipiscing elit. Borem
-                          ipsum dolor sit amet, consectetur adipiscing elit.
-                          Borem ipsum dolor sit amet, consectetur adipiscing
-                          elit.
-                        </p>
-                      </div>
-                    </div>
-                    <div class="card">
-                      <button
-                        onclick="abrirComentario(this)"
-                        class="btnAbrirComentario"
-                      ></button>
-                      <div class="fotoConsultor"></div>
-                      <div class="box_infosConsultor">
-                        <h2>Nome Sobrenome</h2>
-                        <p>
-                          Borem ipsum dolor sit amet, consectetur adipiscing
-                          elit. Borem ipsum dolor sit amet, consectetur
-                          adipiscing elit. Borem ipsum dolor sit amet,
-                          consectetur adipiscing elit. Borem ipsum dolor sit
-                          amet, consectetur adipiscing elit. Borem ipsum dolor
-                          sit amet, consectetur adipiscing elit. Borem ipsum
-                          dolor sit amet, consectetur adipiscing elit. Borem
-                          ipsum dolor sit amet, consectetur adipiscing elit.
-                          Borem ipsum dolor sit amet, consectetur adipiscing
-                          elit. Borem ipsum dolor sit amet, consectetur
-                          adipiscing elit. Borem ipsum dolor sit amet,
-                          consectetur adipiscing elit. Borem ipsum dolor sit
-                          amet, consectetur adipiscing elit. Borem ipsum dolor
-                          sit amet, consectetur adipiscing elit. Borem ipsum
-                          dolor sit amet, consectetur adipiscing elit. Borem
-                          ipsum dolor sit amet, consectetur adipiscing elit.
-                          Borem ipsum dolor sit amet, consectetur adipiscing
-                          elit.
-                        </p>
-                      </div>
-                    </div>
-                    <div class="card">
-                      <button
-                        onclick="abrirComentario(this)"
-                        class="btnAbrirComentario"
-                      ></button>
-                      <div class="fotoConsultor"></div>
-                      <div class="box_infosConsultor">
-                        <h2>Nome Sobrenome</h2>
-                        <p>
-                          Borem ipsum dolor sit amet, consectetur adipiscing
-                          elit. Borem ipsum dolor sit amet, consectetur
-                          adipiscing elit. Borem ipsum dolor sit amet,
-                          consectetur adipiscing elit. Borem ipsum dolor sit
-                          amet, consectetur adipiscing elit. Borem ipsum dolor
-                          sit amet, consectetur adipiscing elit. Borem ipsum
-                          dolor sit amet, consectetur adipiscing elit. Borem
-                          ipsum dolor sit amet, consectetur adipiscing elit.
-                          Borem ipsum dolor sit amet, consectetur adipiscing
-                          elit. Borem ipsum dolor sit amet, consectetur
-                          adipiscing elit. Borem ipsum dolor sit amet,
-                          consectetur adipiscing elit. Borem ipsum dolor sit
-                          amet, consectetur adipiscing elit. Borem ipsum dolor
-                          sit amet, consectetur adipiscing elit. Borem ipsum
-                          dolor sit amet, consectetur adipiscing elit. Borem
-                          ipsum dolor sit amet, consectetur adipiscing elit.
-                          Borem ipsum dolor sit amet, consectetur adipiscing
-                          elit.
-                        </p>
-                      </div>
-                    </div>
-                  </div>
-                  <button></button>
-                </div>
               </div>
             </div>
             <div class="box_btns">

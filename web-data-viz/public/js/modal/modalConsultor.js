@@ -10,7 +10,7 @@
   }
   function abrirModalCadastroConsultor() {
     let modal = document.getElementById("modalCadastroConsultor");
-    modal.style.display = "block";
+    modal.style.display = "flex";
   }
   function fecharModalCadastroConsultor() {
     let modal = document.getElementById("modalCadastroConsultor");
@@ -54,7 +54,7 @@
     }
   }
 
-  function cadastrarConsultor() {
+  function baixarPdf() {
     let nome = document.getElementById("nomeConsultor").value;
     let email = document.getElementById("emailConsultor").value;
     let cpf = document.getElementById("cpfConsultor").value;
