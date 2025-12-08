@@ -48,7 +48,6 @@
 
     #clientes_section .modalPacotes .coteudosPacote .boxLeft .box_top .boxInputs h2{
         font-size: var(--font-size-regular);
-        border: 1px solid red;
     }
 
     #clientes_section .modalPacotes .coteudosPacote .boxLeft .box_top .boxInputs label{
@@ -73,7 +72,6 @@
         font-size: var(--font-size-regular);
         margin: .5rem 0rem .5rem;
         font-weight: var(--font-weight-regular);
-        border: 1px solid red;
     }
 
     #clientes_section .modalPacotes .coteudosPacote .boxRight h2{
@@ -697,15 +695,37 @@
 
 
 
-        /* sessão de cliente */
+    /* sessão de cliente Pacotes */
+
+    #clientes_section .modalPacotes .coteudosPacote{
+        gap: 2rem;
+    }
+
+    #clientes_section .modalPacotes .coteudosPacote .boxLeft{
+        flex-direction: column;
+        width: calc(50% - 1rem);
+        height: 100%;
+        gap: 1rem;
+    }
+
+    #clientes_section .modalPacotes .coteudosPacote .boxRight{
+        width: calc(50% - 1rem);
+    }
+
+
+    #clientes_section .modalPacotes .coteudosPacote .boxLeft .box_top{
+        height: calc(45% - .5rem);
+    }
+    #clientes_section .modalPacotes .coteudosPacote .boxLeft .box_bottom{
+        height: calc(55% - .5rem);
+    }
 
     #clientes_section .modalPacotes .coteudosPacote .boxLeft .box_top .boxInputs h2{
-        font-size: var(--font-size-regular);
-        border: 1px solid red;
+        font-size: 1.1rem;
     }
 
     #clientes_section .modalPacotes .coteudosPacote .boxLeft .box_top .boxInputs label{
-        font-size: var(--font-size-small);
+        font-size: .8rem;
     }
 
     #clientes_section .modalPacotes .coteudosPacote .boxLeft .box_top .boxInputs select{
@@ -723,24 +743,23 @@
     }
 
     #clientes_section .modalPacotes .coteudosPacote .boxLeft .box_bottom h2{
-        font-size: var(--font-size-regular);
+        font-size: 1.1rem;
         margin: .5rem 0rem .5rem;
         font-weight: var(--font-weight-regular);
-        border: 1px solid red;
     }
 
     #clientes_section .modalPacotes .coteudosPacote .boxRight h2{
-        font-size: var(--font-size-regular);
+        font-size: 1.1rem;
     }
 
    #clientes_section .modalPacotes .coteudosPacote .boxRight .boxCardKpi .boxKPIs .card h2{
-        font-size: 3rem
+        font-size: 3rem;
     }
     #clientes_section .modalPacotes .coteudosPacote .boxRight .boxCardKpi .boxKPIs .card:nth-child(2) h2{
         font-size: 2rem;
     }
     #clientes_section .modalPacotes .coteudosPacote .boxRight .boxCardKpi .boxKPIs .card p{
-        font-size: var(--font-size-regular)
+        font-size: 1.1rem;
     }
     #clientes_section .modalPacotes .coteudosPacote .boxRight .boxCardKpi .boxKPIs .card{
         background-position: top 15px right 15px;
@@ -752,8 +771,48 @@
     }
 
 
-        
-    
+
+
+    /* Inputs e selects */
+
+    #clientes_section .modalPacotes .coteudosPacote .boxLeft .box_top .boxInputs select{
+        width: 35%;
+        height: 40px;
+        border-radius: 40px;
+        background-position: right 10px center;
+        background-size: 30px;
+    }
+
+
+    #clientes_section .modalPacotes .coteudosPacote .boxLeft .box_top .boxInputs .box input,
+    #clientes_section .modalPacotes .coteudosPacote .boxLeft .box_top .boxInputs .box select{
+        height: 40px;
+        border-radius:40px;
+        width: 100%;
+    }
+
+    #clientes_section .modalPacotes .coteudosPacote .boxLeft .box_top .boxInputs .boxBtn{
+        display: flex;
+        flex-direction: row;
+        width: 100%;
+        gap: 1rem;
+    }
+    #clientes_section .modalPacotes .coteudosPacote .boxLeft .box_top .boxInputs .boxBtn div:nth-child(2){
+        display: flex;
+        align-items: end;
+        width: 40%;
+    }
+    #clientes_section .modalPacotes .coteudosPacote .boxLeft .box_top .boxInputs .boxBtn input{
+        height: 40px;
+        border-radius: 40px;
+    }
+
+
+    #clientes_section .modalPacotes .coteudosPacote .boxLeft .box_top .boxInputs .boxBtn .confirmarPacote{
+        height: 40px;
+        border-radius: 40px;
+        background-size: 25px, cover;
+    }
 
 }
 
@@ -897,6 +956,53 @@
 
     #consultores_section .boxLeftBottom{
         width: 90%;
+    }
+
+
+
+    /* Clientes config de cards Pacotes */
+    #clientes_section .modalPacotes .coteudosPacote .boxRight .box_opcoes .box_cards .card{
+        
+    }
+
+    #clientes_section .modalPacotes .coteudosPacote .boxRight .box_opcoes .box_cards .card .conteudoCardPacote{
+       
+    }
+    #clientes_section .modalPacotes .coteudosPacote .boxRight .box_opcoes .box_cards .card .conteudoCardPacote .estado_pacote{
+        
+    }
+    #clientes_section .modalPacotes .coteudosPacote .boxRight .box_opcoes .box_cards .card .conteudoCardPacote .estado_pacote h2{
+        font-size: 1rem;
+    }
+
+    #clientes_section .modalPacotes .coteudosPacote .boxRight .box_opcoes .box_cards .card .conteudoCardPacote .estado_pacote .iconPacote{
+        width: 35px;
+        height: 35px;
+        margin-top: -5px;
+        background-size: 30px;
+    }
+
+    #clientes_section .modalPacotes .coteudosPacote .boxRight .box_opcoes .box_cards .card .conteudoCardPacote .info_pacote{
+        display: flex;
+        flex-direction: column;
+        width: auto;
+        margin-left: 1rem;
+    }
+
+    #clientes_section .modalPacotes .coteudosPacote .boxRight .box_opcoes .box_cards .card .conteudoCardPacote .info_pacote p{
+        font-size: 1.1rem;
+    }
+
+    #clientes_section .modalPacotes .coteudosPacote .boxRight .box_opcoes .box_cards .card .btnConsultor{
+        width: auto;
+        height: auto;
+        margin-right: 2.5rem;
+    }
+    #clientes_section .modalPacotes .coteudosPacote .boxRight .box_opcoes .box_cards .card .btnConsultor button{
+        width: 40px;
+        height: 40px;
+        border-radius: 50%;
+        background-size: 40px;
     }
 }
 @media screen and (max-width: 1130px){
@@ -1042,6 +1148,15 @@
         min-height: 40%;
     }
 
+
+
+
+
+
+     /* sessão de cliente Pacotes */
+    #clientes_section .modalPacotes {
+        width: 95%;
+    }
 } 
 @media screen and (max-width: 1024px){
     .menu{
@@ -1209,6 +1324,139 @@
     #consultores_section .boxLeftBottom .boxPesquisa .adcionarConsultor{
         width: 180px;
     }
+
+
+    /* sessão de cliente Pacotes */
+
+
+    #clientes_section .modalPacotes {
+        width: 100%;
+    }
+
+     #clientes_section .modalPacotes .coteudosPacote{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        overflow-y: scroll;
+    }
+
+
+    #clientes_section .modalPacotes .coteudosPacote .boxLeft{
+        flex-direction: column;
+        width: 80%;
+        height: calc(100% - 1rem);
+        gap: 1rem;
+    }
+
+    #clientes_section .modalPacotes .coteudosPacote .boxRight{
+        width: 80%;
+        height: calc(100% - 1rem);
+    }
+
+
+    #clientes_section .modalPacotes .coteudosPacote .boxLeft .box_top{
+        height: 270px;
+    }
+    #clientes_section .modalPacotes .coteudosPacote .boxLeft .box_bottom{
+        height: 270px;
+    }
+
+
+    #clientes_section .modalPacotes .coteudosPacote .boxLeft .box_top .boxInputs h2{
+        font-size: 1.1rem;
+    }
+
+    #clientes_section .modalPacotes .coteudosPacote .boxLeft .box_top .boxInputs label{
+        font-size: .8rem;
+    }
+
+    #clientes_section .modalPacotes .coteudosPacote .boxLeft .box_top .boxInputs select{
+        width: 35%;
+        height: 50px;
+        border-radius: 50px;
+        background-position: right 10px center;
+        background-size: 30px;
+        padding-left: 15px;
+        font-size: 1rem;
+    }
+
+    #clientes_section .modalPacotes .coteudosPacote .boxLeft .box_top .boxInputs:nth-child(2) select{
+        width: 55%;
+    }
+
+    #clientes_section .modalPacotes .coteudosPacote .boxLeft .box_bottom h2{
+        font-size: 1.1rem;
+        margin: .5rem 0rem .5rem;
+        font-weight: var(--font-weight-regular);
+    }
+
+    #clientes_section .modalPacotes .coteudosPacote .boxRight h2{
+        font-size: 1.1rem;
+    }
+
+   #clientes_section .modalPacotes .coteudosPacote .boxRight .boxCardKpi .boxKPIs .card h2{
+        font-size: 3rem;
+    }
+    #clientes_section .modalPacotes .coteudosPacote .boxRight .boxCardKpi .boxKPIs .card:nth-child(2) h2{
+        font-size: 2rem;
+    }
+    #clientes_section .modalPacotes .coteudosPacote .boxRight .boxCardKpi .boxKPIs .card p{
+        font-size: 1.1rem;
+    }
+    #clientes_section .modalPacotes .coteudosPacote .boxRight .boxCardKpi .boxKPIs .card{
+        background-position: top 15px right 15px;
+        background-size: 25px;
+    }
+        #clientes_section .modalPacotes .coteudosPacote .boxRight .boxCardKpi .boxKPIs .card:nth-child(2){
+        background-position: top 10px right 10px;
+        background-size: 30px;
+    }
+
+
+
+
+    /* Inputs e selects */
+
+    #clientes_section .modalPacotes .coteudosPacote .boxLeft .box_top .boxInputs select{
+        width: 35%;
+        height: 40px;
+        border-radius: 40px;
+        background-position: right 10px center;
+        background-size: 30px;
+    }
+
+
+    #clientes_section .modalPacotes .coteudosPacote .boxLeft .box_top .boxInputs .box input,
+    #clientes_section .modalPacotes .coteudosPacote .boxLeft .box_top .boxInputs .box select{
+        height: 40px;
+        border-radius:40px;
+        width: 100%;
+    }
+
+    #clientes_section .modalPacotes .coteudosPacote .boxLeft .box_top .boxInputs .boxBtn{
+        display: flex;
+        flex-direction: row;
+        width: 100%;
+        gap: 1rem;
+    }
+    #clientes_section .modalPacotes .coteudosPacote .boxLeft .box_top .boxInputs .boxBtn div:nth-child(2){
+        display: flex;
+        align-items: end;
+        width: 40%;
+    }
+    #clientes_section .modalPacotes .coteudosPacote .boxLeft .box_top .boxInputs .boxBtn input{
+        height: 40px;
+        border-radius: 40px;
+    }
+
+
+    #clientes_section .modalPacotes .coteudosPacote .boxLeft .box_top .boxInputs .boxBtn .confirmarPacote{
+        height: 40px;
+        border-radius: 40px;
+        background-size: 25px, cover;
+    }
+
+    
 
 } 
 
@@ -1422,6 +1670,186 @@
     background-size: 20px;
 }
 
+
+/* sessão de cliente Pacotes */
+
+
+    #clientes_section .modalPacotes {
+        width: 100%;
+    }
+
+    #clientes_section .modalPacotes .coteudosPacote{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        overflow-y: scroll;
+    }
+
+
+    #clientes_section .modalPacotes .coteudosPacote .boxLeft{
+        flex-direction: column;
+        width: 80%;
+        height: calc(100% - 1rem);
+        gap: 1rem;
+    }
+
+    #clientes_section .modalPacotes .coteudosPacote .boxRight{
+        width: 80%;
+        height: calc(100% - 1rem);
+    }
+
+
+    #clientes_section .modalPacotes .coteudosPacote .boxLeft .box_top{
+        height: 270px;
+    }
+    #clientes_section .modalPacotes .coteudosPacote .boxLeft .box_bottom{
+        height: 270px;
+    }
+
+     #clientes_section .modalPacotes .coteudosPacote .boxLeft .box_top .boxInputs{
+        width: 100%;
+    }
+    #clientes_section .modalPacotes .coteudosPacote .boxLeft .box_top .boxInputs:nth-child(1),
+    #clientes_section .modalPacotes .coteudosPacote .boxLeft .box_top .boxInputs:nth-child(2){
+        width: 50%;
+    }
+
+    #clientes_section .modalPacotes .coteudosPacote .boxLeft .box_top .boxInputs h2{
+        font-size: 1rem;
+        width: 75%;
+    }
+
+    #clientes_section .modalPacotes .coteudosPacote .boxLeft .box_top .boxInputs label{
+        font-size: .7rem;
+    }
+
+    #clientes_section .modalPacotes .coteudosPacote .boxLeft .box_top .boxInputs select{
+        width: 35%;
+        height: 50px;
+        border-radius: 50px;
+        background-position: right 10px center;
+        background-size: 30px;
+        padding-left: 15px;
+        font-size: .8rem;
+    }
+
+    #clientes_section .modalPacotes .coteudosPacote .boxLeft .box_top .boxInputs:nth-child(2) select{
+        width: 55%;
+    }
+
+    #clientes_section .modalPacotes .coteudosPacote .boxLeft .box_bottom h2{
+        font-size: 1.1rem;
+        margin: .5rem 0rem .5rem;
+        font-weight: var(--font-weight-regular);
+    }
+
+    #clientes_section .modalPacotes .coteudosPacote .boxRight h2{
+        font-size: 1.1rem;
+    }
+
+   #clientes_section .modalPacotes .coteudosPacote .boxRight .boxCardKpi .boxKPIs .card h2{
+        font-size: 2.5rem;
+    }
+    #clientes_section .modalPacotes .coteudosPacote .boxRight .boxCardKpi .boxKPIs .card:nth-child(2) h2{
+        font-size: 1.8rem;
+    }
+    #clientes_section .modalPacotes .coteudosPacote .boxRight .boxCardKpi .boxKPIs .card p{
+        font-size: 1rem;
+    }
+    #clientes_section .modalPacotes .coteudosPacote .boxRight .boxCardKpi .boxKPIs .card{
+        background-position: top 15px right 15px;
+        background-size: 25px;
+    }
+        #clientes_section .modalPacotes .coteudosPacote .boxRight .boxCardKpi .boxKPIs .card:nth-child(2){
+        background-position: top 10px right 10px;
+        background-size: 30px;
+    }
+
+    /* Inputs e selects */
+
+    #clientes_section .modalPacotes .coteudosPacote .boxLeft .box_top .boxInputs select{
+        width: 35%;
+        height: 40px;
+        border-radius: 40px;
+        background-position: right 10px center;
+        background-size: 30px;
+    }
+
+
+    #clientes_section .modalPacotes .coteudosPacote .boxLeft .box_top .boxInputs .box input,
+    #clientes_section .modalPacotes .coteudosPacote .boxLeft .box_top .boxInputs .box select{
+        height: 40px;
+        border-radius:40px;
+        width: 100%;
+    }
+
+    #clientes_section .modalPacotes .coteudosPacote .boxLeft .box_top .boxInputs .boxBtn{
+        display: flex;
+        flex-direction: row;
+        width: 100%;
+        gap: 1rem;
+    }
+    #clientes_section .modalPacotes .coteudosPacote .boxLeft .box_top .boxInputs .boxBtn div:nth-child(2){
+        display: flex;
+        align-items: end;
+        width: 40%;
+    }
+    #clientes_section .modalPacotes .coteudosPacote .boxLeft .box_top .boxInputs .boxBtn input{
+        height: 40px;
+        border-radius: 40px;
+    }
+
+
+    #clientes_section .modalPacotes .coteudosPacote .boxLeft .box_top .boxInputs .boxBtn .confirmarPacote{
+        height: 40px;
+        border-radius: 40px;
+        background-size: 20px, cover;
+    }
+
+    /* Clientes config de cards Pacotes */
+    #clientes_section .modalPacotes .coteudosPacote .boxRight .box_opcoes .box_cards .card{
+        
+    }
+
+    #clientes_section .modalPacotes .coteudosPacote .boxRight .box_opcoes .box_cards .card .conteudoCardPacote{
+       
+    }
+    #clientes_section .modalPacotes .coteudosPacote .boxRight .box_opcoes .box_cards .card .conteudoCardPacote .estado_pacote{
+        
+    }
+    #clientes_section .modalPacotes .coteudosPacote .boxRight .box_opcoes .box_cards .card .conteudoCardPacote .estado_pacote h2{
+        font-size: 1rem;
+    }
+
+    #clientes_section .modalPacotes .coteudosPacote .boxRight .box_opcoes .box_cards .card .conteudoCardPacote .estado_pacote .iconPacote{
+        width: 35px;
+        height: 35px;
+        margin-top: -5px;
+        background-size: 30px;
+    }
+
+    #clientes_section .modalPacotes .coteudosPacote .boxRight .box_opcoes .box_cards .card .conteudoCardPacote .info_pacote{
+        display: flex;
+        flex-direction: column;
+        width: auto;
+        margin-left: 1rem;
+    }
+
+    #clientes_section .modalPacotes .coteudosPacote .boxRight .box_opcoes .box_cards .card .conteudoCardPacote .info_pacote p{
+        font-size: 1.1rem;
+    }
+
+    #clientes_section .modalPacotes .coteudosPacote .boxRight .box_opcoes .box_cards .card .btnConsultor{
+        width: auto;
+        height: auto;
+        margin-right: 2.5rem;
+    }
+    #clientes_section .modalPacotes .coteudosPacote .boxRight .box_opcoes .box_cards .card .btnConsultor button{
+        width: 40px;
+        height: 40px;
+        border-radius: 50%;
+        background-size: 40px;
+    }
 }
 
 @media screen and (max-width: 800px){
@@ -1617,6 +2045,190 @@
         background-repeat: no-repeat;
         background-size: 25px;
         padding-left: 15px
+    }
+
+
+   /* sessão de cliente Pacotes */
+
+
+    #clientes_section .modalPacotes {
+        width: 100%;
+    }
+
+    #clientes_section .modalPacotes .coteudosPacote{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        overflow-y: scroll;
+    }
+
+
+    #clientes_section .modalPacotes .coteudosPacote .boxLeft{
+        flex-direction: column;
+        width: 80%;
+        height: calc(100% - 1rem);
+        gap: 1rem;
+    }
+
+    #clientes_section .modalPacotes .coteudosPacote .boxRight{
+        width: 80%;
+        height: calc(100% - 1rem);
+    }
+
+
+    #clientes_section .modalPacotes .coteudosPacote .boxLeft .box_top{
+        height: 270px;
+    }
+    #clientes_section .modalPacotes .coteudosPacote .boxLeft .box_bottom{
+        height: 270px;
+    }
+
+     #clientes_section .modalPacotes .coteudosPacote .boxLeft .box_top .boxInputs{
+        width: 100%;
+    }
+    #clientes_section .modalPacotes .coteudosPacote .boxLeft .box_top .boxInputs:nth-child(1),
+    #clientes_section .modalPacotes .coteudosPacote .boxLeft .box_top .boxInputs:nth-child(2){
+        width: 70%;
+    }
+
+    #clientes_section .modalPacotes .coteudosPacote .boxLeft .box_top .boxInputs h2{
+        font-size: 1rem;
+        width: 75%;
+    }
+
+    #clientes_section .modalPacotes .coteudosPacote .boxLeft .box_top .boxInputs label{
+        font-size: .7rem;
+    }
+
+    #clientes_section .modalPacotes .coteudosPacote .boxLeft .box_top .boxInputs select{
+        width: 35%;
+        height: 50px;
+        border-radius: 50px;
+        background-position: right 10px center;
+        background-size: 30px;
+        padding-left: 15px;
+        font-size: .8rem;
+    }
+
+    #clientes_section .modalPacotes .coteudosPacote .boxLeft .box_top .boxInputs:nth-child(2) select{
+        width: 55%;
+    }
+
+    #clientes_section .modalPacotes .coteudosPacote .boxLeft .box_bottom h2{
+        font-size: 1.1rem;
+        margin: .5rem 0rem .5rem;
+        font-weight: var(--font-weight-regular);
+    }
+
+    #clientes_section .modalPacotes .coteudosPacote .boxRight h2{
+        font-size: 1.1rem;
+    }
+
+   #clientes_section .modalPacotes .coteudosPacote .boxRight .boxCardKpi .boxKPIs .card h2{
+        font-size: 2.5rem;
+    }
+    #clientes_section .modalPacotes .coteudosPacote .boxRight .boxCardKpi .boxKPIs .card:nth-child(2) h2{
+        font-size: 1.8rem;
+    }
+    #clientes_section .modalPacotes .coteudosPacote .boxRight .boxCardKpi .boxKPIs .card p{
+        font-size: 1rem;
+    }
+    #clientes_section .modalPacotes .coteudosPacote .boxRight .boxCardKpi .boxKPIs .card{
+        background-position: top 15px right 15px;
+        background-size: 25px;
+    }
+        #clientes_section .modalPacotes .coteudosPacote .boxRight .boxCardKpi .boxKPIs .card:nth-child(2){
+        background-position: top 10px right 10px;
+        background-size: 30px;
+    }
+
+
+
+
+    /* Inputs e selects */
+
+    #clientes_section .modalPacotes .coteudosPacote .boxLeft .box_top .boxInputs select{
+        width: 35%;
+        height: 40px;
+        border-radius: 40px;
+        background-position: right 10px center;
+        background-size: 30px;
+    }
+
+
+    #clientes_section .modalPacotes .coteudosPacote .boxLeft .box_top .boxInputs .box input,
+    #clientes_section .modalPacotes .coteudosPacote .boxLeft .box_top .boxInputs .box select{
+        height: 40px;
+        border-radius:40px;
+        width: 100%;
+    }
+
+    #clientes_section .modalPacotes .coteudosPacote .boxLeft .box_top .boxInputs .boxBtn{
+        display: flex;
+        flex-direction: row;
+        width: 100%;
+        gap: 1rem;
+    }
+    #clientes_section .modalPacotes .coteudosPacote .boxLeft .box_top .boxInputs .boxBtn div:nth-child(2){
+        display: flex;
+        align-items: end;
+        width: 40%;
+    }
+    #clientes_section .modalPacotes .coteudosPacote .boxLeft .box_top .boxInputs .boxBtn input{
+        height: 40px;
+        border-radius: 40px;
+    }
+
+
+    #clientes_section .modalPacotes .coteudosPacote .boxLeft .box_top .boxInputs .boxBtn .confirmarPacote{
+        height: 40px;
+        border-radius: 40px;
+        background-size: 20px, cover;
+    }
+
+    /* Clientes config de cards Pacotes */
+    #clientes_section .modalPacotes .coteudosPacote .boxRight .box_opcoes .box_cards .card{
+        
+    }
+
+    #clientes_section .modalPacotes .coteudosPacote .boxRight .box_opcoes .box_cards .card .conteudoCardPacote{
+       
+    }
+    #clientes_section .modalPacotes .coteudosPacote .boxRight .box_opcoes .box_cards .card .conteudoCardPacote .estado_pacote{
+        
+    }
+    #clientes_section .modalPacotes .coteudosPacote .boxRight .box_opcoes .box_cards .card .conteudoCardPacote .estado_pacote h2{
+        font-size: 1rem;
+    }
+
+    #clientes_section .modalPacotes .coteudosPacote .boxRight .box_opcoes .box_cards .card .conteudoCardPacote .estado_pacote .iconPacote{
+        width: 35px;
+        height: 35px;
+        margin-top: -5px;
+        background-size: 30px;
+    }
+
+    #clientes_section .modalPacotes .coteudosPacote .boxRight .box_opcoes .box_cards .card .conteudoCardPacote .info_pacote{
+        display: flex;
+        flex-direction: column;
+        width: auto;
+        margin-left: 1rem;
+    }
+
+    #clientes_section .modalPacotes .coteudosPacote .boxRight .box_opcoes .box_cards .card .conteudoCardPacote .info_pacote p{
+        font-size: 1.1rem;
+    }
+
+    #clientes_section .modalPacotes .coteudosPacote .boxRight .box_opcoes .box_cards .card .btnConsultor{
+        width: auto;
+        height: auto;
+        margin-right: 2.5rem;
+    }
+    #clientes_section .modalPacotes .coteudosPacote .boxRight .box_opcoes .box_cards .card .btnConsultor button{
+        width: 40px;
+        height: 40px;
+        border-radius: 50%;
+        background-size: 40px;
     }
 
 
@@ -1903,6 +2515,191 @@
 
 }
 
+@media screen and (max-width: 550px){
+    /* sessão de cliente Pacotes */
+
+
+    #clientes_section .modalPacotes {
+        width: 100%;
+    }
+
+    #clientes_section .modalPacotes .coteudosPacote{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        overflow-y: scroll;
+    }
+
+
+    #clientes_section .modalPacotes .coteudosPacote .boxLeft{
+        flex-direction: column;
+        width: 100%;
+        height: calc(100% - 1rem);
+        gap: 1rem;
+    }
+
+    #clientes_section .modalPacotes .coteudosPacote .boxRight{
+        width: 100%;
+        height: calc(100% - 1rem);
+    }
+
+
+    #clientes_section .modalPacotes .coteudosPacote .boxLeft .box_top{
+        height: 270px;
+    }
+    #clientes_section .modalPacotes .coteudosPacote .boxLeft .box_bottom{
+        height: 270px;
+    }
+
+     #clientes_section .modalPacotes .coteudosPacote .boxLeft .box_top .boxInputs{
+        width: 100%;
+    }
+    #clientes_section .modalPacotes .coteudosPacote .boxLeft .box_top .boxInputs:nth-child(1),
+    #clientes_section .modalPacotes .coteudosPacote .boxLeft .box_top .boxInputs:nth-child(2){
+        width: 75%;
+    }
+
+    #clientes_section .modalPacotes .coteudosPacote .boxLeft .box_top .boxInputs h2{
+        font-size: 1rem;
+        width: 75%;
+    }
+
+    #clientes_section .modalPacotes .coteudosPacote .boxLeft .box_top .boxInputs label{
+        font-size: .7rem;
+    }
+
+    #clientes_section .modalPacotes .coteudosPacote .boxLeft .box_top .boxInputs select{
+        width: 35%;
+        height: 50px;
+        border-radius: 50px;
+        background-position: right 10px center;
+        background-size: 30px;
+        padding-left: 15px;
+        font-size: .8rem;
+    }
+
+    #clientes_section .modalPacotes .coteudosPacote .boxLeft .box_top .boxInputs:nth-child(2) select{
+        width: 55%;
+    }
+
+    #clientes_section .modalPacotes .coteudosPacote .boxLeft .box_bottom h2{
+        font-size: 1.1rem;
+        margin: .5rem 0rem .5rem;
+        font-weight: var(--font-weight-regular);
+    }
+
+    #clientes_section .modalPacotes .coteudosPacote .boxRight h2{
+        font-size: 1.1rem;
+    }
+
+   #clientes_section .modalPacotes .coteudosPacote .boxRight .boxCardKpi .boxKPIs .card h2{
+        font-size: 2.5rem;
+    }
+    #clientes_section .modalPacotes .coteudosPacote .boxRight .boxCardKpi .boxKPIs .card:nth-child(2) h2{
+        font-size: 1.8rem;
+    }
+    #clientes_section .modalPacotes .coteudosPacote .boxRight .boxCardKpi .boxKPIs .card p{
+        font-size: 1rem;
+    }
+    #clientes_section .modalPacotes .coteudosPacote .boxRight .boxCardKpi .boxKPIs .card{
+        background-position: top 15px right 15px;
+        background-size: 25px;
+    }
+        #clientes_section .modalPacotes .coteudosPacote .boxRight .boxCardKpi .boxKPIs .card:nth-child(2){
+        background-position: top 10px right 10px;
+        background-size: 30px;
+    }
+
+
+
+
+    /* Inputs e selects */
+
+    #clientes_section .modalPacotes .coteudosPacote .boxLeft .box_top .boxInputs select{
+        width: 35%;
+        height: 40px;
+        border-radius: 40px;
+        background-position: right 10px center;
+        background-size: 30px;
+    }
+
+
+    #clientes_section .modalPacotes .coteudosPacote .boxLeft .box_top .boxInputs .box input,
+    #clientes_section .modalPacotes .coteudosPacote .boxLeft .box_top .boxInputs .box select{
+        height: 40px;
+        border-radius:40px;
+        width: 100%;
+    }
+
+    #clientes_section .modalPacotes .coteudosPacote .boxLeft .box_top .boxInputs .boxBtn{
+        display: flex;
+        flex-direction: row;
+        width: 100%;
+        gap: 1rem;
+    }
+    #clientes_section .modalPacotes .coteudosPacote .boxLeft .box_top .boxInputs .boxBtn div:nth-child(2){
+        display: flex;
+        align-items: end;
+        width: 40%;
+    }
+    #clientes_section .modalPacotes .coteudosPacote .boxLeft .box_top .boxInputs .boxBtn input{
+        height: 40px;
+        border-radius: 40px;
+    }
+
+
+    #clientes_section .modalPacotes .coteudosPacote .boxLeft .box_top .boxInputs .boxBtn .confirmarPacote{
+        height: 40px;
+        border-radius: 40px;
+        background-size: 20px, cover;
+    }
+
+    /* Clientes config de cards Pacotes */
+    #clientes_section .modalPacotes .coteudosPacote .boxRight .box_opcoes .box_cards .card{
+        
+    }
+
+    #clientes_section .modalPacotes .coteudosPacote .boxRight .box_opcoes .box_cards .card .conteudoCardPacote{
+       
+    }
+    #clientes_section .modalPacotes .coteudosPacote .boxRight .box_opcoes .box_cards .card .conteudoCardPacote .estado_pacote{
+        
+    }
+    #clientes_section .modalPacotes .coteudosPacote .boxRight .box_opcoes .box_cards .card .conteudoCardPacote .estado_pacote h2{
+        font-size: 1rem;
+    }
+
+    #clientes_section .modalPacotes .coteudosPacote .boxRight .box_opcoes .box_cards .card .conteudoCardPacote .estado_pacote .iconPacote{
+        width: 35px;
+        height: 35px;
+        margin-top: -5px;
+        background-size: 30px;
+    }
+
+    #clientes_section .modalPacotes .coteudosPacote .boxRight .box_opcoes .box_cards .card .conteudoCardPacote .info_pacote{
+        display: flex;
+        flex-direction: column;
+        width: auto;
+        margin-left: 1rem;
+    }
+
+    #clientes_section .modalPacotes .coteudosPacote .boxRight .box_opcoes .box_cards .card .conteudoCardPacote .info_pacote p{
+        font-size: 1.1rem;
+    }
+
+    #clientes_section .modalPacotes .coteudosPacote .boxRight .box_opcoes .box_cards .card .btnConsultor{
+        width: auto;
+        height: auto;
+        margin-right: 2.5rem;
+    }
+    #clientes_section .modalPacotes .coteudosPacote .boxRight .box_opcoes .box_cards .card .btnConsultor button{
+        width: 40px;
+        height: 40px;
+        border-radius: 50%;
+        background-size: 40px;
+    }
+}
+
 @media screen and (max-width: 480px){
     .menu{
         position: absolute;
@@ -2171,6 +2968,235 @@
         font-size: .8rem;
     }
 
+
+}
+
+@media screen and (max-width: 375px){
+     #clientes_section .modalPacotes .coteudosPacote{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        overflow-y: scroll;
+        gap: 9rem;
+    }
+}
+
+@media screen and (max-width: 420px){
+    /* sessão de cliente Pacotes */
+    #clientes_section .modalPacotes {
+        width: 100%;
+    }
+
+    #clientes_section .modalPacotes .coteudosPacote{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        overflow-y: scroll;
+    }
+
+    #clientes_section .modalPacotes .coteudosPacote .boxLeft{
+        flex-direction: column;
+        width: 100%;
+        height: calc(100% - 1rem);
+        gap: 1rem;
+    }
+
+    #clientes_section .modalPacotes .coteudosPacote .boxRight{
+        width: 100%;
+        height: calc(100% - 1rem);
+        gap: 10rem;
+    }
+
+
+    #clientes_section .modalPacotes .coteudosPacote .boxLeft .box_top{
+        height: 360px;
+    }
+    #clientes_section .modalPacotes .coteudosPacote .boxLeft .box_bottom{
+        height: 300px;
+    }
+
+    
+    #clientes_section .modalPacotes .coteudosPacote .boxLeft .box_top .boxInputs:nth-child(1),
+    #clientes_section .modalPacotes .coteudosPacote .boxLeft .box_top .boxInputs:nth-child(2){
+        width: 100%;
+    }
+
+     #clientes_section .modalPacotes .coteudosPacote .boxLeft .box_top .boxInputs:nth-child(3){
+        display: flex;
+        flex-direction: column
+        ;
+        width: 100%;
+    }
+
+    #clientes_section .modalPacotes .coteudosPacote .boxLeft .box_top .boxInputs h2{
+        font-size: 1rem;
+        width: 75%;
+    }
+
+    #clientes_section .modalPacotes .coteudosPacote .boxLeft .box_top .boxInputs label{
+        font-size: .7rem;
+    }
+
+    #clientes_section .modalPacotes .coteudosPacote .boxLeft .box_top .boxInputs select{
+        width: 35%;
+        height: 50px;
+        border-radius: 50px;
+        background-position: right 10px center;
+        background-size: 30px;
+        padding-left: 15px;
+        font-size: .8rem;
+    }
+
+    #clientes_section .modalPacotes .coteudosPacote .boxLeft .box_top .boxInputs:nth-child(2) select{
+        width: 55%;
+    }
+
+    #clientes_section .modalPacotes .coteudosPacote .boxLeft .box_bottom h2{
+        font-size: 1.1rem;
+        margin: .5rem 0rem .5rem;
+        font-weight: var(--font-weight-regular);
+    }
+
+    #clientes_section .modalPacotes .coteudosPacote .boxRight h2{
+        font-size: 1.1rem;
+    }
+
+    #clientes_section .modalPacotes .coteudosPacote .boxRight .boxCardKpi .boxKPIs{
+        display: flex;
+        justify-content: space-between;
+        flex-direction: column;
+        align-items: center;
+        width: 100%;
+        height: 50%;
+        gap: 2.3rem;
+    }
+    
+
+    #clientes_section .modalPacotes .coteudosPacote .boxRight .boxCardKpi{
+        display: flex;
+        flex-direction: column;
+        margin-top: 2rem;
+        height:auto;
+    }
+
+    #clientes_section .modalPacotes .coteudosPacote .boxRight .boxCardKpi .boxKPIs .card{
+        width: 90%;
+        min-height: 150px;
+        height: 150px;
+        background-position: top 15px right 15px;
+        background-size: 30px;
+    }
+
+   #clientes_section .modalPacotes .coteudosPacote .boxRight .boxCardKpi .boxKPIs .card h2{
+        font-size: 2.5rem;
+    }
+    #clientes_section .modalPacotes .coteudosPacote .boxRight .boxCardKpi .boxKPIs .card:nth-child(2) h2{
+        font-size: 1.8rem;
+    }
+    #clientes_section .modalPacotes .coteudosPacote .boxRight .boxCardKpi .boxKPIs .card p{
+        font-size: 1rem;
+    }
+    #clientes_section .modalPacotes .coteudosPacote .boxRight .boxCardKpi .boxKPIs .card{
+        background-position: top 15px right 15px;
+        background-size: 25px;
+    }
+        #clientes_section .modalPacotes .coteudosPacote .boxRight .boxCardKpi .boxKPIs .card:nth-child(2){
+        background-position: top 10px right 10px;
+        background-size: 30px;
+    }
+
+
+
+
+
+    /* Inputs e selects */
+
+    #clientes_section .modalPacotes .coteudosPacote .boxLeft .box_top .boxInputs select{
+        width: 35%;
+        height: 40px;
+        border-radius: 40px;
+        background-position: right 10px center;
+        background-size: 30px;
+    }
+
+
+    #clientes_section .modalPacotes .coteudosPacote .boxLeft .box_top .boxInputs .box input,
+    #clientes_section .modalPacotes .coteudosPacote .boxLeft .box_top .boxInputs .box select{
+        height: 40px;
+        border-radius:40px;
+        width: 100%;
+    }
+
+    #clientes_section .modalPacotes .coteudosPacote .boxLeft .box_top .boxInputs .boxBtn{
+        display: flex;
+        flex-direction: row;
+        width: 100%;
+        gap: 1rem;
+    }
+    #clientes_section .modalPacotes .coteudosPacote .boxLeft .box_top .boxInputs .boxBtn div:nth-child(2){
+        display: flex;
+        align-items: end;
+        width: 40%;
+    }
+    #clientes_section .modalPacotes .coteudosPacote .boxLeft .box_top .boxInputs .boxBtn input{
+        height: 40px;
+        border-radius: 40px;
+    }
+
+
+    #clientes_section .modalPacotes .coteudosPacote .boxLeft .box_top .boxInputs .boxBtn .confirmarPacote{
+        height: 40px;
+        border-radius: 40px;
+        background-size: 20px, cover;
+    }
+
+    /* Clientes config de cards Pacotes */
+    #clientes_section .modalPacotes .coteudosPacote .boxRight .box_opcoes .box_cards{
+      
+    }
+
+    #clientes_section .modalPacotes .coteudosPacote .boxRight .box_opcoes .box_cards .card .conteudoCardPacote{
+       
+    }
+    #clientes_section .modalPacotes .coteudosPacote .boxRight .box_opcoes .box_cards .card .conteudoCardPacote .estado_pacote{
+        display: flex;
+        align-items: center;
+        width: auto;
+        gap: .2rem;
+    }
+    #clientes_section .modalPacotes .coteudosPacote .boxRight .box_opcoes .box_cards .card .conteudoCardPacote .estado_pacote h2{
+        font-size: .9rem;
+    }
+
+    #clientes_section .modalPacotes .coteudosPacote .boxRight .box_opcoes .box_cards .card .conteudoCardPacote .estado_pacote .iconPacote{
+        width: 35px;
+        height: 35px;
+        margin-top: -5px;
+        background-size: 25px;
+    }
+
+    #clientes_section .modalPacotes .coteudosPacote .boxRight .box_opcoes .box_cards .card .conteudoCardPacote .info_pacote{
+        display: flex;
+        flex-direction: column;
+        width: auto;
+        margin-left: 1rem;
+    }
+
+    #clientes_section .modalPacotes .coteudosPacote .boxRight .box_opcoes .box_cards .card .conteudoCardPacote .info_pacote p{
+        font-size: .8rem;
+    }
+
+    #clientes_section .modalPacotes .coteudosPacote .boxRight .box_opcoes .box_cards .card .btnConsultor{
+        width: auto;
+        height: auto;
+        margin-right: 1rem;
+    }
+    #clientes_section .modalPacotes .coteudosPacote .boxRight .box_opcoes .box_cards .card .btnConsultor button{
+        width: 40px;
+        height: 40px;
+        border-radius: 50%;
+        background-size: 40px;
+    }
 
 }
 
