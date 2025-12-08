@@ -802,6 +802,7 @@
 }
 
 #clientes_section .cardCadastroCliente .box_cadastro_de_cliente .inputs_cpf_dataNasc .inputsCpfTel{
+    position: relative;
     border-radius: 10px;
     border: 1px solid #c9c9c9;
 }
