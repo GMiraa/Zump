@@ -16,4 +16,8 @@ router.get("/buscarPerfil/:id", function (req, res) {
     usuarioController.buscarPerfil(req, res);
 })
 
+router.post("/desativarUsuario/:id", function (req, res) {
+    usuarioController.desativarUsuario(req, res);
+})
+
 module.exports = router;

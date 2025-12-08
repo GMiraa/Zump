@@ -15,9 +15,18 @@ function validarSessao() {
     }
 }
 
-function limparSessao() {
-    sessionStorage.clear();
-    window.location = "../login.html";
+async function limparSessao(id) {
+    try {
+        await fetch(`/usuarios/desativarUsuario/${id}`, {
+            method: "POST" 
+        });
+        
+    } catch (erro) {
+        console.error("Erro ao fechar sessão no servidor:", erro);
+    } finally {        
+        sessionStorage.clear();
+        window.location = "../login.html";
+    }
 }
 
 // carregamento (loading)

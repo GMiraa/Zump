@@ -32,8 +32,26 @@ function cadastrar(nome, email, senha, tipo, cpf, fkEmpresa) {
     return database.executar(instrucaoSql);
 }
 
+function ativarUsuario(idUsuario){
+
+    var instrucaoSql = `UPDATE usuario SET ativo = true WHERE idUsuario = ${idUsuario}`;
+  
+    console.log("Executando a instrução SQL: \n" + instrucaoSql);
+    return database.executar(instrucaoSql);
+}
+
+function desativarUsuario(idUsuario){
+
+    var instrucaoSql = `UPDATE usuario SET ativo = false WHERE idUsuario = ${idUsuario}`;
+  
+    console.log("Executando a instrução SQL: \n" + instrucaoSql);
+    return database.executar(instrucaoSql);
+}
+
 module.exports = {
     autenticar,
     buscarPerfil,
-    cadastrar
+    cadastrar,
+    ativarUsuario,
+    desativarUsuario
 };

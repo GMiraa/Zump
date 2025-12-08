@@ -59,6 +59,8 @@ function autenticar(req, res) {
                                     });
                                 }
                             })
+
+                        usuarioModel.ativarUsuario(resultadoAutenticar[0].idUsuario);
                     } else if (resultadoAutenticar.length == 0) {
                         res.status(403).send("Email e/ou senha inválido(s)");
                     } else {
@@ -97,8 +99,30 @@ function buscarPerfil(req, res) {
         );
 }
 
+function desativarUsuario(req, res) {
+
+    var idUsuario = req.params.id;
+
+    usuarioModel.desativarUsuario(idUsuario)
+        .then(
+            function (resultado) {
+                res.json(resultado);
+            }
+        ).catch(
+            function (erro) {
+                console.log(erro);
+                console.log(
+                    "\nHouve um erro ao realizar a busca! Erro: ",
+                    erro.sqlMessage
+                );
+                res.status(500).json(erro.sqlMessage);
+            }
+        );
+}
+
 module.exports = {
     cadastrar,
     autenticar,
-    buscarPerfil
+    buscarPerfil,
+    desativarUsuario
 }
