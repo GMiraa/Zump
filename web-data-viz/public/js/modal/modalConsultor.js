@@ -10,7 +10,7 @@
   }
   function abrirModalCadastroConsultor() {
     let modal = document.getElementById("modalCadastroConsultor");
-    modal.style.display = "block";
+    modal.style.display = "flex";
   }
   function fecharModalCadastroConsultor() {
     let modal = document.getElementById("modalCadastroConsultor");

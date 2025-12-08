@@ -746,8 +746,7 @@
     border-radius: 15px;
     background: var(--white);
     bottom: 10%;
-    border: 1px solid #C9C9C9;
-    box-shadow: 0px 0px 20px 3px #dfdfdf;
+    box-shadow: 0px 0px 20px #00000036;
     z-index: 11;
 }
 

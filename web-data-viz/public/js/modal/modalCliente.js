@@ -6,6 +6,8 @@
   function abrirEdicaoCliente() {;
     let abrirEdicao = document.getElementById("telaEdicaoCliente");
     abrirEdicao.style.display = "flex";
+
+    
   }
 
     let cadastrarCli = document.getElementById("cadastrarCliente");

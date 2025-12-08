@@ -223,6 +223,7 @@
               name=""
               id="telCliente"
               placeholder="(11) 00000-0000"
+              maxlength="15"
             />
           </div>
           <div class="inputs">
@@ -277,6 +278,17 @@
 </html>
 
 <script>
+
+  const cpfMaskCliente = IMask(document.getElementById("cpfCliente"), {
+    mask: "000.000.000-00",
+  });
+  const telMaskCliente = IMask(document.getElementById("telCliente"), {
+    mask: "(00) 00000-0000",
+  });
+
+
+
+
   function adicionarPacote(botao) {
     const card = botao.closest(".card");
     const box = card.parentElement;
@@ -405,6 +417,9 @@
     var telefone = telCliente.value;
     var endereco = enderecoCliente.value;
 
+
+  
+    
     if (
       nome == "" ||
       email == "" ||

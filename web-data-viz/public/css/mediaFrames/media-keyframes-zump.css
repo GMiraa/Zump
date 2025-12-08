@@ -2081,13 +2081,12 @@
       /* Cadastro de cliente Modal */
     #clientes_section .cardCadastroCliente{
         width: 80%;
-        height: 80%;
+        height: 85%;
         padding: 2rem 0rem;
         border-radius: 15px;
         background: var(--white);
         bottom: 10%;
-        border: 1px solid #C9C9C9;
-        box-shadow: 0px 0px 20px 3px #dfdfdf;
+        box-shadow: 0px 0px 20px #00000036;
         z-index: 11;
     }
 
@@ -2102,7 +2101,7 @@
     /* Modal cadastro do Consultor */
 
     #consultores_section .modalCadastro{
-        display: flex;
+        display: none;
         flex-direction: column;
         justify-content: flex-start;
         position: absolute;
@@ -2112,7 +2111,6 @@
         border-radius: 10px;
         background: var(--white);
         z-index: 10;
-        border: 1px solid red;
     }
 
     #consultores_section .modalCadastro #btnFechar{
@@ -2730,6 +2728,62 @@
         background-repeat: no-repeat;
         background-size: 25px, cover;
     }
+
+
+    /* Cadastro de consultor */
+#consultores_section .modalCadastro{
+        display: none;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        position: absolute;
+        width: 80%;
+        height:85%;
+        padding-bottom: 10px;
+        border-radius: 10px;
+        background: var(--white);
+        z-index: 10;
+    }
+
+    #consultores_section .modalCadastro #btnFechar{
+        position: absolute;
+        width: 40px;
+        height: 40px;
+        border-radius: 40px;
+        top: -10px;
+        right: -10px;
+        background-size: 38px;
+        cursor: pointer;
+    }
+
+    #consultores_section .modalCadastro #btnFechar:hover{
+        background-size: 55px;
+    }
+
+    #consultores_section .modalCadastro .boxMeio{
+        display: flex;
+        flex-direction: column;
+        padding: 0px 0rem;
+        height: calc(100% - 60px);
+        width: 90%;
+        gap: 1.5rem;
+        overflow-y: scroll;
+    }
+    #consultores_section .modalCadastro .boxMeio .boxLeft,
+    #consultores_section .modalCadastro .boxMeio .boxRight{
+        width: 100%;
+        height: auto;
+    }
+    .divDuploInfo{
+        display: flex;
+        flex-direction: column;
+        gap: 15px;
+    }
+    .divDuploInfo .boxInputs:nth-child(1){
+        width: 100%;
+    }
+
+
 
 }
 
@@ -3575,8 +3629,7 @@
         border-radius: 15px;
         background: var(--white);
         bottom: 3%;
-        border: 1px solid #C9C9C9;
-        box-shadow: 0px 0px 20px 3px #dfdfdf;
+        box-shadow: 0px 0px 20px #00000036;
         z-index: 11;
     }
 
@@ -4799,6 +4852,23 @@
         background-size: 25px, cover;
     }
 
+
+
+
+
+
+    /* Cadastro de Consultor */
+
+    #consultores_section .modalCadastro .boxMeio .boxRight #btnCadastrarConsultor{
+        width: 100%;
+        height: 45px;
+        margin-top: 5px;
+        border-radius: 45px;
+        font-size: 1rem;
+    }
+    .boxInputs label{
+        font-size: 1rem;
+    }
 }
 @media screen and (max-width: 420px){
     /* sessão de cliente Pacotes */

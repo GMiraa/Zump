@@ -346,9 +346,10 @@
     position: absolute;
     width: 900px;
     height:auto;
-    padding-bottom: 10px;
+    padding-bottom: 1rem;
     border-radius: 10px;
     background: var(--white);
+    box-shadow: 0px 0px 20px #00000036;
     z-index: 10;
 }
 
@@ -436,7 +437,7 @@
     align-items: center;
     justify-content: center;
     height: 50px;
-        margin-top: 5px;
+    margin-top: 5px;
     border: 1px solid #a8a8a8;
     border-radius: 8px; 
 }
@@ -467,7 +468,7 @@
     width: 100%;
     height: 50px;
     margin-top: 5px;
-    border-radius: 8px;
+    border-radius: 50px;
     border: none;
     background: linear-gradient(40deg, #0A3D56, #1B98E0);
     color: var(--white);
