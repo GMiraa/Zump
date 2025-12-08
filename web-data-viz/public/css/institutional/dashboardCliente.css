@@ -462,7 +462,7 @@
 #clientes_section .editarCliente{
     display: none;
     justify-content: center;
-    align-items: center;
+    align-items: end;
     z-index: 10; 
     top: 2.5%;
     width: 80%;
@@ -684,6 +684,57 @@
     background-size: 30px, cover;
 }
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* Modal cadastrar cliente */
 
 #clientes_section .cardCadastroCliente{
     position: absolute;

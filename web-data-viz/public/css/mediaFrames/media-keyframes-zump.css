@@ -830,7 +830,7 @@
         justify-content: start;
         align-items: center;
         width: 100%;
-        border: 1px solid red;
+        
         height: 50%;
     }
     #clientes_section .editarCliente .boxKpiCliente{
@@ -839,7 +839,7 @@
         align-items: center;
         width: 100%;
         height: 50%;
-        border: 1px solid red;
+        
 
     }
 
@@ -851,7 +851,7 @@
         background-color: var(--white);
         width: 100px;
         height: 40px;
-        border:  1px solid red;
+       
         position: absolute;
         top: 1rem;
         right: 1rem;
@@ -877,7 +877,7 @@
         background-position: center;
         background-repeat: no-repeat;
         background-size: 50%;
-        border: 1px solid red;
+        
         width: 30%;
         height: 100%;
     }
@@ -893,7 +893,7 @@
         padding-top: 35px;
         width: 50%;
         height:100%;
-        border: 1px solid red;
+        
     }
     #clientes_section .editarCliente .formEditCliente .box_inputs .input{
         position: relative;
@@ -939,7 +939,7 @@
         gap: 2rem;
         width: 100%;
         height: 60%;
-        border: 1px solid red;
+        
     }
 
     #clientes_section .editarCliente .boxKpiCliente .cards_pacotes .card{
@@ -974,16 +974,13 @@
         bottom: 10px;
     }
 
-
-
-
     #clientes_section .editarCliente .boxKpiCliente .box_btns{
         display: flex;
         justify-content: center;
         align-items: center;
         width: 70%;
         height: 30%;
-        border: 1px solid red;
+        
     }
 
 
@@ -993,7 +990,7 @@
         height: 100%;
         display: flex;
         justify-content: space-around;
-        border: 1px solid green;
+        
     }
 
 
@@ -1229,7 +1226,7 @@
         justify-content: start;
         align-items: center;
         width: 100%;
-        border: 1px solid red;
+        
         height: 50%;
     }
     #clientes_section .editarCliente .boxKpiCliente{
@@ -1238,7 +1235,7 @@
         align-items: center;
         width: 100%;
         height: 50%;
-        border: 1px solid red;
+        
 
     }
 
@@ -1250,7 +1247,7 @@
         background-color: var(--white);
         width: 100px;
         height: 40px;
-        border:  1px solid red;
+        
         position: absolute;
         top: 1rem;
         right: 1rem;
@@ -1276,7 +1273,7 @@
         background-position: center;
         background-repeat: no-repeat;
         background-size: 50%;
-        border: 1px solid red;
+        
         width: 40%;
         height: 100%;
     }
@@ -1292,7 +1289,7 @@
         padding-top: 35px;
         width: 50%;
         height:100%;
-        border: 1px solid red;
+    
     }
     #clientes_section .editarCliente .formEditCliente .box_inputs .input{
         position: relative;
@@ -1338,7 +1335,7 @@
         gap: 2rem;
         width: 100%;
         height: 60%;
-        border: 1px solid red;
+        
     }
 
     #clientes_section .editarCliente .boxKpiCliente .cards_pacotes .card{
@@ -1382,7 +1379,7 @@
         align-items: center;
         width: 90%;
         height: 30%;
-        border: 1px solid red;
+        
     }
 
 
@@ -1392,7 +1389,7 @@
         height: 100%;
         display: flex;
         justify-content: space-around;
-        border: 1px solid green;
+        
     }
 
 
@@ -1888,7 +1885,7 @@
         justify-content: start;
         align-items: center;
         width: 100%;
-        border: 1px solid red;
+        
         height: 50%;
     }
     #clientes_section .editarCliente .boxKpiCliente{
@@ -1897,7 +1894,7 @@
         align-items: center;
         width: 100%;
         height: 50%;
-        border: 1px solid red;
+       
 
     }
 
@@ -1909,7 +1906,7 @@
         background-color: var(--white);
         width: 100px;
         height: 40px;
-        border:  1px solid red;
+        
         position: absolute;
         top: 1rem;
         right: 1rem;
@@ -1935,7 +1932,7 @@
         background-position: center;
         background-repeat: no-repeat;
         background-size: 50%;
-        border: 1px solid red;
+        
         width: 40%;
         height: 100%;
     }
@@ -1951,7 +1948,7 @@
         padding-top: 35px;
         width: 50%;
         height:100%;
-        border: 1px solid red;
+        
     }
     #clientes_section .editarCliente .formEditCliente .box_inputs .input{
         position: relative;
@@ -1997,7 +1994,7 @@
         gap: 2rem;
         width: 100%;
         height: 60%;
-        border: 1px solid red;
+        
     }
 
     #clientes_section .editarCliente .boxKpiCliente .cards_pacotes .card{
@@ -2041,7 +2038,7 @@
         align-items: center;
         width: 100%;
         height: 30%;
-        border: 1px solid red;
+        
     }
 
 
@@ -2052,7 +2049,7 @@
         display: flex;
         align-items: center;
         justify-content: space-around;
-        border: 1px solid green;
+        
     }
 
 
@@ -2491,7 +2488,7 @@
         justify-content: start;
         align-items: center;
         width: 100%;
-        border: 1px solid red;
+        
         height: 50%;
     }
     #clientes_section .editarCliente .boxKpiCliente{
@@ -2500,7 +2497,7 @@
         align-items: center;
         width: 100%;
         height: 50%;
-        border: 1px solid red;
+        
 
     }
 
@@ -2512,7 +2509,7 @@
         background-color: var(--white);
         width: 100px;
         height: 40px;
-        border:  1px solid red;
+       
         position: absolute;
         top: 1rem;
         right: 1rem;
@@ -2538,7 +2535,7 @@
         background-position: center;
         background-repeat: no-repeat;
         background-size: 50%;
-        border: 1px solid red;
+        
         width: 40%;
         height: 100%;
     }
@@ -2554,7 +2551,7 @@
         padding-top: 35px;
         width: 60%;
         height:100%;
-        border: 1px solid red;
+        
     }
     #clientes_section .editarCliente .formEditCliente .box_inputs .input{
         position: relative;
@@ -2600,7 +2597,7 @@
         gap: 2rem;
         width: 100%;
         height: 60%;
-        border: 1px solid red;
+        
     }
 
     #clientes_section .editarCliente .boxKpiCliente .cards_pacotes .card{
@@ -2644,7 +2641,7 @@
         align-items: center;
         width: 100%;
         height: 30%;
-        border: 1px solid red;
+        
     }
 
 
@@ -2655,7 +2652,7 @@
         display: flex;
         align-items: center;
         justify-content: space-around;
-        border: 1px solid green;
+        
     }
 
 
@@ -3078,7 +3075,7 @@
         justify-content: start;
         align-items: center;
         width: 100%;
-        border: 1px solid red;
+        
         height: 50%;
     }
     #clientes_section .editarCliente .boxKpiCliente{
@@ -3087,7 +3084,7 @@
         align-items: center;
         width: 100%;
         height: 50%;
-        border: 1px solid red;
+        
 
     }
 
@@ -3099,7 +3096,6 @@
         background-color: var(--white);
         width: 100px;
         height: 40px;
-        border:  1px solid red;
         position: absolute;
         top: 1rem;
         right: 1rem;
@@ -3125,7 +3121,7 @@
         background-position: center;
         background-repeat: no-repeat;
         background-size: 50%;
-        border: 1px solid red;
+        
         width: 40%;
         height: 100%;
     }
@@ -3141,7 +3137,7 @@
         padding-top: 35px;
         width: 60%;
         height:100%;
-        border: 1px solid red;
+        
     }
     #clientes_section .editarCliente .formEditCliente .box_inputs .input{
         position: relative;
@@ -3187,7 +3183,7 @@
         gap: 2rem;
         width: 100%;
         height: 60%;
-        border: 1px solid red;
+        
     }
 
     #clientes_section .editarCliente .boxKpiCliente .cards_pacotes .card{
@@ -3231,7 +3227,7 @@
         align-items: center;
         width: 100%;
         height: 30%;
-        border: 1px solid red;
+        
     }
 
 
@@ -3244,7 +3240,7 @@
         margin-left: 0;
         gap: .4rem;
         height: 100%;
-        border: 1px solid green;
+        
     }
 
 
@@ -3285,7 +3281,7 @@
         align-items: center;
         width: 100%;
         height: 90%;
-        border: 1px solid rgb(0, 47, 255);
+        
         overflow:visible;
         overflow-y: scroll;
     }
@@ -3311,7 +3307,7 @@
         flex-direction:column;
         width: 100%;
         margin-top: 45%;
-        border: 1px solid rgb(0, 0, 0);
+        
         min-height: 80%;
     }
     #clientes_section .editarCliente .boxKpiCliente{
@@ -3320,7 +3316,7 @@
         align-items: center;
         width: 100%;
         min-height: 60%;
-        border: 1px solid rgb(0, 255, 221);
+        
 
     }
 
@@ -3357,14 +3353,12 @@
         background-position: center bottom 2%;
         background-repeat: no-repeat;
         background-size: 50%;
-        border: 1px solid red;
+        
         width: 40%;
         height: 25%;
     }
     #clientes_section .editarCliente .formEditCliente .fotoCliente h2{
-        margin-top: 10px;
-        text-align: center;
-        font-size: .8rem;
+        display: none;
     }
 
     #clientes_section .editarCliente .formEditCliente .box_inputs{
@@ -3374,7 +3368,7 @@
         padding-top: 35px;
         width: 96%;
         height:60%;
-        border: 1px solid red;
+        
     }
     #clientes_section .editarCliente .formEditCliente .box_inputs .input{
         position: relative;
@@ -3420,7 +3414,7 @@
         gap: 1rem;
         width: 100%;
         height: 60%;
-        border: 1px solid red;
+        
     }
 
     #clientes_section .editarCliente .boxKpiCliente .cards_pacotes .card{
@@ -3464,7 +3458,7 @@
         align-items: center;
         width: 100%;
         height: 30%;
-        border: 1px solid red;
+        
     }
 
 
@@ -3477,7 +3471,7 @@
         margin-left: 0;
         gap: .4rem;
         height: 100%;
-        border: 1px solid green;
+        
     }
 
 
@@ -3537,8 +3531,6 @@
         height: 35px;
         width: 90px;
     }
-
-
 
 
 
@@ -3792,7 +3784,7 @@
         align-items: center;
         width: 100%;
         height: 90%;
-        border: 1px solid rgb(0, 47, 255);
+        
         overflow:visible;
         overflow-y: scroll;
     }
@@ -3818,7 +3810,7 @@
         flex-direction:column;
         width: 100%;
         margin-top: 60%;
-        border: 1px solid rgb(0, 0, 0);
+        
         min-height: 80%;
     }
     #clientes_section .editarCliente .boxKpiCliente{
@@ -3827,7 +3819,7 @@
         align-items: center;
         width: 100%;
         min-height: 60%;
-        border: 1px solid rgb(0, 255, 221);
+        
 
     }
 
@@ -3864,14 +3856,12 @@
         background-position: center bottom 2%;
         background-repeat: no-repeat;
         background-size: 60%;
-        border: 1px solid red;
+       
         width: 40%;
         height: 25%;
     }
     #clientes_section .editarCliente .formEditCliente .fotoCliente h2{
-        margin-top: 10px;
-        text-align: center;
-        font-size: .8rem;
+        display: none;
     }
 
     #clientes_section .editarCliente .formEditCliente .box_inputs{
@@ -3881,7 +3871,7 @@
         padding-top: 35px;
         width: 96%;
         height:60%;
-        border: 1px solid red;
+        
     }
     #clientes_section .editarCliente .formEditCliente .box_inputs .input{
         position: relative;
@@ -3928,7 +3918,7 @@
         gap: 1rem;
         width: 100%;
         height: 80%;
-        border: 1px solid red;
+       
     }
 
     #clientes_section .editarCliente .boxKpiCliente .cards_pacotes .card{
@@ -3972,7 +3962,7 @@
         align-items: center;
         width: 100%;
         height: 40%;
-        border: 1px solid red;
+       
     }
 
 
@@ -3985,7 +3975,7 @@
         margin-left: 0;
         gap: .4rem;
         height: 100%;
-        border: 1px solid green;
+       
     }
 
 
@@ -4478,7 +4468,7 @@
         align-items: center;
         width: 100%;
         height: 90%;
-        border: 1px solid rgb(0, 47, 255);
+       
         overflow:visible;
         overflow-y: scroll;
     }
@@ -4504,7 +4494,7 @@
         flex-direction:column;
         width: 100%;
         margin-top: 70%;
-        border: 1px solid rgb(0, 0, 0);
+        
         min-height: 80%;
     }
     #clientes_section .editarCliente .boxKpiCliente{
@@ -4513,7 +4503,7 @@
         align-items: center;
         width: 100%;
         min-height: 60%;
-        border: 1px solid rgb(0, 255, 221);
+        
 
     }
 
@@ -4550,16 +4540,13 @@
         background-position: center bottom 2%;
         background-repeat: no-repeat;
         background-size: 60%;
-        border: 1px solid red;
+        
         width: 60%;
         height: 25%;
     }
     #clientes_section .editarCliente .formEditCliente .fotoCliente h2{
-        margin-top: 10px;
-        text-align: center;
-        font-size: .8rem;
+        display: none;
     }
-
     #clientes_section .editarCliente .formEditCliente .box_inputs{
         display: flex;
         justify-content: space-between;
@@ -4567,7 +4554,7 @@
         padding-top: 35px;
         width: 96%;
         height:60%;
-        border: 1px solid red;
+    
     }
     #clientes_section .editarCliente .formEditCliente .box_inputs .input{
         position: relative;
@@ -4616,7 +4603,7 @@
         gap: 1rem;
         width: 100%;
         height: 80%;
-        border: 1px solid red;
+        
     }
 
     #clientes_section .editarCliente .boxKpiCliente .cards_pacotes .card{
@@ -4660,7 +4647,7 @@
         align-items: center;
         width: 100%;
         height: 40%;
-        border: 1px solid red;
+        
         margin-top: 15px;
     }
 
@@ -4674,7 +4661,7 @@
         margin-left: 0;
         gap: .4rem;
         height: 100%;
-        border: 1px solid green;
+        
     }
 
 
@@ -4939,7 +4926,7 @@
         align-items: center;
         width: 100%;
         height: 90%;
-        border: 1px solid rgb(0, 47, 255);
+        
         overflow:visible;
         overflow-y: scroll;
     }
@@ -4965,8 +4952,7 @@
         flex-direction:column;
         width: 100%;
         margin-top: 100%;
-        border: 1px solid rgb(0, 0, 0);
-        min-height: 80%;
+        min-height: 87%;
     }
     #clientes_section .editarCliente .boxKpiCliente{
         display: flex;
@@ -4974,7 +4960,6 @@
         align-items: center;
         width: 100%;
         min-height: 60%;
-        border: 1px solid rgb(0, 255, 221);
 
     }
 
@@ -5011,14 +4996,12 @@
         background-position: center bottom 2%;
         background-repeat: no-repeat;
         background-size: 60%;
-        border: 1px solid red;
+        
         width: 80%;
         height: 25%;
     }
     #clientes_section .editarCliente .formEditCliente .fotoCliente h2{
-        margin-top: 10px;
-        text-align: center;
-        font-size: .8rem;
+        display: none;
     }
 
     #clientes_section .editarCliente .formEditCliente .box_inputs{
@@ -5028,7 +5011,7 @@
         padding-top: 35px;
         width: 96%;
         height:60%;
-        border: 1px solid red;
+        
     }
     #clientes_section .editarCliente .formEditCliente .box_inputs .input{
         position: relative;
@@ -5037,6 +5020,7 @@
         height: 45px;
         width: 100%;
         border-radius: 8px;
+        margin-top: 25px;
     }
     #clientes_section .editarCliente .formEditCliente .box_inputs .input:nth-child(2),
     #clientes_section .editarCliente .formEditCliente .box_inputs .input:nth-child(3),
@@ -5078,7 +5062,7 @@
         width: 100%;
         height: 80%;
         padding: 1rem 0rem;
-        border: 1px solid red;
+        
     }
 
     #clientes_section .editarCliente .boxKpiCliente .cards_pacotes .card{
@@ -5122,7 +5106,7 @@
         align-items: center;
         width: 100%;
         height: 40%;
-        border: 1px solid red;
+       
         margin-top: 15px;
     }
 
@@ -5136,7 +5120,7 @@
         margin-left: 0;
         gap: .4rem;
         height: 100%;
-        border: 1px solid green;
+    
     }
 
 
