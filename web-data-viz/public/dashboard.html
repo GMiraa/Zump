@@ -46,7 +46,7 @@
         </div> -->
 
       <h1 id="titleDash">Dashboard</h1>
-      <div class="boxConteudo">
+      <div class="boxConteudo" id="ConteudoDash">
         <div class="boxLeft">
           <div class="card"><div>Top Cluster</div><label id="kpi1"></label></div>
           <div class="card"><div>Macro Região mais visitada</div><label id="kpi2"></label></div>
@@ -134,6 +134,13 @@
       consultores_session.innerHTML = ``;
   
     }
+
+    if(infosConsultorAtual[0].bloqueado == true){
+  
+      ConteudoDash.innerHTML = `<h1>Usuario <b>bloqueado</b> pelo administrador!</h1>`;
+  
+    }
+
   }
 
   function Userlogado(){

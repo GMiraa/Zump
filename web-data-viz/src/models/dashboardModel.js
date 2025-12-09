@@ -350,12 +350,40 @@ function buscarFaturamentoTotal(FkEmpresa) {
             COALESCE(SUM(v.quantidade * p.preco), 0) AS total_faturado_geral
         FROM vendas v
         JOIN pacote p ON v.idPacote = p.idPacote
-        JOIN usuario u ON v.idUsuario = u.idUsuario -- Join necessário para chegar na empresa
+        JOIN usuario u ON v.idUsuario = u.idUsuario
         WHERE u.FkEmpresa = ${FkEmpresa};
     `;
 
     console.log("Executando: " + instrucaoSql);
     return database.executar(instrucaoSql);
+}
+
+function buscarPorRelevancia(cluster, uf) {
+    
+    var instrucaoSql = `
+        SELECT 
+            cidade, 
+            uf, 
+            cluster,
+            fkDestino,
+            -- Cálculo de Pontuação (Score)
+            (
+                (CASE WHEN cluster = '${cluster}' THEN 10 ELSE 0 END) + 
+                (CASE WHEN uf = '${uf}' THEN 5 ELSE 0 END)
+            ) AS score_relevancia
+        FROM historico_vendas
+        -- O WHERE garante que traga resultados que atendam pelo menos UM dos critérios
+        WHERE cluster = '${cluster}' OR uf = '${uf}'
+        ORDER BY score_relevancia DESC
+        LIMIT 4;
+    `;
+
+    console.log("Executando: " + instrucaoSql);
+    return database.executar(instrucaoSql);
+}
+
+module.exports = {
+    buscarPorRelevancia
 }
 
 module.exports = {
@@ -382,5 +410,6 @@ module.exports = {
     buscarTopCluster,
     buscarTopRegiao,
     buscarTopDestino,
-    buscarFaturamentoTotal
+    buscarFaturamentoTotal,
+    buscarPorRelevancia
 };

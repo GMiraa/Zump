@@ -79,4 +79,8 @@ router.get("/getKPIs/:fkempresa", function (req, res) {
     dashboardController.getKPIs(req, res);
 })
 
+router.get("/gerarSugestoes/:tier/:uf", function (req, res) {
+    dashboardController.gerarSugestoes(req, res);
+});
+
 module.exports = router;

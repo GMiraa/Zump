@@ -110,7 +110,7 @@
                 <div class="boxBtn">
                   <div>
                     <label for="">Preço do pacote</label>
-                    <input type="text" id="precoPacoteUsuario">
+                    <input type="number" id="precoPacoteUsuario" placeholder="R$...">
                   </div>
                   <div>
                     <button class="confirmarPacote" onclick="GerarSugestaoPacote()"></button>
@@ -139,61 +139,8 @@
             </div>
             <h2>Pacotes sugeridos</h2>
             <div class="box_opcoes">
-              <div class="box_cards">
-                <div class="card">
-                  <div class="conteudoCardPacote">
-                    <div class="estado_pacote">
-                      <h2>Estado do pacote: SP</h2>
-                      <div class="iconPacote pacoteAcao"></div>
-                    </div>
-                    <div class="info_pacote">
-                      <p>Local do pacote: Praia Grande</p>
-                      <p>Preço: R$ 3.157,00</p>
-                    </div>
-                  </div>
-                  <div class="btnConsultor">
-                    <button
-                      onclick="adicionarPacote(this)"
-                      class="btnAdicionarPacote"
-                    ></button>
-                  </div>
-                </div>
-                <div class="card">
-                  <div class="conteudoCardPacote">
-                    <div class="estado_pacote">
-                      <h2>Estado do pacote: SP</h2>
-                      <div class="iconPacote pacoteAcao"></div>
-                    </div>
-                    <div class="info_pacote">
-                      <p>Local do pacote: Praia Grande</p>
-                      <p>Preço: R$ 3.157,00</p>
-                    </div>
-                  </div>
-                  <div class="btnConsultor">
-                    <button
-                      onclick="adicionarPacote(this)"
-                      class="btnAdicionarPacote"
-                    ></button>
-                  </div>
-                </div>
-                <div class="card">
-                  <div class="conteudoCardPacote">
-                    <div class="estado_pacote">
-                      <h2>Estado do pacote: SP</h2>
-                      <div class="iconPacote pacoteAcao"></div>
-                    </div>
-                    <div class="info_pacote">
-                      <p>Local do pacote: Praia Grande</p>
-                      <p>Preço: R$ 3.157,00</p>
-                    </div>
-                  </div>
-                  <div class="btnConsultor">
-                    <button
-                      onclick="adicionarPacote(this)"
-                      class="btnAdicionarPacote"
-                    ></button>
-                  </div>
-                </div>
+              <div class="box_cards" id="Sugestoes">
+                
               </div>
             </div>
           </div>
@@ -743,8 +690,8 @@
 
 }
 
-function GerarSugestaoPacote() {
-    var estado = estadoPacote.value;
+async function GerarSugestaoPacote() {
+    var uf = estadoPacote.value;
     var valor = precoPacoteUsuario.value;
     var tier = null;
     
@@ -764,6 +711,45 @@ function GerarSugestaoPacote() {
       tier = "A";
     }
 
+    
+    var valorNumerico = parseFloat(valor); 
+    
+    var min = valorNumerico - 100;
+    var max = valorNumerico + 100;
+    
+    
+    
+    const resposta = await fetch(`/dashboard/gerarSugestoes/${tier}/${uf}`);
+    const dados = await resposta.json();
+    ListaSugestoes = dados;
+    
+    
+    for(var i = 0; i < ListaSugestoes.length; i++){
+      
+      var valorAleatorio = Math.random() * (max - min) + min;
+      var valorSugerido = valorAleatorio.toFixed(2);
+
+      Sugestoes.innerHTML += `<div class="card">
+                    <div class="conteudoCardPacote">
+                      <div class="estado_pacote">
+                        <h2>Estado do pacote: ${ListaSugestoes[i].uf}</h2>
+                        <div class="iconPacote pacoteAcao"></div>
+                      </div>
+                      <div class="info_pacote">
+                        <p>Local do pacote: ${ListaSugestoes[i].cidade}</p>
+                        <p>Preço: R$ ${valorSugerido}</p>
+                      </div>
+                    </div>
+                    <div class="btnConsultor">
+                      <button
+                        onclick="adicionarPacote(this)"
+                        class="btnAdicionarPacote"
+                      ></button>
+                    </div>
+                  </div>`;
+
+    }
+    
 }
 
 </script>

@@ -427,6 +427,28 @@ function getKPIs(req, res) {
     });
 }
 
+function gerarSugestoes(req, res) {
+    
+    // Captura os parametros definidos na rota
+    var tier = req.params.tier;
+    var uf = req.params.uf;
+
+    console.log(`Buscando sugestões para Tier: ${tier} e UF: ${uf}`);
+
+    // Passa para a model...
+    dashboardModel.buscarPorRelevancia(tier, [uf]) // Exemplo usando sua função anterior
+        .then(resultado => {
+            if (resultado.length > 0) {
+                res.status(200).json(resultado);
+            } else {
+                res.status(204).send("Nenhum resultado encontrado!");
+            }
+        }).catch(erro => {
+            console.log(erro);
+            res.status(500).json(erro.sqlMessage);
+        });
+}
+
 module.exports = {
     buscarValores,
     cadastrarCliente,
@@ -446,5 +468,6 @@ module.exports = {
     buscarVendasPorMes,
     getConsultores,
     buscarDadosGrafico,
-    getKPIs
+    getKPIs,
+    gerarSugestoes
 }
