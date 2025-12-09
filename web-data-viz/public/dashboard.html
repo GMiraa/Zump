@@ -48,10 +48,10 @@
       <h1 id="titleDash">Dashboard</h1>
       <div class="boxConteudo">
         <div class="boxLeft">
-          <div class="card"></div>
-          <div class="card"></div>
-          <div class="card"></div>
-          <div class="card"></div>
+          <div class="card"><div>Top Cluster</div><label id="kpi1"></label></div>
+          <div class="card"><div>Macro Região mais visitada</div><label id="kpi2"></label></div>
+          <div class="card"><div>Cidade mais visitada</div><label id="kpi3"></label></div>
+          <div class="card"><div>Total Faturado</div><label id="kpi4"></label></div>
 
         </div>
         <div class="boxRight">
@@ -95,6 +95,7 @@
   var infosConsultorAtual = [];
   var Top2Consultores = [];
   var DadosGrafico = [];
+  var ListaKPIs = [];
 
   var chartRendaMensal = null;
 
@@ -105,6 +106,7 @@
     infosUserLogado();
     getTop2Consultores();
     BuscarGrafico();
+    getKPIs();
 
     setInterval(() => {
     
@@ -155,6 +157,19 @@
 
   }
 
+  async function getKPIs() {
+    
+    const resposta4 = await fetch(`/dashboard/getKPIs/${fkempresa}`);   
+    const dados4 = await resposta4.json();
+    ListaKPIs = dados4;
+
+    kpi1.innerHTML = `${ListaKPIs.MaiorTier[0].cluster}`;
+    kpi2.innerHTML = `${ListaKPIs.MaiorRegiao[0].macro_regiao}`;
+    kpi3.innerHTML = `${ListaKPIs.TopDestino[0].cidade}`;
+    kpi4.innerHTML = `R$ ${ListaKPIs.FaturamentoTotal[0].total_faturado_geral}`;
+
+  }
+
   async function BuscarGrafico() {
     
     const resposta3 = await fetch(`/dashboard/buscarDadosGrafico/${fkempresa}`);   
@@ -169,8 +184,6 @@
     const canvasId = 'rendaMensalChart';
     const canvas = document.getElementById(canvasId);
 
-    // --- CORREÇÃO DEFINITIVA ---
-    // Em vez de checar a variável, perguntamos ao Chart.js se já existe gráfico nesse ID
     const chartExistente = Chart.getChart(canvasId); 
     
     if (chartExistente) {
@@ -185,7 +198,6 @@
     const faturamento = dados.map(item => item.faturamento_total); 
     const crescimento = dados.map(item => item.crescimento_percentual); 
 
-    // Não precisamos mais salvar na variável global, pois usamos o getChart acima
     new Chart(ctx, {
         type: 'bar',
         data: {
@@ -194,18 +206,18 @@
                 {
                     label: 'Renda total (R$)',
                     data: faturamento,
-                    backgroundColor: '#1E88E5', // Azul Escuro
+                    backgroundColor: '#1E88E5', 
                     borderRadius: 5,
-                    order: 2, // Fica atrás
-                    yAxisID: 'y' // Atrelado ao eixo esquerdo (Dinheiro)
+                    order: 2,
+                    yAxisID: 'y' 
                 },
                 {
                     label: 'Crescimento (%)',
                     data: crescimento,
-                    backgroundColor: '#90CAF9', // Azul Claro
+                    backgroundColor: '#90CAF9',
                     borderRadius: 5,
-                    order: 1, // Fica na frente
-                    yAxisID: 'y1' // Atrelado ao eixo direito (Porcentagem)
+                    order: 1,
+                    yAxisID: 'y1'
                 }
             ]
         },

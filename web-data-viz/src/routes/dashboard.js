@@ -75,4 +75,8 @@ router.get("/buscarDadosGrafico/:fkempresa", function (req, res) {
     dashboardController.buscarDadosGrafico(req, res);
 })
 
+router.get("/getKPIs/:fkempresa", function (req, res) {
+    dashboardController.getKPIs(req, res);
+})
+
 module.exports = router;

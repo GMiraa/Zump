@@ -291,6 +291,73 @@ function buscarDadosGrafico(FkEmpresa) {
     return database.executar(instrucaoSql);
 }
 
+function buscarTopCluster() {
+    var instrucaoSql = `
+        SELECT 
+            cluster, 
+            SUM(turistas) AS total_procura
+        FROM historico_vendas
+        GROUP BY cluster
+        ORDER BY total_procura DESC
+        LIMIT 1;
+    `;
+
+    console.log("Executando a instrução SQL: \n" + instrucaoSql);
+    return database.executar(instrucaoSql);
+}
+
+function buscarTopRegiao() {
+    var instrucaoSql = `
+        SELECT 
+            CASE 
+                WHEN uf IN ('AC', 'AP', 'AM', 'PA', 'RO', 'RR', 'TO') THEN 'Norte'
+                WHEN uf IN ('AL', 'BA', 'CE', 'MA', 'PB', 'PE', 'PI', 'RN', 'SE') THEN 'Nordeste'
+                WHEN uf IN ('DF', 'GO', 'MT', 'MS') THEN 'Centro-Oeste'
+                WHEN uf IN ('ES', 'MG', 'RJ', 'SP') THEN 'Sudeste'
+                WHEN uf IN ('PR', 'RS', 'SC') THEN 'Sul'
+                ELSE 'Outra'
+            END AS macro_regiao,
+            SUM(turistas) AS total_visitas
+        FROM historico_vendas
+        GROUP BY macro_regiao
+        ORDER BY total_visitas DESC
+        LIMIT 1;
+    `;
+
+    console.log("Executando a instrução SQL: \n" + instrucaoSql);
+    return database.executar(instrucaoSql);
+}
+
+function buscarTopDestino() {
+    var instrucaoSql = `
+        SELECT 
+            cidade, 
+            uf, 
+            SUM(turistas) AS total_turistas
+        FROM historico_vendas
+        GROUP BY cidade, uf
+        ORDER BY total_turistas DESC
+        LIMIT 1;
+    `;
+
+    console.log("Executando a instrução SQL: \n" + instrucaoSql);
+    return database.executar(instrucaoSql);
+}
+
+function buscarFaturamentoTotal(FkEmpresa) {
+    var instrucaoSql = `
+        SELECT 
+            COALESCE(SUM(v.quantidade * p.preco), 0) AS total_faturado_geral
+        FROM vendas v
+        JOIN pacote p ON v.idPacote = p.idPacote
+        JOIN usuario u ON v.idUsuario = u.idUsuario -- Join necessário para chegar na empresa
+        WHERE u.FkEmpresa = ${FkEmpresa};
+    `;
+
+    console.log("Executando: " + instrucaoSql);
+    return database.executar(instrucaoSql);
+}
+
 module.exports = {
     buscarValores,
     cadastrarCliente,
@@ -311,5 +378,9 @@ module.exports = {
     buscarKPICliente,
     buscarVendasPorMes,
     getConsultores,
-    buscarDadosGrafico
+    buscarDadosGrafico,
+    buscarTopCluster,
+    buscarTopRegiao,
+    buscarTopDestino,
+    buscarFaturamentoTotal
 };

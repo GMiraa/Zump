@@ -396,6 +396,37 @@ function buscarDadosGrafico(req, res) {
         );
 }
 
+function getKPIs(req, res) {
+
+    var FkEmpresa = req.params.fkempresa;
+
+    Promise.all([
+        dashboardModel.buscarTopCluster(),
+        dashboardModel.buscarTopRegiao(), 
+        dashboardModel.buscarTopDestino(),
+        dashboardModel.buscarFaturamentoTotal(FkEmpresa),
+
+
+    ]).then(resultados => {
+        
+        const topCluster = resultados[0];
+        const topRegiao = resultados[1];
+        const topDestino = resultados[2];
+        const totalFat = resultados[3];
+
+        res.json({
+            MaiorTier: topCluster,
+            MaiorRegiao: topRegiao,
+            TopDestino: topDestino,
+            FaturamentoTotal: totalFat
+        });
+        
+    }).catch(erro => {
+        console.log(erro);
+        res.status(500).json(erro.sqlMessage);
+    });
+}
+
 module.exports = {
     buscarValores,
     cadastrarCliente,
@@ -414,5 +445,6 @@ module.exports = {
     buscarKPICliente,
     buscarVendasPorMes,
     getConsultores,
-    buscarDadosGrafico
+    buscarDadosGrafico,
+    getKPIs
 }

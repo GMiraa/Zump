@@ -326,6 +326,29 @@ section {
     backdrop-filter: blur(10px);
     box-shadow: 0 0px 10px rgba(0,0,0,0.2);
     border-radius: 15px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.boxLeft .card div{
+
+    margin-top: 1%;
+    font-size: 1rem;
+    font-weight: 500;
+    color: #616161;
+
+}
+
+.boxLeft .card label{
+
+    font-size: 1.5rem;
+    font-weight: 500;
+}
+
+.boxLeft .card label, .boxLeft .card div {
+    margin-bottom: 15%;
 }
 
 #dashboard_section .boxConteudo .boxRight{
@@ -338,8 +361,6 @@ section {
     gap: 1rem;
     padding-bottom: 1rem;
 }
-
-
 
 #dashboard_section .boxConteudo .boxRight .areaGrafico{
     width: 90%;
