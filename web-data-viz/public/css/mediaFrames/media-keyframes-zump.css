@@ -1020,6 +1020,248 @@
     }
 
 
+    /* Modal editar consultor */
+    
+#consultores_section  .modalEditConsultor{
+    width: 90%;
+    height: 90%;
+    border-radius: 15px;
+}
+
+#consultores_section  .modalEditConsultor .fecharModalEdit{
+    width: 40px;
+    height: 40px;
+    border-radius: 40px;
+    top: -10px;
+    right: -10px;
+    background-size: 40px;
+}  
+
+
+#consultores_section  .modalEditConsultor .boxLeft{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap:2rem;
+    padding: 0px 0rem;
+    width: 75%;
+    height: 95%;
+    
+}
+
+#consultores_section  .modalEditConsultor .boxLeft .btnAlteracaoConsultor{
+    width: 300px;
+    min-height: 40px;
+    margin-top: -1rem;
+    border-radius: 8px;
+    border: none;
+    background: linear-gradient(40deg, #0A3D56, #1B98E0);
+    color: var(--white);
+    font-size: 1rem;
+    font-weight: var(--font-weight-medium);
+    cursor: pointer;
+}
+
+#consultores_section  .modalEditConsultor .boxLeft .boxInfos{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    padding: 0px 1rem;
+    width: 100%;
+    height: auto;
+    gap: 1.5rem;
+    
+}
+#consultores_section  .modalEditConsultor .boxLeft .boxInfos .boxLeftInfo{
+    display: flex;
+    flex-direction: column;
+    width: 45%;
+    height: auto;
+    gap: .5rem;
+    
+
+}
+#consultores_section  .modalEditConsultor .boxLeft .boxInfos .boxRightInfo{
+    display: flex;
+    flex-direction: column;
+    width: 45%;
+    height: auto;
+    gap: .5rem;
+    
+
+}
+
+#consultores_section  .modalEditConsultor .boxLeft .boxInfos .boxInput{
+    display: flex;
+    flex-direction: column;
+    gap: .3rem;
+}
+#consultores_section  .modalEditConsultor .boxLeft .boxInfos .boxInput label{
+   font-size: 1rem;
+    color: var(--black)
+}
+#consultores_section  .modalEditConsultor .boxLeft .boxInfos .boxInput input{
+    height: 40px;
+    border-radius: 8px;
+    outline: none;
+    border: 1px solid #a8a8a8;
+    padding: 0px 15px 0px 20px;
+    background-color: #fff;
+    font-size: .9rem;
+}
+#consultores_section  .modalEditConsultor .boxLeft .boxInfos #emailConsultorEdit,
+#consultores_section  .modalEditConsultor .boxLeft .boxInfos #cpfConsultorEdit,
+#consultores_section  .modalEditConsultor .boxLeft .boxInfos #dataNascConsultorEdit{
+    background-color: #e9e9e9;
+    background-image: url("../../assets/icon/bloq.svg");
+    background-position: center right 15px;
+    background-repeat: no-repeat;
+    background-size: 30px;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+#consultores_section  .modalEditConsultor .boxLeft .boxGrafico{
+    width: 100%;
+    height: 55%;
+    padding: 0px 2rem;
+}
+
+#consultores_section  .modalEditConsultor .boxLeft .boxGrafico .chart-container{
+    background: linear-gradient(45deg, #1A1A1A, #363636);
+    padding: 1rem;
+    border-radius: 10px;
+    width: 100%;
+    height: 100%;
+}
+
+
+
+
+
+#consultores_section  .modalEditConsultor .boxRight{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 25%;
+    height: 100%;
+}
+
+#consultores_section  .modalEditConsultor .boxRight h1{
+    font-size: 1rem;
+    font-weight: var(--font-weight-medium);
+    margin-bottom: 1rem;
+}
+
+#consultores_section  .modalEditConsultor .boxRight .fotoConsultor{
+    width: 100%;
+    height: 220px;
+    
+    background-image: url("../../assets/icon/User.svg");
+    background-position: center bottom;
+    background-repeat: no-repeat;
+    background-size: contain;
+}
+
+
+#consultores_section  .modalEditConsultor .boxRight .boxCards{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;    
+    align-items: center;
+    width: 100%;
+    height: 100%;
+    
+}
+
+#consultores_section  .modalEditConsultor .boxRight .boxCards .card{
+    width: 100%;
+    height: 140px;
+}
+#consultores_section  .modalEditConsultor .boxRight .boxCards .card:nth-child(2){
+    width: 100%;
+    height: 140px;
+    max-width: 350px;
+}
+
+
+#consultores_section  .modalEditConsultor .boxRight .boxCards .card .boxMeio{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: calc(100% - 90px);
+}
+#consultores_section  .modalEditConsultor .boxRight .boxCards .card .boxMeio h1{
+    font-size: 1.5rem;
+    margin-bottom: -10%;
+    color: var(--black);
+    font-weight: var(--font-weight-medium);
+}
+#consultores_section  .modalEditConsultor .boxRight .boxCards .card .boxRodape{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 30px;
+}
+#consultores_section  .modalEditConsultor .boxRight .boxCards .card .boxRodape h2{
+     font-size: .9rem;
+     text-align: center;
+    font-weight: var(--font-weight-medium);
+    position: absolute;
+    bottom: 15%;
+    color: #9E9E9E;
+}
+
+
+
+#consultores_section  .modalEditConsultor .boxRight .boxCards .card .boxMeioPadrao{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+}
+#consultores_section  .modalEditConsultor .boxRight .boxCards .card .boxMeioPadrao h1{
+    font-size: 2rem;
+    color: var(--black);
+    font-weight: var(--font-weight-medium);
+}
+
+#consultores_section  .modalEditConsultor .boxRight .boxCards .card .boxRodapePadrao{
+    position: absolute;
+    bottom: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 30px;
+}
+#consultores_section  .modalEditConsultor .boxRight .boxCards .card .boxRodapePadrao h2{
+     font-size: .9rem;
+    font-weight: var(--font-weight-medium);
+    color: #9E9E9E;
+}
+
 }
 
 @media screen and (max-width: 1330px){
@@ -1574,6 +1816,48 @@
     #clientes_section .modalPacotes {
         width: 95%;
     }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    
+
+
+
+
+
+
+
+
+
 } 
 @media screen and (max-width: 1024px){
     .menu{
@@ -2132,6 +2416,293 @@
     #consultores_section .modalCadastro #btnFechar:hover{
         background-size: 55px;
     }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+       /* Modal editar consultor */
+    
+#consultores_section  .modalEditConsultor{
+    justify-content: center;
+    width: 80%;
+    height: 90%;
+    border-radius: 15px;
+}
+
+#consultores_section  .modalEditConsultor .fecharModalEdit{
+    width: 40px;
+    height: 40px;
+    border-radius: 40px;
+    top: -10px;
+    right: -10px;
+    background-size: 40px;
+}  
+
+
+#consultores_section  .modalEditConsultor .boxLeft{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap:2rem;
+    padding: 0px 0rem;
+    width: 75%;
+    height: 95%;
+    
+}
+
+#consultores_section  .modalEditConsultor .boxLeft .btnAlteracaoConsultor{
+    width: 300px;
+    min-height: 40px;
+    margin-top: -1rem;
+    border-radius: 8px;
+    border: none;
+    background: linear-gradient(40deg, #0A3D56, #1B98E0);
+    color: var(--white);
+    font-size: 1rem;
+    font-weight: var(--font-weight-medium);
+    cursor: pointer;
+}
+
+#consultores_section  .modalEditConsultor .boxLeft .boxInfos{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 0px 1rem;
+    width: 100%;
+    height: auto;
+    gap: 1.5rem;
+    
+}
+#consultores_section  .modalEditConsultor .boxLeft .boxInfos .boxLeftInfo{
+    display: flex;
+    flex-direction: column;
+    width: 80%;
+    height: auto;
+    gap: .5rem;
+    
+
+}
+#consultores_section  .modalEditConsultor .boxLeft .boxInfos .boxRightInfo{
+    display: flex;
+    flex-direction: column;
+    width: 80%;
+    height: auto;
+    gap: .5rem;
+
+
+}
+
+#consultores_section  .modalEditConsultor .boxLeft .boxInfos .boxInput{
+    display: flex;
+    flex-direction: column;
+    gap: .3rem;
+}
+#consultores_section  .modalEditConsultor .boxLeft .boxInfos .boxInput label{
+   font-size: 1rem;
+    color: var(--black)
+}
+#consultores_section  .modalEditConsultor .boxLeft .boxInfos .boxInput input{
+    height: 40px;
+    border-radius: 8px;
+    outline: none;
+    border: 1px solid #a8a8a8;
+    padding: 0px 15px 0px 20px;
+    background-color: #fff;
+    font-size: .9rem;
+}
+#consultores_section  .modalEditConsultor .boxLeft .boxInfos #emailConsultorEdit,
+#consultores_section  .modalEditConsultor .boxLeft .boxInfos #cpfConsultorEdit,
+#consultores_section  .modalEditConsultor .boxLeft .boxInfos #dataNascConsultorEdit{
+    background-color: #e9e9e9;
+    background-image: url("../../assets/icon/bloq.svg");
+    background-position: center right 15px;
+    background-repeat: no-repeat;
+    background-size: 30px;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+#consultores_section  .modalEditConsultor .boxLeft .boxGrafico{
+    display: none;
+    width: 100%;
+    height: 55%;
+    padding: 0px 2rem;
+}
+
+#consultores_section  .modalEditConsultor .boxLeft .boxGrafico .chart-container{
+    background: linear-gradient(45deg, #1A1A1A, #363636);
+    padding: 1rem;
+    border-radius: 10px;
+    width: 100%;
+    height: 100%;
+}
+
+
+
+
+
+#consultores_section  .modalEditConsultor .boxRight{
+    display: none;
+    flex-direction: column;
+    align-items: center;
+    width: 25%;
+    height: 100%;
+}
+
+#consultores_section  .modalEditConsultor .boxRight h1{
+    font-size: 1rem;
+    font-weight: var(--font-weight-medium);
+    margin-bottom: 1rem;
+}
+
+#consultores_section  .modalEditConsultor .boxRight .fotoConsultor{
+    width: 100%;
+    height: 220px;
+    background-image: url("../../assets/icon/User.svg");
+    background-position: center bottom;
+    background-repeat: no-repeat;
+    background-size: contain;
+}
+
+
+#consultores_section  .modalEditConsultor .boxRight .boxCards{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;    
+    align-items: center;
+    width: 100%;
+    height: 100%;
+}
+
+#consultores_section  .modalEditConsultor .boxRight .boxCards .card{
+    width: 100%;
+    height: 140px;
+}
+#consultores_section  .modalEditConsultor .boxRight .boxCards .card:nth-child(2){
+    width: 100%;
+    height: 140px;
+    max-width: 350px;
+}
+
+
+#consultores_section  .modalEditConsultor .boxRight .boxCards .card .boxMeio{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: calc(100% - 90px);
+}
+#consultores_section  .modalEditConsultor .boxRight .boxCards .card .boxMeio h1{
+    font-size: 1.5rem;
+    margin-bottom: -10%;
+    color: var(--black);
+    font-weight: var(--font-weight-medium);
+}
+#consultores_section  .modalEditConsultor .boxRight .boxCards .card .boxRodape{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 30px;
+}
+#consultores_section  .modalEditConsultor .boxRight .boxCards .card .boxRodape h2{
+     font-size: .9rem;
+     text-align: center;
+    font-weight: var(--font-weight-medium);
+    position: absolute;
+    bottom: 15%;
+    color: #9E9E9E;
+}
+
+
+
+#consultores_section  .modalEditConsultor .boxRight .boxCards .card .boxMeioPadrao{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+}
+#consultores_section  .modalEditConsultor .boxRight .boxCards .card .boxMeioPadrao h1{
+    font-size: 2rem;
+    color: var(--black);
+    font-weight: var(--font-weight-medium);
+}
+
+#consultores_section  .modalEditConsultor .boxRight .boxCards .card .boxRodapePadrao{
+    position: absolute;
+    bottom: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 30px;
+}
+#consultores_section  .modalEditConsultor .boxRight .boxCards .card .boxRodapePadrao h2{
+     font-size: .9rem;
+    font-weight: var(--font-weight-medium);
+    color: #9E9E9E;
+}
+
 } 
 
 @media screen and (max-width: 900px){
@@ -2787,6 +3358,129 @@
     .divDuploInfo .boxInputs:nth-child(1){
         width: 100%;
     }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+     /* Modal editar consultor */
+    
+#consultores_section  .modalEditConsultor{
+    justify-content: center;
+    width: 80%;
+    height: 90%;
+    border-radius: 15px;
+    padding-left: 2rem;
+    padding-right: 2rem;
+}
+
+#consultores_section  .modalEditConsultor .fecharModalEdit{
+    width: 40px;
+    height: 40px;
+    border-radius: 40px;
+    top: -10px;
+    right: -10px;
+    background-size: 40px;
+}  
+
+
+#consultores_section  .modalEditConsultor .boxLeft{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap:2rem;
+    padding: 0px 0rem;
+    width: 90%;
+    height: 95%;
+}
+
+#consultores_section  .modalEditConsultor .boxLeft .btnAlteracaoConsultor{
+    width: 300px;
+    min-height: 40px;
+    margin-top: -1rem;
+    border-radius: 8px;
+    border: none;
+    background: linear-gradient(40deg, #0A3D56, #1B98E0);
+    color: var(--white);
+    font-size: 1rem;
+    font-weight: var(--font-weight-medium);
+    cursor: pointer;
+}
+
+#consultores_section  .modalEditConsultor .boxLeft .boxInfos{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 0px 0rem;
+    width: 100%;
+    height: auto;
+    gap: 1.5rem;
+}
+#consultores_section  .modalEditConsultor .boxLeft .boxInfos .boxLeftInfo{
+    width: 100%;
+
+}
+#consultores_section  .modalEditConsultor .boxLeft .boxInfos .boxRightInfo{
+    width: 100%;
+
+}
+
+#consultores_section  .modalEditConsultor .boxLeft .boxInfos .boxInput{
+    display: flex;
+    flex-direction: column;
+    gap: .3rem;
+}
+#consultores_section  .modalEditConsultor .boxLeft .boxInfos .boxInput label{
+   font-size: 1rem;
+    color: var(--black)
+}
+#consultores_section  .modalEditConsultor .boxLeft .boxInfos .boxInput input{
+    height: 40px;
+    border-radius: 8px;
+    outline: none;
+    border: 1px solid #a8a8a8;
+    padding: 0px 15px 0px 20px;
+    background-color: #fff;
+    font-size: .9rem;
+}
+#consultores_section  .modalEditConsultor .boxLeft .boxInfos #emailConsultorEdit,
+#consultores_section  .modalEditConsultor .boxLeft .boxInfos #cpfConsultorEdit,
+#consultores_section  .modalEditConsultor .boxLeft .boxInfos #dataNascConsultorEdit{
+    background-color: #e9e9e9;
+    background-image: url("../../assets/icon/bloq.svg");
+    background-position: center right 15px;
+    background-repeat: no-repeat;
+    background-size: 30px;
+}
+
+
+
+
+
+
 
 
 
@@ -4874,6 +5568,108 @@
     .boxInputs label{
         font-size: 1rem;
     }
+
+
+
+
+
+
+
+
+
+    
+     /* Modal editar consultor */
+    
+#consultores_section  .modalEditConsultor{
+    justify-content: center;
+    width: 80%;
+    height: 90%;
+    border-radius: 15px;
+    padding-left: .5rem;
+    padding-right: .5rem;
+}
+
+#consultores_section  .modalEditConsultor .fecharModalEdit{
+    width: 40px;
+    height: 40px;
+    border-radius: 40px;
+    top: -10px;
+    right: -10px;
+    background-size: 40px;
+}  
+
+
+#consultores_section  .modalEditConsultor .boxLeft{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap:2rem;
+    padding: 0px 0rem;
+    width: 100%;
+    height: 95%;
+}
+
+#consultores_section  .modalEditConsultor .boxLeft .btnAlteracaoConsultor{
+    width: 100%;
+    min-height: 40px;
+    margin-top: -1rem;
+    border-radius: 8px;
+    border: none;
+    background: linear-gradient(40deg, #0A3D56, #1B98E0);
+    color: var(--white);
+    font-size: 1rem;
+    font-weight: var(--font-weight-medium);
+    cursor: pointer;
+}
+
+#consultores_section  .modalEditConsultor .boxLeft .boxInfos{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 0px 0rem;
+    width: 100%;
+    height: auto;
+    gap: 1.5rem;
+}
+#consultores_section  .modalEditConsultor .boxLeft .boxInfos .boxLeftInfo{
+    width: 100%;
+}
+#consultores_section  .modalEditConsultor .boxLeft .boxInfos .boxRightInfo{
+    width: 100%;
+}
+
+#consultores_section  .modalEditConsultor .boxLeft .boxInfos .boxInput{
+    display: flex;
+    flex-direction: column;
+    gap: .3rem;
+}
+#consultores_section  .modalEditConsultor .boxLeft .boxInfos .boxInput label{
+   font-size: 1rem;
+    color: var(--black)
+}
+#consultores_section  .modalEditConsultor .boxLeft .boxInfos .boxInput input{
+    height: 40px;
+    border-radius: 8px;
+    outline: none;
+    border: 1px solid #a8a8a8;
+    padding: 0px 15px 0px 20px;
+    background-color: #fff;
+    font-size: .9rem;
+}
+#consultores_section  .modalEditConsultor .boxLeft .boxInfos #emailConsultorEdit,
+#consultores_section  .modalEditConsultor .boxLeft .boxInfos #cpfConsultorEdit,
+#consultores_section  .modalEditConsultor .boxLeft .boxInfos #dataNascConsultorEdit{
+    background-color: #e9e9e9;
+    background-image: url("../../assets/icon/bloq.svg");
+    background-position: center right 15px;
+    background-repeat: no-repeat;
+    background-size: 30px;
+}
+
+
+
 }
 @media screen and (max-width: 420px){
     /* sessão de cliente Pacotes */

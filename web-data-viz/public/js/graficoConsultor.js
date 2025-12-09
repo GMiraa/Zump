@@ -1,27 +1,24 @@
-  const ctxC = document
-    .getElementById("rendaMensalChartConsultor")
-    .getContext("2d");
+const canvasC = document.getElementById("rendaMensalChartConsultor");
+const ctxC = canvasC.getContext("2d");
 
-  // Gradiente azul moderno
+// Variável global para recriar quando redimensionar
+let rendaMensalChartConsultor;
+
+function criarGraficoConsultor() {
+  // destruir se já existir
+  if (rendaMensalChartConsultor) rendaMensalChartConsultor.destroy();
+
+  const isMobile = window.innerWidth < 450;
+
+  // gradiente recriado sempre
   const gradient = ctxC.createLinearGradient(0, 0, 0, 400);
-  gradient.addColorStop(0, "#4dc8ff"); // azul claro
-  gradient.addColorStop(1, "#0066ff"); // azul forte
+  gradient.addColorStop(0, "#4dc8ff");
+  gradient.addColorStop(1, "#0066ff");
 
-  const rendaMensalChartConsultor = new Chart(ctxC, {
+  rendaMensalChartConsultor = new Chart(ctxC, {
     type: "bar",
     data: {
-      labels: [
-        "jan",
-        "fev",
-        "mar",
-        "abr",
-        "mai",
-        "jun",
-        "jul",
-        "ago",
-        "set",
-        "out",
-      ],
+      labels: ["jan", "fev", "mar", "abr", "mai", "jun", "jul", "ago", "set", "out"],
       datasets: [
         {
           label: "Faturamento (R$ mil)",
@@ -34,10 +31,16 @@
         },
       ],
     },
+
     options: {
       responsive: true,
       maintainAspectRatio: false,
-      layout: { padding: 10 },
+
+      layout: {
+        padding: isMobile
+          ? { top: 10, bottom: 10, left: 5, right: 5 }
+          : { top: 20, bottom: 20, left: 10, right: 10 },
+      },
 
       plugins: {
         title: {
@@ -45,15 +48,13 @@
           text: "Faturamento Mensal do Consultor",
           color: "#dceaff",
           font: {
-            size: 20,
+            size: isMobile ? 14 : 20,
             weight: "bold",
           },
-          padding: { bottom: 25 },
+          padding: { bottom: isMobile ? 10 : 25 },
         },
 
-        legend: {
-          display: false,
-        },
+        legend: { display: false },
 
         tooltip: {
           backgroundColor: "#0d0f1a",
@@ -64,21 +65,17 @@
           cornerRadius: 10,
           padding: 12,
           displayColors: false,
-          shadowOffsetX: 2,
-          shadowOffsetY: 2,
-          shadowBlur: 8,
-          shadowColor: "rgba(0,150,255,0.4)",
         },
 
         datalabels: {
           color: "#ffffff",
           anchor: "end",
           align: "top",
+          offset: -2,
           font: {
             weight: "bold",
-            size: 12,
+            size: isMobile ? 10 : 12,
           },
-          offset: -2,
           formatter: (value) => `R$ ${value}k`,
         },
       },
@@ -88,18 +85,18 @@
           beginAtZero: true,
           ticks: {
             color: "#b8d4ff",
-            font: { size: 12 },
+            font: { size: isMobile ? 10 : 12 },
             callback: (value) => `R$ ${value}k`,
           },
           grid: {
             color: "#444444",
-            lineWidth: 1,
           },
         },
+
         x: {
           ticks: {
             color: "#b8d4ff",
-            font: { size: 12 },
+            font: { size: isMobile ? 10 : 12 },
           },
           grid: { display: false },
         },
@@ -108,4 +105,10 @@
 
     plugins: [ChartDataLabels],
   });
+}
 
+// cria ao carregar
+criarGraficoConsultor();
+
+// recria ao redimensionar
+window.addEventListener("resize", criarGraficoConsultor);
