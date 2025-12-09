@@ -12,7 +12,7 @@
 
 
 #consultores_section  .modalEditConsultor{
-    display: flex;
+    display: none;
     flex-direction: row;
     gap: 1rem;
     position: absolute;
