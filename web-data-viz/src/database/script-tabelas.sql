@@ -8,12 +8,7 @@ CREATE TABLE IF NOT EXISTS empresa (
     CNPJ varchar(25) NOT NULL
 );
 
-CREATE TABLE IF NOT EXISTS acao (
-    idAcao INT NOT NULL,
-    descricao VARCHAR(45) NOT NULL,
-    acao VARCHAR(45) NOT NULL,
-    PRIMARY KEY (`idAcao`)
-);
+select * from empresa;
 
 CREATE TABLE IF NOT EXISTS pacote (
     idPacote INT auto_increment,
@@ -22,9 +17,16 @@ CREATE TABLE IF NOT EXISTS pacote (
     qtd_dia INT NOT NULL,
     qtd_noite INT NOT NULL,
     preco DECIMAL(10,2) NOT NULL,
+    cidade VARCHAR(60) NOT NULL,
+    uf CHAR(2) NOT NULL,
+    FkEmpresa INT NOT NULL,
+	CONSTRAINT fkEmpresaPacote FOREIGN KEY (FkEmpresa) REFERENCES empresa(idEmpresa),
     PRIMARY KEY (`idPacote`)
 );
 
+drop table pacote;
+drop table vendas;
+drop table historicoPacote;
 -- Tabelas com Dependências
 CREATE TABLE IF NOT EXISTS cliente (
     idCliente INT NOT NULL AUTO_INCREMENT,
@@ -47,14 +49,17 @@ CREATE TABLE IF NOT EXISTS usuario (
     cargo VARCHAR(45) NOT NULL,
     email VARCHAR(45) NOT NULL,
     senha VARCHAR(256) NOT NULL,
-    bloquado BOOLEAN,
+    bloqueado BOOLEAN,
     ativo BOOLEAN,
+    DtCriacao DATETIME DEFAULT CURRENT_TIMESTAMP,
     FkEmpresa INT NOT NULL,
     superior INT,
     PRIMARY KEY (`idUsuario`),
     CONSTRAINT fkSuperior FOREIGN KEY (superior) REFERENCES usuario(idUsuario),
     CONSTRAINT fkEmpresa FOREIGN KEY (FkEmpresa) REFERENCES empresa(idEmpresa)
 );
+
+desc usuario;
 
 CREATE TABLE IF NOT EXISTS vendas (
     idVenda INT PRIMARY KEY auto_increment,
@@ -68,47 +73,57 @@ CREATE TABLE IF NOT EXISTS vendas (
 	FOREIGN KEY (idCliente) REFERENCES cliente(idCliente)
 );
 
-CREATE TABLE IF NOT EXISTS logs (
-    fk_acao INT NOT NULL AUTO_INCREMENT,
-    fk_usuario INT NOT NULL,
-    data DATE NOT NULL,
-    descricao VARCHAR(100) NOT NULL,
-    PRIMARY KEY (`fk_acao`, `fk_usuario`),
-    INDEX `fk_acao_has_usuario_usuario1_idx` (`fk_usuario`),
-    INDEX `fk_acao_has_usuario_acao_idx` (`fk_acao`),
-    CONSTRAINT `fk_acao_has_usuario_acao` FOREIGN KEY (`fk_acao`) REFERENCES `acao` (`idAcao`),
-    CONSTRAINT `fk_acao_has_usuario_usuario1` FOREIGN KEY (`fk_usuario`) REFERENCES `usuario` (`idUsuario`)
+drop table DESTINO;
+drop table historico_vendas;
+
+show tables;
+
+CREATE TABLE DESTINO(
+    ID INT PRIMARY KEY AUTO_INCREMENT,
+    uf CHAR(2),
+    municipio VARCHAR(60),
+    possui_aeroporto BOOLEAN,
+    possui_guia BOOLEAN,
+    qtd_guia INT,
+    modais_acesso VARCHAR(100),
+    possui_conservacao BOOLEAN,
+    possui_termais BOOLEAN,
+    presenca_hidrica VARCHAR(100)
 );
 
-CREATE TABLE IF NOT EXISTS avaliacao (
-    pkPacote INT NOT NULL,
-    pkCliente INT NOT NULL,
-    idAvaliacao INT NOT NULL AUTO_INCREMENT,
-    nota INT NOT NULL,
-    PRIMARY KEY (`idAvaliacao`),
-    INDEX `fk_pacote_has_cliente_cliente1_idx` (`pkCliente`),
-    INDEX `fk_pacote_has_cliente_pacote1_idx` (`pkPacote`),
-    CONSTRAINT `fk_pacote_has_cliente_pacote1` FOREIGN KEY (`pkPacote`) REFERENCES `pacote` (`idPacote`),
-    CONSTRAINT `fk_pacote_has_cliente_cliente1` FOREIGN KEY (`pkCliente`) REFERENCES `cliente` (`idCliente`)
+CREATE TABLE IF NOT EXISTS historico_vendas (
+  idHistoricoVendas INT NOT NULL AUTO_INCREMENT,
+  cidade VARCHAR(45),
+  uf VARCHAR(45),
+  turistas INT,
+  cluster VARCHAR(45),
+  fkDestino INT NOT NULL,
+  PRIMARY KEY (idHistoricoVendas),
+  INDEX idx_histvend_destino (fkDestino),
+  CONSTRAINT fk_histvend_destino FOREIGN KEY (fkDestino)
+    REFERENCES DESTINO(ID)
 );
 
-CREATE TABLE IF NOT EXISTS destino (
-    idDestino INT NOT NULL AUTO_INCREMENT,
-    pkPacote INT NOT NULL,
-    uf CHAR(2) NOT NULL,
-    municipio VARCHAR(60) NOT NULL,
-    possui_aeroporto TINYINT NOT NULL,
-    possui_guia TINYINT NOT NULL,
-    qtd_guia INT NOT NULL,
-    modais_acesso VARCHAR(100) NOT NULL,
-    possui_conservacao TINYINT NOT NULL,
-    possui_termais TINYINT NOT NULL,
-    presenca_hidrica VARCHAR(45) NOT NULL,
-    destinocol VARCHAR(45) NOT NULL,
-    PRIMARY KEY (`idDestino`, `pkPacote`),
-    INDEX `fk_destino_pacote1_idx` (`pkPacote`),
-    CONSTRAINT `fk_destino_pacote1` FOREIGN KEY (`pkPacote`) REFERENCES `pacote` (`idPacote`)
+CREATE TABLE IF NOT EXISTS historicoPacote (
+  idHistoricoPacote INT NOT NULL AUTO_INCREMENT,
+  fkDestino INT NOT NULL,
+  fkPacote INT NOT NULL,
+  PRIMARY KEY (idHistoricoPacote),
+  INDEX idx_histpac_destino (fkDestino),
+  INDEX idx_histpac_pacote (fkPacote),
+  CONSTRAINT fk_histpac_destino FOREIGN KEY (fkDestino)
+    REFERENCES DESTINO(ID),
+  CONSTRAINT fk_histpac_pacote FOREIGN KEY (fkPacote)
+    REFERENCES pacote(idPacote)
 );
+
+CREATE TABLE LOG_EXCEL (
+     id BIGINT AUTO_INCREMENT PRIMARY KEY,
+     data_hora VARCHAR(20) NOT NULL,
+     acao VARCHAR(50) NOT NULL,
+     arquivo VARCHAR(100) NOT NULL,
+     detalhes VARCHAR(1000)
+     );
 
 -- Inserir uma empresa
 
@@ -134,6 +149,8 @@ INSERT INTO pacote (nome, descricao, qtd_dia, qtd_noite, preco) VALUES
 drop table pacote;
 
 INSERT INTO pacote values (default, "Maldivas", "blablabla", 7, 6, 10000);
+
+select * from vendas;
 
 -- 2. Inserir Vendas
 -- Janeiro
@@ -218,19 +235,19 @@ INSERT INTO vendas (idPacote, idUsuario, idCliente, dataVenda, quantidade) VALUE
 
 -- Novembro
 INSERT INTO vendas (idPacote, idUsuario, idCliente, dataVenda, quantidade) VALUES
-(1, 3, 3, '2025-11-02', 2),
-(4, 4, 1, '2025-11-05', 1),
-(6, 5, 5, '2025-11-10', 2),
-(8, 3, 2, '2025-11-14', 1),
-(10, 4, 4, '2025-11-20', 3);
+(1, 1, 3, '2025-11-02', 2),
+(4, 2, 1, '2025-11-05', 1),
+(6, 3, 5, '2025-11-10', 2),
+(8, 4, 2, '2025-11-14', 1),
+(10, 1, 4, '2025-11-20', 3);
 
 -- Dezembro
 INSERT INTO vendas (idPacote, idUsuario, idCliente, dataVenda, quantidade) VALUES
-(2, 5, 1, '2025-12-03', 2),
-(5, 3, 2, '2025-12-06', 1),
-(7, 4, 3, '2025-12-09', 3),
-(9, 5, 4, '2025-12-14', 2),
-(11, 3, 5, '2025-12-20', 1);
+(2, 1, 1, '2025-12-03', 2),
+(5, 2, 2, '2025-12-06', 1),
+(7, 3, 3, '2025-12-09', 3),
+(9, 4, 4, '2025-12-14', 2),
+(11, 1, 5, '2025-12-20', 1);
 
 show tables;
 
@@ -324,3 +341,59 @@ SELECT
 FROM vendas v
 JOIN pacote p ON v.idPacote = p.idPacote
 WHERE YEAR(v.dataVenda) = YEAR(CURDATE());
+
+INSERT INTO pacote (nome, descricao, qtd_dia, qtd_noite, preco, cidade, uf, FkEmpresa) VALUES 
+
+-- Pacotes da Empresa 1 (Ex: Zump Viagens)
+
+('Fim de Semana na Praia', 'Relaxamento total no litoral', 3, 2, 850.00, 'Praia Grande', 'SP', 1),
+
+('Inverno na Serra', 'Frio, fondue e lareira', 4, 3, 1500.00, 'Campos do Jordão', 'SP', 1),
+
+('Ubatuba Natureza', 'Trilhas e praias preservadas', 5, 4, 1200.00, 'Ubatuba', 'SP', 1);
+
+
+INSERT INTO pacote (nome, descricao, qtd_dia, qtd_noite, preco, cidade, uf, FkEmpresa) VALUES 
+-- RIO DE JANEIRO (RJ)
+('Cidade Maravilhosa', 'Cristo Redentor, Pão de Açúcar e praias', 5, 4, 2200.00, 'Rio de Janeiro', 'RJ', 1),
+('Charme em Paraty', 'Centro histórico colonial e passeios de barco', 4, 3, 1800.00, 'Paraty', 'RJ', 1),
+('Búzios Vip', 'Rua das Pedras e praias cristalinas', 3, 2, 1600.00, 'Armação dos Búzios', 'RJ', 1),
+
+-- MINAS GERAIS (MG)
+('História e Arte', 'Igrejas barrocas e museus históricos', 3, 2, 950.00, 'Ouro Preto', 'MG', 1),
+('Mar de Minas', 'Canyons, cachoeiras e lanchas', 4, 3, 1600.00, 'Capitólio', 'MG', 1),
+('Termas e Relax', 'Águas termais e parques', 3, 2, 800.00, 'Poços de Caldas', 'MG', 1),
+
+-- BAHIA (BA)
+('Axé Pelourinho', 'Cultura, gastronomia e Farol da Barra', 6, 5, 2500.00, 'Salvador', 'BA', 1),
+('Rota do Descobrimento', 'Praias paradisíacas e muita festa', 7, 6, 3000.00, 'Porto Seguro', 'BA', 1),
+('Chapada Diamantina', 'Trilhas, grutas e cachoeiras incríveis', 5, 4, 2100.00, 'Lençóis', 'BA', 1),
+
+-- SANTA CATARINA (SC)
+('Ilha da Magia', 'Praias do norte e sul da ilha', 5, 4, 2100.00, 'Florianópolis', 'SC', 1),
+('Beto Carrero Trip', 'Diversão no maior parque da América Latina', 4, 3, 1900.00, 'Penha', 'SC', 1),
+('Oktoberfest Tour', 'Cultura alemã e cervejarias', 3, 2, 1200.00, 'Blumenau', 'SC', 1),
+
+-- RIO GRANDE DO SUL (RS)
+('Natal Luz', 'Encanto, frio e chocolate na serra', 5, 4, 3500.00, 'Gramado', 'RS', 1),
+('Vale dos Vinhedos', 'Degustação de vinhos e paisagens', 4, 3, 1750.00, 'Bento Gonçalves', 'RS', 1),
+
+-- PARANÁ (PR)
+('Cataratas do Iguaçu', 'Natureza exuberante e compras', 4, 3, 1400.00, 'Foz do Iguaçu', 'PR', 1),
+('Jardim Botânico', 'Passeio pelos parques de Curitiba', 3, 2, 750.00, 'Curitiba', 'PR', 1),
+
+-- CEARÁ (CE)
+('Paraíso das Dunas', 'Passeios de buggy e lagoas azuis', 5, 4, 2800.00, 'Jericoacoara', 'CE', 1),
+('Beach Park & Sol', 'Diversão aquática e praia do futuro', 4, 3, 2300.00, 'Fortaleza', 'CE', 1),
+
+-- PERNAMBUCO (PE)
+('Piscinas Naturais', 'Mergulho e resorts beira-mar', 6, 5, 3200.00, 'Porto de Galinhas', 'PE', 1),
+('Frevo e Olinda', 'Cultura e carnaval o ano todo', 4, 3, 1500.00, 'Recife', 'PE', 1),
+
+-- GOIÁS (GO)
+('Águas Quentes', 'Relaxamento nos maiores parques aquáticos', 3, 2, 1100.00, 'Caldas Novas', 'GO', 1),
+
+-- AMAZONAS (AM)
+('Expedição Amazônia', 'Hotel de selva e encontro das águas', 6, 5, 4200.00, 'Manaus', 'AM', 1);
+
+truncate table pacote;
