@@ -52,7 +52,7 @@
               <div class="boxInputs">
                 <h2>Selecione um estado</h2>
                 <select name="estado" id="estadoPacote">
-                  <option value="" disabled selected>Selecione</option>
+                  <option value="" selected>Selecione</option>
                   <option value="AC">AC</option>
                   <option value="AL">AL</option>
                   <option value="AP">AP</option>
@@ -81,6 +81,10 @@
                   <option value="SE">SE</option>
                   <option value="TO">TO</option>
                 </select>
+              </div>
+              <div class="boxInputs">
+                <h2>Insira uma cidade</h2>
+                <input type="text" placeholder="Nome da cidade..." id="input_cidade">
               </div>
               <div class="boxInputs">
                 <h2>Locais disponíveis</h2>
@@ -113,7 +117,7 @@
                     <input type="number" id="precoPacoteUsuario" placeholder="R$...">
                   </div>
                   <div>
-                    <button class="confirmarPacote" onclick="buscarSugestoes()"></button>
+                    <button class="confirmarPacote" onclick="buscarSugestoes()">Procurar pacotes</button>
                   </div>
                 </div>
               </div>
@@ -127,7 +131,8 @@
             <h2>Pacotes sugeridos</h2>
             <div class="box_opcoes">
               <div class="box_cards" id="Sugestoes">
-                
+                <br><br><br>
+                <p>Insira dados ao lado para continuar...</p>
               </div>
             </div>
           </div>
@@ -353,7 +358,8 @@
   var infosConsultorAtual = [];
   var infosCliente = [];
   var ListaPacotes = [];
-  var ListaPacotesSugeridos = [];
+  var listaPacotes
+  var listaSugestoes = [];
 
   function carregarFuncoes(){
 
@@ -769,12 +775,6 @@ async function BuscarPacoteSCadastrados(idCliente) {
     const dados = await resposta.json();
     ListaPacotes = dados;
     
-    if(ListaPacotes.length == 0){
-
-      Lista_pacotes_cadastrados.innerHTML = `Não há pacotes cadastrados!`;
-
-    }
-
     Lista_pacotes_cadastrados.innerHTML = ``;
     
     for(var i = 0; i < ListaPacotes.length; i++){
@@ -802,74 +802,120 @@ async function BuscarPacoteSCadastrados(idCliente) {
 }
 
 async function buscarSugestoes() {
+    
+    var uf = document.getElementById("estadoPacote").value;
+    var cidadeInput = document.getElementById("input_cidade"); // Certifique-se que o ID no HTML é esse
+    var cidade = cidadeInput ? cidadeInput.value : "";
+    
+    var Praia = document.getElementById("Praia").checked;
+    var Aeroporto = document.getElementById("Aeroporto").checked;
+    var Rios = document.getElementById("Rios").checked;
 
-  var uf = document.getElementById("estadoPacote").value;
-  var Praia = document.getElementById("Praia").checked;
-  var Aeroporto = document.getElementById("Aeroporto").checked;
-  var Rios = document.getElementById("Rios").checked;
-  
-  // Definição das Regiões para comparação
-  const regioes = {
-      sudeste: ['SP', 'RJ', 'MG', 'ES'],
-      sul: ['PR', 'SC', 'RS'],
-      nordeste: ['BA', 'SE', 'AL', 'PE', 'PB', 'RN', 'CE', 'PI', 'MA']
-  };
+    if (uf == "") {
+        alert("Selecione um estado.");
+        return;
+    }
 
-  try {
-      const resposta = await fetch(`/dashboard/BuscarSugestoes/${uf}/${Praia}/${Aeroporto}/${Rios}`);
-      const dados = await resposta.json();
-      ListaPacotesSugeridos = dados;
+    // Se cidade estiver vazia, define um valor padrão para não quebrar a rota
+    var cidadeBusca = cidade.trim() === "" ? "Todas" : cidade;
 
-      Sugestoes.innerHTML = ``;
-
-      for(var i = 0; i < ListaPacotesSugeridos.length; i++){
+    try {
+        const respPacotes = await fetch(`/dashboard/buscarPacotesExistentes/${uf}/${cidadeBusca}/${fkempresa}`);
+        listaPacotes = await respPacotes.json();
         
-        let ufPacote = ListaPacotesSugeridos[i].uf;
-        let min, max;
+        const divPacotes = document.getElementById("Lista_pacotes_cadastrados");
+        divPacotes.innerHTML = ``;
 
-        if (regioes.sudeste.includes(ufPacote)) {
-            min = 3000; 
-            max = 5500;
-        } else if (regioes.sul.includes(ufPacote)) {
-            min = 2000; 
-            max = 3500;
-        } else if (regioes.nordeste.includes(ufPacote)) {
-            min = 1500; 
-            max = 2500;
+        if (listaPacotes.length === 0) {
+            divPacotes.innerHTML = `<p style="color:white; padding:10px;">Nenhum pacote cadastrado encontrado.</p>`;
         } else {
-            min = 800; 
-            max = 1400;
-        }
+            for (let i = 0; i < listaPacotes.length; i++) {
+                let precoReal = new Intl.NumberFormat('pt-BR', { style: 'currency', currency: 'BRL' }).format(listaPacotes[i].preco);
 
-        let valorGerado = Math.floor(Math.random() * (max - min + 1)) + min;
-
-        let precoFormatado = new Intl.NumberFormat('pt-BR', { style: 'currency', currency: 'BRL' }).format(valorGerado);
-
-        Sugestoes.innerHTML += `<div class="card2">
+                divPacotes.innerHTML += `<div class="card2">
                     <div class="conteudoCardPacote">
                       <div class="estado_pacote">
-                        <h2>Estado do pacote: ${ufPacote}</h2>
+                        <h2>${listaPacotes[i].uf}</h2>
                         <div class="iconPacote pacoteAcao"></div>
                       </div>
                       <div class="info_pacote">
-                        <p>Local do pacote: ${ListaPacotesSugeridos[i].cidade}</p>
-                        <p>Preço: ${precoFormatado}</p>
+                        <p>${listaPacotes[i].cidade}</p>
+                        <p>${listaPacotes[i].nome}</p> 
+                        <p>Preço: ${precoReal}</p>
                       </div>
                     </div>
                     <div class="btnConsultor">
-                      <input type="number" min="1" value="1" style="width: 50px; margin-right: 10px; border-radius: 5px; border: 1px solid #ccc; padding-left: 5px;">
-                      
+                      <input type="number" min="1" value="1" style="width: 50px; margin-right: 10px;">
                       <button
-                          onclick="adicionarPacote(this, ${ListaPacotesSugeridos[i].idPacote}, ${idClienteSelecionado}, ${id})"
+                          onclick="adicionarPacote(this, ${listaPacotes[i].idPacote}, ${idClienteSelecionado}, ${id})"
                           class="btnAdicionarPacote"
                       ></button>
                     </div>
                   </div>`;
-      }
+            }
+        }
+    } catch (erro) {
+        console.error("Erro ao buscar pacotes existentes:", erro);
+    }
 
-  } catch (erro) {
-      console.error("Erro ao buscar sugestões:", erro);
-  }
+    const regioes = {
+        sudeste: ['SP', 'RJ', 'MG', 'ES'],
+        sul: ['PR', 'SC', 'RS'],
+        nordeste: ['BA', 'SE', 'AL', 'PE', 'PB', 'RN', 'CE', 'PI', 'MA']
+    };
+
+    try {
+        const respSugestoes = await fetch(`/dashboard/BuscarSugestoes/${uf}/${cidadeBusca}/${Praia}/${Aeroporto}/${Rios}`);
+        listaSugestoes = await respSugestoes.json();
+        
+        const divSugestoes = document.getElementById("Sugestoes");
+        divSugestoes.innerHTML = ``;
+
+        for (let i = 0; i < listaSugestoes.length; i++) {
+            let ufPacote = listaSugestoes[i].uf;
+            let min, max;
+
+            // Lógica de Preço
+            if (regioes.sudeste.includes(ufPacote)) {
+                min = 3000; max = 5500;
+            } else if (regioes.sul.includes(ufPacote)) {
+                min = 2000; max = 3500;
+            } else if (regioes.nordeste.includes(ufPacote)) {
+                min = 1500; max = 2500;
+            } else {
+                min = 800; max = 1400;
+            }
+
+            let valorGerado = Math.floor(Math.random() * (max - min + 1)) + min;
+            let precoFormatado = new Intl.NumberFormat('pt-BR', { style: 'currency', currency: 'BRL' }).format(valorGerado);
+            
+            // Tratamento caso venha de DESTINO (sem idPacote) ou PACOTE
+            let idPacoteSugestao = listaSugestoes[i].idPacote || 0; 
+
+            divSugestoes.innerHTML += `<div class="card2">
+                    <div class="conteudoCardPacote">
+                      <div class="estado_pacote">
+                        <h2>${ufPacote}</h2>
+                        <div class="iconPacote pacoteAcao"></div>
+                      </div>
+                      <div class="info_pacote">
+                        <p>${listaSugestoes[i].municipio}</p>
+                        <p>Sugerido</p>
+                        <p>Preço: ${precoFormatado}</p>
+                      </div>
+                    </div>
+                    <div class="btnConsultor">
+                      <input type="number" min="1" value="1" style="width: 50px; margin-right: 10px;">
+                      <button
+                          onclick="adicionarPacote(this, ${idPacoteSugestao}, ${idClienteSelecionado}, ${id})"
+                          class="btnAdicionarPacote"
+                      ></button>
+                    </div>
+                  </div>`;
+        }
+    } catch (erro) {
+        console.error("Erro ao buscar sugestões:", erro);
+    }
 }
 
 </script>

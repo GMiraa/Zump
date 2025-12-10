@@ -474,11 +474,12 @@ function cadastrarVenda(req, res) {
     function BuscarSugestoes(req, res) {
     
     var UF = req.params.uf;
+    var Cidade = req.params.cidade;
     var Aeroporto = req.params.Aeroporto;
     var Praia = req.params.Praia;
     var Rios = req.params.Rios
 
-    dashboardModel.BuscarSugestoes(UF, Aeroporto, Praia, Rios)
+    dashboardModel.BuscarSugestoes(UF, Cidade, Aeroporto, Praia, Rios)
         .then(resultado => {
             if (resultado.length > 0) {
                 res.status(200).json(resultado);
@@ -525,6 +526,28 @@ function buscarPacotesMaisVendidos(req, res) {
         });
 }
 
+function buscarPacotesExistentes(req, res) {
+    
+    var UF = req.params.uf;
+    var Cidade = req.params.cidade;
+    var FkEmpresa = req.params.fkempresa;
+
+    if(Cidade === "Todas") Cidade = "";
+
+    dashboardModel.buscarPacotesExistentes(UF, Cidade, FkEmpresa)
+        .then(function (resultado) {
+            if (resultado.length > 0) {
+                res.status(200).json(resultado);
+            } else {
+                res.status(204).send("Nenhum resultado encontrado!");
+            }
+        }).catch(function (erro) {
+            console.log(erro);
+            console.log("Houve um erro ao buscar os pacotes: ", erro.sqlMessage);
+            res.status(500).json(erro.sqlMessage);
+        });
+}
+
 module.exports = {
     buscarValores,
     cadastrarCliente,
@@ -549,5 +572,6 @@ module.exports = {
     cadastrarVenda,
     BuscarSugestoes,
     buscarDadosTurismo,
-    buscarPacotesMaisVendidos
+    buscarPacotesMaisVendidos,
+    buscarPacotesExistentes
 }

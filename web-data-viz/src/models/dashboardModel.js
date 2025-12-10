@@ -390,27 +390,27 @@ function cadastrarVenda(idCliente, idUsuario, idPacote, QuantidadePacote, data){
     return database.executar(instrucaoSql);
   }
 
-  function BuscarSugestoes(UF, Aeroporto, Praia, Rios) {
-    
+  function BuscarSugestoes(UF, Cidade, Aeroporto, Praia, Rios) {
+
     var instrucaoSql = `
         SELECT *, 
         (
-            (CASE WHEN uf = '${UF}' THEN 50 ELSE 0 END) +
+            (CASE WHEN uf = '${UF}' THEN 30 ELSE 0 END) +
+            (CASE WHEN municipio LIKE '%${Cidade}%' AND '${Cidade}' != '' THEN 40 ELSE 0 END) +
             
-            (CASE WHEN possui_aeroporto = ${Aeroporto} THEN 20 ELSE 0 END) +
-            (CASE WHEN possui_termais = ${Praia} THEN 15 ELSE 0 END) +
-            (CASE WHEN presenca_hidrica = ${Rios} THEN 15 ELSE 0 END)
+            (CASE WHEN possui_aeroporto = ${Aeroporto} THEN 10 ELSE 0 END) +
+            (CASE WHEN possui_termais = ${Praia} THEN 10 ELSE 0 END) +
+            (CASE WHEN presenca_hidrica = ${Rios} THEN 10 ELSE 0 END)
         ) AS score_relevancia
         
         FROM DESTINO
         
         HAVING score_relevancia > 0
-        
         ORDER BY score_relevancia DESC
         LIMIT 5;
     `;
 
-    console.log("Executando a instrução SQL: \n" + instrucaoSql);
+    console.log("Executando: " + instrucaoSql);
     return database.executar(instrucaoSql);
 }
 
@@ -448,6 +448,41 @@ function buscarTop3Cidades() {
     return database.executar(instrucaoSql);
 }
 
+function buscarPacotesExistentes(uf, cidade, FkEmpresa) {
+    
+    if(cidade == "" && uf == ""){
+
+        var instrucaoSql = `
+                SELECT * FROM pacote WHERE FkEmpresa = ${FkEmpresa};
+            `;
+
+            console.log("Executando: " + instrucaoSql);
+            return database.executar(instrucaoSql);
+
+    }
+    else {
+
+    var instrucaoSql = `
+        SELECT *, 
+        (
+            -- Pontuação:
+            (CASE WHEN uf = '${uf}' AND cidade LIKE '%${cidade}%' THEN 100 ELSE 0 END) + -- Match Perfeito (Cidade+UF)
+            (CASE WHEN uf = '${uf}' THEN 50 ELSE 0 END) -- Match só de UF
+        ) AS score_similaridade
+        
+        FROM pacote
+        
+        WHERE uf = '${uf}' AND FkEmpresa = ${FkEmpresa}
+        
+        ORDER BY score_similaridade DESC
+        LIMIT 5;
+    `;
+
+    console.log("Executando: " + instrucaoSql);
+    return database.executar(instrucaoSql);
+    }
+}
+
 module.exports = {
     buscarValores,
     cadastrarCliente,
@@ -477,5 +512,6 @@ module.exports = {
     cadastrarVenda,
     BuscarSugestoes,
     buscarPacotesMaisVendidos,
-    buscarTop3Cidades
+    buscarTop3Cidades,
+    buscarPacotesExistentes
 };

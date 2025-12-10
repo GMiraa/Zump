@@ -87,7 +87,7 @@ router.post("/cadastrarVenda/", function (req, res) {
     dashboardController.cadastrarVenda(req, res);
 });
 
-router.get("/BuscarSugestoes/:uf/:Praia/:Aeroporto/:Rios", function (req, res) {
+router.get("/BuscarSugestoes/:uf/:cidade/:Praia/:Aeroporto/:Rios", function (req, res) {
     dashboardController.BuscarSugestoes(req, res);
 });
 
@@ -97,6 +97,10 @@ router.get("/dadosTurismo", function (req, res) {
 
 router.get("/visitasPacotes/:fkempresa", function (req, res) {
     dashboardController.buscarPacotesMaisVendidos(req, res);
+});
+
+router.get("/buscarPacotesExistentes/:uf/:cidade/:fkempresa", function (req, res) {
+    dashboardController.buscarPacotesExistentes(req, res);
 });
 
 module.exports = router;

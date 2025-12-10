@@ -108,7 +108,7 @@
     width: 70%;
 }
 
-#clientes_section .modalPacotes .coteudosPacote .boxLeft .box_top .boxInputs h2{
+#clientes_section .modalPacotes .coteudosPacote .boxLeft .box_top .boxInputs h3{
     font-size: var(--font-size-larguer);
     font-weight: var(--font-weight-regular);
     width: 75%;
@@ -173,12 +173,13 @@
 #clientes_section .modalPacotes .coteudosPacote .boxLeft .box_top .boxInputs .boxBtn .confirmarPacote{
     height: 50px;
     width: 100%;
-    border-radius: 50px;
+    border-radius: 20px;
     border: none;
     outline: none;
-    background-image: url("../../assets/icon/Done.svg"), linear-gradient(45deg, #0F537A, #1C98E0);
+    color: white;
+    background-image: linear-gradient(45deg, #0F537A, #1C98E0);;
     background-position: center, center;
-    background-size: 30px, cover;
+    background-size: cover;
     background-repeat: no-repeat, no-repeat;
     cursor: pointer;
     transition: all .6s;
