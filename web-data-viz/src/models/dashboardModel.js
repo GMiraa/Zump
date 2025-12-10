@@ -414,23 +414,18 @@ function cadastrarVenda(idCliente, idUsuario, idPacote, QuantidadePacote, data){
     return database.executar(instrucaoSql);
 }
 
-function BuscarGrafico1() {
-    
+function buscarPacotesMaisVendidos(idEmpresa) {
     var instrucaoSql = `
-        SELECT *, 
-        (
-            (CASE WHEN uf = '${UF}' THEN 50 ELSE 0 END) +
-            
-            (CASE WHEN possui_aeroporto = ${Aeroporto} THEN 20 ELSE 0 END) +
-            (CASE WHEN possui_termais = ${Praia} THEN 15 ELSE 0 END) +
-            (CASE WHEN presenca_hidrica = ${Rios} THEN 15 ELSE 0 END)
-        ) AS score_relevancia
-        
-        FROM DESTINO
-        
-        HAVING score_relevancia > 0
-        
-        ORDER BY score_relevancia DESC
+        SELECT 
+            p.nome AS nome_pacote,
+            SUM(v.quantidade) AS total_vendido
+        FROM vendas v
+        JOIN pacote p ON v.idPacote = p.idPacote
+        JOIN usuario u ON v.idUsuario = u.idUsuario
+        WHERE u.FkEmpresa = ${idEmpresa}
+          AND v.dataVenda >= DATE_SUB(CURDATE(), INTERVAL 5 MONTH)
+        GROUP BY p.nome
+        ORDER BY total_vendido DESC
         LIMIT 5;
     `;
 
@@ -438,24 +433,15 @@ function BuscarGrafico1() {
     return database.executar(instrucaoSql);
 }
 
-function BuscarGrafico2() {
-    
+function buscarTop3Cidades() {
     var instrucaoSql = `
-        SELECT *, 
-        (
-            (CASE WHEN uf = '${UF}' THEN 50 ELSE 0 END) +
-            
-            (CASE WHEN possui_aeroporto = ${Aeroporto} THEN 20 ELSE 0 END) +
-            (CASE WHEN possui_termais = ${Praia} THEN 15 ELSE 0 END) +
-            (CASE WHEN presenca_hidrica = ${Rios} THEN 15 ELSE 0 END)
-        ) AS score_relevancia
-        
-        FROM DESTINO
-        
-        HAVING score_relevancia > 0
-        
-        ORDER BY score_relevancia DESC
-        LIMIT 5;
+        SELECT 
+            cidade, 
+            SUM(turistas) AS turistas
+        FROM historico_vendas
+        GROUP BY cidade
+        ORDER BY turistas DESC
+        LIMIT 3;
     `;
 
     console.log("Executando a instrução SQL: \n" + instrucaoSql);
@@ -490,6 +476,6 @@ module.exports = {
     BuscarPacotes,
     cadastrarVenda,
     BuscarSugestoes,
-    BuscarGrafico1,
-    BuscarGrafico2
+    buscarPacotesMaisVendidos,
+    buscarTop3Cidades
 };

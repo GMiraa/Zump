@@ -63,25 +63,7 @@
 
               
             </div>
-            <!--
-              Ideia Inovadora: "Pizza de Engajamento por Pacote"
-
-              Em vez de mostrar só visitas por pacote, você pode misturar visitas + compras + cliques e calcular um Índice Inteligente de Engajamento (IEE).
-
-              IEE = (Visitas × 0.5) + (Cliques × 1.2) + (Compras × 2.5)
-
-              → Esse índice cria uma pizza dinâmica, mostrando qual pacote realmente tem mais impacto — não apenas visita, mas engajamento real.
-
-              Isso gera um gráfico:
-
-              muito mais útil
-
-              mais “profissional”
-
-              vendo quem realmente performa melhor
-
-              e ainda parece um recurso premium 😎
-            -->
+           
             <div class="cardsConsultores">
               <canvas id="pizzaTopCidades" style="width:500px; height:400px;"></canvas>
             </div>
@@ -106,39 +88,37 @@
 
 <script>
 
-
-
 async function graficoPacote() {
   const canvasId = 'visitasChart';
   const canvas = document.getElementById(canvasId);
+  
   if (!canvas) {
     console.warn('Canvas não encontrado:', canvasId);
     return;
-  }
+  } 
 
-  let dados = null;
+  let labels = [];
+  let valores = [];
 
-  // Tenta buscar dados do backend
   try {
-    const resp = await fetch('/dashboard/visitasPacotes');
-    if (resp.ok) {
-      dados = await resp.json();
+    // Busca os dados reais no backend
+    const resp = await fetch(`/dashboard/visitasPacotes/${fkempresa}`);
+    
+    if (resp.ok && resp.status !== 204) {
+      const dadosBanco = await resp.json();
+      
+      // Transforma o JSON do banco em Arrays para o Gráfico
+      labels = dadosBanco.map(item => item.nome_pacote);
+      valores = dadosBanco.map(item => item.total_vendido);
+      
     } else {
-      console.warn('Falha ao buscar dados. Usando dados mock.');
+      console.warn('Backend sem dados, usando gráfico vazio ou placeholder.');
     }
   } catch (err) {
-    console.warn('Erro ao buscar dados. Usando dados mock:', err);
+    console.error('Erro ao buscar dados do gráfico:', err);
   }
 
-  // Caso o backend não traga dados válidos
-  if (!dados || !Array.isArray(dados.labels) || !Array.isArray(dados.visitas)) {
-    dados = {
-      labels: ['Pacote A', 'Pacote B', 'Pacote C', 'Pacote D', 'Pacote E'],
-      visitas: [120, 95, 78, 45, 30]
-    };
-  }
-
-  // Destroi gráfico anterior
+  // Destroi gráfico anterior se existir
   const chartExistente = Chart.getChart(canvasId);
   if (chartExistente) chartExistente.destroy();
 
@@ -147,20 +127,20 @@ async function graficoPacote() {
   // Gradiente
   const gradient = ctx.createLinearGradient(0, 0, 0, canvas.height || 300);
   gradient.addColorStop(0, 'rgba(27,102,124,1)');
-  gradient.addColorStop(1, 'rgba(27,102,124,1)');
+  gradient.addColorStop(1, 'rgba(27,102,124,0.6)');
 
   new Chart(ctx, {
     type: 'bar',
     data: {
-      labels: dados.labels,
+      labels: labels,
       datasets: [{
-        label: 'Visitas',
-        data: dados.visitas,
+        label: 'Vendas',
+        data: valores,
         backgroundColor: gradient,
         borderColor: 'rgba(10,100,160,0.9)',
         borderWidth: 1,
         borderRadius: 6,
-        barThickness: 'flex'
+        barThickness: 40
       }]
     },
     options: {
@@ -170,21 +150,24 @@ async function graficoPacote() {
         legend: { display: false },
         title: {
           display: true,
-          text: '✈️ Pacotes mais comprados nos últimos 5 meses',
+          text: '✈️ Pacotes mais vendidos (5 meses)',
           font: { size: 16, weight: 'bold' },
           padding: { top: 10, bottom: 20 }
         }
       },
       scales: {
-        x: { grid: { display: false }},
-        y: { beginAtZero: true }
+        x: { 
+            grid: { display: false },
+            ticks: { font: { size: 12 } }
+        },
+        y: { 
+            beginAtZero: true,
+            ticks: { precision: 0 }
+        }
       }
     }
   });
 }
-
-graficoPacote();
-
 
 async function graficoTop3Cidades() {
   const canvasId = 'pizzaTopCidades';
@@ -199,7 +182,7 @@ async function graficoTop3Cidades() {
 
   // Buscar dados reais
   try {
-    const resp = await fetch('/dashboard/dadosTurismo'); // AJUSTE A ROTA
+    const resp = await fetch('/dashboard/dadosTurismo');
     if (resp.ok) {
       dados = await resp.json();
     }
@@ -295,6 +278,8 @@ graficoTop3Cidades();
     infosUserLogado();
     BuscarGrafico();
     getKPIs();
+    graficoTop3Cidades();
+    graficoPacote();
 
     setInterval(() => {
     
@@ -398,50 +383,6 @@ graficoTop3Cidades();
     kpi4.innerHTML = `R$ ${ListaKPIs.FaturamentoTotal[0].total_faturado_geral}`;
 
   }
-
-
-
-
-
-
-
-
-
-
-  
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
   async function BuscarGrafico() {

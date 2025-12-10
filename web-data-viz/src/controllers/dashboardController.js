@@ -491,32 +491,36 @@ function cadastrarVenda(req, res) {
         });
 }
 
-function BuscarGrafico1(req, res) {
+function buscarDadosTurismo(req, res) {
 
-    dashboardModel.BuscarGrafico1()
-        .then(resultado => {
+    dashboardModel.buscarTop3Cidades()
+        .then(function (resultado) {
             if (resultado.length > 0) {
                 res.status(200).json(resultado);
             } else {
                 res.status(204).send("Nenhum resultado encontrado!");
             }
-        }).catch(erro => {
+        }).catch(function (erro) {
             console.log(erro);
+            console.log("Houve um erro ao buscar os dados de turismo: ", erro.sqlMessage);
             res.status(500).json(erro.sqlMessage);
         });
 }
 
-function BuscarGrafico2(req, res) {
+function buscarPacotesMaisVendidos(req, res) {
+    
+    var idEmpresa = req.params.fkempresa;
 
-    dashboardModel.BuscarGrafico2()
-        .then(resultado => {
+    dashboardModel.buscarPacotesMaisVendidos(idEmpresa)
+        .then(function (resultado) {
             if (resultado.length > 0) {
                 res.status(200).json(resultado);
             } else {
                 res.status(204).send("Nenhum resultado encontrado!");
             }
-        }).catch(erro => {
+        }).catch(function (erro) {
             console.log(erro);
+            console.log("Houve um erro ao buscar os pacotes: ", erro.sqlMessage);
             res.status(500).json(erro.sqlMessage);
         });
 }
@@ -544,6 +548,6 @@ module.exports = {
     BuscarPacotes,
     cadastrarVenda,
     BuscarSugestoes,
-    BuscarGrafico1,
-    BuscarGrafico2
+    buscarDadosTurismo,
+    buscarPacotesMaisVendidos
 }

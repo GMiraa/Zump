@@ -91,12 +91,12 @@ router.get("/BuscarSugestoes/:uf/:Praia/:Aeroporto/:Rios", function (req, res) {
     dashboardController.BuscarSugestoes(req, res);
 });
 
-router.get("/BuscarGrafico1", function (req, res) {
-    dashboardController.BuscarGrafico1(req, res);
+router.get("/dadosTurismo", function (req, res) {
+    dashboardController.buscarDadosTurismo(req, res);
 });
 
-router.get("/BuscarGrafico2", function (req, res) {
-    dashboardController.BuscarGrafico2(req, res);
+router.get("/visitasPacotes/:fkempresa", function (req, res) {
+    dashboardController.buscarPacotesMaisVendidos(req, res);
 });
 
 module.exports = router;
