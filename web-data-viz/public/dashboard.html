@@ -377,9 +377,54 @@ graficoTop3Cidades();
 
     if(infosConsultorAtual[0].bloqueado == true){
   
-      ConteudoDash.innerHTML = `<h1>Usuario <b>bloqueado</b> pelo administrador!</h1>`;
-  
+      ConteudoDash.style.display = "flex";
+      ConteudoDash.style.justifyContent = "center";
+      ConteudoDash.style.alignItems = "center";
+      ConteudoDash.style.height = "100%"; 
+      ConteudoDash.style.flexDirection = "column";
+
+      ConteudoDash.innerHTML = `
+        <div style="
+          height: 100%;
+          width: 100%;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          padding: 20px;
+        ">
+          <div style="
+            background: #fff;
+            padding: 40px 50px;
+            border-radius: 16px;
+            box-shadow: 0 8px 25px rgba(0,0,0,0.12);
+            text-align: center;
+            max-width: 450px;
+            border: 1px solid #e6e6e6;
+          ">
+            <h1 style="
+              font-size: 28px;
+              font-weight: 700;
+              color: #333;
+              margin: 0 0 10px 0;
+              font-family: 'Segoe UI', sans-serif;
+            ">
+              Usuário <b style="color:#d32f2f; font-size: 1.5rem;">bloqueado</b> pelo administrador!
+            </h1>
+
+            <p style="
+              margin-top: 12px;
+              font-size: 15px;
+              color: #666;
+              line-height: 1.5;
+            ">
+              Caso acredite que isso é um engano, entre em contato com o suporte.
+            </p>
+          </div>
+        </div>
+      `;
+
     }
+
 
   }
 
