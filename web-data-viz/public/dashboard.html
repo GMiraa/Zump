@@ -39,12 +39,6 @@
     <div id="cardDelete"></div>
 
     <section id="dashboard_section">
-      <!-- <div class="box_grafico">
-          <div class="chart-container">
-            <canvas id="rendaMensalChart"></canvas>
-          </div>
-        </div> -->
-
       <h1 id="titleDash">Dashboard</h1>
       <div class="boxConteudo" id="ConteudoDash">
         <div class="boxLeft">
@@ -61,9 +55,36 @@
               </div>
           </div>
           <div class="areaConsultoresCards">
-            <h2 id="titleConsultores">📊 Consultores com mais vendas</h2>
-            <div class="cardsConsultores"><div>1º Colocado</div><label id="consultorTop1"></label></div>
-            <div class="cardsConsultores"><div>2º Colocado</div><label id="consultorTop2"></label></div>
+            <h2 id="titleConsultores">📊 Informações dos pacotes</h2>
+            <div class="cardsConsultores">
+              
+              <!-- HTML -->
+              <canvas id="visitasChart" style="max-width:100%; height:320px;"></canvas>
+
+              
+            </div>
+            <!--
+              Ideia Inovadora: "Pizza de Engajamento por Pacote"
+
+              Em vez de mostrar só visitas por pacote, você pode misturar visitas + compras + cliques e calcular um Índice Inteligente de Engajamento (IEE).
+
+              IEE = (Visitas × 0.5) + (Cliques × 1.2) + (Compras × 2.5)
+
+              → Esse índice cria uma pizza dinâmica, mostrando qual pacote realmente tem mais impacto — não apenas visita, mas engajamento real.
+
+              Isso gera um gráfico:
+
+              muito mais útil
+
+              mais “profissional”
+
+              vendo quem realmente performa melhor
+
+              e ainda parece um recurso premium 😎
+            -->
+            <div class="cardsConsultores">
+              <canvas id="pizzaTopCidades" style="width:500px; height:400px;"></canvas>
+            </div>
           </div>
         </div>
       </div>
@@ -78,13 +99,232 @@
     <script src="js/modal/modalCliente.js"></script>
     <script src="js/modal/modalPacotes.js"></script>
     <script src="js/dashboardgeral.js"></script>
-    <script src="js/graficoGeral.js"></script>
+    <!-- <script src="js/graficoGeral.js"></script> -->
     <script src="js/graficoConsultor.js"></script>
-
   </body>
 </html>
 
 <script>
+
+
+
+async function graficoPacote() {
+  const canvasId = 'visitasChart';
+  const canvas = document.getElementById(canvasId);
+  if (!canvas) {
+    console.warn('Canvas não encontrado:', canvasId);
+    return;
+  }
+
+  let dados = null;
+
+  // Tenta buscar dados do backend
+  try {
+    const resp = await fetch('/dashboard/visitasPacotes');
+    if (resp.ok) {
+      dados = await resp.json();
+    } else {
+      console.warn('Falha ao buscar dados. Usando dados mock.');
+    }
+  } catch (err) {
+    console.warn('Erro ao buscar dados. Usando dados mock:', err);
+  }
+
+  // Caso o backend não traga dados válidos
+  if (!dados || !Array.isArray(dados.labels) || !Array.isArray(dados.visitas)) {
+    dados = {
+      labels: ['Pacote A', 'Pacote B', 'Pacote C', 'Pacote D', 'Pacote E'],
+      visitas: [120, 95, 78, 45, 30]
+    };
+  }
+
+  // Destroi gráfico anterior
+  const chartExistente = Chart.getChart(canvasId);
+  if (chartExistente) chartExistente.destroy();
+
+  const ctx = canvas.getContext('2d');
+
+  // Gradiente
+  const gradient = ctx.createLinearGradient(0, 0, 0, canvas.height || 300);
+  gradient.addColorStop(0, 'rgba(27,102,124,1)');
+  gradient.addColorStop(1, 'rgba(27,102,124,1)');
+
+  new Chart(ctx, {
+    type: 'bar',
+    data: {
+      labels: dados.labels,
+      datasets: [{
+        label: 'Visitas',
+        data: dados.visitas,
+        backgroundColor: gradient,
+        borderColor: 'rgba(10,100,160,0.9)',
+        borderWidth: 1,
+        borderRadius: 6,
+        barThickness: 'flex'
+      }]
+    },
+    options: {
+      maintainAspectRatio: false,
+      responsive: true,
+      plugins: {
+        legend: { display: false },
+        title: {
+          display: true,
+          text: '✈️ Pacotes mais comprados nos últimos 5 meses',
+          font: { size: 16, weight: 'bold' },
+          padding: { top: 10, bottom: 20 }
+        }
+      },
+      scales: {
+        x: { grid: { display: false }},
+        y: { beginAtZero: true }
+      }
+    }
+  });
+}
+
+graficoPacote();
+
+
+
+
+
+
+
+
+
+
+
+
+
+/*
+  [
+    { "cidade": "CRUZEIRO", "turistas": 24475 },
+    { "cidade": "RIO BRANCO", "turistas": 464108 },
+    { "cidade": "MACEIO", "turistas": 1484500 },
+    ...
+  ]
+
+*/
+
+async function graficoTop3Cidades() {
+  const canvasId = 'pizzaTopCidades';
+  const canvas = document.getElementById(canvasId);
+
+  if (!canvas) {
+    console.warn('Canvas não encontrado:', canvasId);
+    return;
+  }
+
+  let dados = [];
+
+  // Buscar dados reais
+  try {
+    const resp = await fetch('/dashboard/dadosTurismo'); // AJUSTE A ROTA
+    if (resp.ok) {
+      dados = await resp.json();
+    }
+  } catch (e) {
+    console.warn("Erro ao buscar dados, usando mock.", e);
+  }
+
+  // Caso o backend não traga dados, cria exemplo
+  if (!dados.length) {
+    dados = [
+      { cidade: "Maceió", turistas: 1484500 },
+      { cidade: "Salvador", turistas: 425281 },
+      { cidade: "Fortaleza", turistas: 294020 },
+      { cidade: "Rio Branco", turistas: 464108 },
+      { cidade: "Vitória", turistas: 158600 },
+      { cidade: "Belém", turistas: 572792 },
+      { cidade: "Manaus", turistas: 147725 },
+      { cidade: "Ilhéus", turistas: 49330 },
+      { cidade: "Porto Seguro", turistas: 142480 },
+      { cidade: "Juazeiro", turistas: 264858 }
+    ];
+  }
+
+  // Ordenar por turistas (desc)
+  dados.sort((a, b) => b.turistas - a.turistas);
+
+  // PEGAR APENAS O TOP 3
+  const top3 = dados.slice(0, 3);
+
+  const labels = top3.map(item => item.cidade);
+  const valores = top3.map(item => item.turistas);
+
+  const chartExistente = Chart.getChart(canvasId);
+  if (chartExistente) chartExistente.destroy();
+
+  const ctx = canvas.getContext('2d');
+
+  new Chart(ctx, {
+    type: 'pie',
+    data: {
+      labels: labels,
+      datasets: [{
+        label: 'Turistas',
+        data: valores,
+        backgroundColor: [
+          '#1E88E5', '#43A047', '#FB8C00'
+        ],
+        borderColor: '#fff',
+        borderWidth: 2
+      }]
+    },
+    options: {
+      responsive: true,
+      maintainAspectRatio: false,
+      plugins: {
+        title: {
+          display: true,
+          text: '🥇 TOP 3 Cidades com Mais Turistas',
+          font: { size: 16, weight: 'bold' },
+          padding: { top: 10, bottom: 20 }
+        },
+        tooltip: {
+          callbacks: {
+            label: function(ctx) {
+              return ctx.label + ': ' +
+                ctx.raw.toLocaleString('pt-BR') + ' turistas';
+            }
+          }
+        }
+      }
+    }
+  });
+}
+
+graficoTop3Cidades();
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
   var nome = sessionStorage.NOME_USUARIO;
   var id = sessionStorage.ID_USUARIO;
@@ -177,6 +417,51 @@
 
   }
 
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
   async function BuscarGrafico() {
     
     const resposta3 = await fetch(`/dashboard/buscarDadosGrafico/${fkempresa}`);   
@@ -196,14 +481,12 @@
     if (chartExistente) {
         chartExistente.destroy();
     }
-    // ---------------------------
 
     const ctx = canvas.getContext('2d');
-
-    // Separa os dados em arrays para o Chart.js
+    
+    // Separa os dados em arrays
     const labels = dados.map(item => item.mes_label); 
     const faturamento = dados.map(item => item.faturamento_total); 
-    const crescimento = dados.map(item => item.crescimento_percentual); 
 
     new Chart(ctx, {
         type: 'bar',
@@ -213,18 +496,9 @@
                 {
                     label: 'Renda total (R$)',
                     data: faturamento,
-                    backgroundColor: '#1E88E5', 
+                    backgroundColor: '#1E88E5',
                     borderRadius: 5,
-                    order: 2,
-                    yAxisID: 'y' 
-                },
-                {
-                    label: 'Crescimento (%)',
-                    data: crescimento,
-                    backgroundColor: '#90CAF9',
-                    borderRadius: 5,
-                    order: 1,
-                    yAxisID: 'y1'
+                    yAxisID: 'y'
                 }
             ]
         },
@@ -234,26 +508,20 @@
             plugins: {
                 title: {
                     display: true,
-                    text: '📈 Renda mensal',
+                    text: '📈 Renda mensal últimos 5 meses',
                     font: { size: 16, weight: 'bold' },
                     padding: { bottom: 20 }
                 },
                 tooltip: {
-                    mode: 'index',
-                    intersect: false,
                     callbacks: {
                         label: function(context) {
-                            let label = context.dataset.label || '';
                             let value = context.parsed.y;
-                            
-                            // Verifica se é null ou undefined antes de formatar
-                            if (value === null || value === undefined) return label;
-
-                            if (label.includes('Renda')) {
-                                return label + ': ' + new Intl.NumberFormat('pt-BR', { style: 'currency', currency: 'BRL' }).format(value);
-                            } else {
-                                return label + ': ' + value + '%';
-                            }
+                            if (value === null || value === undefined) return '';
+    
+                            return 'Renda: ' + new Intl.NumberFormat('pt-BR', { 
+                                style: 'currency', 
+                                currency: 'BRL' 
+                            }).format(value);
                         }
                     }
                 }
@@ -270,18 +538,6 @@
                     ticks: {
                         callback: function(value) {
                             return 'R$ ' + (value / 1000) + 'k'; 
-                        }
-                    }
-                },
-                y1: {
-                    type: 'linear',
-                    display: true,
-                    position: 'right',
-                    title: { display: true, text: 'Crescimento (%)' },
-                    grid: { drawOnChartArea: false }, 
-                    ticks: {
-                        callback: function(value) {
-                            return value + '%';
                         }
                     }
                 }

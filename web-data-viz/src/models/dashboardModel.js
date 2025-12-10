@@ -258,33 +258,46 @@ function getConsultores(FkEmpresa) {
 function buscarDadosGrafico(FkEmpresa) {
     
     var instrucaoSql = `
-        WITH FaturamentoMensal AS (
-            SELECT 
-                -- 1. Usamos MAX() para satisfazer o only_full_group_by
-                DATE_FORMAT(MAX(v.dataVenda), '%Y-%m') AS ano_mes,
-                
-                -- 2. Aplicamos MAX() dentro do MONTH() também
-                ELT(MONTH(MAX(v.dataVenda)), 'Jan', 'Fev', 'Mar', 'Abr', 'Mai', 'Jun', 'Jul', 'Ago', 'Set', 'Out', 'Nov', 'Dez') AS mes_label,
-                
-                SUM(v.quantidade * p.preco) AS faturamento_total
-            FROM vendas v
-            JOIN pacote p ON v.idPacote = p.idPacote
-            JOIN usuario u ON v.idUsuario = u.idUsuario 
-            WHERE v.dataVenda >= DATE_SUB(CURDATE(), INTERVAL 5 MONTH)
-              AND u.FkEmpresa = ${FkEmpresa} 
-            GROUP BY YEAR(v.dataVenda), MONTH(v.dataVenda) -- Agrupamento numérico simples e seguro
-        )
-        SELECT 
-            mes_label,
-            faturamento_total,
-            ROUND(
-                (
-                    (faturamento_total - LAG(faturamento_total) OVER (ORDER BY ano_mes)) / 
-                    LAG(faturamento_total) OVER (ORDER BY ano_mes)
-                ) * 100, 
-            2) AS crescimento_percentual
-        FROM FaturamentoMensal
-        ORDER BY ano_mes;
+        WITH ultimos_meses AS (
+    SELECT DATE_FORMAT(DATE_SUB(CURDATE(), INTERVAL n MONTH), '%Y-%m') AS ano_mes
+    FROM (
+        SELECT 0 AS n UNION SELECT 1 UNION SELECT 2 UNION SELECT 3 UNION SELECT 4
+    ) AS meses
+),
+faturamento AS (
+    SELECT 
+        DATE_FORMAT(v.dataVenda, '%Y-%m') AS ano_mes,
+        SUM(v.quantidade * p.preco) AS valor
+    FROM vendas v
+    JOIN pacote p ON v.idPacote = p.idPacote
+    JOIN usuario u ON v.idUsuario = u.idUsuario
+    WHERE u.FkEmpresa = ${FkEmpresa}
+      AND v.dataVenda >= DATE_SUB(CURDATE(), INTERVAL 5 MONTH)
+    GROUP BY DATE_FORMAT(v.dataVenda, '%Y-%m')
+),
+dados_finais AS (
+    SELECT 
+        um.ano_mes,
+        ELT(
+            MONTH(CONCAT(um.ano_mes, '-01')),
+            'Jan','Fev','Mar','Abr','Mai','Jun',
+            'Jul','Ago','Set','Out','Nov','Dez'
+        ) AS mes_label,
+        COALESCE(f.valor, 0) AS faturamento_total
+    FROM ultimos_meses um
+    LEFT JOIN faturamento f ON f.ano_mes = um.ano_mes
+)
+SELECT 
+    mes_label,
+    faturamento_total,
+    ROUND(
+        (
+            (faturamento_total - LAG(faturamento_total) OVER (ORDER BY ano_mes DESC)) /
+            NULLIF(LAG(faturamento_total) OVER (ORDER BY ano_mes DESC), 0)
+        ) * 100,
+    2) AS crescimento_percentual
+FROM dados_finais
+ORDER BY ano_mes ASC;
     `;
 
     console.log("Executando a instrução SQL: \n" + instrucaoSql);
