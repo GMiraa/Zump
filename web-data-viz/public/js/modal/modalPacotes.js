@@ -1,10 +1,13 @@
-function btnAbrirModalPacotes() {
+function btnAbrirModalPacotes(idCliente) {
     let modal = document.getElementById("modalPacotes");
     modal.style.display = "flex";
+
+    idClienteSelecionado = idCliente;
     
     setTimeout(() => {
         modal.classList.add("abrir");
     }, 10);
+    BuscarPacoteSCadastrados(idCliente);
 }
 
 function btnFecharModalPacotes() {

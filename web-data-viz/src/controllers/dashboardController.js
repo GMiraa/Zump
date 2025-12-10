@@ -427,16 +427,58 @@ function getKPIs(req, res) {
     });
 }
 
-function gerarSugestoes(req, res) {
+function BuscarPacotes(req, res) {
     
     // Captura os parametros definidos na rota
-    var tier = req.params.tier;
-    var uf = req.params.uf;
-
-    console.log(`Buscando sugestões para Tier: ${tier} e UF: ${uf}`);
+    var FkEmpresa = req.params.fkempresa;
 
     // Passa para a model...
-    dashboardModel.buscarPorRelevancia(tier, [uf]) // Exemplo usando sua função anterior
+    dashboardModel.BuscarPacotes(FkEmpresa) // Exemplo usando sua função anterior
+        .then(resultado => {
+            if (resultado.length > 0) {
+                res.status(200).json(resultado);
+            } else {
+                res.status(204).send("Nenhum resultado encontrado!");
+            }
+        }).catch(erro => {
+            console.log(erro);
+            res.status(500).json(erro.sqlMessage);
+        });
+}
+
+function cadastrarVenda(req, res) {
+    // Crie uma variável que vá recuperar os valores do arquivo cadastro.html
+    var idCliente = req.body.idCli;
+    var idUsuario = req.body.idUser;
+    var idPacote = req.body.Pacote;
+    var QuantidadePacote = req.body.Quantidade;
+    var data = req.body.DataVenda;
+    
+        dashboardModel.cadastrarVenda(idCliente, idUsuario, idPacote, QuantidadePacote, data)
+            .then(
+                function (resultado) {
+                    res.json(resultado);
+                }
+            ).catch(
+                function (erro) {
+                    console.log(erro);
+                    console.log(
+                        "\nHouve um erro ao realizar o cadastro! Erro: ",
+                        erro.sqlMessage
+                    );
+                    res.status(500).json(erro.sqlMessage);
+                } 
+            );
+    }
+
+    function BuscarSugestoes(req, res) {
+    
+    var UF = req.params.uf;
+    var Aeroporto = req.params.Aeroporto;
+    var Praia = req.params.Praia;
+    var Rios = req.params.Rios
+
+    dashboardModel.BuscarSugestoes(UF, Aeroporto, Praia, Rios)
         .then(resultado => {
             if (resultado.length > 0) {
                 res.status(200).json(resultado);
@@ -469,5 +511,7 @@ module.exports = {
     getConsultores,
     buscarDadosGrafico,
     getKPIs,
-    gerarSugestoes
+    BuscarPacotes,
+    cadastrarVenda,
+    BuscarSugestoes
 }

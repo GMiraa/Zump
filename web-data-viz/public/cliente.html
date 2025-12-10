@@ -84,9 +84,9 @@
               </div>
               <div class="boxInputs">
                 <h2>Locais disponíveis</h2>
-                <select name="" id="">
-                    <option value="">Praias</option>
-                </select>
+                <label>Praias</label><input type="checkbox" value="Praias" id="Praia">
+                <label>Aeroporto</label><input type="checkbox" value="Aeroporto" id="Aeroporto">
+                <label>Rios</label><input type="checkbox" value="Rios" id="Rios">
               </div>
               <div class="boxInputs">
                 <div class="box">
@@ -113,14 +113,14 @@
                     <input type="number" id="precoPacoteUsuario" placeholder="R$...">
                   </div>
                   <div>
-                    <button class="confirmarPacote" onclick="GerarSugestaoPacote()"></button>
+                    <button class="confirmarPacote" onclick="buscarSugestoes()"></button>
                   </div>
                 </div>
               </div>
             </div>
             <div class="box_bottom">
-              <h2>Descrição do pacote:</h2>
-              <textarea name="" id="" placeholder="Mesangem..."></textarea>
+              <h2>Pacotes Cadastrados:</h2>
+              <div id="Lista_pacotes_cadastrados"></div>
             </div>
           </div>
           <div class="boxRight">
@@ -261,8 +261,43 @@
     mask: "(00) 00000-0000",
   });
 
-  function adicionarPacote(botao) {
-    const card = botao.closest(".card");
+  async function adicionarPacote(botao, idPacote, idCliente, idUsuario) {
+
+    var inputQtd = botao.parentElement.querySelector('input[type="number"]');
+    var qtdPacote = inputQtd.value;
+
+    // Validação simples
+    if (!qtdPacote || qtdPacote <= 0) {
+        alert("Por favor, informe uma quantidade válida.");
+        return; 
+    }
+
+    const dataAtual = new Date();
+    const ano = dataAtual.getFullYear();
+    const mes = String(dataAtual.getMonth() + 1).padStart(2, '0'); // Adiciona 0 à esquerda se for mês < 10
+    const dia = String(dataAtual.getDate()).padStart(2, '0');
+    
+    const dataFormatada = `${ano}-${mes}-${dia}`;
+
+    fetch('/dashboard/cadastrarVenda', {
+            method: "POST",
+            headers: {
+              "Content-Type": "application/json"
+            },
+            body: JSON.stringify({
+              idUser: idUsuario,
+              Pacote: idPacote,
+              idCli: idCliente,
+              Quantidade: qtdPacote,
+              DataVenda: dataFormatada
+            })
+          })
+          alert("Venda cadastrada com sucesso")
+          setTimeout(() => {
+            location.reload();
+          }, 1000);
+
+    const card = botao.closest(".card2");
     const box = card.parentElement;
     const addP = botao;
     const pacote = card.querySelector(".pacoteAcao");
@@ -323,12 +358,15 @@
   var nome = sessionStorage.NOME_USUARIO;
   var id = sessionStorage.ID_USUARIO;
   var fkempresa = sessionStorage.FK_EMPRESA;
+  var idClienteSelecionado = 0;
 
   var ListaValores = [];
   var ListaClientes = [];
   var ListaResultadoPesquisaCliente = [];
   var infosConsultorAtual = [];
   var infosCliente = [];
+  var ListaPacotes = [];
+  var ListaPacotesSugeridos = [];
 
   function carregarFuncoes(){
 
@@ -690,66 +728,109 @@
 
 }
 
-async function GerarSugestaoPacote() {
+async function BuscarPacoteSCadastrados(idCliente) {
     var uf = estadoPacote.value;
     var valor = precoPacoteUsuario.value;
-    var tier = null;
     
-    if(valor <= 0){
-      alert("Insira um valor válido!")
-    }
-    if(valor <= 1500){
-      tier = "D";
-    }
-    if(valor > 1500 && valor <= 3000){
-      tier = "C";
-    }
-    if(valor > 3000 && valor <= 4500){
-      tier = "B";
-    }
-    if(valor > 4500){
-      tier = "A";
-    }
-
-    
-    var valorNumerico = parseFloat(valor); 
-    
-    var min = valorNumerico - 100;
-    var max = valorNumerico + 100;
-    
-    
-    
-    const resposta = await fetch(`/dashboard/gerarSugestoes/${tier}/${uf}`);
+    const resposta = await fetch(`/dashboard/BuscarPacotes/${fkempresa}`);
     const dados = await resposta.json();
-    ListaSugestoes = dados;
+    ListaPacotes = dados;
     
+    Lista_pacotes_cadastrados.innerHTML = ``;
     
-    for(var i = 0; i < ListaSugestoes.length; i++){
-      
-      var valorAleatorio = Math.random() * (max - min) + min;
-      var valorSugerido = valorAleatorio.toFixed(2);
+    for(var i = 0; i < ListaPacotes.length; i++){
 
-      Sugestoes.innerHTML += `<div class="card">
+      Lista_pacotes_cadastrados.innerHTML += `<div class="card2">
                     <div class="conteudoCardPacote">
                       <div class="estado_pacote">
-                        <h2>Estado do pacote: ${ListaSugestoes[i].uf}</h2>
+                        <h2>Estado do pacote: ${ListaPacotes[i].uf}</h2>
                         <div class="iconPacote pacoteAcao"></div>
                       </div>
                       <div class="info_pacote">
-                        <p>Local do pacote: ${ListaSugestoes[i].cidade}</p>
-                        <p>Preço: R$ ${valorSugerido}</p>
+                        <p>Local do pacote: ${ListaPacotes[i].cidade}</p>
+                        <p>Preço: R$ ${ListaPacotes[i].preco}</p>
                       </div>
                     </div>
                     <div class="btnConsultor">
+                      <input type="number" min="1" value="1" style="width: 50px; margin-right: 10px; border-radius: 5px; border: 1px solid #ccc; padding-left: 5px;">
                       <button
-                        onclick="adicionarPacote(this)"
-                        class="btnAdicionarPacote"
+                          onclick="adicionarPacote(this, ${ListaPacotes[i].idPacote}, ${idCliente}, ${id})"
+                          class="btnAdicionarPacote"
                       ></button>
                     </div>
                   </div>`;
-
     }
-    
+}
+
+async function buscarSugestoes() {
+
+  var uf = document.getElementById("estadoPacote").value;
+  var Praia = document.getElementById("Praia").checked;
+  var Aeroporto = document.getElementById("Aeroporto").checked;
+  var Rios = document.getElementById("Rios").checked;
+  
+  // Definição das Regiões para comparação
+  const regioes = {
+      sudeste: ['SP', 'RJ', 'MG', 'ES'],
+      sul: ['PR', 'SC', 'RS'],
+      nordeste: ['BA', 'SE', 'AL', 'PE', 'PB', 'RN', 'CE', 'PI', 'MA']
+  };
+
+  try {
+      const resposta = await fetch(`/dashboard/BuscarSugestoes/${uf}/${Praia}/${Aeroporto}/${Rios}`);
+      const dados = await resposta.json();
+      ListaPacotesSugeridos = dados;
+
+      Sugestoes.innerHTML = ``;
+
+      for(var i = 0; i < ListaPacotesSugeridos.length; i++){
+        
+        let ufPacote = ListaPacotesSugeridos[i].uf;
+        let min, max;
+
+        if (regioes.sudeste.includes(ufPacote)) {
+            min = 3000; 
+            max = 5500;
+        } else if (regioes.sul.includes(ufPacote)) {
+            min = 2000; 
+            max = 3500;
+        } else if (regioes.nordeste.includes(ufPacote)) {
+            min = 1500; 
+            max = 2500;
+        } else {
+            min = 800; 
+            max = 1400;
+        }
+
+        let valorGerado = Math.floor(Math.random() * (max - min + 1)) + min;
+
+        let precoFormatado = new Intl.NumberFormat('pt-BR', { style: 'currency', currency: 'BRL' }).format(valorGerado);
+
+        Sugestoes.innerHTML += `<div class="card2">
+                    <div class="conteudoCardPacote">
+                      <div class="estado_pacote">
+                        <h2>Estado do pacote: ${ufPacote}</h2>
+                        <div class="iconPacote pacoteAcao"></div>
+                      </div>
+                      <div class="info_pacote">
+                        <p>Local do pacote: ${ListaPacotesSugeridos[i].cidade}</p>
+                        <p>Preço: ${precoFormatado}</p>
+                      </div>
+                    </div>
+                    <div class="btnConsultor">
+                      <input type="number" min="1" value="1" style="width: 50px; margin-right: 10px; border-radius: 5px; border: 1px solid #ccc; padding-left: 5px;">
+                      
+                      <button
+                          onclick="adicionarPacote(this, ${ListaPacotesSugeridos[i].idPacote}, ${idClienteSelecionado}, ${id})"
+                          class="btnAdicionarPacote"
+                      ></button>
+                    </div>
+                  </div>`;
+      }
+
+  } catch (erro) {
+      console.error("Erro ao buscar sugestões:", erro);
+  }
 }
 
 </script>

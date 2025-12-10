@@ -358,32 +358,46 @@ function buscarFaturamentoTotal(FkEmpresa) {
     return database.executar(instrucaoSql);
 }
 
-function buscarPorRelevancia(cluster, uf) {
+function BuscarPacotes(FkEmpresa) {
     
     var instrucaoSql = `
-        SELECT 
-            cidade, 
-            uf, 
-            cluster,
-            fkDestino,
-            -- Cálculo de Pontuação (Score)
-            (
-                (CASE WHEN cluster = '${cluster}' THEN 10 ELSE 0 END) + 
-                (CASE WHEN uf = '${uf}' THEN 5 ELSE 0 END)
-            ) AS score_relevancia
-        FROM historico_vendas
-        -- O WHERE garante que traga resultados que atendam pelo menos UM dos critérios
-        WHERE cluster = '${cluster}' OR uf = '${uf}'
-        ORDER BY score_relevancia DESC
-        LIMIT 4;
+        SELECT * FROM PACOTE WHERE FkEmpresa = ${FkEmpresa};
     `;
 
     console.log("Executando: " + instrucaoSql);
     return database.executar(instrucaoSql);
 }
 
-module.exports = {
-    buscarPorRelevancia
+function cadastrarVenda(idCliente, idUsuario, idPacote, QuantidadePacote, data){
+
+    var instrucaoSql = `INSERT INTO vendas (idPacote, idUsuario, idCliente, dataVenda, quantidade) VALUES (${idPacote}, ${idUsuario}, ${idCliente}, '${data}', ${QuantidadePacote})`;
+  
+    console.log("Executando a instrução SQL: \n" + instrucaoSql);
+    return database.executar(instrucaoSql);
+  }
+
+  function BuscarSugestoes(UF, Aeroporto, Praia, Rios) {
+    
+    var instrucaoSql = `
+        SELECT *, 
+        (
+            (CASE WHEN uf = '${UF}' THEN 50 ELSE 0 END) +
+            
+            (CASE WHEN possui_aeroporto = ${Aeroporto} THEN 20 ELSE 0 END) +
+            (CASE WHEN possui_termais = ${Praia} THEN 15 ELSE 0 END) +
+            (CASE WHEN presenca_hidrica = ${Rios} THEN 15 ELSE 0 END)
+        ) AS score_relevancia
+        
+        FROM DESTINO
+        
+        HAVING score_relevancia > 0
+        
+        ORDER BY score_relevancia DESC
+        LIMIT 5;
+    `;
+
+    console.log("Executando a instrução SQL: \n" + instrucaoSql);
+    return database.executar(instrucaoSql);
 }
 
 module.exports = {
@@ -411,5 +425,7 @@ module.exports = {
     buscarTopRegiao,
     buscarTopDestino,
     buscarFaturamentoTotal,
-    buscarPorRelevancia
+    BuscarPacotes,
+    cadastrarVenda,
+    BuscarSugestoes
 };

@@ -79,8 +79,16 @@ router.get("/getKPIs/:fkempresa", function (req, res) {
     dashboardController.getKPIs(req, res);
 })
 
-router.get("/gerarSugestoes/:tier/:uf", function (req, res) {
-    dashboardController.gerarSugestoes(req, res);
+router.get("/BuscarPacotes/:fkempresa", function (req, res) {
+    dashboardController.BuscarPacotes(req, res);
+});
+
+router.post("/cadastrarVenda/", function (req, res) {
+    dashboardController.cadastrarVenda(req, res);
+});
+
+router.get("/BuscarSugestoes/:uf/:Praia/:Aeroporto/:Rios", function (req, res) {
+    dashboardController.BuscarSugestoes(req, res);
 });
 
 module.exports = router;
