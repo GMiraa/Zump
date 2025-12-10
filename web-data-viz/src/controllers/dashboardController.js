@@ -548,6 +548,45 @@ function buscarPacotesExistentes(req, res) {
         });
 }
 
+function cadastrarPacote(req, res) {
+    // Recuperando valores do corpo da requisição
+    var nome = req.body.nome;
+    var descricao = req.body.descricao;
+    var dias = req.body.qtd_dia;
+    var noites = req.body.qtd_noite;
+    var preco = req.body.preco;
+    var cidade = req.body.cidade;
+    var uf = req.body.uf;
+    var fkEmpresa = req.body.fkEmpresa;
+
+    // Validação básica (opcional, mas recomendada)
+    if (nome == undefined) {
+        res.status(400).send("Seu nome está undefined!");
+    } else if (cidade == undefined) {
+        res.status(400).send("Sua cidade está undefined!");
+    } else {
+        
+        // Chama a função do Model passando os parâmetros
+        dashboardModel.cadastrarPacote(nome, descricao, dias, noites, preco, cidade, uf, fkEmpresa)
+            .then(
+                function (resultado) {
+                    // SUCESSO: Retorna o JSON com o insertId
+                    // Dependendo da sua configuração do banco, o ID pode vir em 'insertId' ou dentro de um array
+                    res.json({ insertId: resultado.insertId });
+                }
+            ).catch(
+                function (erro) {
+                    console.log(erro);
+                    console.log(
+                        "\nHouve um erro ao realizar o cadastro! Erro: ",
+                        erro.sqlMessage
+                    );
+                    res.status(500).json(erro.sqlMessage);
+                }
+            );
+    }
+}
+
 module.exports = {
     buscarValores,
     cadastrarCliente,
@@ -573,5 +612,6 @@ module.exports = {
     BuscarSugestoes,
     buscarDadosTurismo,
     buscarPacotesMaisVendidos,
-    buscarPacotesExistentes
+    buscarPacotesExistentes,
+    cadastrarPacote
 }

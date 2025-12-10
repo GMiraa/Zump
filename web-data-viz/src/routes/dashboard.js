@@ -103,4 +103,8 @@ router.get("/buscarPacotesExistentes/:uf/:cidade/:fkempresa", function (req, res
     dashboardController.buscarPacotesExistentes(req, res);
 });
 
+router.post("/cadastrarPacote", function (req, res) {
+    dashboardController.cadastrarPacote(req, res);
+});
+
 module.exports = router;

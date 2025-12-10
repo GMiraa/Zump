@@ -483,6 +483,19 @@ function buscarPacotesExistentes(uf, cidade, FkEmpresa) {
     }
 }
 
+function cadastrarPacote(nome, descricao, dias, noites, preco, cidade, uf, fkEmpresa) {
+    
+    var instrucaoSql = `
+        INSERT INTO pacote (nome, descricao, qtd_dia, qtd_noite, preco, cidade, uf, FkEmpresa) 
+        VALUES ('${nome}', '${descricao}', ${dias}, ${noites}, ${preco}, '${cidade}', '${uf}', ${fkEmpresa});
+    `;
+
+    console.log("Executando a instrução SQL: \n" + instrucaoSql);
+    
+    // Retorna a promessa da execução para o Controller
+    return database.executar(instrucaoSql);
+}
+
 module.exports = {
     buscarValores,
     cadastrarCliente,
@@ -513,5 +526,6 @@ module.exports = {
     BuscarSugestoes,
     buscarPacotesMaisVendidos,
     buscarTop3Cidades,
-    buscarPacotesExistentes
+    buscarPacotesExistentes,
+    cadastrarPacote
 };

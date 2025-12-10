@@ -95,11 +95,11 @@
               <div class="boxInputs">
                 <div class="box">
                   <label for="">Quantidade de dias</label>
-                  <input type="text">
+                  <input type="number" id="qtdDiasInput" placeholder="Ex: 5"> 
                 </div>
                 <div class="box">
                   <label for="">Quantidade de noites</label>
-                  <input type="text">
+                  <input type="number" id="qtdNoitesInput" placeholder="Ex: 4">
                 </div>
                 <div class="box">
                   <label for="">Tipo de pagamento</label>
@@ -253,23 +253,73 @@
     mask: "(00) 00000-0000",
   });
 
-  async function adicionarPacote(botao, idPacote, idCliente, idUsuario) {
+  // Adicione o parametro dadosSugestao no final (pode ser null se for pacote existente)
+async function adicionarPacote(botao, idPacote, idCliente, idUsuario, dadosSugestao = null) {
 
     var inputQtd = botao.parentElement.querySelector('input[type="number"]');
     var qtdPacote = inputQtd.value;
 
-    // Validação simples
+    // Pegando valores dos inputs que adicionamos IDs no Passo 1
+    var diasInput = document.getElementById("qtdDiasInput");
+    var noitesInput = document.getElementById("qtdNoitesInput");
+    
+    // Validações básicas
     if (!qtdPacote || qtdPacote <= 0) {
-        alert("Por favor, informe uma quantidade válida.");
+        alert("Por favor, informe uma quantidade válida de pacotes.");
         return; 
     }
 
+    // Datas
     const dataAtual = new Date();
-    const ano = dataAtual.getFullYear();
-    const mes = String(dataAtual.getMonth() + 1).padStart(2, '0'); // Adiciona 0 à esquerda se for mês < 10
-    const dia = String(dataAtual.getDate()).padStart(2, '0');
+    const dataFormatada = dataAtual.toISOString().split('T')[0]; // Formato YYYY-MM-DD
+
+    // --- LÓGICA DE CRIAÇÃO DO PACOTE (SE FOR SUGESTÃO) ---
+    if (idPacote == 0) {
+        
+        // Valida se preencheu dias e noites (obrigatórios no seu banco: qtd_dia, qtd_noite)
+        if (!diasInput.value || !noitesInput.value) {
+            alert("Para adicionar uma sugestão, preencha 'Quantidade de dias' e 'Quantidade de noites' no formulário acima.");
+            return;
+        }
+
+        try {
+            // Rota que você deve criar no Backend (Node/Controller)
+            const respCriacao = await fetch('/dashboard/cadastrarPacote', {
+                method: "POST",
+                headers: { "Content-Type": "application/json" },
+                body: JSON.stringify({
+                    nome: dadosSugestao.nome,
+                    descricao: "Pacote gerado via sugestão",
+                    qtd_dia: diasInput.value,
+                    qtd_noite: noitesInput.value,
+                    preco: dadosSugestao.preco,
+                    cidade: dadosSugestao.cidade,
+                    uf: dadosSugestao.uf,
+                    fkEmpresa: sessionStorage.FK_EMPRESA // Pega da sessão
+                })
+            });
+
+            const novoPacote = await respCriacao.json();
+            
+            // Supondo que seu backend retorne { insertId: 123 } ou { idPacote: 123 }
+            // Atualizamos o idPacote de 0 para o ID real que acabou de ser criado
+            idPacote = novoPacote.insertId || novoPacote.idPacote; 
+            
+            console.log("Pacote criado com sucesso. ID:", idPacote);
+
+        } catch (erro) {
+            console.error(erro);
+            alert("Erro ao criar o pacote sugerido no banco.");
+            return; // Para a execução se falhar ao criar o pacote
+        }
+    }
+
+    // --- LÓGICA DE VENDA (Igual ao original, agora com idPacote válido) ---
     
-    const dataFormatada = `${ano}-${mes}-${dia}`;
+    if(!idPacote) {
+        alert("Erro: ID do pacote inválido.");
+        return;
+    }
 
     fetch('/dashboard/cadastrarVenda', {
             method: "POST",
@@ -278,72 +328,42 @@
             },
             body: JSON.stringify({
               idUser: idUsuario,
-              Pacote: idPacote,
+              Pacote: idPacote, // Aqui agora vai o ID real (existente ou recém-criado)
               idCli: idCliente,
               Quantidade: qtdPacote,
               DataVenda: dataFormatada
             })
           })
-          alert("Venda cadastrada com sucesso")
-          setTimeout(() => {
-            location.reload();
-          }, 1000);
+          .then(res => {
+              if(res.ok) {
+                  alert("Venda cadastrada com sucesso");
+                  
+                  // Animação Visual
+                  aplicarAnimacaoBotao(botao);
+                  
+                  setTimeout(() => {
+                    location.reload();
+                  }, 1000);
+              } else {
+                  alert("Erro ao cadastrar venda.");
+              }
+          });
+}
 
+// Separei a animação para não poluir a função principal
+function aplicarAnimacaoBotao(botao) {
     const card = botao.closest(".card2");
     const box = card.parentElement;
     const addP = botao;
     const pacote = card.querySelector(".pacoteAcao");
 
-    const isSelected = addP.classList.contains("selected");
-
-    // ----------------------
-    //   ANIMAÇÃO (FLIP)
-    // ----------------------
-    const startPositions = [...box.children].map(el => {
-        return { el, top: el.getBoundingClientRect().top };
-    });
-
-    // Se for selecionar → move para o topo
-    if (!isSelected) {
-        box.prepend(card);
-    }
-
-    // Pega as novas posições após mover
-    const endPositions = startPositions.map(item => {
-        return { el: item.el, top: item.el.getBoundingClientRect().top };
-    });
-
-    // Aplica animação em cada card
-    endPositions.forEach((end, i) => {
-        const el = end.el;
-        const deltaY = startPositions[i].top - end.top;
-
-        el.style.transform = `translateY(${deltaY}px)`;
-        el.style.transition = "transform 0s";
-
-        requestAnimationFrame(() => {
-            el.style.transform = "";
-            el.style.transition = "transform 0.35s ease";
-        });
-    });
-
-    if (isSelected) {
-        addP.style.backgroundImage = "url('./assets/icon/Add.svg')";
-        pacote.style.backgroundImage = "url('./assets/icon/noPacote.svg')";
-        addP.classList.remove("selected");
-    } else {
-        addP.style.backgroundImage = "url('./assets/icon/Checkmark.svg')";
-        pacote.style.backgroundImage = "url('./assets/icon/yesPacote.svg')";
-        addP.classList.add("selected");
-    }
-
+    addP.style.backgroundImage = "url('./assets/icon/Checkmark.svg')";
+    pacote.style.backgroundImage = "url('./assets/icon/yesPacote.svg')";
+    addP.classList.add("selected");
+    
     addP.style.backgroundSize = "40px";
     addP.style.backgroundPosition = "center";
     addP.style.backgroundRepeat = "no-repeat";
-
-    pacote.style.backgroundSize = "35px";
-    pacote.style.backgroundPosition = "center";
-    pacote.style.backgroundRepeat = "no-repeat";
 }
 
 
@@ -873,24 +893,29 @@ async function buscarSugestoes() {
 
         for (let i = 0; i < listaSugestoes.length; i++) {
             let ufPacote = listaSugestoes[i].uf;
+            let municipioPacote = listaSugestoes[i].municipio;
             let min, max;
 
-            // Lógica de Preço
-            if (regioes.sudeste.includes(ufPacote)) {
-                min = 3000; max = 5500;
-            } else if (regioes.sul.includes(ufPacote)) {
-                min = 2000; max = 3500;
-            } else if (regioes.nordeste.includes(ufPacote)) {
-                min = 1500; max = 2500;
-            } else {
-                min = 800; max = 1400;
-            }
+            if (regioes.sudeste.includes(ufPacote)) { min = 3000; max = 5500; }
+            else if (regioes.sul.includes(ufPacote)) { min = 2000; max = 3500; }
+            else if (regioes.nordeste.includes(ufPacote)) { min = 1500; max = 2500; }
+            else { min = 800; max = 1400; }
 
+            // Valor numérico para o banco
             let valorGerado = Math.floor(Math.random() * (max - min + 1)) + min;
+            // Valor formatado para exibição visual
             let precoFormatado = new Intl.NumberFormat('pt-BR', { style: 'currency', currency: 'BRL' }).format(valorGerado);
             
-            // Tratamento caso venha de DESTINO (sem idPacote) ou PACOTE
             let idPacoteSugestao = listaSugestoes[i].idPacote || 0; 
+
+            // CRIAMOS UM OBJETO STRINGIFICADO COM OS DADOS DA SUGESTÃO
+            // Atenção as aspas simples e crases para não quebrar a string HTML
+            let dadosParaCriacao = JSON.stringify({
+                nome: `Pacote Sugerido - ${municipioPacote}`,
+                cidade: municipioPacote,
+                uf: ufPacote,
+                preco: valorGerado
+            }).replace(/"/g, "&quot;"); // Escapamos aspas duplas para o HTML
 
             divSugestoes.innerHTML += `<div class="card2">
                     <div class="conteudoCardPacote">
@@ -899,7 +924,7 @@ async function buscarSugestoes() {
                         <div class="iconPacote pacoteAcao"></div>
                       </div>
                       <div class="info_pacote">
-                        <p>${listaSugestoes[i].municipio}</p>
+                        <p>${municipioPacote}</p>
                         <p>Sugerido</p>
                         <p>Preço: ${precoFormatado}</p>
                       </div>
@@ -907,7 +932,7 @@ async function buscarSugestoes() {
                     <div class="btnConsultor">
                       <input type="number" min="1" value="1" style="width: 50px; margin-right: 10px;">
                       <button
-                          onclick="adicionarPacote(this, ${idPacoteSugestao}, ${idClienteSelecionado}, ${id})"
+                          onclick="adicionarPacote(this, ${idPacoteSugestao}, ${idClienteSelecionado}, ${id}, ${dadosParaCriacao})"
                           class="btnAdicionarPacote"
                       ></button>
                     </div>
