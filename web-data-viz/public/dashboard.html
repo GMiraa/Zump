@@ -186,27 +186,6 @@ async function graficoPacote() {
 graficoPacote();
 
 
-
-
-
-
-
-
-
-
-
-
-
-/*
-  [
-    { "cidade": "CRUZEIRO", "turistas": 24475 },
-    { "cidade": "RIO BRANCO", "turistas": 464108 },
-    { "cidade": "MACEIO", "turistas": 1484500 },
-    ...
-  ]
-
-*/
-
 async function graficoTop3Cidades() {
   const canvasId = 'pizzaTopCidades';
   const canvas = document.getElementById(canvasId);
@@ -297,35 +276,6 @@ async function graficoTop3Cidades() {
 
 graficoTop3Cidades();
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
   var nome = sessionStorage.NOME_USUARIO;
   var id = sessionStorage.ID_USUARIO;
   var fkempresa = sessionStorage.FK_EMPRESA;
@@ -333,7 +283,6 @@ graficoTop3Cidades();
   var ListaValores = [];
   var ListaClientes = [];
   var infosConsultorAtual = [];
-  var Top2Consultores = [];
   var DadosGrafico = [];
   var ListaKPIs = [];
 
@@ -344,7 +293,6 @@ graficoTop3Cidades();
     Userlogado();
     validarSessao();
     infosUserLogado();
-    getTop2Consultores();
     BuscarGrafico();
     getKPIs();
 
@@ -435,17 +383,6 @@ graficoTop3Cidades();
             name_user.innerHTML = `${nome}`
 
         }
-
-  }
-
-  async function getTop2Consultores() {
-    
-    const resposta2 = await fetch(`/dashboard/getConsultores/${fkempresa}`);   
-    const dados2 = await resposta2.json();
-    Top2Consultores = dados2;
-
-    consultorTop1.innerHTML = `${Top2Consultores[0].NomeConsultor}`;
-    consultorTop2.innerHTML = `${Top2Consultores[1].NomeConsultor}`;
 
   }
 

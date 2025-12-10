@@ -364,7 +364,8 @@ function buscarFaturamentoTotal(FkEmpresa) {
         FROM vendas v
         JOIN pacote p ON v.idPacote = p.idPacote
         JOIN usuario u ON v.idUsuario = u.idUsuario
-        WHERE u.FkEmpresa = ${FkEmpresa};
+        WHERE u.FkEmpresa = ${FkEmpresa}
+          AND v.dataVenda >= DATE_SUB(CURDATE(), INTERVAL 5 MONTH);
     `;
 
     console.log("Executando: " + instrucaoSql);
@@ -374,7 +375,7 @@ function buscarFaturamentoTotal(FkEmpresa) {
 function BuscarPacotes(FkEmpresa) {
     
     var instrucaoSql = `
-        SELECT * FROM PACOTE WHERE FkEmpresa = ${FkEmpresa};
+        SELECT * FROM pacote WHERE FkEmpresa = ${FkEmpresa};
     `;
 
     console.log("Executando: " + instrucaoSql);
@@ -390,6 +391,54 @@ function cadastrarVenda(idCliente, idUsuario, idPacote, QuantidadePacote, data){
   }
 
   function BuscarSugestoes(UF, Aeroporto, Praia, Rios) {
+    
+    var instrucaoSql = `
+        SELECT *, 
+        (
+            (CASE WHEN uf = '${UF}' THEN 50 ELSE 0 END) +
+            
+            (CASE WHEN possui_aeroporto = ${Aeroporto} THEN 20 ELSE 0 END) +
+            (CASE WHEN possui_termais = ${Praia} THEN 15 ELSE 0 END) +
+            (CASE WHEN presenca_hidrica = ${Rios} THEN 15 ELSE 0 END)
+        ) AS score_relevancia
+        
+        FROM DESTINO
+        
+        HAVING score_relevancia > 0
+        
+        ORDER BY score_relevancia DESC
+        LIMIT 5;
+    `;
+
+    console.log("Executando a instrução SQL: \n" + instrucaoSql);
+    return database.executar(instrucaoSql);
+}
+
+function BuscarGrafico1() {
+    
+    var instrucaoSql = `
+        SELECT *, 
+        (
+            (CASE WHEN uf = '${UF}' THEN 50 ELSE 0 END) +
+            
+            (CASE WHEN possui_aeroporto = ${Aeroporto} THEN 20 ELSE 0 END) +
+            (CASE WHEN possui_termais = ${Praia} THEN 15 ELSE 0 END) +
+            (CASE WHEN presenca_hidrica = ${Rios} THEN 15 ELSE 0 END)
+        ) AS score_relevancia
+        
+        FROM DESTINO
+        
+        HAVING score_relevancia > 0
+        
+        ORDER BY score_relevancia DESC
+        LIMIT 5;
+    `;
+
+    console.log("Executando a instrução SQL: \n" + instrucaoSql);
+    return database.executar(instrucaoSql);
+}
+
+function BuscarGrafico2() {
     
     var instrucaoSql = `
         SELECT *, 
@@ -440,5 +489,7 @@ module.exports = {
     buscarFaturamentoTotal,
     BuscarPacotes,
     cadastrarVenda,
-    BuscarSugestoes
+    BuscarSugestoes,
+    BuscarGrafico1,
+    BuscarGrafico2
 };

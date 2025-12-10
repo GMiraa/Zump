@@ -491,6 +491,36 @@ function cadastrarVenda(req, res) {
         });
 }
 
+function BuscarGrafico1(req, res) {
+
+    dashboardModel.BuscarGrafico1()
+        .then(resultado => {
+            if (resultado.length > 0) {
+                res.status(200).json(resultado);
+            } else {
+                res.status(204).send("Nenhum resultado encontrado!");
+            }
+        }).catch(erro => {
+            console.log(erro);
+            res.status(500).json(erro.sqlMessage);
+        });
+}
+
+function BuscarGrafico2(req, res) {
+
+    dashboardModel.BuscarGrafico2()
+        .then(resultado => {
+            if (resultado.length > 0) {
+                res.status(200).json(resultado);
+            } else {
+                res.status(204).send("Nenhum resultado encontrado!");
+            }
+        }).catch(erro => {
+            console.log(erro);
+            res.status(500).json(erro.sqlMessage);
+        });
+}
+
 module.exports = {
     buscarValores,
     cadastrarCliente,
@@ -513,5 +543,7 @@ module.exports = {
     getKPIs,
     BuscarPacotes,
     cadastrarVenda,
-    BuscarSugestoes
+    BuscarSugestoes,
+    BuscarGrafico1,
+    BuscarGrafico2
 }

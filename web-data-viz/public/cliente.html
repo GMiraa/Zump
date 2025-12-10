@@ -782,6 +782,12 @@ async function BuscarPacoteSCadastrados(idCliente) {
     const dados = await resposta.json();
     ListaPacotes = dados;
     
+    if(ListaPacotes.length == 0){
+
+      Lista_pacotes_cadastrados.innerHTML = `Não há pacotes cadastrados!`;
+
+    }
+
     Lista_pacotes_cadastrados.innerHTML = ``;
     
     for(var i = 0; i < ListaPacotes.length; i++){
